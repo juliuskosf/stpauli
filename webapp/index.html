@@ -1,0 +1,173 @@
+<!DOCTYPE html >
+<html>
+   <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <link rel="stylesheet" type='text/css' href="CSS/styles.css">
+      <title>Bar Checker</title>
+   </head>
+   <body>
+   		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+   		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+   		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+   		<script type="text/javascript" src="/controller/Controller.js"></script>
+		
+		<div id="MeintestDu">
+	   		<h3>Meintest du?</h3>
+	   		<button type="submit" class="shadow">Beispiel 1 <br/> Mustermannstraße 13 <img  src="/music-player.svg" alt="BeerIcon" width="20em" height="20em"> <br/> 22653 Hamburg</button><br/>
+	   		<button type="submit" class="shadow">Beispiel 2 <br/> Hello World Straße 21 <img  src="/restaurant-interface-symbol-of-fork-and-knife-couple.svg" alt="BeerIcon" width="20em" height="20em"> <br/> 22653 Hamburg</button><br/>
+	   		<button id="AdresseHinzufügen" class="shadow" type="submit"> Neu hinzufügen</button>
+				
+		</div>
+		
+		<div id="Tabs">
+	   		<div class="tab">
+				<button id="TypTab" class="tablinks" onclick="openCity(event, 'Typ')">Typ</button>
+				<button id="AdresseTab" class="tablinks" onclick="openCity(event, 'Adresse')">Adresse</button>
+				<button id="ProdukteTab" class="tablinks" onclick="openCity(event, 'Produkte')">Produkte</button>
+				<button id="FertigTab" class="tablinks" onclick="openCity(event, 'Fertig')">Fertig</button>
+			</div>
+
+<!--    	 <div id="Typ" class="tabcontent">
+        		<h3>Wie lässt sich die <br/> Location kategorisieren?</h3>
+                               <button id="typ1" class="smallbutton" type="submit"><img  src="/beer-jar-black-silhouette.svg" alt="BeerIcon" width="20em" height="20em"></button>
+                               <div class="price2">Bar</div>
+                               <button id="typ2" class="smallbutton" type="submit"><img  src="/music-player.svg" alt="BeerIcon" width="20em" height="20em"></button>
+                               <div class="price2">Club</div>
+                               <button id="typ3" class="smallbutton" type="submit"><img  src="/restaurant-interface-symbol-of-fork-and-knife-couple.svg" alt="BeerIcon" width="20em" height="20em"></button><br/>
+                 <div class="price2">Restaurant</div><br/>
+                 <button id="typ4" class="smallbutton" type="submit"><img  src="/tea-cup-filled-shape.svg" alt="BeerIcon" width="20em" height="20em"></button>
+                               <div class="price2">Cafe</div>
+                               <button id="typ5" class="smallbutton" type="submit"><img  src="/shopping-cart.svg" alt="BeerIcon" width="20em" height="20em"></button>
+                               <div class="price2">Kiosk</div>
+                               <button id="typ6" class="smallbutton" type="submit"><img  src="/question-mark.svg" alt="BeerIcon" width="20em" height="20em"></button>
+                               <div class="price2">Anderes</div>
+                </div>-->
+                
+            <div id="Typ" class="tabcontent">
+                <h3>Wie lässt sich die <br/> Location kategorisieren?</h3>
+                <button id="typ1" class="smallbutton" type="submit"><img  src="/beer-jar-black-silhouette.svg" alt="BeerIcon" width="100em" height="100em"></button>
+                <button id="typ2" class="smallbutton" type="submit"><img  src="/music-player.svg" alt="BeerIcon" width="100em" height="100em"></button>
+                <button id="typ3" class="smallbutton" type="submit"><img  src="/restaurant-interface-symbol-of-fork-and-knife-couple.svg" alt="BeerIcon" width="100em" height="100em"></button><br/>
+                <button id="typ4" class="smallbutton" type="submit"><img  src="/tea-cup-filled-shape.svg" alt="BeerIcon" width="100em" height="100em"></button>
+            	<button id="typ5" class="smallbutton" type="submit"><img  src="/shopping-cart.svg" alt="BeerIcon" width="100em" height="100em"></button>
+                <button id="typ6" class="smallbutton" type="submit"><img  src="/question-mark.svg" alt="BeerIcon" width="100em" height="100em"></button>
+            </div>
+
+
+	   		
+	   		<div id="Adresse" class="tabcontent">
+	
+		   		<div id="adressetab1">
+		   			<img class="icon" src="/beer-jar-black-silhouette.svg" alt="BeerIcon" ><br/>
+		   			<h3>Barname</h3>
+		   			<input type="text" name="Barname"><br/>
+		   			<h4>Adresse</h4>
+		   			<button type="button" class="shadow">Standort verwenden</button><br/>
+		   			<button id="manuell" type="button" class="shadow">manuell eingeben</button>
+				</div>
+				
+				<div id="adressetab2">
+		   			<img class="icon" src="/beer-jar-black-silhouette.svg" alt="BeerIcon"><br/>
+		   			Land<br/>
+		   			<input type="text" name="Land"><br/>
+		   			Stadt<br/>
+		   			<input type="text" name="Stadt"><br/>
+		   			Postleitzahl<br/>
+		   			<input type="text" name="Postleitzahl"><br/>
+		   			Straße<br/>
+		   			<input type="text" name="Strasse"><br/>
+		   			Hausnummer<br/>
+		   			<input type="text" name="Hausnummer"><br/>
+					<button id="weiterAdresse" type="button" class="shadow">Weiter</button><br/>
+				</div>
+			</div>
+			
+			<div id="Produkte" class="tabcontent">
+				<div id="produktetab1">
+		   			<img class="icon2" src="http://www.irie-revoltes.com/sites/default/files/vca-logo-web.png" alt="VcALogo"><br/>
+		   			<h2> VcA<br/>Mineralwasser </h2>
+		   			<button id="vorhandenWasser" type="button" class="shadow">vorhanden</button><br/>
+		   			<button id="InteresseWasser" type="button" class="shadow">hat Interesse</button><br/>
+		   			<button id="keinInteresseWasser" type="button" class="shadow">kein Interesse</button><br/>
+				</div>
+				
+				<div id="produktetab2">
+		   			<img class="icon2" src="http://www.irie-revoltes.com/sites/default/files/vca-logo-web.png" alt="VcALogo"><br/>
+		   			<h2 class="interesse"> "Kein Interesse" </h2>
+		   			Aus welchem Grund?<br/>
+		   			<div class="checkbox">
+						<label><input class="cb" type="checkbox" name="zuteuer"/> zu teuer</label>
+						<label><input class="cb" type="checkbox" name="unsympatisch"/> unsympatisch</label>
+						<label><input class="cb" type="checkbox" name="nichtLieferbar"/> nicht im Lieferantensortiment</label>
+						<label><input class="cb" type="checkbox" name="zufrieden"/> zufrieden mit bisherigem Produkt</label>
+						<label><input class="cb" type="checkbox" name="sonstiger"/> sonstiger: <input type="text" name="sonstigerEIngabe"> </label>
+					</div>
+					<button id="weiterKeinInteresseWasser" type="button" class="shadow">Weiter</button><br/>
+				</div>
+				
+				<div id="produktetab3">
+		   			<img class="icon2" src="http://www.irie-revoltes.com/sites/default/files/vca-logo-web.png" alt="VcALogo"><br/>
+		   			<h2 class="interesse"> "Hat Interesse" </h2>
+		   			Warum bisher noch nicht?<br/>
+		   			<div class="checkbox">
+						<label><input type="checkbox" name="neuerfahren"/> neu davon erfahren</label>
+						<label><input type="checkbox" name="finanziell"/> finanziell nicht rentabel</label>
+						<label><input type="checkbox" name="nichtLieferbar"/> nicht im Lieferantensortiment</label>
+						<label><input type="checkbox" name="weissnichtwie"/> weiß nicht wie</label>
+						<label><input type="checkbox" name="sonstiger"/> sonstiger: <input type="text" name="sonstigerEIngabe"></label>
+					</div>
+					<button id="VcAMitarbeiterSchicken1" type="button" class="shadow">VcA Mitarbeiter vorbeischicken</button><br/>
+				</div>
+				
+				<div id="produktetab4">
+		   			<img class="icon" src="/man-sitting-on-the-toilet.svg" alt="VcALogo"><br/>
+		   			<h2> Goldeimer<br/>Klopapier </h2>
+		   			<button id="vorhandenKloP" type="button" class="shadow">vorhanden</button><br/>
+		   			<button id="InteresseKloP" type="button" class="shadow">hat Interesse</button><br/>
+		   			<button id="keinInteresseKloP" type="button" class="shadow">kein Interesse</button><br/>
+				</div>
+				
+				<div id="produktetab5">
+		   			<img class="icon" src="/man-sitting-on-the-toilet.svg" alt="VcALogo"><br/>
+		   			<h2 class="interesse"> "Kein Interesse" </h2>
+		   			Aus welchem Grund?<br/>
+					<div class="checkbox">
+						<label><input class="cb" type="checkbox" name="zuteuer"/> zu teuer</label>
+						<label><input class="cb" type="checkbox" name="unsympatisch"/> unsympatisch</label>
+						<label><input class="cb" type="checkbox" name="nichtLieferbar"/> nicht im Lieferantensortiment</label>
+						<label><input class="cb" type="checkbox" name="zufrieden"/> zufrieden mit bisherigem Produkt</label>
+						<label><input class="cb" type="checkbox" name="sonstiger"/> sonstiger: <input type="text" name="sonstigerEIngabe"> </label>
+					</div>
+					<button id="weiterKeinInteresseKloP" type="button" class="shadow">Weiter</button><br/>
+				</div>
+				
+				<div id="produktetab6">
+		   			<img class="icon" src="/man-sitting-on-the-toilet.svg" alt="VcALogo"><br/>
+		   			<h2 class="interesse"> "Hat Interesse" </h2>
+		   			Warum bisher noch nicht?<br/>
+					<div class="checkbox">
+						<label><input type="checkbox" name="neuerfahren"/> neu davon erfahren</label>
+						<label><input type="checkbox" name="finanziell"/> finanziell nicht rentabel</label>
+						<label><input type="checkbox" name="nichtLieferbar"/> nicht im Lieferantensortiment</label>
+						<label><input type="checkbox" name="weissnichtwie"/> weiß nicht wie</label>
+						<label><input type="checkbox" name="sonstiger"/> sonstiger: <input type="text" name="sonstigerEIngabe"></label>
+					</div>
+					<button id="VcAMitarbeiterSchicken2" type="button" class="shadow">VcA Mitarbeiter vorbeischicken</button><br/>
+				</div>
+			</div>
+			
+			<div id="Fertig" class="tabcontent">	
+				<div>
+		   			<img src="/beer-jar-black-silhouette.svg" alt="BeerIcon" style="width:10%"><br/>
+					<img src="http://www.irie-revoltes.com/sites/default/files/vca-logo-web.png" alt="VcALogo" style="width:20%"><br/>
+		   			<img src="/man-sitting-on-the-toilet.svg" alt="VcALogo" style="width:10%"><br/>
+		   			Geile Sache. <br/> Danke für's Anlegen!<br/>
+					<button type="button" class="shadow">Weiter zum Gewerbemenü</button><br/>
+				</div>
+			</div>
+		</div>
+	
+
+   </body>
+</html>
