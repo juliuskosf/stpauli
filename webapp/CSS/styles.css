@@ -24,11 +24,12 @@ h3 {
 
 button.tablinks {
     border-style: none none solid none;
+    font-size: 0.6em;
 }
 
 button {
     font-family: "comic sans ms", sanf-serif;
-    font-size: 30px;
+    font-size: 0.8em;
     background-color: white;
     border: 0.2em solid black;
     padding: 1em 1em;
@@ -37,7 +38,7 @@ button {
 button.shadow {
     border: 0.2em solid black;
     border-style: outset;
-    box-shadow: 5px 5px 2.5px black;
+    box-shadow: 0.1875em 0.1875em black;
     margin: 2%;
     width: 70%;
 }
@@ -86,17 +87,17 @@ label {
 }*/
 
 div.checkbox {
-    font-size: 70%;
+    font-size: 80%;
     margin: 12%;
     text-align: left;
 }
 
 img.icon {
     width: 25%;
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 img.icon2 {
     width: 50%;
-    margin-top: 15%;
+    margin-top: 10%;
 }
