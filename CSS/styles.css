@@ -58,7 +58,7 @@ button.smallbutton {
 }
 
 input[type=text] {
-    border: 0.05em solid black;
+    /*border: 0.05em solid black;*/
     width: 80%;
     font-size: 100%;
 }
