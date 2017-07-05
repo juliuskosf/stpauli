@@ -19,6 +19,15 @@ function openCity(evt, cityName) {
 	evt.currentTarget.className += " active";
 }
 
+/*function openCity(cityName) {
+    var i;
+    var x = document.getElementsByClassName("city");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    document.getElementById(cityName).style.display = "block";  
+}*/
+
 // to hide parts of the page with jQuery
 $(document).ready(function() {
 	$.mobile.loading().hide();
@@ -37,10 +46,18 @@ $(document).ready(function() {
 		$("#Adresse").hide();
 		$("#Produkte").hide();
 		$("#Fertig").hide();
+		document.getElementById("TypTab").style.backgroundColor = "#93bee5";
+		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
 	});
 
 	$("#TypTab").click(function() {
 		$("#Typ").show();
+		document.getElementById("TypTab").style.backgroundColor = "#93bee5";
+		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
 	});
 
 	$("#typ1").click(function() {
@@ -48,41 +65,69 @@ $(document).ready(function() {
 		$("#Adresse").show();
 		$("#adressetab1").show();
 		$("#adressetab2").hide();
+		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
 	});
 	$("#typ2").click(function() {
 		$("#Typ").hide();
 		$("#Adresse").show();
 		$("#adressetab1").show();
 		$("#adressetab2").hide();
+		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
 	});
 	$("#typ3").click(function() {
 		$("#Typ").hide();
 		$("#Adresse").show();
 		$("#adressetab1").show();
 		$("#adressetab2").hide();
+		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
 	});
 	$("#typ4").click(function() {
 		$("#Typ").hide();
 		$("#Adresse").show();
 		$("#adressetab1").show();
 		$("#adressetab2").hide();
+		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
 	});
 	$("#typ5").click(function() {
 		$("#Typ").hide();
 		$("#Adresse").show();
 		$("#adressetab1").show();
 		$("#adressetab2").hide();
+		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
 	});
 	$("#typ6").click(function() {
 		$("#Typ").hide();
 		$("#Adresse").show();
 		$("#adressetab1").show();
 		$("#adressetab2").hide();
+		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
 	});
 
 	$("#AdresseTab").click(function() {
 		$("#adressetab1").show();
 		$("#adressetab2").hide();
+		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
 	});
 
 	$("#manuell").click(function() {
@@ -99,6 +144,10 @@ $(document).ready(function() {
 		$("#produktetab4").hide();
 		$("#produktetab5").hide();
 		$("#produktetab6").hide();
+		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#93bee5";
+		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
 	});
 
 	$("#ProdukteTab").click(function() {
@@ -108,6 +157,10 @@ $(document).ready(function() {
 		$("#produktetab4").hide();
 		$("#produktetab5").hide();
 		$("#produktetab6").hide();
+		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#93bee5";
+		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
 	});
 
 	$("#vorhandenWasser").click(function() {
@@ -158,6 +211,10 @@ $(document).ready(function() {
 	$("#vorhandenKloP").click(function() {
 		$("#Produkte").hide();
 		$("#Fertig").show();
+		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("FertigTab").style.backgroundColor = "#93bee5";
 	});
 
 	$("#InteresseKloP").click(function() {
@@ -181,15 +238,27 @@ $(document).ready(function() {
 	$("#weiterKeinInteresseKloP").click(function() {
 		$("#Produkte").hide();
 		$("#Fertig").show();
+		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("FertigTab").style.backgroundColor = "#93bee5";
 	});
 
 	$("#VcAMitarbeiterSchicken2").click(function() {
 		$("#Produkte").hide();
 		$("#Fertig").show();
+		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("FertigTab").style.backgroundColor = "#93bee5";
 	});
 
-	$("#Fertig").click(function() {
+	$("#FertigTab").click(function() {
 		$("#Fertig").show();
+		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("FertigTab").style.backgroundColor = "#93bee5";
 	});
 
 });

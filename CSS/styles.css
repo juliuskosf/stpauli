@@ -12,6 +12,8 @@ body {
     margin: 0;
     padding: 0;
     overflow: auto;
+    background-color: #93bee5;
+    color: white;
 }
 
 h2.interesse {
@@ -24,19 +26,23 @@ h3 {
 
 button.tablinks {
     border-style: none none solid none;
+    border-color: white;
     font-size: 0.6em;
+    color: white;
 }
 
 button {
     font-family: "comic sans ms", sanf-serif;
     font-size: 0.8em;
     background-color: white;
-    border: 0.2em solid black;
+    /*border: 0.2em solid black;*/
+    border: solid black 0.125em;
     padding: 1em 1em;
 }
 
 button.shadow {
-    border: 0.2em solid black;
+    /*border: 0.2em solid black;*/
+    border: solid black 0.125em;
     border-style: outset;
     box-shadow: 0.1875em 0.1875em black;
     margin: 2%;
