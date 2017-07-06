@@ -12,7 +12,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: auto;
-    background-color: #93bee5;
+    background-color: #6fa8dc;
     color: white;
 }
 
@@ -30,8 +30,8 @@ text{
 }
 
 button.tablinks {
-    border-style: none none solid none;
-    border-color: white;
+    border-style: none;
+    /*border-color: #4D759A;*/
     font-size: 0.6em;
     color: white;
 }
@@ -39,17 +39,18 @@ button.tablinks {
 button {
     font-family: "comic sans ms", sanf-serif;
     font-size: 0.8em;
-    background-color: white;
+    background-color: #93bee5;
     /*border: 0.2em solid black;*/
-    border: solid #6fa8dc 0.2em;
+    border: solid #4D759A 0.2em;
     padding: 1em 1em;
+    color: white;
 }
 
 button.shadow {
     /*border: 0.2em solid black;*/
-    border: solid #6fa8dc 0.2em;
+    border: solid #4D759A 0.2em;
     border-style: outset;
-    box-shadow: 0.25em 0.25em #6fa8dc;
+    box-shadow: 0.25em 0.25em #4D759A;
     margin: 2%;
     width: 70%;
 }
@@ -63,7 +64,7 @@ button.smallbutton {
 }
 
 input[type=text] {
-    border: 0.2em solid #6fa8dc;
+    border: 0.2em solid #4D759A;
     width: 80%;
     font-size: 100%;
 }

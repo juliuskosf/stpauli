@@ -46,15 +46,15 @@ $(document).ready(function() {
 		$("#Adresse").hide();
 		$("#Produkte").hide();
 		$("#Fertig").hide();
-		document.getElementById("TypTab").style.backgroundColor = "#93bee5";
-		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("AdresseTab").style.backgroundColor = "#4D759A";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
+		document.getElementById("FertigTab").style.backgroundColor = "#4D759A";
 	});
 
 	$("#TypTab").click(function() {
 		$("#Typ").show();
-		document.getElementById("TypTab").style.backgroundColor = "#93bee5";
+		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
 		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
