@@ -54,10 +54,10 @@ $(document).ready(function() {
 
 	$("#TypTab").click(function() {
 		$("#Typ").show();
-		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
-		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("AdresseTab").style.backgroundColor = "#4D759A";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
+		document.getElementById("FertigTab").style.backgroundColor = "#4D759A";
 	});
 
 	$("#typ1").click(function() {
@@ -72,10 +72,10 @@ $(document).ready(function() {
 		$("#kioskAdresseTab").hide();
 		$("#otherAdresseTab").hide();
 		
-		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
-		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
+		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
+		document.getElementById("FertigTab").style.backgroundColor = "#4D759A";
 	});
 	$("#typ2").click(function() {
 		$("#Typ").hide();
@@ -89,10 +89,10 @@ $(document).ready(function() {
 		$("#kioskAdresseTab").hide();
 		$("#otherAdresseTab").hide();
 		
-		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
-		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
+		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
+		document.getElementById("FertigTab").style.backgroundColor = "#4D759A";
 	});
 	$("#typ3").click(function() {
 		$("#Typ").hide();
@@ -106,10 +106,10 @@ $(document).ready(function() {
 		$("#kioskAdresseTab").hide();
 		$("#otherAdresseTab").hide();
 		
-		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
-		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
+		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
+		document.getElementById("FertigTab").style.backgroundColor = "#4D759A";
 	});
 	$("#typ4").click(function() {
 		$("#Typ").hide();
@@ -123,10 +123,10 @@ $(document).ready(function() {
 		$("#kioskAdresseTab").hide();
 		$("#otherAdresseTab").hide();
 		
-		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
-		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
+		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
+		document.getElementById("FertigTab").style.backgroundColor = "#4D759A";
 	});
 	$("#typ5").click(function() {
 		$("#Typ").hide();
@@ -140,10 +140,10 @@ $(document).ready(function() {
 		$("#kioskAdresseTab").show();
 		$("#otherAdresseTab").hide();
 		
-		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
-		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
+		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
+		document.getElementById("FertigTab").style.backgroundColor = "#4D759A";
 	});
 	$("#typ6").click(function() {
 		$("#Typ").hide();
@@ -157,10 +157,10 @@ $(document).ready(function() {
 		$("#kioskAdresseTab").hide();
 		$("#otherAdresseTab").show();
 		
-		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
-		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
+		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
+		document.getElementById("FertigTab").style.backgroundColor = "#4D759A";
 	});
 
 	$("#AdresseTab").click(function() {
@@ -173,10 +173,10 @@ $(document).ready(function() {
 		$("#kioskAdresseTab").hide();
 		$("#otherAdresseTab").hide();
 		
-		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
-		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
+		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
+		document.getElementById("FertigTab").style.backgroundColor = "#4D759A";
 	});
 
 	$("#manuell").click(function() {
@@ -193,10 +193,10 @@ $(document).ready(function() {
 		$("#produktetab4").hide();
 		$("#produktetab5").hide();
 		$("#produktetab6").hide();
-		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("ProdukteTab").style.backgroundColor = "#93bee5";
-		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
+		document.getElementById("AdresseTab").style.backgroundColor = "#4D759A";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("FertigTab").style.backgroundColor = "#4D759A";
 	});
 
 	$("#ProdukteTab").click(function() {
@@ -206,10 +206,10 @@ $(document).ready(function() {
 		$("#produktetab4").hide();
 		$("#produktetab5").hide();
 		$("#produktetab6").hide();
-		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("ProdukteTab").style.backgroundColor = "#93bee5";
-		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
+		document.getElementById("AdresseTab").style.backgroundColor = "#4D759A";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
+		document.getElementById("FertigTab").style.backgroundColor = "#4D759A";
 	});
 
 	$("#vorhandenWasser").click(function() {
@@ -260,10 +260,10 @@ $(document).ready(function() {
 	$("#vorhandenKloP").click(function() {
 		$("#Produkte").hide();
 		$("#Fertig").show();
-		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("FertigTab").style.backgroundColor = "#93bee5";
+		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
+		document.getElementById("AdresseTab").style.backgroundColor = "#4D759A";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
+		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
 	});
 
 	$("#InteresseKloP").click(function() {
@@ -287,27 +287,27 @@ $(document).ready(function() {
 	$("#weiterKeinInteresseKloP").click(function() {
 		$("#Produkte").hide();
 		$("#Fertig").show();
-		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("FertigTab").style.backgroundColor = "#93bee5";
+		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
+		document.getElementById("AdresseTab").style.backgroundColor = "#4D759A";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
+		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
 	});
 
 	$("#VcAMitarbeiterSchicken2").click(function() {
 		$("#Produkte").hide();
 		$("#Fertig").show();
-		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("FertigTab").style.backgroundColor = "#93bee5";
+		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
+		document.getElementById("AdresseTab").style.backgroundColor = "#4D759A";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
+		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
 	});
 
 	$("#FertigTab").click(function() {
 		$("#Fertig").show();
-		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
-		document.getElementById("FertigTab").style.backgroundColor = "#93bee5";
+		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
+		document.getElementById("AdresseTab").style.backgroundColor = "#4D759A";
+		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
+		document.getElementById("FertigTab").style.backgroundColor = "#6fa8dc";
 	});
 
 });

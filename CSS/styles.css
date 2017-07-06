@@ -88,6 +88,21 @@ input[type=checkbox] {
  transform: scale(3);
 }
 
+img.one{
+	position: relative;
+	bottom: -0.8em;
+}
+img.two{
+	position: relative;
+	left: +3em;
+	bottom: -1.5em;
+}
+img.three{
+	position: relative;
+	left: -2.8em;
+	top: -1em;
+}
+
 label {    
    display:inline-block;
    /*vertical-align: bottom;*/
@@ -96,6 +111,12 @@ label {
 /*input.cb {
   vertical-align: middle;
   float: left;
+}*/
+
+/*div.adresseEingeben{
+	text-align: left;
+	position: relative;
+	left: +1.8em;
 }*/
 
 div.checkbox {
