@@ -1,5 +1,5 @@
 /* 
-1) Design has to be responsive - SIZE!!!
+1) Design has to be responsive - SIZE!!! #F5F5DC beige
 */
 
 body {
@@ -24,6 +24,11 @@ h3 {
     font-size: 70px;
 }
 
+text{
+	text-align: center;
+    font-size: 60px;
+}
+
 button.tablinks {
     border-style: none none solid none;
     border-color: white;
@@ -36,15 +41,15 @@ button {
     font-size: 0.8em;
     background-color: white;
     /*border: 0.2em solid black;*/
-    border: solid black 0.125em;
+    border: solid #6fa8dc 0.2em;
     padding: 1em 1em;
 }
 
 button.shadow {
     /*border: 0.2em solid black;*/
-    border: solid black 0.125em;
+    border: solid #6fa8dc 0.2em;
     border-style: outset;
-    box-shadow: 0.1875em 0.1875em black;
+    box-shadow: 0.25em 0.25em #6fa8dc;
     margin: 2%;
     width: 70%;
 }
@@ -58,7 +63,7 @@ button.smallbutton {
 }
 
 input[type=text] {
-    /*border: 0.05em solid black;*/
+    border: 0.2em solid #6fa8dc;
     width: 80%;
     font-size: 100%;
 }
@@ -99,7 +104,7 @@ div.checkbox {
 }
 
 img.icon {
-    width: 25%;
+    width: 20%;
     margin-top: 10%;
 }
 
