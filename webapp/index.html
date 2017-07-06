@@ -16,7 +16,7 @@
 	   		<h3>Meintest du?</h3>
 	   		<button type="submit" class="shadow">Beispiel 1 <br/> Mustermannstraße 13 <img  src="/music-player.svg" alt="BeerIcon" width="20em" height="20em"> <br/> 22653 Hamburg</button><br/>
 	   		<button type="submit" class="shadow">Beispiel 2 <br/> Hello World Straße 21 <img  src="/restaurant-interface-symbol-of-fork-and-knife-couple.svg" alt="BeerIcon" width="20em" height="20em"> <br/> 22653 Hamburg</button><br/>
-	   		<button id="AdresseHinzufügen" class="shadow" type="submit"> Neu hinzufügen</button>
+	   		<button id="AdresseHinzufügen" class="weiter" type="submit"> Neu hinzufügen</button>
 				
 		</div>
 		
@@ -58,20 +58,21 @@
 	   		
 	   		<div id="Adresse" class="tabcontent">
 				
-				<div id="beerAdresseTab"><img class="icon" src="/beer-jar-black-silhouette.svg" alt="BeerIcon" ><br/></div>
-		   		<div id="restaurantAdresseTab"><img class="icon" src="/restaurant-interface-symbol-of-fork-and-knife-couple.svg" alt="BeerIcon" ><br/></div>
-				<div id="musicAdresseTab"><img class="icon" src="/music-player.svg" alt="BeerIcon" ><br/></div>
-				<div id="teaAdresseTab"><img class="icon" src="/tea-cup-filled-shape.svg" alt="BeerIcon" ><br/></div>
-				<div id="kioskAdresseTab"><img class="icon" src="/shopping-cart.svg" alt="BeerIcon" ><br/></div>
-				<div id="otherAdresseTab"><img class="icon" src="/question-mark.svg" alt="BeerIcon" ><br/></div>
+				<div id="beerAdresseTab"><img class="icon3" src="/beer-jar-black-silhouette.svg" alt="BeerIcon" ><br/></div>
+		   		<div id="restaurantAdresseTab"><img class="icon3" src="/restaurant-interface-symbol-of-fork-and-knife-couple.svg" alt="BeerIcon" ><br/></div>
+				<div id="musicAdresseTab"><img class="icon3" src="/music-player.svg" alt="BeerIcon" ><br/></div>
+				<div id="teaAdresseTab"><img class="icon3" src="/tea-cup-filled-shape.svg" alt="BeerIcon" ><br/></div>
+				<div id="kioskAdresseTab"><img class="icon3" src="/shopping-cart.svg" alt="BeerIcon" ><br/></div>
+				<div id="otherAdresseTab"><img class="icon3" src="/question-mark.svg" alt="BeerIcon" ><br/></div>
 
 		   		<div id="adressetab1">
 		   			
 		   			<!--<h3>Location</h3>-->
 		   			<input class="barname" type="text" name="Barname" placeholder="Name der Lokation"><br/>
-		   			Adresse<br>
-		   			<button type="button" class="shadow">Standort verwenden</button><br/>
-		   			<button id="manuell" type="button" class="shadow">manuell eingeben</button>
+		   			<h3>Adresse</h3>
+		   			<button type="button" class="smallbutton"><img src="/location.svg" width="100em" height="100em"></button>
+		   			<button  id="manuell" type="button" class="smallbutton"><img src="/pencil.svg" width="100em" height="100em"></button><br/>
+		   			<!--<button id="manuell" type="button" class="shadow">manuell eingeben</button>-->
 				</div>
 				
 				<div class = "adresseEingeben" id="adressetab2">
@@ -93,8 +94,8 @@
 		   			<img class="icon2" src="/logo2.png" alt="VcALogo"><br/>
 		   			<h2> Mineralwasser </h2>
 		   			<button id="vorhandenWasser" type="button" class="shadow">vorhanden</button><br/>
-		   			<button id="InteresseWasser" type="button" class="shadow">hat Interesse</button><br/>
-		   			<button id="keinInteresseWasser" type="button" class="shadow">kein Interesse</button><br/>
+		   			<button id="InteresseWasser" type="button" class="weiter">hat Interesse</button><br/>
+		   			<button id="keinInteresseWasser" type="button" class="negative">kein Interesse</button><br/>
 				</div>
 				
 				<div id="produktetab2">
@@ -122,15 +123,15 @@
 						<label><input type="checkbox" name="weissnichtwie"/> weiß nicht wie</label>
 						<label><input type="checkbox" name="sonstiger"/> sonstiger: <input type="text" name="sonstigerEIngabe"></label>
 					</div>
-					<button id="VcAMitarbeiterSchicken1" type="button" class="shadow">VcA Mitarbeiter vorbeischicken</button><br/>
+					<button id="VcAMitarbeiterSchicken1" type="button" class="weiter">VcA Mitarbeiter vorbeischicken</button><br/>
 				</div>
 				
 				<div id="produktetab4">
 		   			<img class="icon" src="/man-sitting-on-the-toilet.svg" alt="VcALogo"><br/>
-		   			<h2> Goldeimer<br/>Klopapier </h2>
+		   			<h2> Goldeimer<br>Klopapier </h2>
 		   			<button id="vorhandenKloP" type="button" class="shadow">vorhanden</button><br/>
-		   			<button id="InteresseKloP" type="button" class="shadow">hat Interesse</button><br/>
-		   			<button id="keinInteresseKloP" type="button" class="shadow">kein Interesse</button><br/>
+		   			<button id="InteresseKloP" type="button" class="weiter">hat Interesse</button><br/>
+		   			<button id="keinInteresseKloP" type="button" class="negative">kein Interesse</button><br/>
 				</div>
 				
 				<div id="produktetab5">
@@ -158,7 +159,7 @@
 						<label><input type="checkbox" name="weissnichtwie"/> weiß nicht wie</label>
 						<label><input type="checkbox" name="sonstiger"/> sonstiger: <input type="text" name="sonstigerEIngabe"></label>
 					</div>
-					<button id="VcAMitarbeiterSchicken2" type="button" class="shadow">VcA Mitarbeiter vorbeischicken</button><br/>
+					<button id="VcAMitarbeiterSchicken2" type="button" class="weiter">VcA Mitarbeiter vorbeischicken</button><br/>
 				</div>
 			</div>
 			
@@ -168,7 +169,7 @@
 					<img class="two" src="/logo2.png" alt="VcALogo" style="width:26%"><br/>
 		   			<img class="three" src="/man-sitting-on-the-toilet.svg" alt="VcALogo" style="width:15%"><br/>
 		   			Geile Sache. <br/> Danke für's Anlegen!<br/>
-					<button type="button" class="shadow">Weiter zum Gewerbemenü</button><br/>
+					<button type="button" class="weiter">Weiter zum Gewerbemenü</button><br/>
 				</div>
 			</div>
 		</div>

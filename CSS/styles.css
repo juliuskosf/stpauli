@@ -60,6 +60,27 @@ button.shadow {
     width: 70%;
 }
 
+button.weiter {
+    /*border: 0.2em solid black;*/
+    border: solid #4D759A 0.2em;
+    border-style: outset;
+    box-shadow: 0.25em 0.25em #4D759A;
+    margin: 2%;
+    width: 70%;
+    background-color: #B7EDEC;
+    color: #4D759A;
+}
+
+button.negative{
+    border: solid #4D759A 0.2em;
+    border-style: outset;
+    box-shadow: 0.25em 0.25em #4D759A;
+    margin: 2%;
+    width: 70%;
+    background-color: #EDB7D3;
+    color: #4D759A;
+}
+
 button.smallbutton {
     border-style: solid;
     border-radius: 10px;
@@ -70,7 +91,7 @@ button.smallbutton {
 
 input[type=text] {
     border: 0.2em solid #4D759A;
-    width: 80%;
+    width: 70%;
     font-size: 100%;
     background-color: #F9F1EA;
 }
@@ -134,6 +155,12 @@ div.checkbox {
 }
 
 img.icon {
+    width: 20%;
+    margin-top: 10%;
+    margin-bottom: 0%;
+}
+
+img.icon3 {
     width: 20%;
     margin-top: 10%;
     margin-bottom: 10%;
