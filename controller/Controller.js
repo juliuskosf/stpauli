@@ -65,6 +65,13 @@ $(document).ready(function() {
 		$("#Adresse").show();
 		$("#adressetab1").show();
 		$("#adressetab2").hide();
+		$("#beerAdresseTab").show();
+		$("#restaurantAdresseTab").hide();
+		$("#musicAdresseTab").hide();
+		$("#teaAdresseTab").hide();
+		$("#kioskAdresseTab").hide();
+		$("#otherAdresseTab").hide();
+		
 		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
 		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
@@ -75,6 +82,13 @@ $(document).ready(function() {
 		$("#Adresse").show();
 		$("#adressetab1").show();
 		$("#adressetab2").hide();
+		$("#beerAdresseTab").hide();
+		$("#restaurantAdresseTab").hide();
+		$("#musicAdresseTab").show();
+		$("#teaAdresseTab").hide();
+		$("#kioskAdresseTab").hide();
+		$("#otherAdresseTab").hide();
+		
 		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
 		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
@@ -85,6 +99,13 @@ $(document).ready(function() {
 		$("#Adresse").show();
 		$("#adressetab1").show();
 		$("#adressetab2").hide();
+		$("#beerAdresseTab").hide();
+		$("#restaurantAdresseTab").show();
+		$("#musicAdresseTab").hide();
+		$("#teaAdresseTab").hide();
+		$("#kioskAdresseTab").hide();
+		$("#otherAdresseTab").hide();
+		
 		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
 		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
@@ -95,6 +116,13 @@ $(document).ready(function() {
 		$("#Adresse").show();
 		$("#adressetab1").show();
 		$("#adressetab2").hide();
+		$("#beerAdresseTab").hide();
+		$("#restaurantAdresseTab").hide();
+		$("#musicAdresseTab").hide();
+		$("#teaAdresseTab").show();
+		$("#kioskAdresseTab").hide();
+		$("#otherAdresseTab").hide();
+		
 		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
 		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
@@ -105,6 +133,13 @@ $(document).ready(function() {
 		$("#Adresse").show();
 		$("#adressetab1").show();
 		$("#adressetab2").hide();
+		$("#beerAdresseTab").hide();
+		$("#restaurantAdresseTab").hide();
+		$("#musicAdresseTab").hide();
+		$("#teaAdresseTab").hide();
+		$("#kioskAdresseTab").show();
+		$("#otherAdresseTab").hide();
+		
 		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
 		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
@@ -115,6 +150,13 @@ $(document).ready(function() {
 		$("#Adresse").show();
 		$("#adressetab1").show();
 		$("#adressetab2").hide();
+		$("#beerAdresseTab").hide();
+		$("#restaurantAdresseTab").hide();
+		$("#musicAdresseTab").hide();
+		$("#teaAdresseTab").hide();
+		$("#kioskAdresseTab").hide();
+		$("#otherAdresseTab").show();
+		
 		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
 		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
@@ -124,6 +166,13 @@ $(document).ready(function() {
 	$("#AdresseTab").click(function() {
 		$("#adressetab1").show();
 		$("#adressetab2").hide();
+		$("#beerAdresseTab").show();
+		$("#restaurantAdresseTab").hide();
+		$("#musicAdresseTab").hide();
+		$("#teaAdresseTab").hide();
+		$("#kioskAdresseTab").hide();
+		$("#otherAdresseTab").hide();
+		
 		document.getElementById("TypTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("AdresseTab").style.backgroundColor = "#93bee5";
 		document.getElementById("ProdukteTab").style.backgroundColor = "#6fa8dc";
