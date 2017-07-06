@@ -67,6 +67,7 @@ input[type=text] {
     border: 0.2em solid #4D759A;
     width: 80%;
     font-size: 100%;
+    background-color: #CCE0F2;
 }
 
 /*label {
