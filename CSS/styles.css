@@ -71,6 +71,16 @@ button.weiter {
     color: #4D759A;
 }
 
+button.smallWeiter {
+    border-style: solid;
+    border-radius: 50px;
+    padding: 0.5em;
+    margin: 2%;
+    display: inline-block;
+    background-color: #B7EDEC;
+    color: #4D759A;
+}
+
 button.negative{
     border: solid #4D759A 0.2em;
     border-style: outset;
