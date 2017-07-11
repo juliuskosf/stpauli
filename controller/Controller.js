@@ -64,14 +64,6 @@ $(document).ready(function() {
 			"body": "<body></body>"
 		}
 	};
-	/*$.ajax({
-		type: "GET",
-		url: "https://vca.informatik.hu-berlin.de/api/dispenser/getTemplate",
-		data: formData,
-		success: function() {console.log("worked2");},
-		dataType: "json",
-		contentType: "application/json"
-	});*/
 
 	$.ajax({
 		url: "https://vca.informatik.hu-berlin.de:80/api/dispenser/getTemplate",
@@ -83,9 +75,9 @@ $(document).ready(function() {
 		console.log("");
 	});
 	
-	var root = 'https://jsonplaceholder.typicode.com';
+/*	var root = 'https://jsonplaceholder.typicode.com';
 
-/*	$.ajax({
+	$.ajax({
 		url: root + '/posts/1',
 		method: 'GET'
 	}).then(function(data) {
