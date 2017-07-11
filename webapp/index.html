@@ -10,8 +10,9 @@
    		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
    		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
    		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+   		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
    		<script type="text/javascript" src="/controller/Controller.js"></script>
-		
+
 		<div id="MeintestDu">
 	   		<h3>Meintest du?</h3>
 	   		<button type="submit" class="shadow">Beispiel 1 <br/> Mustermannstraße 13 <img  src="/music-player.svg" alt="BeerIcon" width="20em" height="20em"> <br/> 22653 Hamburg</button><br/>
@@ -68,10 +69,10 @@
 		   		<div id="adressetab1">
 		   			
 		   			<!--<h3>Location</h3>-->
-		   			<input class="barname" type="text" name="Barname" placeholder="Name der Lokation"><br/>
+		   			<input class="barname" type="text" id="userInput" name="Barname" placeholder="Name der Lokation"><br/>
 		   			<h3>Adresse</h3>
 		   			<button type="button" class="smallbutton"><img src="/location.svg" width="100em" height="100em"></button>
-		   			<button  id="manuell" type="button" class="smallbutton"><img src="/pencil.svg" width="100em" height="100em"></button><br/>
+		   			<button  id="manuell" type="button" class="smallbutton" onclick="othername()"><img src="/pencil.svg" width="100em" height="100em"></button><br/>
 		   			<!--<button id="manuell" type="button" class="shadow">manuell eingeben</button>-->
 				</div>
 				

@@ -28,15 +28,77 @@ function openCity(evt, cityName) {
     document.getElementById(cityName).style.display = "block";  
 }*/
 
+/*function othername() {
+    var input = document.getElementById("userInput").value;
+    alert(input);
+}*/
+
 // to hide parts of the page with jQuery
 $(document).ready(function() {
+	/*$.post("https://vca.informatik.hu-berlin.de/api/dispenser/getTemplate", {
+		metaData: {
+			microServiceName: "ms1",
+			template: "header",
+			searchEngineKeywords: "simpleTemplate",
+			language: "deutsch",
+			organization: "sap"
+		},
+		templateData: {
+			title: "simpleTemplate",
+			header: "header",
+			body: "body"
+		}
+	});*/
+	console.log("worked1");
+	var formData = {
+		"metaData": {
+			"microServiceName": "",
+			"template": "",
+			"searchEngineKeywords": "simpleTemplate",
+			"language": "",
+			"organization": ""
+		},
+		"templateData": {
+			"title": "",
+			"header": "<head></head>",
+			"body": "<body></body>"
+		}
+	};
+	/*$.ajax({
+		type: "GET",
+		url: "https://vca.informatik.hu-berlin.de/api/dispenser/getTemplate",
+		data: formData,
+		success: function() {console.log("worked2");},
+		dataType: "json",
+		contentType: "application/json"
+	});*/
+
+	$.ajax({
+		url: "https://vca.informatik.hu-berlin.de:80/api/dispenser/getTemplate",
+		method: 'GET',
+		data: formData
+	}).success(function(data) {
+		console.log(data);
+	}).error(function(data){
+		console.log("");
+	});
+	
+	var root = 'https://jsonplaceholder.typicode.com';
+
+/*	$.ajax({
+		url: root + '/posts/1',
+		method: 'GET'
+	}).then(function(data) {
+		console.log(data);
+	});*/
+
 	$.mobile.loading().hide();
 
 	$("#Tabs").on("swiperight", function() {
 		$(this).hide();
 		$("#MeintestDu").show();
 	});
-	
+
 	$("#Tabs").hide();
 
 	$("#AdresseHinzufügen").click(function() {
@@ -71,7 +133,7 @@ $(document).ready(function() {
 		$("#teaAdresseTab").hide();
 		$("#kioskAdresseTab").hide();
 		$("#otherAdresseTab").hide();
-		
+
 		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
 		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
@@ -88,7 +150,7 @@ $(document).ready(function() {
 		$("#teaAdresseTab").hide();
 		$("#kioskAdresseTab").hide();
 		$("#otherAdresseTab").hide();
-		
+
 		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
 		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
@@ -105,7 +167,7 @@ $(document).ready(function() {
 		$("#teaAdresseTab").hide();
 		$("#kioskAdresseTab").hide();
 		$("#otherAdresseTab").hide();
-		
+
 		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
 		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
@@ -122,7 +184,7 @@ $(document).ready(function() {
 		$("#teaAdresseTab").show();
 		$("#kioskAdresseTab").hide();
 		$("#otherAdresseTab").hide();
-		
+
 		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
 		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
@@ -139,7 +201,7 @@ $(document).ready(function() {
 		$("#teaAdresseTab").hide();
 		$("#kioskAdresseTab").show();
 		$("#otherAdresseTab").hide();
-		
+
 		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
 		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
@@ -156,7 +218,7 @@ $(document).ready(function() {
 		$("#teaAdresseTab").hide();
 		$("#kioskAdresseTab").hide();
 		$("#otherAdresseTab").show();
-		
+
 		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
 		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
@@ -172,7 +234,7 @@ $(document).ready(function() {
 		$("#teaAdresseTab").hide();
 		$("#kioskAdresseTab").hide();
 		$("#otherAdresseTab").hide();
-		
+
 		document.getElementById("TypTab").style.backgroundColor = "#4D759A";
 		document.getElementById("AdresseTab").style.backgroundColor = "#6fa8dc";
 		document.getElementById("ProdukteTab").style.backgroundColor = "#4D759A";
