@@ -1,0 +1,29 @@
+<div layout="column" layout-fill ng-controller="ManualAdressCtrl">
+  <h3 style="color: blue;">{{locationName}}</h3>
+  <!-- Small icon with category or something similiar -->
+  <h3>Adresse</h3>
+  <p ng-if="address.address.length !== 0" class="createAddressHeader">{{address.address}}</p>
+  <p ng-if="address.address2.length !== 0" class="createAddressHeader">{{address.address2}}</p>
+  <p ng-if="address.postcode.length !== 0" class="createAddressHeader">{{address.postcode}}</p>
+  <p ng-if="address.city.length !== 0" class="createAddressHeader">{{address.city}}</p>
+  <md-input-container>
+    <input ng-model="address.address" placeholder="Adresse"/>
+  </md-input-container>
+  <md-input-container>
+    <input ng-model="address.address2" placeholder="Adresszeile 2"/>
+  </md-input-container>
+  <div layout="row">
+    <md-input-container>
+      <input ng-model="address.postcode" placeholder="PLZ">
+    </md-input-container>
+    <md-input-container>
+      <input ng-model="address.city" placeholder="Stadt">
+    </md-input-container>
+  </div>
+  <md-button class="md-primary md-raised" ui-sref="locations-create-information">
+    Zurück
+  </md-button>
+  <md-button class="md-raised">
+    Go on!
+  </md-button>
+</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style> /* Take this over to global css structure later */
+      .createAddressHeader {
+        margin: 0 !important;
+      }
+    </style>
+    <!-- The following meta tag makes sure that the app switches to mobile first mode -->
+    <meta name="viewport" content="width=device-width , user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
+    <title>Viva Con Agua</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  </head>
+  <body ng-app="VivaConAgua" ng-cloak ng-controller="MainController">
+    <!-- HTML Code below -->
+    <section layout="row" flex>
+      <side-bar></side-bar>
+      <div layout="column" flex layout-align="top center">
+        <md-toolbar class="md-theme-indigo xmd-hue-3">
+          <div class="md-toolbar-tools">
+            <md-button ng-click="toggleLeft()" class="md-raised">
+              Menu
+            </md-button>
+          </div>
+        </md-toolbar>
+        <div style="width:90%;" ui-view></div>
+      </div>
+    </section>
+    <!-- Angular Material Library requires certain Angular.js Libraries -->
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="app.js"></script>
+    </script>
+  </body>
+</html>
