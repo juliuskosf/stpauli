@@ -9,8 +9,9 @@
   <h4>
     Adresse
   </h4>
-  <md-button class="md-raised" ng-click="">
+  <md-button class="md-raised" ng-disabled="locationName.length == 0" ng-click="confirmAddress()">
     Standort verwenden
+    <md-tooltip ng-if="locationName.length == 0">Enter a name first</md-tooltip>
   </md-button>
   <md-button class="md-raised" ng-disabled="locationName.length == 0" ng-click="goEnterManual()">
     <!-- I used ng-click instead of ui-sref, because ui-sref

@@ -1,0 +1,14 @@
+<div layout="column" ng-controller="WaterDecisionCtrl">
+    <img width="100%" height="auto" src="https://www.vivaconagua.org/files/bilder/2010/100322%20quellwasser_wassertag/100324_bucket%20sticker%20drop.jpg">
+    <!-- To get a dynamic design e.g. getting pictures from a server,
+    switch to ng-src and supply controller via designService -->
+    <md-button class="md-raised" ng-click="goSupporterYet()">
+      Bereits Supporter
+    </md-button>
+    <md-button class="md-raised" ui-sref="locations-water-decision-interest">
+      Interesse
+    </md-button>
+    <md-button class="md-raised" ui-sref="locations-water-decision-no-interest">
+      Kein Interesse
+    </md-button>
+</div>

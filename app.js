@@ -12,6 +12,10 @@ app.config(function($stateProvider, $mdThemingProvider) {
     .state('locations-create', {templateUrl: 'locations-create-category.html'})
     .state('locations-create-information', {templateUrl: 'locations-create-information.html'})
     .state('locations-manual-adress', {templateUrl: 'manual-adress-form.html'})
+    .state('locations-water-decision', {templateUrl: 'locations-water-decision'})
+    .state('locations-water-decision-interest', {templateUrl: 'locations-water-decision-interest'})
+    .state('locations-water-decision-no-interest', {templateUrl: 'locations-water-decision-no-interest'})
+    .state('locations-toilet-paper-decision', {templateUrl: 'locations-toilet-paper-decision'})
     .state('werbung', {templateUrl: 'werbung.html'});
 });
 
@@ -49,6 +53,19 @@ app.service('locationService', function() {
 
   ls.getCategoryIndex = function() {
     return ls.oLocation.categoryIndex;
+  };
+
+  ls.addressToString = function() {
+    if (ls.oLocation.address.address2) {
+      return ls.oLocation.address.address + ' ' +
+        ls.oLocation.address.address2 + ' ' +
+        ls.oLocation.address.postcode + ' ' +
+        ls.oLocation.address.city;
+    } else {
+      return ls.oLocation.address.address + ' ' +
+        ls.oLocation.address.postcode + ' ' +
+        ls.oLocation.address.city;
+    }
   };
 
 });
@@ -92,7 +109,7 @@ app.service('designService', function() {
   };
 });
 
-app.controller('LocationInformationCtrl', function($scope, $state, locationService, designService) {
+app.controller('LocationInformationCtrl', function($scope, $state, $timeout, $mdDialog, locationService, designService) {
   $scope.locationName = locationService.getLocationName() || "";
 
   //test implementation
@@ -100,18 +117,36 @@ app.controller('LocationInformationCtrl', function($scope, $state, locationServi
     locationService.getCategoryIndex()
   );
 
+  $scope.confirmAddress = function() {
+    $timeout(function() { // just mock-up until google api works
+      var confirm = $mdDialog.confirm()
+        .title('Diese Adresse für ' + $scope.locationName + ' hinzufügen?')
+        .textContent('Schloßallee 99 in 99999 Monopoly')
+        .ariaLabel('Bestätigung')
+        .targetEvent(event)
+        .ok('Ja!')
+        .cancel('Abbrechen');
+
+      $mdDialog.show(confirm).then(function() {
+        $state.go('locations-water-decision');
+      }, function() {
+        console.log('Declined');
+      });
+      // rework this with HTML Template to use more than one line
+    }, 2000); // <-- TODO
+  };
+
   $scope.goEnterManual = function() {
     $state.go('locations-manual-adress');
   };
-  //
 
   $scope.$watch('locationName', function() {
-        locationService.setLocationName($scope.locationName);
+    locationService.setLocationName($scope.locationName);
   });
   // save automatic adress here!
 });
 
-app.controller('ManualAdressCtrl', function ($scope, locationService) {
+app.controller('ManualAdressCtrl', function ($scope, $state, $mdDialog, locationService) {
     $scope.locationName = locationService.getLocationName();
 
     console.log(locationService.oLocation.address);
@@ -130,6 +165,23 @@ app.controller('ManualAdressCtrl', function ($scope, locationService) {
     $scope.$watch('address.city', function() {
           locationService.oLocation.address = $scope.address;
     });
+
+    $scope.showConfirm = function(event) {
+      var confirm = $mdDialog.confirm()
+        .title('Ist das wirklich die Lokation?')
+        .textContent(locationService.addressToString())
+        .ariaLabel('Bestätigung')
+        .targetEvent(event)
+        .ok('Ja!')
+        .cancel('Lieber nochmal ändern');
+
+      $mdDialog.show(confirm).then(function() {
+        $state.go('locations-water-decision');
+      }, function() {
+        // declined
+        console.log('Declined');
+      });
+    }
 });
 
 app.controller('CategorySelectionCtrl', function ($scope, $state, locationService, designService) {
@@ -143,4 +195,11 @@ app.controller('CategorySelectionCtrl', function ($scope, $state, locationServic
   };
 
   $scope.tiles = designService.getTiles();
+});
+
+app.controller('WaterDecisionCtrl', function ($scope, $state, locationService, designService) {
+  $scope.goSupporterYet = function() {
+    //locationService.setSupporterYet(); // this function should add "Ist bereits Supporter" flag of location
+    $state.go('locations-toilet-paper-decision');
+  };
 });
