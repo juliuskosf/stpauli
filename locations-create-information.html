@@ -4,20 +4,21 @@
     Name und Adresse
   </h3>
   <md-input-container>
-    <input type="text" required placeholder="Name" ng-model="locationName" name="nameInput">
+    <input type="text" placeholder="Name" ng-model="locationName" name="nameInput">
   </md-input-container>
   <h4>
     Adresse
   </h4>
-  <md-button class="md-raised">
-    <md-tooltip>Enter a name first</md-tooltip>
+  <md-button class="md-raised" ng-click="">
     Standort verwenden
   </md-button>
-  <md-button class="md-raised" ui-sref="locations-manual-adress">
+  <md-button class="md-raised" ng-disabled="locationName.length == 0" ng-click="goEnterManual()">
+    <!-- I used ng-click instead of ui-sref, because ui-sref
+    and ng-disabled does not work together -->
     <md-tooltip ng-if="locationName.length == 0">Enter a name first</md-tooltip>
     Manuell eingeben
   </md-button>
-  <md-button class="md-primary md-raised"  ui-sref="locations-create">
+  <md-button class="md-primary md-raised" ui-sref="locations-create">
     Zurück
   </md-button>
 </div>

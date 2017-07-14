@@ -58,22 +58,28 @@ app.service('designService', function() {
 
   ds.tiles = [
     {
-      src: "img/beerjack.svg"
+      src: "sources/img/beerjack.svg",
+      name: ""
     },
     {
-      src: "img/music-player.svg"
+      src: "sources/img/music-player.svg",
+      name: ""
     },
     {
-      src: "img/tea-cup.svg"
+      src: "sources/img/tea-cup.svg",
+      name: ""
     },
     {
-      src: "img/restaurant.svg"
+      src: "sources/img/restaurant.svg",
+      name: ""
     },
     {
-      src: "img/shopping-cart.svg"
+      src: "sources/img/shopping-cart.svg",
+      name: ""
     },
     {
-      src: "img/question-mark.svg"
+      src: "sources/img/question-mark.svg",
+      name: ""
     }
   ];
 
@@ -86,11 +92,17 @@ app.service('designService', function() {
   };
 });
 
-app.controller('LocationInformationCtrl', function($scope, locationService, designService) {
+app.controller('LocationInformationCtrl', function($scope, $state, locationService, designService) {
   $scope.locationName = locationService.getLocationName() || "";
 
   //test implementation
-  $scope.categorySource = designService.getCategoryIconSourceForIndex(locationService.oLocation.categoryIndex);
+  $scope.categorySource = designService.getCategoryIconSourceForIndex(
+    locationService.getCategoryIndex()
+  );
+
+  $scope.goEnterManual = function() {
+    $state.go('locations-manual-adress');
+  };
   //
 
   $scope.$watch('locationName', function() {
