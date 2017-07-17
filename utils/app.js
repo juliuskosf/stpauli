@@ -8,15 +8,15 @@ app.config(function($stateProvider, $mdThemingProvider) {
 
   $stateProvider
     .state('home', {templateUrl: 'home.html'})
-    .state('locations', {templateUrl: 'locations.html'})
-    .state('locations-create', {templateUrl: 'locations-create-category.html'})
-    .state('locations-create-information', {templateUrl: 'locations-create-information.html'})
-    .state('locations-manual-adress', {templateUrl: 'manual-adress-form.html'})
-    .state('locations-water-decision', {templateUrl: 'locations-water-decision'})
-    .state('locations-water-decision-interest', {templateUrl: 'locations-water-decision-interest'})
-    .state('locations-water-decision-no-interest', {templateUrl: 'locations-water-decision-no-interest'})
-    .state('locations-toilet-paper-decision', {templateUrl: 'locations-toilet-paper-decision'})
-    .state('werbung', {templateUrl: 'werbung.html'});
+    .state('locations', {templateUrl: 'pages/locations.html'})
+    .state('locations-create', {templateUrl: 'pages/locations-create-category.html'})
+    .state('locations-create-information', {templateUrl: 'pages/locations-create-information.html'})
+    .state('locations-manual-adress', {templateUrl: 'pages/manual-adress-form.html'})
+    .state('locations-water-decision', {templateUrl: 'pages/locations-water-decision'})
+    .state('locations-water-decision-interest', {templateUrl: 'pages/locations-water-decision-interest'})
+    .state('locations-water-decision-no-interest', {templateUrl: 'pages/locations-water-decision-no-interest'})
+    .state('locations-toilet-paper-decision', {templateUrl: 'pages/locations-toilet-paper-decision'})
+    .state('werbung', {templateUrl: 'pages/werbung.html'});
 });
 
 app.controller('MainController', function ($scope, $timeout, $mdSidenav, locationService) {
@@ -35,7 +35,7 @@ app.controller('MainController', function ($scope, $timeout, $mdSidenav, locatio
 app.directive('sideBar', function() {
   return {
     restrict: 'E',
-    templateUrl: 'sidebar-component.html'
+    templateUrl: 'utils/sidebar-component.html'
   }
 });
 
