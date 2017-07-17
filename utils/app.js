@@ -55,6 +55,31 @@ app.service('locationService', function() {
     return ls.oLocation.categoryIndex;
   };
 
+  ls.setWaterDecision = function (mode, reasons) {
+    switch (mode) {
+      case 0:
+        ls.oLocation.waterDecision = {
+          decision: 0,
+          reasons: []
+        };
+        break;
+      case 1:
+        ls.oLocation.waterDecision = {
+          decision: 1,
+          reasons: reasons
+        };
+        break;
+      case 2:
+        ls.oLocation.waterDecision = {
+          decision: 2,
+          reasons: reasons
+        };
+        break;
+      default:
+    }
+    console.log(ls.oLocation);
+  }
+
   ls.addressToString = function() {
     if (ls.oLocation.address.address2) {
       return ls.oLocation.address.address + ' ' +
@@ -198,8 +223,75 @@ app.controller('CategorySelectionCtrl', function ($scope, $state, locationServic
 });
 
 app.controller('WaterDecisionCtrl', function ($scope, $state, locationService, designService) {
-  $scope.goSupporterYet = function() {
+
+  $scope.goIsSupporter = function() {
     //locationService.setSupporterYet(); // this function should add "Ist bereits Supporter" flag of location
+    locationService.setWaterDecision(0);
     $state.go('locations-toilet-paper-decision');
   };
+
+  $scope.selected = [];
+
+  $scope.reasons = [{
+    id: 0,
+    text: "Zu teuer"
+  },
+  {
+    id: 1,
+    text: "Anderer Lieferant"
+  },
+  {
+    id: 2,
+    text: "Vorher nie gehört"
+  },
+  {
+    id: 3,
+    text: "Andere"
+  }];
+
+  $scope.reasonsNI = [
+    {
+      id: 0,
+      text: "Zu teuer"
+    },
+    {
+      id: 1,
+      text: "Blöd"
+    },
+    {
+      id: 3,
+      text: "Andere"
+    }
+  ];
+
+  $scope.selectedNI = [];
+
+  $scope.toggle = function (reason, list) {
+    var idx = list.indexOf(reason);
+    if (idx > -1) {
+      list.splice(idx, 1);
+    }
+    else {
+      list.push(reason);
+    }
+    list.sort(compare);
+  };
+
+  $scope.goSendSupporter = function(mode) {
+    if (mode === 1) {
+      locationService.setWaterDecision(mode, $scope.selected); //Lokation hat Interesse + Gründe
+    } else if (mode === 2){
+      locationService.setWaterDecision(mode, $scope.selectedNI); //Lokation hat Interesse + Gründe
+    }
+    $state.go('locations-toilet-paper-decision');
+  };
+
+  var compare = function(a, b) {
+    if (a.id < b.id)
+      return -1;
+    if (a.id > b.id)
+      return 1;
+    return 0;
+  };
+
 });

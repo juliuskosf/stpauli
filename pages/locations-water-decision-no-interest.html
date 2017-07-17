@@ -1,4 +1,16 @@
-<h1>Kein Interesse</h1>
-<md-button class="md-primary md-raised" ui-sref="locations-water-decision">
-  Zurück
-</md-button>
+<div layout="column" ng-controller="WaterDecisionCtrl">
+  <fieldset class="standard">
+     <legend>Warum nicht?</legend>
+     <div layout="column" layout-wrap flex>
+        <md-checkbox class="md-primary" ng-repeat="reason in reasonsNI" ng-click="toggle(reason, selectedNI)">
+          {{reason.text}}
+        </md-checkbox>
+     </div>
+  </fieldset>
+  <md-button class="md-primary md-raised" ng-click="goSendSupporter(2)">
+    Weiter
+  </md-button>
+  <md-button class="md-primary md-raised" ui-sref="locations-water-decision">
+    Zurück
+  </md-button>
+</div>
