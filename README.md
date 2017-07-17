@@ -4,6 +4,7 @@ The implementation is based on AngularJS and further Web-Development Frameworks 
 AngularJS is a Framework to design Single-Page-Applications. Get basic information about AngularJS [here](https://angularjs.org/).
 
 ## Used Frameworks (beside basic AngularJS)
+TBD
 
 ## Development
 For continuing the development you could either use local development with an editor of your choice or SAP's Web IDE.
@@ -12,11 +13,11 @@ For continuing the development you could either use local development with an ed
 1. Get NodeJS if you haven't yet (will be needed for testing to)
 2. Install the 'http-server'-Module
 ```
-Give an example
+npm install http-server -g
 ```
 3. Run the http-server from console
 ```
-Give an example
+http-server
 ```
 The app will be available via localhost:8080
 
@@ -32,8 +33,8 @@ TBD
 To get a basic knowledge of the idea of services, check out [this](https://docs.angularjs.org/guide/services) page.
 
 ### Design Service
-
+TBD
 ### Location Service
-
+TBD
 ## Routing
 For routing the app uses UI-Routing from AngularJS UI. In contrast to the routing concept of AngularJS, it is state based and not URL based.
