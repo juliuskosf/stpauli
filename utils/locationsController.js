@@ -236,39 +236,39 @@ app.controller('WaterDecisionCtrl', function ($scope, $state, locationService, d
 
   $scope.selected = [];
 
-  $scope.reasons = [{
-    id: 0,
-    text: "Zu teuer"
-  },
-  {
-    id: 1,
-    text: "Anderer Lieferant"
-  },
-  {
-    id: 2,
-    text: "Vorher nie gehört"
-  },
-  {
-    id: 3,
-    text: "Andere"
-  }];
-
-  $scope.reasonsNI = [
-    {
+  if ($state.current.name === "locations-water-decision-interest") {
+    $scope.reasons = [{
       id: 0,
       text: "Zu teuer"
     },
     {
       id: 1,
-      text: "Blöd"
+      text: "Anderer Lieferant"
+    },
+    {
+      id: 2,
+      text: "Vorher nie gehört"
     },
     {
       id: 3,
       text: "Andere"
-    }
-  ];
-
-  $scope.selectedNI = [];
+    }];
+  } else if ($state.current.name === "locations-water-decision-no-interest") {
+    $scope.reasons = [
+      {
+        id: 0,
+        text: "Zu teuer"
+      },
+      {
+        id: 1,
+        text: "Blöd"
+      },
+      {
+        id: 3,
+        text: "Andere"
+      }
+    ];
+  }
 
   $scope.toggle = function (reason, list) {
     var idx = list.indexOf(reason);
@@ -282,11 +282,13 @@ app.controller('WaterDecisionCtrl', function ($scope, $state, locationService, d
   };
 
   $scope.goSendSupporter = function(mode) {
-    if (mode === 1) {
-      locationService.setWaterDecision(mode, $scope.selected); //Lokation hat Interesse + Gründe
-    } else if (mode === 2){
-      locationService.setWaterDecision(mode, $scope.selectedNI); //Lokation hat Interesse + Gründe
+    var mode;
+    if ($state.current.name === "locations-water-decision-interest") {
+      mode = 1
+    } else if ($state.current.name === "locations-water-decision-no-interest") {
+      mode = 2
     }
+    locationService.setWaterDecision(mode, $scope.selected);
     $state.go('locations-toilet-paper-decision');
   };
 

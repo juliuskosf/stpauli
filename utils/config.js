@@ -2,7 +2,7 @@ app.config(function($stateProvider, $mdThemingProvider) {
 
   $stateProvider
     .state('home', {templateUrl: 'home.html'})
-    .state('werbung', {templateUrl: 'pages/werbung.html'})
+    .state('presentation', {templateUrl: 'pages/presentation.html'})
     .state('locations', {templateUrl: 'pages/locations.html'})
 
     .state('locations-create', {templateUrl: 'pages/locations-create-category.html'})
