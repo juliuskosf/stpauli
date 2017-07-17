@@ -8,15 +8,22 @@ app.config(function($stateProvider, $mdThemingProvider) {
 
   $stateProvider
     .state('home', {templateUrl: 'home.html'})
+    .state('werbung', {templateUrl: 'pages/werbung.html'})
     .state('locations', {templateUrl: 'pages/locations.html'})
+
     .state('locations-create', {templateUrl: 'pages/locations-create-category.html'})
     .state('locations-create-information', {templateUrl: 'pages/locations-create-information.html'})
     .state('locations-manual-adress', {templateUrl: 'pages/manual-adress-form.html'})
+
     .state('locations-water-decision', {templateUrl: 'pages/locations-water-decision'})
     .state('locations-water-decision-interest', {templateUrl: 'pages/locations-water-decision-interest'})
     .state('locations-water-decision-no-interest', {templateUrl: 'pages/locations-water-decision-no-interest'})
+
     .state('locations-toilet-paper-decision', {templateUrl: 'pages/locations-toilet-paper-decision'})
-    .state('werbung', {templateUrl: 'pages/werbung.html'});
+    .state('locations-toilet-paper-decision-interest', {templateUrl: 'pages/locations-toilet-paper-decision-interest'})
+    .state('locations-toilet-paper-decision-no-interest', {templateUrl: 'pages/locations-toilet-paper-decision-no-interest'})
+
+    .state('locations-create-summary', {templateUrl: 'pages/locations-create-summary'});
 });
 
 app.controller('MainController', function ($scope, $timeout, $mdSidenav, locationService) {
@@ -25,11 +32,95 @@ app.controller('MainController', function ($scope, $timeout, $mdSidenav, locatio
     function buildToggler(componentId) {
 
       return function() {
-        //delete the oLocation here to!
+        //delete the oLocation here, too!
         locationService.oLocation = {}
         $mdSidenav(componentId).toggle();
       };
     }
+});
+
+app.controller('ToiletPaperDecisionCtrl', function($scope, $state, locationService, designService) {
+  var reasons = [];
+
+  if ($state.current.name === 'locations-toilet-paper-decision-interest') {
+      reasons = [{
+        id: 0,
+        text: "Zu teuer"
+      },
+      {
+        id: 1,
+        text: "Anderer Lieferant"
+      },
+      {
+        id: 2,
+        text: "Vorher nie gehört"
+      },
+      {
+        id: 3,
+        text: "Andere"
+      }
+      ];
+  } else if ($state.current.name === 'locations-toilet-paper-decision-no-interest') {
+    reasons = [{
+        id: 0,
+        text: "Zu teuer"
+      },
+      {
+        id: 1,
+        text: "Blöd"
+      },
+      {
+        id: 3,
+        text: "Andere"
+      }
+    ];
+  }
+
+  $scope.goIsSupporter = function() {
+    locationService.setPaperDecision(0);
+    console.log(locationService.oLocation);
+    $state.go('locations-create-summary');
+  };
+
+  $scope.reasons = reasons;
+  $scope.selected = [];
+  // Reduntanter Code!! Einfacheren Weg überlegen (Core-Funktionen auslagern)
+  // -------
+
+  $scope.toggle = function (reason, list) {
+    var idx = list.indexOf(reason);
+    if (idx > -1) {
+      list.splice(idx, 1);
+    }
+    else {
+      list.push(reason);
+    }
+    list.sort(compare);
+  };
+
+  $scope.goSendSupporter = function() {
+    var mode;
+    if ($state.current.name === "locations-toilet-paper-decision-interest") {
+      mode = 1
+    } else if ($state.current.name === "locations-toilet-paper-decision-no-interest") {
+      mode = 2
+    }
+    locationService.setPaperDecision(mode, $scope.selected);
+    console.log(locationService.oLocation);
+    $state.go('locations-create-summary');
+  };
+
+  var compare = function(a, b) {
+    if (a.id < b.id)
+      return -1;
+    if (a.id > b.id)
+      return 1;
+    return 0;
+  };
+
+  // ------
+  // Reduntanter Code!! Einfacheren Weg überlegen (Core-Funktionen auslagern)
+
 });
 
 app.directive('sideBar', function() {
@@ -53,6 +144,31 @@ app.service('locationService', function() {
 
   ls.getCategoryIndex = function() {
     return ls.oLocation.categoryIndex;
+  };
+
+  ls.setPaperDecision = function(mode, reasons) {
+    switch (mode) {
+      case 0:
+        ls.oLocation.paperDecision = {
+          decision: mode,
+          reasons: []
+        }
+        break;
+      case 1:
+        ls.oLocation.paperDecision = {
+          decision: mode,
+          reasons: reasons
+        }
+        break;
+      case 2:
+        ls.oLocation.paperDecision = {
+          decision: mode,
+          reasons: reasons
+        }
+        break;
+      default:
+
+    }
   };
 
   ls.setWaterDecision = function (mode, reasons) {
@@ -225,7 +341,6 @@ app.controller('CategorySelectionCtrl', function ($scope, $state, locationServic
 app.controller('WaterDecisionCtrl', function ($scope, $state, locationService, designService) {
 
   $scope.goIsSupporter = function() {
-    //locationService.setSupporterYet(); // this function should add "Ist bereits Supporter" flag of location
     locationService.setWaterDecision(0);
     $state.go('locations-toilet-paper-decision');
   };

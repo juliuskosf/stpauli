@@ -1,14 +1,14 @@
-<div layout="column">
+<div layout="column" ng-controller="ToiletPaperDecisionCtrl">
     <img width="100%" height="auto" src="http://altemu.de/wp-content/uploads/2015/12/goldeimer.png">
     <!-- To get a dynamic design e.g. getting pictures from a server,
-    switch to ng-src and supply controller via designService -->
-    <md-button class="md-raised">
+    switch to ng-src and supply via designService in the controller-->
+    <md-button class="md-raised" ng-click="goSendSupporter()">
       Bereits Supporter
     </md-button>
-    <md-button class="md-raised">
+    <md-button class="md-raised" ui-sref="locations-toilet-paper-decision-interest">
       Interesse
     </md-button>
-    <md-button class="md-raised">
+    <md-button class="md-raised" ui-sref="locations-toilet-paper-decision-no-interest">
       Kein Interesse
     </md-button>
     <!-- no back button here *!! -->
