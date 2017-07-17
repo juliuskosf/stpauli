@@ -1,2 +1,39 @@
-# vca
-Test implementation VcA
+# Viva Con Agua - Barcheck App
+This small wiki contains everything important to jump into development.
+The implementation is based on AngularJS and further Web-Development Frameworks (see list below)
+AngularJS is a Framework to design Single-Page-Applications. Get basic information about AngularJS [here](https://angularjs.org/).
+
+## Used Frameworks (beside basic AngularJS)
+
+## Development
+For continuing the development you could either use local development with an editor of your choice or SAP's Web IDE.
+
+### Local
+1. Get NodeJS if you haven't yet (will be needed for testing to)
+2. Install the 'http-server'-Module
+```
+Give an example
+```
+3. Run the http-server from console
+```
+Give an example
+```
+The app will be available via localhost:8080
+
+### Web-IDE
+1. Open and login
+2. Clone this repository
+3. Edit / Run the App (-> No webserver specification required, because the Web-IDE provides one for the runtime of the app)
+
+## Testing
+TBD
+
+## Services
+To get a basic knowledge of the idea of services, check out [this](https://docs.angularjs.org/guide/services) page.
+
+### Design Service
+
+### Location Service
+
+## Routing
+For routing the app uses UI-Routing from AngularJS UI. In contrast to the routing concept of AngularJS, it is state based and not URL based.
