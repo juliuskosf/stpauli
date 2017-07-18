@@ -2,37 +2,10 @@ app.controller('ToiletPaperDecisionCtrl', function($scope, $state, locationServi
   var reasons = [];
 
   if ($state.current.name === 'locations-toilet-paper-decision-interest') {
-      reasons = [{
-        id: 0,
-        text: "Zu teuer"
-      },
-      {
-        id: 1,
-        text: "Anderer Lieferant"
-      },
-      {
-        id: 2,
-        text: "Vorher nie gehört"
-      },
-      {
-        id: 3,
-        text: "Andere"
-      }
-      ];
+      reasons = locationService.getInterestReasons();
+
   } else if ($state.current.name === 'locations-toilet-paper-decision-no-interest') {
-    reasons = [{
-        id: 0,
-        text: "Zu teuer"
-      },
-      {
-        id: 1,
-        text: "Blöd"
-      },
-      {
-        id: 3,
-        text: "Andere"
-      }
-    ];
+    reasons = locationService.getNoInterestReasons();
   }
 
   $scope.reasons = reasons;
@@ -171,13 +144,12 @@ app.controller('ManualAdressCtrl', function ($scope, $state, $mdDialog, location
         .ariaLabel('Bestätigung')
         .targetEvent(event)
         .ok('Ja!')
-        .cancel('Lieber nochmal ändern');
+        .cancel('Ändern');
 
       $mdDialog.show(confirm).then(function() {
         $state.go('locations-water-decision');
       }, function() {
-        // declined
-        console.log('Declined');
+
       });
     }
 });
@@ -228,37 +200,9 @@ app.controller('WaterDecisionCtrl', function ($scope, $state, locationService, d
   $scope.selected = [];
 
   if ($state.current.name === "locations-water-decision-interest") {
-    $scope.reasons = [{
-      id: 0,
-      text: "Zu teuer"
-    },
-    {
-      id: 1,
-      text: "Anderer Lieferant"
-    },
-    {
-      id: 2,
-      text: "Vorher nie gehört"
-    },
-    {
-      id: 3,
-      text: "Andere"
-    }];
+    $scope.reasons = locationService.getInterestReasons();
   } else if ($state.current.name === "locations-water-decision-no-interest") {
-    $scope.reasons = [
-      {
-        id: 0,
-        text: "Zu teuer"
-      },
-      {
-        id: 1,
-        text: "Blöd"
-      },
-      {
-        id: 3,
-        text: "Andere"
-      }
-    ];
+    $scope.reasons = locationService.getNoInterestReasons();
   }
 
   $scope.toggle = function (reason, list) {

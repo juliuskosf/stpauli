@@ -26,6 +26,42 @@ app.service('locationService', function() {
     }
   };
 
+  ls.getInterestReasons = function() {
+    return [{
+      id: 0,
+      text: "Zu teuer"
+    },
+    {
+      id: 1,
+      text: "Anderer Lieferant"
+    },
+    {
+      id: 2,
+      text: "Vorher nie gehört"
+    },
+    {
+      id: 3,
+      text: "Andere"
+    }
+    ];
+  };
+
+  ls.getNoInterestReasons = function() {
+    return [{
+        id: 0,
+        text: "Zu teuer"
+      },
+      {
+        id: 1,
+        text: "Blöd"
+      },
+      {
+        id: 3,
+        text: "Andere"
+      }
+    ];
+  };
+
   ls.getPaperDecision = function() {
     return ls.oLocation.paperDecision;
   }
