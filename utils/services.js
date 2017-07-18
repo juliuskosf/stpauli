@@ -3,6 +3,11 @@ app.service('locationService', function() {
 
   ls.oLocation = {}; // variable for persistence
 
+  ls.getTextForInterestDecisionCode = function(mode) {
+    var textForCode = ["Bereits Supporter", "Interesse", "Kein Intresse"];
+    return textForCode[mode];
+  }
+
   ls.setLocationName = function(newValue) {
     ls.oLocation.name = newValue;
   }
@@ -39,6 +44,10 @@ app.service('locationService', function() {
     }
   };
 
+  ls.getPaperDecision = function() {
+    return ls.oLocation.paperDecision;
+  }
+
   ls.setWaterDecision = function (mode, reasons) {
     switch (mode) {
       case 0:
@@ -61,7 +70,10 @@ app.service('locationService', function() {
         break;
       default:
     }
-    console.log(ls.oLocation);
+  }
+
+  ls.getWaterDecision = function() {
+    return ls.oLocation.waterDecision;
   }
 
   ls.addressToString = function() {

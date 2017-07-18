@@ -151,8 +151,6 @@ app.controller('LocationInformationCtrl', function($scope, $state, $timeout, $md
 app.controller('ManualAdressCtrl', function ($scope, $state, $mdDialog, locationService) {
     $scope.locationName = locationService.getLocationName();
 
-    console.log(locationService.oLocation.address);
-
     $scope.address = locationService.oLocation.address || {};
 
     $scope.$watch('address.address', function() {
@@ -300,4 +298,25 @@ app.controller('WaterDecisionCtrl', function ($scope, $state, locationService, d
     return 0;
   };
 
+});
+
+
+
+
+
+
+
+
+
+
+
+
+app.controller('SummaryController', function($scope, locationService) {
+  $scope.waterDecision = locationService.getWaterDecision();
+  $scope.paperDecision = locationService.getPaperDecision();
+  $scope.location = locationService.oLocation;
+
+  $scope.getDecisionText = function(decision) {
+    return locationService.getTextForInterestDecisionCode(decision);
+  }
 });
