@@ -34,7 +34,7 @@ app.controller('ToiletPaperDecisionCtrl', function($scope, $state, locationServi
       }
     ];
   }
-  
+
   $scope.reasons = reasons;
   $scope.selected = [];
   // Reduntanter Code!! Einfacheren Weg überlegen (Core-Funktionen auslagern)
@@ -223,12 +223,7 @@ app.controller('CategorySelectionCtrl', function ($scope, $state, locationServic
 
 
 
-app.controller('WaterDecisionCtrl', function ($scope, $state, locationService, designService) {
-
-  $scope.goIsSupporter = function() {
-    locationService.setWaterDecision(0);
-    $state.go('locations-toilet-paper-decision');
-  };
+app.controller('WaterDecisionCtrl', function ($scope, $state, locationService, designService) {5
 
   $scope.selected = [];
 
@@ -277,14 +272,19 @@ app.controller('WaterDecisionCtrl', function ($scope, $state, locationService, d
     list.sort(compare);
   };
 
-  $scope.goSendSupporter = function(mode) {
+  $scope.goSendSupporter = function() {
     var mode;
     if ($state.current.name === "locations-water-decision-interest") {
       mode = 1
     } else if ($state.current.name === "locations-water-decision-no-interest") {
       mode = 2
     }
-    locationService.setWaterDecision(mode, $scope.selected);
+
+    if (mode) {
+        locationService.setWaterDecision(mode, $scope.selected);
+    } else {
+        locationService.setWaterDecision(0);
+    }
     $state.go('locations-toilet-paper-decision');
   };
 
@@ -314,7 +314,7 @@ app.controller('SummaryController', function($scope, locationService) {
   $scope.paperDecision = locationService.getPaperDecision();
   $scope.location = locationService.oLocation;
 
-  $scope.getDecisionText = function(decision) {
-    return locationService.getTextForInterestDecisionCode(decision);
+  $scope.getDecisionText = function(decisionCode) {
+    return locationService.getTextForInterestDecisionCode(decisionCode);
   }
 });

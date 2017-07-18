@@ -3,9 +3,9 @@ app.service('locationService', function() {
 
   ls.oLocation = {}; // variable for persistence
 
-  ls.getTextForInterestDecisionCode = function(mode) {
+  ls.getTextForInterestDecisionCode = function(dc) {
     var textForCode = ["Bereits Supporter", "Interesse", "Kein Intresse"];
-    return textForCode[mode];
+    return textForCode[dc];
   }
 
   ls.setLocationName = function(newValue) {
@@ -19,28 +19,10 @@ app.service('locationService', function() {
     return ls.oLocation.categoryIndex;
   };
 
-  ls.setPaperDecision = function(mode, reasons) {
-    switch (mode) {
-      case 0:
-        ls.oLocation.paperDecision = {
-          decision: mode,
-          reasons: []
-        }
-        break;
-      case 1:
-        ls.oLocation.paperDecision = {
-          decision: mode,
-          reasons: reasons
-        }
-        break;
-      case 2:
-        ls.oLocation.paperDecision = {
-          decision: mode,
-          reasons: reasons
-        }
-        break;
-      default:
-
+  ls.setPaperDecision = function(dc, reasons) {
+    ls.oLocation.paperDecision = {
+      decisionCode: dc,
+      reasons: reasons
     }
   };
 
@@ -48,27 +30,10 @@ app.service('locationService', function() {
     return ls.oLocation.paperDecision;
   }
 
-  ls.setWaterDecision = function (mode, reasons) {
-    switch (mode) {
-      case 0:
-        ls.oLocation.waterDecision = {
-          decision: 0,
-          reasons: []
-        };
-        break;
-      case 1:
-        ls.oLocation.waterDecision = {
-          decision: 1,
-          reasons: reasons
-        };
-        break;
-      case 2:
-        ls.oLocation.waterDecision = {
-          decision: 2,
-          reasons: reasons
-        };
-        break;
-      default:
+  ls.setWaterDecision = function (dc, reasons) {
+    ls.oLocation.waterDecision = {
+      decisionCode: dc,
+      reasons: reasons
     }
   }
 

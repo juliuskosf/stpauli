@@ -6,14 +6,14 @@
   <h4 class="createAddressHeader">{{location.address.postcode}}</h4>
   <h4 class="createAddressHeader">{{location.address.city}}</h4>
   <h3>Wasser</h3>
-  <h4>{{getDecisionText(waterDecision.decision)}}</h4>
+  <h4>{{getDecisionText(waterDecision.decisionCode)}}</h4>
   <ul ng-if="waterDecision.reasons.length !== 0">
     <li ng-repeat="reason in waterDecision.reasons">
       {{reason.text}}
     </li>
   </ul>
   <h3>Toilettenpapier</h3>
-  <h4>{{getDecisionText(paperDecision.decision)}}</h4>
+  <h4>{{getDecisionText(paperDecision.decisionCode)}}</h4>
   <ul ng-if="paperDecision.reasons.length !== 0">
     <li ng-repeat="reason in paperDecision.reasons">
       {{reason.text}}
