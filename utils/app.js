@@ -1,5 +1,4 @@
 var app = angular.module('VivaConAgua', [
-    'ngRoute',
     'ngMaterial',
     'ui.router'
 ]);
