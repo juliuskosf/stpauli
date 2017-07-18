@@ -34,13 +34,7 @@ app.controller('ToiletPaperDecisionCtrl', function($scope, $state, locationServi
       }
     ];
   }
-
-  $scope.goIsSupporter = function() {
-    locationService.setPaperDecision(0);
-    console.log(locationService.oLocation);
-    $state.go('locations-create-summary');
-  };
-
+  
   $scope.reasons = reasons;
   $scope.selected = [];
   // Reduntanter Code!! Einfacheren Weg überlegen (Core-Funktionen auslagern)
@@ -64,8 +58,12 @@ app.controller('ToiletPaperDecisionCtrl', function($scope, $state, locationServi
     } else if ($state.current.name === "locations-toilet-paper-decision-no-interest") {
       mode = 2
     }
-    locationService.setPaperDecision(mode, $scope.selected);
-    console.log(locationService.oLocation);
+
+    if (mode) {
+        locationService.setPaperDecision(mode, $scope.selected);
+    } else {
+        locationService.setPaperDecision(0);
+    }
     $state.go('locations-create-summary');
   };
 
