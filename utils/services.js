@@ -150,3 +150,14 @@ app.service('designService', function() {
     return ds.tiles[index].src;
   };
 });
+
+app.service('progressService', function($state) {
+  var ps = this;
+  ps.getCurrentState = function() {
+    return $state.current.name;
+  };
+
+  ps.getProgressAtState = function (state) {
+    console.log("progress changed! from: " + state.name);
+  };
+});

@@ -3,7 +3,7 @@ var app = angular.module('VivaConAgua', [
     'ui.router'
 ]);
 
-app.controller('MainController', function ($scope, $timeout, $mdSidenav, locationService) {
+app.controller('MainController', function ($scope, $timeout, $mdSidenav, locationService, $rootScope, progressService) {
     $scope.toggleLeft = buildToggler('left');
 
     function buildToggler(componentId) {
@@ -14,7 +14,13 @@ app.controller('MainController', function ($scope, $timeout, $mdSidenav, locatio
         $mdSidenav(componentId).toggle();
       };
     }
-});
+
+    // for progress bar
+    $rootScope.$on('$stateChangeStart',
+      function(event, toState, toParams, fromState, fromParams){
+        progressService.getProgressAtState(fromState);
+      })
+    });
 
 app.directive('sideBar', function() {
   return {
