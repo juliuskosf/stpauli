@@ -17,5 +17,8 @@ app.config(function($stateProvider, $mdThemingProvider) {
     .state('locations-toilet-paper-decision-interest', {templateUrl: 'pages/locations-toilet-paper-decision-interest.html'})
     .state('locations-toilet-paper-decision-no-interest', {templateUrl: 'pages/locations-toilet-paper-decision-no-interest.html'})
 
-    .state('locations-create-summary', {templateUrl: 'pages/locations-create-summary.html'});
+    .state('locations-create-summary', {templateUrl: 'pages/locations-create-summary.html'})
+
+    .state('contacts', {templateUrl: 'pages/contacts/contacts.html'})
+    .state('contacts-search-result', {templateUrl: 'pages/contacts/contacts-search-result.html'});
 });
