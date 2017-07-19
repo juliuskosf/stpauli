@@ -74,23 +74,61 @@ app.controller('LocationInformationCtrl', function($scope, $state, $timeout, $md
     locationService.getCategoryIndex()
   );
 
-  $scope.confirmAddress = function() {
-    $timeout(function() { // just mock-up until google api works
-      var confirm = $mdDialog.confirm()
-        .title('Diese Adresse für ' + $scope.locationName + ' hinzufügen?')
-        .textContent('Schloßallee 99 in 99999 Monopoly')
-        .ariaLabel('Bestätigung')
-        .targetEvent(event)
-        .ok('Ja!')
-        .cancel('Abbrechen');
+  $scope.loading = false;
 
-      $mdDialog.show(confirm).then(function() {
-        $state.go('locations-water-decision');
-      }, function() {
-        console.log('Declined');
+  $scope.confirmAddress = function() {
+
+    function getLocation() {
+      $scope.loading = true;
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          console.log("Error");
+        }
+    }
+
+    function showPosition(position) { //async handler of geolocation
+      // disable the animation when located
+      $scope.loading = false;
+
+      // instantiate url + new request()
+      var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&key=AIzaSyD2122kKcLcNKWAApGcKOmzoTqWXW4hznY"
+
+      $.ajax({
+        dataType: "json",
+        url: url,
+        data: "",
+        success: successHandler
       });
-      // rework this with HTML Template to use more than one line
-    }, 2000); // <-- TODO
+
+      function successHandler(oData) {
+        $scope.geoAddress = oData.results[0];
+        var confirm = $mdDialog.confirm()
+          .title('Diese Adresse für ' + $scope.locationName + ' hinzufügen?')
+          .textContent(oData.results[0].formatted_address)
+          .ariaLabel('Bestätigung')
+          .targetEvent(event)
+          .ok('Ja!')
+          .cancel('Abbrechen');
+        $mdDialog.show(confirm).then(function() {
+          $state.go('locations-water-decision');
+        }, function() {
+          locationService.setAddress({});
+        });
+      }
+
+    }
+
+    $scope.$watch('geoAddress', function() {
+      if ($scope.geoAddress) {
+        var address = $scope.geoAddress; // read frome scope
+        address = locationService.convertGoogleAddressToObjectAddress(address.address_components);
+        locationService.setAddress(address);
+      }
+    });
+
+    getLocation();
+
   };
 
   $scope.goEnterManual = function() {
@@ -100,7 +138,6 @@ app.controller('LocationInformationCtrl', function($scope, $state, $timeout, $md
   $scope.$watch('locationName', function() {
     locationService.setLocationName($scope.locationName);
   });
-  // save automatic adress here!
 });
 
 
@@ -125,16 +162,16 @@ app.controller('ManualAdressCtrl', function ($scope, $state, $mdDialog, location
     $scope.address = locationService.oLocation.address || {};
 
     $scope.$watch('address.address', function() {
-          locationService.oLocation.address = $scope.address;
+          locationService.setAddress($scope.address);
     });
     $scope.$watch('address.address2', function() {
-          locationService.oLocation.address = $scope.address;
+          locationService.setAddress($scope.address);
     });
     $scope.$watch('address.postcode', function() {
-          locationService.oLocation.address = $scope.address;
+          locationService.setAddress($scope.address);
     });
     $scope.$watch('address.city', function() {
-          locationService.oLocation.address = $scope.address;
+          locationService.setAddress($scope.address);
     });
 
     $scope.showConfirm = function(event) {

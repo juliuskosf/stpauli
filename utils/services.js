@@ -62,6 +62,22 @@ app.service('locationService', function() {
     ];
   };
 
+  ls.setAddress = function(address) {
+    ls.oLocation.address = address
+  };
+
+  ls.convertGoogleAddressToObjectAddress = function(address_components) {
+    if (address_components.length === 8) {
+      address = {
+        address: address_components[1].long_name + ' ' + address_components[0].long_name,
+        address2: "",
+        postcode: address_components[7].long_name,
+        city: address_components[5].long_name
+      }
+    }
+    return address;
+  }
+
   ls.getPaperDecision = function() {
     return ls.oLocation.paperDecision;
   }

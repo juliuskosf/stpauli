@@ -15,7 +15,7 @@
     </md-input-container>
     <div layout="row">
       <md-input-container>
-        <input type="number" ng-model="address.postcode" placeholder="PLZ" required>
+        <input type="number" maxlength="5" minlength="4" ng-model="address.postcode" placeholder="PLZ" required>
       </md-input-container>
       <md-input-container>
         <input ng-model="address.city" placeholder="Stadt" required>

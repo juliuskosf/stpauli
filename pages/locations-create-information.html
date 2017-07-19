@@ -9,8 +9,11 @@
   <h4>
     Adresse
   </h4>
-  <md-button class="md-raised" ng-disabled="locationName.length == 0" ng-click="confirmAddress()">
+  <md-button md-layout="row" class="md-raised" ng-disabled="locationName.length == 0" ng-click="confirmAddress()">
     Standort verwenden
+    <div layout="row" layout-sm="column" layout-align="space-around">
+      <md-progress-circular md-mode="indeterminate" ng-if="loading"></md-progress-circular>
+    </div>
     <md-tooltip ng-if="locationName.length == 0">Enter a name first</md-tooltip>
   </md-button>
   <md-button class="md-raised" ng-disabled="locationName.length == 0" ng-click="goEnterManual()">
