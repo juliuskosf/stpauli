@@ -28,3 +28,11 @@ app.directive('sideBar', function() {
     templateUrl: 'utils/sidebar-component.html'
   }
 });
+
+app.directive('personInfoForm', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'utils/person-info-component.html'
+  }
+
+});

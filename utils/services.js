@@ -182,6 +182,10 @@ app.service('contactService', function() {
     return cs.contacts;
   };
 
+  cs.clearSelectedContact = function() {
+    cs.selectedContact = {};
+  }
+
   cs.setSelectedContact = function (id) {
     cs.selectedContact = cs.contacts[id];
   };
@@ -200,6 +204,5 @@ app.service('progressService', function($state) {
   };
 
   ps.getProgressAtState = function (state) {
-    console.log("progress changed! from: " + state.name);
   };
 });

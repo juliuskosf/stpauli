@@ -18,5 +18,23 @@ app.controller('contactsController', function($state, $scope, $timeout, contactS
 
 app.controller('contactDetailCtrl', function($state, $scope, contactService) {
 
+  $scope.notes = [{
+    text: "Das ist eine Notiz",
+    author: "Benedikt",
+    createdOn: "05.06.2017"
+  },
+  {
+    text: "Das ist eine weitere Notiz!",
+    author: "Jemand Anderes",
+    createdOn: "10.07.2017"
+  }];
+
+
+  $scope.backPressed = function() {
+    contactService.clearSelectedContact();
+    $state.go('contacts-search-result');
+  };
+
+
   $scope.selectedContact = contactService.getSelectedContact();
 });
