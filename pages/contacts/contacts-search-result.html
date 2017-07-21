@@ -1,10 +1,10 @@
 <md-content ng-controller="contactsController" layout="column">
   <md-list flex>
-    <md-list-item ng-repeat="partner in partners" class="md-2-line">
-      <img ng-src="{{partner.source}}" class="md-avatar" />
+    <md-list-item ng-repeat="contact in contacts" class="md-2-line" ng-click="itemPressed(contact.id)">
+      <img ng-src="{{contact.source}}" class="md-avatar" />
       <div class="md-list-item-text" layout="column">
-        <h3>{{ partner.vorname + ' ' + partner.name }}</h3>
-        <p>{{ partner.job }}</p>
+        <h3>{{ contact.vorname + ' ' + contact.name }}</h3>
+        <p>{{ contact.job }}</p>
       </div>
     </md-list-item>
   </md-list>

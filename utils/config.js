@@ -20,5 +20,6 @@ app.config(function($stateProvider, $mdThemingProvider) {
     .state('locations-create-summary', {templateUrl: 'pages/locations-create-summary.html'})
 
     .state('contacts', {templateUrl: 'pages/contacts/contacts.html'})
-    .state('contacts-search-result', {templateUrl: 'pages/contacts/contacts-search-result.html'});
+    .state('contacts-search-result', {templateUrl: 'pages/contacts/contacts-search-result.html'})
+    .state('contacts-detail', {templateUrl: 'pages/contacts/contacts-detail.html'});
 });

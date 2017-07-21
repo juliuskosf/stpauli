@@ -151,6 +151,48 @@ app.service('designService', function() {
   };
 });
 
+app.service('contactService', function() {
+  var cs = this;
+
+  cs.contacts = [
+    {
+      id: 0,
+      vorname: "Hans",
+      name: "Peter",
+      job: "Bauer",
+      source: "sources/mock/ansprechpartnerBilder/bauer.jpg"
+    },
+    {
+      id: 1,
+      vorname: "Guido",
+      name: "Hip",
+      job: "Barkeeper",
+      source: "sources/mock/ansprechpartnerBilder/hipster.jpg"
+    },
+    {
+      id: 2,
+      vorname: "Hubert",
+      name: "Schmitz",
+      job: "Filialleiter EDEKA",
+      source: "sources/mock/ansprechpartnerBilder/filialleiter.jpg"
+    }
+  ];
+
+  cs.getAllContacts = function() {
+    return cs.contacts;
+  };
+
+  cs.setSelectedContact = function (id) {
+    cs.selectedContact = cs.contacts[id];
+  };
+
+  cs.selectedContact;
+
+  cs.getSelectedContact = function () {
+    return cs.selectedContact;
+  };
+});
+
 app.service('progressService', function($state) {
   var ps = this;
   ps.getCurrentState = function() {
