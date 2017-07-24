@@ -38,7 +38,8 @@ app.directive('personInfoForm', function() {
       streetModel: '=',
       postCodeModel: '=',
       cityModel: '=',
-      nameModel: '=',
+      emailModel: '=',
+      telefonModel: '=',
       stpauliModel: '='
     },
     templateUrl: 'utils/person-info-component.html'
