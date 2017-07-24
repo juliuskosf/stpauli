@@ -72,7 +72,10 @@ app.service('locationService', function() {
         postcode: "45219",
         city: "Essen"
       },
-      categoryIndex: 0
+      categoryIndex: 0,
+      // adapt to right format!!
+      waterDecision: 1,
+      paperDecision: 2
   },
   {
     name: "Henriks",
@@ -81,7 +84,10 @@ app.service('locationService', function() {
       street: "Tesdorpfstraße 6",
       additionalAddress: "",
       postcode: "23441",
-      city: "Hamburg"
+      city: "Hamburg",
+      // s.o.
+      waterDecision: 1,
+      paperDecision: 2
     },
     categoryIndex: 3
   }];

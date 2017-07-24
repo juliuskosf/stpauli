@@ -310,9 +310,17 @@ app.controller('SummaryController', function($scope, locationService) {
 
 app.controller('locationsDetailCtrl', function($scope, locationService, designService) {
   $scope.selectedLocation = locationService.getSelectedLocation();
+
+  $scope.waterDecision = $scope.selectedLocation.waterDecision;
+  $scope.paperDecision = $scope.selectedLocation.paperDecision;
+
   $scope.getCategoryName = function (index) {
     return designService.getNameForCategoryIndex(index);
   };
+
+  $scope.interestReasons = locationService.getInterestReasons();
+
+  $scope.noInterestReasons = locationService.getNoInterestReasons();
 
   $scope.getSourceForIndex = function (index) {
     var x = designService.getCategoryIconSourceForIndex(index);

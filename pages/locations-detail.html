@@ -28,6 +28,55 @@
     </md-tab>
     <md-tab label="Support">
       <div class="md-padding">
+        <form ng-cloak>
+          <p>Viva Con Agua - Wasser</p>
+          <!-- duplicate with paper decision code below -->
+          <md-radio-group ng-model="waterDecision">
+            <md-radio-button value="0">Bereits Supporter</md-radio-button>
+            <md-radio-button value="1">Interesse</md-radio-button>
+            <!-- duplicate code with locations-toilet-paper-decision-interest -->
+            <fieldset ng-if="waterDecision == 1" class="standard">
+               <legend>Warum bisher noch nicht?</legend>
+               <div layout="column" layout-wrap flex>
+                  <md-checkbox class="md-primary" ng-repeat="reason in interestReasons">
+                    {{reason.text}}
+                  </md-checkbox>
+               </div>
+            </fieldset>
+            <md-radio-button value="2">Kein Interesse</md-radio-button>
+            <fieldset ng-if="waterDecision == 2" class="standard">
+               <legend>Warum nicht?</legend>
+               <div layout="column" layout-wrap flex>
+                  <md-checkbox class="md-primary" ng-repeat="reason in noInterestReasons">
+                    {{reason.text}}
+                  </md-checkbox>
+               </div>
+            </fieldset>
+          </md-radio-group>
+          <md-divider></md-divider>
+          <p>Toilettenpapier</p>
+          <md-radio-group ng-model="paperDecision">
+            <md-radio-button value="0">Bereits Supporter</md-radio-button>
+            <md-radio-button value="1">Interesse</md-radio-button>
+            <fieldset ng-if="paperDecision == 1" class="standard">
+               <legend>Warum bisher noch nicht?</legend>
+               <div layout="column" layout-wrap flex>
+                  <md-checkbox class="md-primary" ng-repeat="reason in interestReasons">
+                    {{reason.text}}
+                  </md-checkbox>
+               </div>
+            </fieldset>
+            <md-radio-button value="2">Kein Interesse</md-radio-button>
+            <fieldset ng-if="paperDecision == 2" class="standard">
+               <legend>Warum nicht?</legend>
+               <div layout="column" layout-wrap flex>
+                  <md-checkbox class="md-primary" ng-repeat="reason in noInterestReasons">
+                    {{reason.text}}
+                  </md-checkbox>
+               </div>
+            </fieldset>
+          </md-radio-group>
+        </form>
       </div>
     </md-tab>
   </md-tabs>
