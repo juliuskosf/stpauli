@@ -164,7 +164,7 @@ app.controller('ManualAdressCtrl', function ($scope, $state, $mdDialog, location
     $scope.$watch('address.address', function() {
           locationService.setAddress($scope.address);
     });
-    $scope.$watch('address.address2', function() {
+    $scope.$watch('address.additionalAddress', function() {
           locationService.setAddress($scope.address);
     });
     $scope.$watch('address.postcode', function() {

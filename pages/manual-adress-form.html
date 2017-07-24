@@ -3,7 +3,7 @@
   <!-- Small icon with category or something similiar -->
   <h3>Adresse</h3>
   <p ng-if="address.address.length !== 0" class="createAddressHeader">{{address.address}}</p>
-  <p ng-if="address.address2.length !== 0" class="createAddressHeader">{{address.address2}}</p>
+  <p ng-if="address.additionalAddress.length !== 0" class="createAddressHeader">{{address.address2}}</p>
   <p ng-if="address.postcode.length !== 0" class="createAddressHeader">{{address.postcode}}</p>
   <p ng-if="address.city.length !== 0" class="createAddressHeader">{{address.city}}</p>
   <form name="manualAddressForm">
@@ -11,7 +11,7 @@
       <input ng-model="address.address" placeholder="Adresse" required/>
     </md-input-container>
     <md-input-container>
-      <input ng-model="address.address2" placeholder="Adresszeile 2"/>
+      <input ng-model="address.additionalAddress" placeholder="Adresszeile 2"/>
     </md-input-container>
     <div layout="row">
       <md-input-container>

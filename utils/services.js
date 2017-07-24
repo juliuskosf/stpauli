@@ -106,7 +106,7 @@ app.service('locationService', function() {
     if (address_components.length === 8) {
       address = {
         address: address_components[1].long_name + ' ' + address_components[0].long_name,
-        address2: "",
+        additionalAddress: "",
         postcode: address_components[7].long_name,
         city: address_components[5].long_name
       }
@@ -130,9 +130,9 @@ app.service('locationService', function() {
   }
 
   ls.addressToString = function() {
-    if (ls.oLocation.address.address2) {
+    if (ls.oLocation.address.additionalAddress) {
       return ls.oLocation.address.address + ' ' +
-        ls.oLocation.address.address2 + ' ' +
+        ls.oLocation.address.additionalAddress + ' ' +
         ls.oLocation.address.postcode + ' ' +
         ls.oLocation.address.city;
     } else {
