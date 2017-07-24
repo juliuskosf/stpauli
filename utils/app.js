@@ -46,3 +46,18 @@ app.directive('personInfoForm', function() {
   }
 
 });
+
+
+app.directive('locationInfoForm', function() {
+  return {
+    restrict: 'AE',
+    scope: {
+      streetModel: '=',
+      postcodeModel: '=',
+      additionaladdressModel: '=',
+      cityModel: '='
+    },
+    templateUrl: 'utils/location-info-component.html'
+  }
+
+});

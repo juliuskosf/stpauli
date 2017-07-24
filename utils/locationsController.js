@@ -308,8 +308,11 @@ app.controller('SummaryController', function($scope, locationService) {
 
 
 
-app.controller('locationsDetailCtrl', function($scope, locationService) {
+app.controller('locationsDetailCtrl', function($scope, locationService, designService) {
   $scope.selectedLocation = locationService.getSelectedLocation();
+  $scope.getCategoryName = function (index) {
+    return designService.getNameForCategoryIndex(index);
+  };
 });
 
 
@@ -322,10 +325,14 @@ app.controller('locationsDetailCtrl', function($scope, locationService) {
 
 
 
-app.controller('locationSearchController', function($scope, locationService, $state) {
+app.controller('locationSearchController', function($scope, locationService, $state, designService) {
   $scope.itemPressed = function(id) {
     locationService.setSelectedLocation(id);
     $state.go('locations-detail');
+  };
+
+  $scope.getCategoryName = function (index) {
+    return designService.getNameForCategoryIndex(index);
   };
 
   $scope.locations = locationService.getAllLocations();

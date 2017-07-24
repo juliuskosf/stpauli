@@ -3,12 +3,18 @@
     <md-card-title>
       <md-card-title-text>
         <span class="md-headline">{{selectedLocation.name}}</span>
-        <span class="md-subhead">{{selectedLocation.address.city}}</span>
+        <span class="md-subhead">{{getCategoryName(selectedLocation.categoryIndex)}}</span>
       </md-card-title-text>
     </md-card-title>
   </md-card>
   <md-tabs md-dynamic-height md-border-bottom md-stretch-tabs="yes">
     <md-tab label="Infos">
+      <location-info-form
+        street-model="selectedLocation.address.street"
+        additionaladdress-model="selectedLocation.address.additionalAddress"
+        city-model="selectedLocation.address.city"
+        postcode-model="selectedLocation.address.postcode">
+      </location-info-form>
       <md-button class="md-rasied">Änderungen speichern</md-button>
     </md-tab>
     <md-tab label="Ansprechpartner">

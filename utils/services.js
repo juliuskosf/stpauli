@@ -67,15 +67,23 @@ app.service('locationService', function() {
       name: "Die Schenke",
       id: 0,
       address: {
+        street: "Rathausplatz",
+        additionalAddress: "2. Etage",
+        postcode: "45219",
         city: "Essen"
-      }
+      },
+      categoryIndex: 0
   },
   {
     name: "Henriks",
     id: 1,
     address: {
+      street: "Tesdorpfstraße 6",
+      additionalAddress: "",
+      postcode: "23441",
       city: "Hamburg"
-    }
+    },
+    categoryIndex: 3
   }];
 
   ls.getAllLocations = function() {
@@ -146,29 +154,33 @@ app.service('designService', function() {
   ds.tiles = [
     {
       src: "sources/img/beerjack.svg",
-      name: ""
+      name: "Kneipe"
     },
     {
       src: "sources/img/music-player.svg",
-      name: ""
+      name: "Club"
     },
     {
       src: "sources/img/tea-cup.svg",
-      name: ""
+      name: "Cafe"
     },
     {
       src: "sources/img/restaurant.svg",
-      name: ""
+      name: "Restaurant"
     },
     {
       src: "sources/img/shopping-cart.svg",
-      name: ""
+      name: "Geschäft"
     },
     {
       src: "sources/img/question-mark.svg",
-      name: ""
+      name: "Andere"
     }
   ];
+
+  ds.getNameForCategoryIndex = function(index) {
+    return ds.tiles[index].name;
+  };
 
   ds.getTiles = function() {
     return ds.tiles;

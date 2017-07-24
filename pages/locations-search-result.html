@@ -4,7 +4,7 @@
       <md-list-item ng-repeat="location in locations" class="md-2-line" ng-click="itemPressed(location.id)">
         <div class="md-list-item-text" layout="column">
           <h3>{{ location.name }}</h3>
-          <p>{{ location.address.city }}</p>
+          <p>{{ getCategoryName(location.categoryIndex)}}</p>
         </div>
       </md-list-item>
     </md-list>
