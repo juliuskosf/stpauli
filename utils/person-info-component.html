@@ -1,23 +1,23 @@
 <div layout="column">
   <div layout="row">
     <md-input-container>
-      <input placeholder="Vorname" ng-model="contact.vorname">
+      <input placeholder="Vorname" ng-model="vornameModel">
     </md-input-container>
     <md-input-container>
-      <input placeholder="Name" ng-model="contact.name">
+      <input placeholder="Name" ng-model="nameModel">
     </md-input-container>
   </div>
   <div>
     <md-input-container>
-      <input placeholder="Straße" ng-model="contact.address">
+      <input placeholder="Straße" ng-model="streetModel">
     </md-input-container>
   </div>
   <div layout="row">
     <md-input-container>
-      <input placeholder="PLZ" ng-model="contact.postcode">
+      <input placeholder="PLZ" ng-model="postcodeModel">
     </md-input-container>
     <md-input-container>
-      <input placeholder="Stadt" ng-model="contact.city">
+      <input placeholder="Stadt" ng-model="cityModel">
     </md-input-container>
   </div>
   <md-divider></md-divider>
@@ -38,7 +38,7 @@
       Events
     </md-checkbox>
   </fieldset>
-  <md-switch ng-model="stPauliFan" aria-label="stPauliFan" class="md-warn">
+  <md-switch aria-label="stPauliFan" class="md-warn">
     St. Pauli Fan
   </md-switch>
 </div>

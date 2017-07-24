@@ -31,7 +31,16 @@ app.directive('sideBar', function() {
 
 app.directive('personInfoForm', function() {
   return {
-    restrict: 'E',
+    restrict: 'AE',
+    scope: {
+      nameModel: '=',
+      vornameModel: '=',
+      streetModel: '=',
+      postCodeModel: '=',
+      cityModel: '=',
+      nameModel: '=',
+      stpauliModel: '='
+    },
     templateUrl: 'utils/person-info-component.html'
   }
 

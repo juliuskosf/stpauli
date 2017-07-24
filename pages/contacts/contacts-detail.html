@@ -12,7 +12,10 @@
   </md-card>
   <md-tabs md-dynamic-height md-border-bottom md-stretch-tabs="yes">
     <md-tab label="Infos">
-      <person-info-form>
+      <!-- custom directive: person-info-component -->
+      <person-info-form
+        name-model="selectedContact.name"
+        vorname-model="selectedContact.vorname">
       </person-info-form>
     </md-tab>
     <md-tab label="Kontakt">
