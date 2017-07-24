@@ -313,6 +313,11 @@ app.controller('locationsDetailCtrl', function($scope, locationService, designSe
   $scope.getCategoryName = function (index) {
     return designService.getNameForCategoryIndex(index);
   };
+
+  $scope.getSourceForIndex = function (index) {
+    var x = designService.getCategoryIconSourceForIndex(index);
+    return x;
+  }
 });
 
 
