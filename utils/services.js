@@ -85,11 +85,11 @@ app.service('locationService', function() {
       additionalAddress: "",
       postcode: "23441",
       city: "Hamburg",
-      // s.o.
-      waterDecision: 1,
-      paperDecision: 2
     },
-    categoryIndex: 3
+    categoryIndex: 3,
+    // s.o.
+    waterDecision: 1,
+    paperDecision: 2
   }];
 
   ls.getAllLocations = function() {
