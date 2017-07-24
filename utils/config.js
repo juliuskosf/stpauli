@@ -21,5 +21,6 @@ app.config(function($stateProvider, $mdThemingProvider) {
 
     .state('contacts', {templateUrl: 'pages/contacts/contacts.html'})
     .state('contacts-search-result', {templateUrl: 'pages/contacts/contacts-search-result.html'})
+    .state('contacts-create', {templateUrl: 'pages/contacts/contacts-create.html'})
     .state('contacts-detail', {templateUrl: 'pages/contacts/contacts-detail.html'});
 });

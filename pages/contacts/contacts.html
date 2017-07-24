@@ -5,6 +5,7 @@
     <input ng-model="searchString" placeholder="Suche"></input>
   </md-input-container>
   <md-button class="md-raised" ng-click="searchPressed()" ng-disabled="searchString.length === 0">Suchen</md-button>
+  <md-button class="md-raised" ui-sref="contacts-create" >Neu Anlegen</md-button>
   <div layout="row" layout-sm="column" layout-align="space-around">
     <md-progress-circular md-mode="indeterminate" ng-if="loading"></md-progress-circular>
   </div>
