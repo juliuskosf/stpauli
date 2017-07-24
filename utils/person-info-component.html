@@ -1,1 +1,44 @@
-Adress-Formular hier
+<div layout="column">
+  <div layout="row">
+    <md-input-container>
+      <input placeholder="Vorname" ng-model="contact.vorname">
+    </md-input-container>
+    <md-input-container>
+      <input placeholder="Name" ng-model="contact.name">
+    </md-input-container>
+  </div>
+  <div>
+    <md-input-container>
+      <input placeholder="Straße" ng-model="contact.address">
+    </md-input-container>
+  </div>
+  <div layout="row">
+    <md-input-container>
+      <input placeholder="PLZ" ng-model="contact.postcode">
+    </md-input-container>
+    <md-input-container>
+      <input placeholder="Stadt" ng-model="contact.city">
+    </md-input-container>
+  </div>
+  <md-divider></md-divider>
+  <md-input-container>
+    <input placeholder="E-Mail" ng-model="contact.email">
+  </md-input-container>
+  <div>
+    <md-input-container>
+      <input placeholder="Telefon" ng-model="contact.telefon">
+    </md-input-container>
+  </div>
+  <fieldset class="standard" layout="column">
+    <legend>Newsletter</legend>
+    <md-checkbox ng-model="newsletter.vca" class="md-warn">
+      Viva Con Agua
+    </md-checkbox>
+    <md-checkbox ng-model="newsletter.events"class="md-warn">
+      Events
+    </md-checkbox>
+  </fieldset>
+  <md-switch ng-model="stPauliFan" aria-label="stPauliFan" class="md-warn">
+    St. Pauli Fan
+  </md-switch>
+</div>

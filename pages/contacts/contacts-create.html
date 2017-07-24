@@ -1,5 +1,6 @@
-<div layout="column">
+<div layout="column" ng-cloak ng-controller="contactsCreateCtrl">
   <person-info-form>
   </person-info-form>
+  <md-button class="md-raised md-warn" ng-click="createPressed()">Anlegen</md-button>
   <md-button class="md-raised md-primary" ui-sref="contacts">Zurück</md-button>
 </div>

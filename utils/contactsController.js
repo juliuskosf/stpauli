@@ -38,3 +38,9 @@ app.controller('contactDetailCtrl', function($state, $scope, contactService) {
 
   $scope.selectedContact = contactService.getSelectedContact();
 });
+
+app.controller('contactsCreateCtrl', function($scope) {
+  $scope.createPressed = function() {
+
+  };
+});
