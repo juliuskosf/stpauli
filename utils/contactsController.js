@@ -41,6 +41,10 @@ app.controller('contactDetailCtrl', function($state, $scope, contactService) {
 
 app.controller('contactsCreateCtrl', function($scope) {
   $scope.createPressed = function() {
-
+    // $scope.newContact contains the binded values of all fields from the person-info-component
+    // just get it from $scope.newContact
+    // that's data binding ;)
+    console.log($scope.newContact);
   };
+
 });

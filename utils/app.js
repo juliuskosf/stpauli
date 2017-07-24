@@ -36,7 +36,7 @@ app.directive('personInfoForm', function() {
       nameModel: '=',
       vornameModel: '=',
       streetModel: '=',
-      postCodeModel: '=',
+      postcodeModel: '=',
       cityModel: '=',
       emailModel: '=',
       telefonModel: '=',

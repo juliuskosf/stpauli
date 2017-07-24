@@ -160,21 +160,42 @@ app.service('contactService', function() {
       vorname: "Hans",
       name: "Peter",
       job: "Bauer",
-      source: "sources/mock/ansprechpartnerBilder/bauer.jpg"
+      source: "sources/mock/ansprechpartnerBilder/bauer.jpg",
+      address: {
+        street: "Landstraße 1",
+        postCode: "55112",
+        city: "Frankfurt"
+      },
+      email: "hans.peter@bauernhof.de",
+      telefon: "016376338911"
     },
     {
       id: 1,
       vorname: "Guido",
       name: "Hip",
       job: "Barkeeper",
-      source: "sources/mock/ansprechpartnerBilder/hipster.jpg"
+      source: "sources/mock/ansprechpartnerBilder/hipster.jpg",
+      address: {
+        street: "Schloßstraße 763",
+        postCode: "11123",
+        city: "Berlin"
+      },
+      email: "gh@gmx.de",
+      telefon: "015156123901"
     },
     {
       id: 2,
       vorname: "Hubert",
       name: "Schmitz",
       job: "Filialleiter EDEKA",
-      source: "sources/mock/ansprechpartnerBilder/filialleiter.jpg"
+      source: "sources/mock/ansprechpartnerBilder/filialleiter.jpg",
+      address: {
+        street: "Kaiserstraße 6",
+        postCode: "76133",
+        city: "Karlsruhe"
+      },
+      email: "hubert.schmitz@edeka.de",
+      telefon: "017233351321"
     }
   ];
 

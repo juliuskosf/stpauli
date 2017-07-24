@@ -16,10 +16,13 @@
       <person-info-form
         name-model="selectedContact.name"
         vorname-model="selectedContact.vorname"
-        street-model="selectedContact.street"
-        city-model="selectedContact.city"
-        post-code-model="selectedContact.postCode">
+        street-model="selectedContact.address.street"
+        city-model="selectedContact.address.city"
+        postcode-model="selectedContact.address.postCode"
+        email-model="selectedContact.email"
+        telefon-model="selectedContact.telefon">
       </person-info-form>
+      <md-button class="md-rasied">Änderungen speichern</md-button>
     </md-tab>
     <md-tab label="Kontakt">
       <md-content class="md-padding">
