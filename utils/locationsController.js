@@ -299,3 +299,34 @@ app.controller('SummaryController', function($scope, locationService) {
     return locationService.getTextForInterestDecisionCode(decisionCode);
   }
 });
+
+
+
+
+
+
+
+
+
+app.controller('locationsDetailCtrl', function($scope, locationService) {
+  $scope.selectedLocation = locationService.getSelectedLocation();
+});
+
+
+
+
+
+
+
+
+
+
+
+app.controller('locationSearchController', function($scope, locationService, $state) {
+  $scope.itemPressed = function(id) {
+    locationService.setSelectedLocation(id);
+    $state.go('locations-detail');
+  };
+
+  $scope.locations = locationService.getAllLocations();
+});

@@ -62,6 +62,34 @@ app.service('locationService', function() {
     ];
   };
 
+
+  ls.locations = [{
+      name: "Die Schenke",
+      id: 0,
+      address: {
+        city: "Essen"
+      }
+  },
+  {
+    name: "Henriks",
+    id: 1,
+    address: {
+      city: "Hamburg"
+    }
+  }];
+
+  ls.getAllLocations = function() {
+    return ls.locations;
+  };
+
+  ls.setSelectedLocation = function(id) {
+    ls.selectedLocation = ls.locations[id];
+  };
+
+  ls.getSelectedLocation = function () {
+    return ls.selectedLocation;
+  };
+
   ls.setAddress = function(address) {
     ls.oLocation.address = address
   };
