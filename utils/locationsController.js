@@ -144,19 +144,25 @@ app.controller('LocationInformationCtrl', function($scope, $state, $mdToast, $ti
     }
 
     function showPosition(oData) {
-      $scope.geoAddress = oData.results[0];
+      saveAddress(oData.results[0]);
       var confirm = $mdDialog.confirm()
         .title('Diese Adresse für ' + $scope.locationName + ' hinzufügen?')
         .textContent(oData.results[0].formatted_address)
         .ariaLabel('Bestätigung')
         .targetEvent(event)
         .ok('Ja!')
-        .cancel('Abbrechen');
+        .cancel('Bearbeiten');
       $mdDialog.show(confirm).then(function() {
         $state.go('locations-water-decision');
       }, function() {
-        locationService.setAddress({});
+        saveAddress(oData.results[0]);
+        $state.go('locations-manual-adress');
       });
+    }
+
+    function saveAddress(address) {
+      address = locationService.convertGoogleAddressToObjectAddress(address.address_components);
+      locationService.setAddress(address);
     }
 
     $scope.$watch('geoAddress', function() {
@@ -201,19 +207,6 @@ app.controller('ManualAdressCtrl', function ($scope, $state, $mdDialog, location
 
     $scope.address = locationService.oLocation.address || {};
 
-    $scope.$watch('address.street', function() {
-          locationService.setAddress($scope.address);
-    });
-    $scope.$watch('address.additionalAddress', function() {
-          locationService.setAddress($scope.address);
-    });
-    $scope.$watch('address.postcode', function() {
-          locationService.setAddress($scope.address);
-    });
-    $scope.$watch('address.city', function() {
-          locationService.setAddress($scope.address);
-    });
-
     $scope.showConfirm = function(event) {
       var confirm = $mdDialog.confirm()
         .title('Ist das wirklich die Lokation?')
@@ -224,11 +217,15 @@ app.controller('ManualAdressCtrl', function ($scope, $state, $mdDialog, location
         .cancel('Ändern');
 
       $mdDialog.show(confirm).then(function() {
+        locationService.setAddress($scope.address);
         $state.go('locations-water-decision');
-      }, function() {
-
       });
-    }
+    };
+
+    $scope.deletePressed = function() {
+      $scope.address = {};
+      locationService.setAddress({});
+    };
 });
 
 

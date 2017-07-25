@@ -2,10 +2,6 @@
   <h3 style="color: blue;">{{locationName}}</h3>
   <!-- Small icon with category or something similiar -->
   <h3>Adresse</h3>
-  <p ng-if="address.address.length !== 0" class="createAddressHeader">{{address.address}}</p>
-  <p ng-if="address.additionalAddress.length !== 0" class="createAddressHeader">{{address.address2}}</p>
-  <p ng-if="address.postcode.length !== 0" class="createAddressHeader">{{address.postcode}}</p>
-  <p ng-if="address.city.length !== 0" class="createAddressHeader">{{address.city}}</p>
   <location-info-form
     form-name="manualAddressForm"
     street-model="address.address"
@@ -13,10 +9,13 @@
     postcode-model="address.postcode"
     city-model="address.city">
   </location-info-form>
-  <md-button class="md-primary md-raised" ui-sref="locations-create-information">
-    Zurück
+  <md-button class="md-warn md-raised" ng-click="deletePressed()">
+    Löschen
   </md-button>
   <md-button class="md-raised" ng-click="showConfirm($event)" ng-disabled="manualAddressForm.$invalid">
     Go on!
+  </md-button>
+  <md-button class="md-primary md-raised" ui-sref="locations-create-information">
+    Zurück
   </md-button>
 </div>

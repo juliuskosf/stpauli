@@ -113,7 +113,7 @@ app.service('locationService', function() {
       address = {
         address: address_components[1].long_name + ' ' + address_components[0].long_name,
         additionalAddress: "",
-        postcode: address_components[7].long_name,
+        postcode: parseInt(address_components[7].long_name),
         city: address_components[5].long_name
       }
     }
