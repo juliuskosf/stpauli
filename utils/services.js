@@ -100,12 +100,13 @@ app.service('locationService', function() {
   };
 
   ls.setSelectedLocation = function(id) {
-    parseInt(ls.selectedLocation.address.postcode); // temporary work around!
-    // we will face this problem later depending on how the backend field looks like
     ls.selectedLocation = ls.locations[id];
   };
 
   ls.getSelectedLocation = function () {
+    ls.selectedLocation.address.postcode =
+      parseInt(ls.selectedLocation.address.postcode); // temporary work around!
+    // we will face this problem later depending on how the backend field looks like
     return ls.selectedLocation;
   };
 
