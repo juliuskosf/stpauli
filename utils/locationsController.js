@@ -66,7 +66,7 @@ app.controller('ToiletPaperDecisionCtrl', function($scope, $state, locationServi
 
 
 
-app.controller('LocationInformationCtrl', function($scope, $state, $timeout, $mdDialog, locationService, designService) {
+app.controller('LocationInformationCtrl', function($scope, $state, $mdToast, $timeout, $mdDialog, locationService, designService) {
   $scope.locationName = locationService.getLocationName() || "";
 
   //test implementation
@@ -80,48 +80,83 @@ app.controller('LocationInformationCtrl', function($scope, $state, $timeout, $md
 
     function getLocation() {
       $scope.loading = true;
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition, errorHandler, {timeout: 7000});
-        } else {
-          console.log("Error");
-        }
+
+      if (navigator.geolocation) {
+        // Get position using geolocation api
+        navigator.geolocation.getCurrentPosition(successHandler, errorHandlerGeo, {timeout: 7000});
+      } else {
+        errorHandler();
+      }
     }
 
-    function errorHandler() {
-      console.log("error");
-    }
-
-    function showPosition(position) { //async handler of geolocation
-      // disable the animation when located
-      $scope.loading = false;
-
-      // instantiate url + new request()
-      var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&key=AIzaSyD2122kKcLcNKWAApGcKOmzoTqWXW4hznY"
+    // some error in Geolocating
+    function errorHandlerGeo() {
+      console.log("Using Google API!");
+      // use google api
+      var url = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCegJ74_T3HkjEpaLthv92YTG3xZpjG7bs";
 
       $.ajax({
         dataType: "json",
         url: url,
         data: "",
-        success: successHandler,
+        success: showPosition,
+        method: "POST",
         error: errorHandler
       });
+    }
 
-      function successHandler(oData) {
-        $scope.geoAddress = oData.results[0];
-        var confirm = $mdDialog.confirm()
-          .title('Diese Adresse für ' + $scope.locationName + ' hinzufügen?')
-          .textContent(oData.results[0].formatted_address)
-          .ariaLabel('Bestätigung')
-          .targetEvent(event)
-          .ok('Ja!')
-          .cancel('Abbrechen');
-        $mdDialog.show(confirm).then(function() {
-          $state.go('locations-water-decision');
-        }, function() {
-          locationService.setAddress({});
-        });
+    function errorHandler() {
+      $scope.loading = false;
+      $mdToast.show(
+        $mdToast.simple()
+          .textContent('Unable to find you!')
+          .hideDelay(3000)
+      );
+      console.log("error");
+    }
+
+    function successHandler(position) {
+      var lat, lng;
+
+      $scope.loading = false;
+
+      if (position.location && position.location) {
+        lat = position.location.lat;
+        lng = position.location.lng;
+      } else if (position.coords && position.coords) {
+        lat = position.coords.latitude;
+        lng = position.coords.longitude;
+      } else {
+        errorHandler();
       }
 
+      if (lat && lng) {
+        var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lng + "&key=AIzaSyD2122kKcLcNKWAApGcKOmzoTqWXW4hznY"
+
+        $.ajax({
+          dataType: "json",
+          url: url,
+          data: "",
+          success: showPosition,
+          error: errorHandler
+        });
+      }
+    }
+
+    function showPosition(oData) {
+      $scope.geoAddress = oData.results[0];
+      var confirm = $mdDialog.confirm()
+        .title('Diese Adresse für ' + $scope.locationName + ' hinzufügen?')
+        .textContent(oData.results[0].formatted_address)
+        .ariaLabel('Bestätigung')
+        .targetEvent(event)
+        .ok('Ja!')
+        .cancel('Abbrechen');
+      $mdDialog.show(confirm).then(function() {
+        $state.go('locations-water-decision');
+      }, function() {
+        locationService.setAddress({});
+      });
     }
 
     $scope.$watch('geoAddress', function() {
