@@ -61,3 +61,15 @@ app.directive('locationInfoForm', function() {
   }
 
 });
+
+app.directive('supportComponent', function() {
+  return {
+    restrict: 'AE',
+    scope: {
+      interestReasons: '=',
+      noInterestReasons: '=',
+      decisionValueModel: '='
+    },
+    templateUrl: 'utils/support-component.html'
+  }
+})
