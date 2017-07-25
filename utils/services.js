@@ -72,10 +72,11 @@ app.service('locationService', function() {
         postcode: "45219",
         city: "Essen"
       },
+      partners: [0],
       categoryIndex: 0,
       // adapt to right format!!
       waterDecision: 1,
-      paperDecision: 2
+      paperDecision: 0
   },
   {
     name: "Henriks",
@@ -86,10 +87,26 @@ app.service('locationService', function() {
       postcode: "23441",
       city: "Hamburg",
     },
+    partners: [1],
     categoryIndex: 3,
     // s.o.
     waterDecision: 1,
     paperDecision: 2
+  },
+  {
+    name: "Edeka",
+    id: 2,
+    address: {
+      street: "Kaiserstraße 15",
+      additionalAddress: "",
+      postcode: "76133",
+      city: "Karlsruhe",
+    },
+    partners: [2],
+    categoryIndex: 4,
+    // s.o.
+    waterDecision: 1,
+    paperDecision: 1
   }];
 
   ls.getAllLocations = function() {

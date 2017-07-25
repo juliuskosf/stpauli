@@ -345,7 +345,7 @@ app.controller('SummaryController', function($scope, locationService) {
 
 
 
-app.controller('locationsDetailCtrl', function($scope, locationService, designService) {
+app.controller('locationsDetailCtrl', function($scope, locationService, designService, contactService) {
   $scope.selectedLocation = locationService.getSelectedLocation();
 
   $scope.waterDecision = $scope.selectedLocation.waterDecision;
@@ -358,6 +358,19 @@ app.controller('locationsDetailCtrl', function($scope, locationService, designSe
   $scope.interestReasons = locationService.getInterestReasons();
 
   $scope.noInterestReasons = locationService.getNoInterestReasons();
+
+  $scope.contacts = getContactsOfLocation();
+
+  function getContactsOfLocation() {
+    // just for mockup! we will use ids to match or something simuliar
+    var indexes = $scope.selectedLocation.partners;
+    var allPartners = contactService.getAllContacts();
+    var partners = [];
+    for (var i = 0; i < indexes.length; i++) {
+      partners.push(allPartners[indexes[i]]);
+    }
+    return partners;
+  }
 
   $scope.getSourceForIndex = function (index) {
     var x = designService.getCategoryIconSourceForIndex(index);

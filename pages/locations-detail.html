@@ -24,7 +24,15 @@
     </md-tab>
     <md-tab label="Ansprechpartner">
       <md-content class="md-padding">
-        Liste der Ansprechpartner
+        <md-list flex>
+          <md-list-item ng-repeat="contact in contacts" class="md-2-line">
+            <img ng-src="{{contact.source}}" class="md-avatar" />
+            <div class="md-list-item-text" layout="column">
+              <h3>{{ contact.vorname + ' ' + contact.name }}</h3>
+              <p>{{ contact.job }}</p>
+            </div>
+          </md-list-item>
+        </md-list>
       </md-content>
     </md-tab>
     <md-tab label="Support">
