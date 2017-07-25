@@ -6,22 +6,13 @@
   <p ng-if="address.additionalAddress.length !== 0" class="createAddressHeader">{{address.address2}}</p>
   <p ng-if="address.postcode.length !== 0" class="createAddressHeader">{{address.postcode}}</p>
   <p ng-if="address.city.length !== 0" class="createAddressHeader">{{address.city}}</p>
-  <form name="manualAddressForm">
-    <md-input-container>
-      <input ng-model="address.address" placeholder="Adresse" required/>
-    </md-input-container>
-    <md-input-container>
-      <input ng-model="address.additionalAddress" placeholder="Adresszeile 2"/>
-    </md-input-container>
-    <div layout="row">
-      <md-input-container>
-        <input type="number" maxlength="5" minlength="4" ng-model="address.postcode" placeholder="PLZ" required>
-      </md-input-container>
-      <md-input-container>
-        <input ng-model="address.city" placeholder="Stadt" required>
-      </md-input-container>
-    </div>
-  </form>
+  <location-info-form
+    form-name="manualAddressForm"
+    street-model="address.address"
+    additionaladdress-model="address.additionalAddress"
+    postcode-model="address.postcode"
+    city-model="address.city">
+  </location-info-form>
   <md-button class="md-primary md-raised" ui-sref="locations-create-information">
     Zurück
   </md-button>

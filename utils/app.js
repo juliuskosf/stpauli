@@ -55,7 +55,8 @@ app.directive('locationInfoForm', function() {
       streetModel: '=',
       postcodeModel: '=',
       additionaladdressModel: '=',
-      cityModel: '='
+      cityModel: '=',
+      formName: '='
     },
     templateUrl: 'utils/location-info-component.html'
   }

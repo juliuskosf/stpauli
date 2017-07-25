@@ -201,7 +201,7 @@ app.controller('ManualAdressCtrl', function ($scope, $state, $mdDialog, location
 
     $scope.address = locationService.oLocation.address || {};
 
-    $scope.$watch('address.address', function() {
+    $scope.$watch('address.street', function() {
           locationService.setAddress($scope.address);
     });
     $scope.$watch('address.additionalAddress', function() {

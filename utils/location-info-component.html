@@ -1,18 +1,20 @@
 <div layout="column">
-  <div layout="row">
-    <md-input-container>
-      <input placeholder="Straße" ng-model="streetModel">
-    </md-input-container>
-    <md-input-container>
-      <input placeholder="Adresszusatz" ng-model="additionaladdressModel">
-    </md-input-container>
-  </div>
-  <div layout="row">
-    <md-input-container>
-      <input placeholder="PLZ" ng-model="postcodeModel">
-    </md-input-container>
-    <md-input-container>
-      <input placeholder="Stadt" ng-model="cityModel">
-    </md-input-container>
-  </div>
+  <form name="formName">
+    <div layout="row">
+      <md-input-container>
+        <input placeholder="Straße" ng-model="streetModel" required>
+      </md-input-container>
+      <md-input-container>
+        <input placeholder="Adresszusatz" ng-model="additionaladdressModel">
+      </md-input-container>
+    </div>
+    <div layout="row">
+      <md-input-container>
+        <input type="number" maxlength="5" minlength="4" placeholder="PLZ" ng-model="postcodeModel" required>
+      </md-input-container>
+      <md-input-container>
+        <input placeholder="Stadt" ng-model="cityModel" required>
+      </md-input-container>
+    </div>
+  </form>
 </div>
