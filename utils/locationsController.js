@@ -208,6 +208,7 @@ app.controller('ManualAdressCtrl', function ($scope, $state, $mdDialog, location
     $scope.address = locationService.oLocation.address || {};
 
     $scope.showConfirm = function(event) {
+      locationService.setAddress($scope.address); // next command uses it so assign it here!
       var confirm = $mdDialog.confirm()
         .title('Ist das wirklich die Lokation?')
         .textContent(locationService.addressToString())
@@ -217,7 +218,6 @@ app.controller('ManualAdressCtrl', function ($scope, $state, $mdDialog, location
         .cancel('Ändern');
 
       $mdDialog.show(confirm).then(function() {
-        locationService.setAddress($scope.address);
         $state.go('locations-water-decision');
       });
     };

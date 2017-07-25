@@ -93,10 +93,15 @@ app.service('locationService', function() {
   }];
 
   ls.getAllLocations = function() {
+    for (var i = 0; i < ls.locations.length; i++) {
+      parseInt(ls.locations[i].address.postcode);
+    }
     return ls.locations;
   };
 
   ls.setSelectedLocation = function(id) {
+    parseInt(ls.selectedLocation.address.postcode); // temporary work around!
+    // we will face this problem later depending on how the backend field looks like
     ls.selectedLocation = ls.locations[id];
   };
 
@@ -106,6 +111,7 @@ app.service('locationService', function() {
 
   ls.setAddress = function(address) {
     ls.oLocation.address = address
+    parseInt(ls.oLocation.address.postcode);
   };
 
   ls.convertGoogleAddressToObjectAddress = function(address_components) {
