@@ -81,10 +81,14 @@ app.controller('LocationInformationCtrl', function($scope, $state, $timeout, $md
     function getLocation() {
       $scope.loading = true;
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
+            navigator.geolocation.getCurrentPosition(showPosition, errorHandler, {timeout: 7000});
         } else {
           console.log("Error");
         }
+    }
+
+    function errorHandler() {
+      console.log("error");
     }
 
     function showPosition(position) { //async handler of geolocation
@@ -98,7 +102,8 @@ app.controller('LocationInformationCtrl', function($scope, $state, $timeout, $md
         dataType: "json",
         url: url,
         data: "",
-        success: successHandler
+        success: successHandler,
+        error: errorHandler
       });
 
       function successHandler(oData) {
