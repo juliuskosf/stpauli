@@ -55,6 +55,7 @@ app.directive('communicationHistory', function() {
   return {
     restrict: 'AE',
     scope: {
+      conversations: '='
     },
     templateUrl: 'directives/communication-history-component.html'
   };

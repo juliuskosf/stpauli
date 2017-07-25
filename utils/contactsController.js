@@ -29,6 +29,34 @@ app.controller('contactDetailCtrl', function($state, $scope, contactService) {
     createdOn: "10.07.2017"
   }];
 
+  $scope.conversations = [{
+    type: 'mail',
+    info: 'Angebot bestätigt',
+    createdOn: '01.05.2017',
+    author: 'Benedikt',
+    src: 'sources/img/icons/mail.svg'
+  },
+  {
+    type: 'note',
+    info: 'Hat Interesse',
+    author: 'Ansgar',
+    createdOn: '20.03.2017',
+    src: 'sources/img/icons/note.svg'
+  },
+  {
+    type: 'call',
+    info: '',
+    author: 'Tim',
+    createdOn: '18.03.2017',
+    src: 'sources/img/icons/call.svg'
+  },
+  {
+    type: 'mail',
+    info: 'Initiale Akquise',
+    author: 'Benedikt',
+    createdOn: '15.03.2017',
+    src: 'sources/img/icons/mail.svg'
+  }];
 
   $scope.backPressed = function() {
     contactService.clearSelectedContact();
