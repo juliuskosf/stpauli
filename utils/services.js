@@ -75,8 +75,12 @@ app.service('locationService', function() {
       partners: [0],
       categoryIndex: 0,
       // adapt to right format!!
-      waterDecision: 1,
-      paperDecision: 0
+      waterDecision: {
+        decisionCode: 1
+      },
+      paperDecision: {
+        decisionCode: 0
+      }
   },
   {
     name: "Henriks",
@@ -90,8 +94,12 @@ app.service('locationService', function() {
     partners: [1],
     categoryIndex: 3,
     // s.o.
-    waterDecision: 1,
-    paperDecision: 2
+    waterDecision: {
+      decisionCode: 1
+    },
+    paperDecision: {
+      decisionCode: 2
+    }
   },
   {
     name: "Edeka",
@@ -105,8 +113,12 @@ app.service('locationService', function() {
     partners: [2],
     categoryIndex: 4,
     // s.o.
-    waterDecision: 1,
-    paperDecision: 1
+    waterDecision: {
+      decisionCode: 1
+    },
+    paperDecision: {
+      decisionCode: 1
+    }
   }];
 
   ls.getAllLocations = function() {
@@ -135,7 +147,7 @@ app.service('locationService', function() {
   ls.convertGoogleAddressToObjectAddress = function(address_components) {
     if (address_components.length === 8) {
       address = {
-        address: address_components[1].long_name + ' ' + address_components[0].long_name,
+        street: address_components[1].long_name + ' ' + address_components[0].long_name,
         additionalAddress: "",
         postcode: parseInt(address_components[7].long_name),
         city: address_components[5].long_name
@@ -161,7 +173,7 @@ app.service('locationService', function() {
 
   ls.addressToString = function() {
     if (ls.oLocation.address.additionalAddress) {
-      return ls.oLocation.address.address + ' ' +
+      return ls.oLocation.address.street + ' ' +
         ls.oLocation.address.additionalAddress + ' ' +
         ls.oLocation.address.postcode + ' ' +
         ls.oLocation.address.city;
