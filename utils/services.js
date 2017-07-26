@@ -178,7 +178,7 @@ app.service('locationService', function() {
         ls.oLocation.address.postcode + ' ' +
         ls.oLocation.address.city;
     } else {
-      return ls.oLocation.address.address + ' ' +
+      return ls.oLocation.address.street + ' ' +
         ls.oLocation.address.postcode + ' ' +
         ls.oLocation.address.city;
     }
