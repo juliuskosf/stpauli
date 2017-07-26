@@ -16,7 +16,8 @@ app.directive('personInfoForm', function() {
       cityModel: '=',
       emailModel: '=',
       telefonModel: '=',
-      stpauliModel: '='
+      stpauliModel: '=',
+      jobModel: '='
     },
     templateUrl: 'directives/person-info-component.html'
   }

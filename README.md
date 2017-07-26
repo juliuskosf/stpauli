@@ -46,16 +46,16 @@ TBD
 TBD
 
 ## Routing
-For routing the app uses UI-Routing from AngularJS UI. In contrast to the routing concept of AngularJS, it is state based and not URL based.
+For routing, the app uses UI-Routing from AngularJS UI. In contrast to the routing concept of AngularJS, it is state based and not URL based. Check the following article
 
 ## Working with custom directives
 See [this](https://github.com/Viva-con-Agua/barcheck/commit/d279760a3f269ec2b6834eda5842398ec40307ae) commit to get an idea of how to modularize your code to delete duplicates.
 
 ## Helpful links and ressources
-[Deployment link](https://vivaconagua-acb28be61.dispatcher.hana.ondemand.com/?hc_reset) on SAP Cloud Platform
-[AnglarJS Material](https://material.angularjs.org/latest/)
-[Material Design Icons](https://material.io/icons/#ic_mail)
+- [Deployment link](https://vivaconagua-acb28be61.dispatcher.hana.ondemand.com/?hc_reset) on SAP Cloud Platform
+- [AnglarJS Material](https://material.angularjs.org/latest/)
+- [Material Design Icons](https://material.io/icons/#ic_mail)
 
 ## Q&A
-**My changes are not applied after saving and reloading..?**
+- **My changes are not applied after saving and reloading..?**
 Empty the cache ([help](https://www.technipages.com/google-chrome-clear-cache)).
