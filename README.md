@@ -4,9 +4,10 @@ The implementation is based on AngularJS and further Web-Development Frameworks 
 AngularJS is a Framework to design Single-Page-Applications. Get basic information about AngularJS [here](https://angularjs.org/).
 
 ## Used Frameworks (beside basic AngularJS)
-TBD
+- AngularJS Material
+- jQuery
 
-## Development
+## Development Setup
 For continuing the development you could either use local development with an editor of your choice or SAP's Web IDE.
 
 ### Local
@@ -34,7 +35,27 @@ To get a basic knowledge of the idea of services, check out [this](https://docs.
 
 ### Design Service
 TBD
+
 ### Location Service
 TBD
+
+### Progress Service
+TBD
+
+### Contacts Service
+TBD
+
 ## Routing
 For routing the app uses UI-Routing from AngularJS UI. In contrast to the routing concept of AngularJS, it is state based and not URL based.
+
+## Working with custom directives
+See [this](https://github.com/Viva-con-Agua/barcheck/commit/d279760a3f269ec2b6834eda5842398ec40307ae) commit to get an idea of how to modularize your code to delete duplicates.
+
+## Helpful links and ressources
+[Deployment link](https://vivaconagua-acb28be61.dispatcher.hana.ondemand.com/?hc_reset) on SAP Cloud Platform
+[AnglarJS Material](https://material.angularjs.org/latest/)
+[Material Design Icons](https://material.io/icons/#ic_mail)
+
+## Q&A
+**My changes are not applied after saving and reloading..?**
+Empty the cache ([help](https://www.technipages.com/google-chrome-clear-cache)).
