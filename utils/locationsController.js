@@ -91,18 +91,27 @@ app.controller('LocationInformationCtrl', function($scope, $state, $mdToast, $ti
 
     // some error in Geolocating
     function errorHandlerGeo() {
-      console.log("Using Google API!");
-      // use google api
-      var url = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCegJ74_T3HkjEpaLthv92YTG3xZpjG7bs";
+      if ($scope.loading == true) {
+        console.log("Using Google API!");
+        // use google api
+        var url = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCegJ74_T3HkjEpaLthv92YTG3xZpjG7bs";
 
-      $.ajax({
-        dataType: "json",
-        url: url,
-        data: "",
-        success: showPosition,
-        method: "POST",
-        error: errorHandler
-      });
+        $.ajax({
+          dataType: "json",
+          url: url,
+          data: "",
+          success: successHandler,
+          method: "POST",
+          error: errorHandler
+        });
+      } else {
+        // navigator.geolocation API acts stupid...!
+        // errorHandler of navigator.geolocation triggers twice ...
+        // we need to analyse this behavior
+        // see the stack overflow question below as a reference:
+        // https://stackoverflow.com/questions/9738167/issue-with-geolocation-timeout-callback-firing-whether-response-received-or-not/9740300#9740300
+        console.log("Triggered twice");
+      }
     }
 
     function errorHandler() {
@@ -164,14 +173,6 @@ app.controller('LocationInformationCtrl', function($scope, $state, $mdToast, $ti
       address = locationService.convertGoogleAddressToObjectAddress(address.address_components);
       locationService.setAddress(address);
     }
-
-    $scope.$watch('geoAddress', function() {
-      if ($scope.geoAddress) {
-        var address = $scope.geoAddress; // read frome scope
-        address = locationService.convertGoogleAddressToObjectAddress(address.address_components);
-        locationService.setAddress(address);
-      }
-    });
 
     getLocation();
 
