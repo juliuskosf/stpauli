@@ -1,7 +1,10 @@
 describe('angularjs homepage todo list', function() {
-  it('should add a todo', function() {
+  it('Open menu', function() {
     browser.get('http://localhost:8080');
+    browser.ignoreSynchronization = true;
     element(by.name('menu')).click();
+    browser.sleep(3000);
+    element(by.name('presentation')).click();
     browser.sleep(3000);
 /*
     element(by.model('todoList.todoText')).sendKeys('write first protractor test');
