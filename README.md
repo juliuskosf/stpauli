@@ -31,7 +31,24 @@ The app will be available via localhost:8080
 3. Edit / Run the App (-> No webserver specification required, because the Web-IDE provides one for the runtime of the app)
 
 ## Testing
-TBD
+Testing is very important! ;) We use [Protractor](http://www.protractortest.org/#/) for testing. The Protractor tests do not replace Unit Testing!
+![](https://cambridge-intelligence.com/wp-content/uploads/2014/08/protractor-logo-large.png)
+
+### Initial local Setup
+1. Get Protractor from npm.js by the following command:
+```
+npm install -g protractor
+```
+2. Run the tests:
+```
+protractor testing.js
+```
+3. See the command line output for results
+
+4. Run the test everytime you are about to commit.
+
+### Writing Tests
+See the Protractor API reference for the syntax. The test-spec.js file contains the most important commands.
 
 ## Services
 To get a basic knowledge of the idea of services, check out [this](https://docs.angularjs.org/guide/services) page.
