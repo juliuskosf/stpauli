@@ -1,5 +1,8 @@
-app.config(function($stateProvider, $mdThemingProvider) {
-
+app.config(function($stateProvider, $mdThemingProvider, uiGmapGoogleMapApiProvider) {
+uiGmapGoogleMapApiProvider.configure({
+        key: 'AIzaSyAzzmCZNBcEjUJjWhaUl-PAZK7lcJs9HxE'
+    });
+    
   $stateProvider
     .state('home', {templateUrl: 'home.html'})
     .state('presentation', {templateUrl: 'pages/presentation.html'})

@@ -1,6 +1,7 @@
 var app = angular.module('VivaConAgua', [
     'ngMaterial',
-    'ui.router'
+    'ui.router',
+    'uiGmapgoogle-maps'
 ]);
 
 app.controller('MainController', function ($scope, $timeout, $mdSidenav, locationService, $rootScope, progressService) {
