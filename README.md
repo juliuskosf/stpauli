@@ -3,6 +3,9 @@ This small wiki contains everything important to jump into development.
 The implementation is based on AngularJS and further Web-Development Frameworks (see list below)
 AngularJS is a Framework to design Single-Page-Applications. Get basic information about AngularJS [here](https://angularjs.org/).
 
+## Stable / Presentation Version
+There is a stable version for presentations that contains some mock up feature for the presentation purpose. You can find the deployment link [here](https://barcheckshow-acb28be61.dispatcher.hana.ondemand.com/?hc_reset).
+
 ## Used Frameworks (beside basic AngularJS)
 - AngularJS Material
 - jQuery
