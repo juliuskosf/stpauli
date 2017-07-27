@@ -39,13 +39,17 @@ Testing is very important! ;) We use [Protractor](http://www.protractortest.org/
 ```
 npm install -g protractor
 ```
-2. Run the tests:
+2. Get binaries for webserver:
+```
+webdriver-manager update
+```
+3. Run the tests:
 ```
 protractor testing.js
 ```
-3. See the command line output for results
+4. See the command line output for results
 
-4. Run the test everytime you are about to commit.
+5. Run the test everytime you are about to commit.
 
 ### Writing Tests
 See the Protractor API reference for the syntax. The test-spec.js file contains the most important commands.

@@ -1,7 +1,9 @@
 describe('angularjs homepage todo list', function() {
   it('should add a todo', function() {
-    browser.get('https://angularjs.org');
-
+    browser.get('http://localhost:8080');
+    element(by.name('menu')).click();
+    browser.sleep(3000);
+/*
     element(by.model('todoList.todoText')).sendKeys('write first protractor test');
     element(by.css('[value="add"]')).click();
 
@@ -12,6 +14,6 @@ describe('angularjs homepage todo list', function() {
     // You wrote your first test, cross it off the list
     todoList.get(2).element(by.css('input')).click();
     var completedAmount = element.all(by.css('.done-true'));
-    expect(completedAmount.count()).toEqual(2);
+    expect(completedAmount.count()).toEqual(2); */
   });
 });
