@@ -1,5 +1,5 @@
 app.controller('HomeLocationCtrl', function($scope, $mdToast) {
-  $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+  $scope.map = { center: { latitude: 53.551086, longitude: 9.993682 }, zoom: 15 };
   
   $scope.confirmAddress = function() {
 
