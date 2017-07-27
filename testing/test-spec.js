@@ -4,8 +4,10 @@ describe('angularjs homepage todo list', function() {
     browser.ignoreSynchronization = true;
     element(by.name('menu')).click();
     browser.sleep(3000);
-    element(by.name('presentation')).click();
-    browser.sleep(3000);
+    element(by.name('locations')).click();
+    browser.sleep(7000);
+    element(by.name('locationsSearch')).click();
+    browser.sleep(7000);
 /*
     element(by.model('todoList.todoText')).sendKeys('write first protractor test');
     element(by.css('[value="add"]')).click();
