@@ -5,8 +5,8 @@ uiGmapGoogleMapApiProvider.configure({
     
     	$mdThemingProvider.theme('default')
 		.primaryPalette('blue', {
-    		'default': '500', // by default use shade 400 from the pink palette for primary intentions
-    		'hue-1': '900' // use shade 100 for the <code>md-hue-1</code> class
+    		'default': '500' // by default use shade 400 from the pink palette for primary intentions
+    	//	'hue-1': '900' // use shade 100 for the <code>md-hue-1</code> class
     })
 	//	.accentPalette()
 		.warnPalette('yellow', {
