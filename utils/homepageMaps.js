@@ -1,6 +1,16 @@
 app.controller('HomeLocationCtrl', function($scope, $mdToast) {
   $scope.map = { center: { latitude: 53.551086, longitude: 9.993682 }, zoom: 15 };
   $scope.options = {scrollwheel: false};
+  $scope.marker = {
+      id: 0,
+      coords: {
+        latitude: 53.551086,
+        longitude: 9.993682 }
+  };
+   
+  $scope.options = {
+   		icon:"https://www.iflebenskunde.de/wp-content/uploads/2016/07/Viva-con-Agua.png"};
+  
   
   $scope.confirmAddress = function() {
 
