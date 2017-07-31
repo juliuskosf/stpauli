@@ -12,7 +12,9 @@ uiGmapGoogleMapApiProvider.configure({
 		.accentPalette('yellow', {
 			'default': 'A700'
 			})
-		.warnPalette('orange');
+		.warnPalette('red', {
+			'default': 'A700'
+		});
     
 
   $stateProvider
