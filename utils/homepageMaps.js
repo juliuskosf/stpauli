@@ -4,16 +4,11 @@ app.controller('HomeLocationCtrl', function($scope, $mdToast) {
   $scope.marker = {
       id: 0,
       coords: {
-<<<<<<< HEAD
         latitude: 53.551086,
         longitude: 9.993682 },
       options: {
         icon:'//developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
       }
-=======
-        latitude: 53.563384,
-        longitude: 9.991794 }
->>>>>>> a06c41e150a2845bc333f42a99eee13f706c0efb
   };
 
   $scope.options = {
