@@ -1,11 +1,11 @@
 app.controller('HomeLocationCtrl', function($scope, $mdToast) {
-  $scope.map = { center: { latitude: 53.551086, longitude: 9.993682 }, zoom: 15 };
+  $scope.map = { center: { latitude: 53.563384, longitude: 9.991794 }, zoom: 15 };
   $scope.options = {scrollwheel: false};
   $scope.marker = {
       id: 0,
       coords: {
-        latitude: 53.551086,
-        longitude: 9.993682 }
+        latitude: 53.563384,
+        longitude: 9.991794 }
   };
    
   $scope.options = {
