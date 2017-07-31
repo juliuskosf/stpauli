@@ -5,13 +5,15 @@ app.controller('HomeLocationCtrl', function($scope, $mdToast) {
       id: 0,
       coords: {
         latitude: 53.551086,
-        longitude: 9.993682 }
+        longitude: 9.993682 },
+      options: {
+        icon:'//developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+      }
   };
-   
+
   $scope.options = {
    		icon:"https://www.iflebenskunde.de/wp-content/uploads/2016/07/Viva-con-Agua.png"};
-  
-  
+
   $scope.confirmAddress = function() {
 
     function getLocation() {
