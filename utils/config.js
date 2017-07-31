@@ -8,11 +8,13 @@ uiGmapGoogleMapApiProvider.configure({
     		'default': '500' // by default use shade 400 from the pink palette for primary intentions
     	//	'hue-1': '900' // use shade 100 for the <code>md-hue-1</code> class
     })
-	//	.accentPalette()
-		.warnPalette('yellow', {
+		
+		.accentPalette('yellow', {
 			'default': 'A700'
-			});
+			})
+		.warnPalette('orange');
     
+
   $stateProvider
     .state('home', {templateUrl: 'home.html'})
     .state('presentation', {templateUrl: 'pages/presentation.html'})
