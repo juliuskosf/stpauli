@@ -4,7 +4,9 @@ var app = angular.module('VivaConAgua', [
     'uiGmapgoogle-maps'
 ]);
 
-app.controller('MainController', function ($scope, $timeout, $mdSidenav, locationService, $rootScope, progressService) {
+app.controller('MainController', function ($scope, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService) {
+
+    $state.go('home');
     $scope.toggleLeft = buildToggler('left');
 
     function buildToggler(componentId) {

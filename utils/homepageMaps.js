@@ -1,15 +1,28 @@
 app.controller('HomeLocationCtrl', function($scope, $mdToast) {
   $scope.map = { center: { latitude: 53.563384, longitude: 9.991794 }, zoom: 15 };
   $scope.options = {scrollwheel: false};
-  $scope.marker = {
-      id: 0,
-      coords: {
-        latitude: 53.563384,
-        longitude: 9.991794 },
-      options: {
-        icon:'//developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-      }
+
+  var _options = {
+    icon: {
+        url: 'https://www.iflebenskunde.de/wp-content/uploads/2016/07/Viva-con-Agua.png',
+        scaledSize: new google.maps.Size(80, 55)
+    }
   };
+
+  $scope.markers = [{
+    id: 0,
+    coords: {
+      latitude: 53.563385,
+      longitude: 9.990634 },
+    options: _options
+  },
+  {
+    id: 1,
+    coords: {
+      latitude: 53.566519,
+      longitude: 9.991254 },
+    options: _options
+  }];
 
   $scope.confirmAddress = function() {
 
