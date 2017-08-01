@@ -72,15 +72,26 @@ protractor testing.js
 ### Writing Tests
 See the Protractor API reference for the syntax. The test-spec.js file contains the most important commands.
 
+## Working with custom directives
+See [this](https://github.com/Viva-con-Agua/barcheck/commit/d279760a3f269ec2b6834eda5842398ec40307ae) commit to get an idea of how to modularize your code to delete duplicates.
+
 ## Structure and Routing
 For routing, the app uses UI-Routing from AngularJS UI. In contrast to the routing concept of AngularJS, it is state based and not URL based. Check the following [article](https://ui-router.github.io/ng1/)
 
 ### Base structure of the app
-<img src="/projectmanagement/documentation/indexExtract" alt="index.html" style="height: 100px;"/>
+The app is based on the index.html which is also the target file for deployment. The following picture shows an extract of the index.html containing the navigation and the containers for dynamic content.
+<img src="/projectmanagement/documentation/indexExtract.png" alt="image missing" style="height: 100px;"/>
+The yellow rectangle marks the 'sideBar' directive that is used for the slide-in menu of the app. It is triggered by the button within the app's toolbar (marked by green rectangle) which sticks at the top of the app through the whole app to enable to user to jump between the mains menus in every time. The most important part is marked by the red rectangle. The 'div' with the directive 'ui-view' will be a container for the dynamic content that changes with the change of the state.
 ### Navigate using the Routing
-
-## Working with custom directives
-See [this](https://github.com/Viva-con-Agua/barcheck/commit/d279760a3f269ec2b6834eda5842398ec40307ae) commit to get an idea of how to modularize your code to delete duplicates.
+The config.js file contains the configuration of the states.
+You can change states the following two ways:
+- Using the Angular UI directive 'ui-sref':
+[Further information](https://github.com/angular-ui/ui-router/wiki/quick-reference)
+- From coding
+```
+$state.go('state_name');
+```
+NOTE: The controller this snippet is called from must include $state as a dependency.
 
 ## Services
 To get a basic knowledge of the idea of services, check out [this](https://docs.angularjs.org/guide/services) page.
