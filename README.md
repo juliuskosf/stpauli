@@ -3,6 +3,20 @@ This small wiki contains everything important to jump into development.
 The implementation is based on AngularJS and further Web-Development Frameworks (see list below)
 AngularJS is a Framework to design Single-Page-Applications. Get basic information about AngularJS [here](https://angularjs.org/).
 
+## Documents
+All documents related to the barcheck mircoservice are linked below.
+[Architecture](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Architecture.pdf)
+[Hybrid vs. SPA](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Hybrid%20vs.%20SPA.pdf)
+
+NOTE: Please update PDFs in projectmanagement/PDFs after changing the .pptx files!
+
+## Helpful links and resources
+- [Deployment link](https://vivaconagua-acb28be61.dispatcher.hana.ondemand.com/?hc_reset) on SAP Cloud Platform
+- [ZenHub Board](https://app.zenhub.com/workspace/o/viva-con-agua/barcheck/boards?repos=95428427) for Issue Tracking
+- [AnglarJS Material](https://material.angularjs.org/latest/)
+- [Material Design Icons](https://material.io/icons/#ic_mail)
+
+
 ## Stable / Presentation Version
 There is a stable version for presentations that contains some mock up feature for the presentation purpose. You can find the deployment link [here](https://barcheckshow-acb28be61.dispatcher.hana.ondemand.com/?hc_reset).
 
@@ -70,15 +84,10 @@ TBD
 TBD
 
 ## Routing
-For routing, the app uses UI-Routing from AngularJS UI. In contrast to the routing concept of AngularJS, it is state based and not URL based. Check the following article
+For routing, the app uses UI-Routing from AngularJS UI. In contrast to the routing concept of AngularJS, it is state based and not URL based. Check the following [article](https://ui-router.github.io/ng1/)
 
 ## Working with custom directives
 See [this](https://github.com/Viva-con-Agua/barcheck/commit/d279760a3f269ec2b6834eda5842398ec40307ae) commit to get an idea of how to modularize your code to delete duplicates.
-
-## Helpful links and ressources
-- [Deployment link](https://vivaconagua-acb28be61.dispatcher.hana.ondemand.com/?hc_reset) on SAP Cloud Platform
-- [AnglarJS Material](https://material.angularjs.org/latest/)
-- [Material Design Icons](https://material.io/icons/#ic_mail)
 
 ## Q&A
 - **My changes are not applied after saving and reloading..?**
