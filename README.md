@@ -1,3 +1,8 @@
+# Table of Contents
+**[General information and project management](#general-information-and-project-management)**<br>
+**[Technical Insights](#technical-insights)**<br>
+**[Q&A](#q-and-a)**<br>
+
 This small guide contains everything important to jump into development.
 The implementation is based on AngularJS and further Web-Development Frameworks (see list below)
 AngularJS is a Framework to design Single-Page-Applications. Get basic information about AngularJS [here](https://angularjs.org/).
@@ -49,8 +54,7 @@ The app will be available via localhost:8080
 3. Edit / Run the App (-> No webserver specification required, because the Web-IDE provides one for the runtime of the app)
 
 ## Testing
-<img src="https://cambridge-intelligence.com/wp-content/uploads/2014/08/protractor-logo-large.png" alt="Protractor logo" style="height: 30px;"/>
-Testing is very important! ;) We use [Protractor](http://www.protractortest.org/#/) for testing. The Protractor tests do not replace Unit Testing!
+We use [Protractor](http://www.protractortest.org/#/) for testing. The Protractor tests do not replace Unit Testing!
 
 ### Initial local Setup
 1. Get Protractor from npm (nodejs required):
@@ -88,7 +92,7 @@ You can change states the following two ways:
 - Using the Angular UI directive 'ui-sref':
 [Further information](https://github.com/angular-ui/ui-router/wiki/quick-reference)
 - From coding
-```
+```javascript
 $state.go('state_name');
 ```
 NOTE: The controller this snippet is called from must include $state as a dependency.
@@ -108,7 +112,7 @@ TBD
 ### Contacts Service
 TBD
 
-# Q&A
+# Q and A
 - **My changes are not applied after saving and reloading..?** <br>
 Empty the cache ([help](https://www.technipages.com/google-chrome-clear-cache)). <br>
 - **Why a presentation AND a development version?** <br>
