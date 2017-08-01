@@ -2,7 +2,7 @@ This small guide contains everything important to jump into development.
 The implementation is based on AngularJS and further Web-Development Frameworks (see list below)
 AngularJS is a Framework to design Single-Page-Applications. Get basic information about AngularJS [here](https://angularjs.org/).
 
-# General information and projectmanagement
+# General information and project management
 
 ## Documents
 All documents related to the barcheck mircoservice are linked below. <br>
@@ -49,11 +49,11 @@ The app will be available via localhost:8080
 3. Edit / Run the App (-> No webserver specification required, because the Web-IDE provides one for the runtime of the app)
 
 ## Testing
+<img src="https://cambridge-intelligence.com/wp-content/uploads/2014/08/protractor-logo-large.png" alt="Protractor logo" style="height: 30px;"/>
 Testing is very important! ;) We use [Protractor](http://www.protractortest.org/#/) for testing. The Protractor tests do not replace Unit Testing!
-<img src="https://cambridge-intelligence.com/wp-content/uploads/2014/08/protractor-logo-large.png" alt="Protractor logo" style="height: 50px;"/>
 
 ### Initial local Setup
-1. Get Protractor from npm.js by the following command:
+1. Get Protractor from npm (nodejs required):
 ```
 npm install -g protractor
 ```
@@ -76,7 +76,7 @@ See the Protractor API reference for the syntax. The test-spec.js file contains 
 For routing, the app uses UI-Routing from AngularJS UI. In contrast to the routing concept of AngularJS, it is state based and not URL based. Check the following [article](https://ui-router.github.io/ng1/)
 
 ### Base structure of the app
-
+<img src="/projectmanagement/documentation/indexExtract" alt="index.html" style="height: 100px;"/>
 ### Navigate using the Routing
 
 ## Working with custom directives
@@ -101,6 +101,6 @@ TBD
 - **My changes are not applied after saving and reloading..?** <br>
 Empty the cache ([help](https://www.technipages.com/google-chrome-clear-cache)). <br>
 - **Why a presentation AND a development version?** <br>
-The presentation version is just to win sponsors and demos. Its functionality is some versions behind the development version. We deploy the development version from time to time to test new features under deployment conditions. So if you want to see the newest version use the Development version. <br>
+The presentation version is just to win sponsors and for demos. Its functionality is some versions behind the development version. We deploy the development version from time to time to test new features under deployment conditions. So if you want to see the newest version use the Development version. <br>
 - **What is the neo-app.json and the .project.json file for?** <br>
 The neo-app-json and .project.json file are  configuration files for the SAP Cloud Platform Deployment. They updates with every deployment so don't be scared if one is marked as changed by git after you deployed it. Like all other changes, you can stage and commit them.
