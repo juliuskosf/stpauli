@@ -1,7 +1,9 @@
 # Table of Contents
 **[General information and project management](#general-information-and-project-management)**<br>
 **[Technical Insights](#technical-insights)**<br>
-**[Q&A](#q-and-a)**<br>
+[Testing](#testing)<br>
+[Base structure of the app](#base-structure-of-the-app)<br>
+**[Q&A](#questions-and-answers)**<br>
 
 This small guide contains everything important to jump into development.
 The implementation is based on AngularJS and further Web-Development Frameworks (see list below)
@@ -112,7 +114,7 @@ TBD
 ### Contacts Service
 TBD
 
-# Q and A
+# Questions and Answers
 - **My changes are not applied after saving and reloading..?** <br>
 Empty the cache ([help](https://www.technipages.com/google-chrome-clear-cache)). <br>
 - **Why a presentation AND a development version?** <br>
