@@ -1,7 +1,8 @@
-# Viva Con Agua - Barcheck App
-This small wiki contains everything important to jump into development.
+This small guide contains everything important to jump into development.
 The implementation is based on AngularJS and further Web-Development Frameworks (see list below)
 AngularJS is a Framework to design Single-Page-Applications. Get basic information about AngularJS [here](https://angularjs.org/).
+
+# General information and projectmanagement
 
 ## Documents
 All documents related to the barcheck mircoservice are linked below. <br>
@@ -25,6 +26,8 @@ There is a stable version for presentations that contains some mock up feature f
 - AngularJS Material
 - jQuery
 
+# Technical Insights
+
 ## Development Setup
 For continuing the development you could either use local development with an editor of your choice or SAP's Web IDE.
 
@@ -47,7 +50,7 @@ The app will be available via localhost:8080
 
 ## Testing
 Testing is very important! ;) We use [Protractor](http://www.protractortest.org/#/) for testing. The Protractor tests do not replace Unit Testing!
-![](https://cambridge-intelligence.com/wp-content/uploads/2014/08/protractor-logo-large.png)
+<img src="https://cambridge-intelligence.com/wp-content/uploads/2014/08/protractor-logo-large.png" alt="Protractor logo" style="height: 50px;"/>
 
 ### Initial local Setup
 1. Get Protractor from npm.js by the following command:
@@ -64,10 +67,20 @@ protractor testing.js
 ```
 4. See the command line output for results
 
-5. Run the test everytime you are about to commit.
+5. Run the tests every time you are about to commit.
 
 ### Writing Tests
 See the Protractor API reference for the syntax. The test-spec.js file contains the most important commands.
+
+## Structure and Routing
+For routing, the app uses UI-Routing from AngularJS UI. In contrast to the routing concept of AngularJS, it is state based and not URL based. Check the following [article](https://ui-router.github.io/ng1/)
+
+### Base structure of the app
+
+### Navigate using the Routing
+
+## Working with custom directives
+See [this](https://github.com/Viva-con-Agua/barcheck/commit/d279760a3f269ec2b6834eda5842398ec40307ae) commit to get an idea of how to modularize your code to delete duplicates.
 
 ## Services
 To get a basic knowledge of the idea of services, check out [this](https://docs.angularjs.org/guide/services) page.
@@ -84,12 +97,10 @@ TBD
 ### Contacts Service
 TBD
 
-## Routing
-For routing, the app uses UI-Routing from AngularJS UI. In contrast to the routing concept of AngularJS, it is state based and not URL based. Check the following [article](https://ui-router.github.io/ng1/)
-
-## Working with custom directives
-See [this](https://github.com/Viva-con-Agua/barcheck/commit/d279760a3f269ec2b6834eda5842398ec40307ae) commit to get an idea of how to modularize your code to delete duplicates.
-
-## Q&A
-- **My changes are not applied after saving and reloading..?**
-Empty the cache ([help](https://www.technipages.com/google-chrome-clear-cache)).
+# Q&A
+- **My changes are not applied after saving and reloading..?** <br>
+Empty the cache ([help](https://www.technipages.com/google-chrome-clear-cache)). <br>
+- **Why a presentation AND a development version?** <br>
+The presentation version is just to win sponsors and demos. Its functionality is some versions behind the development version. We deploy the development version from time to time to test new features under deployment conditions. So if you want to see the newest version use the Development version. <br>
+- **What is the neo-app.json and the .project.json file for?** <br>
+The neo-app-json and .project.json file are  configuration files for the SAP Cloud Platform Deployment. They updates with every deployment so don't be scared if one is marked as changed by git after you deployed it. Like all other changes, you can stage and commit them.
