@@ -391,7 +391,7 @@ app.controller('locationsDetailCtrl', function($scope, $mdDialog, locationServic
       targetEvent: ev,
       clickOutsideToClose: true,
       locals: {
-        selectedLocation: locationId
+        selectedLocation: $scope.selectedLocation
       },
       onRemoving: function () {
         $scope.contacts = getContactsOfLocation();
@@ -404,7 +404,7 @@ app.controller('locationsDetailCtrl', function($scope, $mdDialog, locationServic
 
 
 app.controller('addContactDialogCtrl', function($scope, $mdDialog, contactService, locationService, selectedLocation) {
-  $scope.allContacts = contactService.getAllContacts();
+  $scope.allContacts = contactService.getAllPossibleContactsForSelectedLocation(selectedLocation);
   $scope.contactPressed = function(contactId) {
     locationService.addContactToSelectedLocation(contactId);
     $mdDialog.hide();

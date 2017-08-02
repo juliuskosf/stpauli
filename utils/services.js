@@ -64,6 +64,12 @@ app.service('locationService', function() {
 
   ls.addContactToSelectedLocation = function(contactId) {
     ls.selectedLocation.partners.push(contactId);
+
+    function sortNumber(a,b) {
+      return a - b;
+    }
+    // sorting increases the performance when searching for possiblePartners
+    ls.selectedLocation.partners.sort(sortNumber);
   }
 
   ls.locations = [{
@@ -290,6 +296,19 @@ app.service('contactService', function() {
 
   cs.clearSelectedContact = function() {
     cs.selectedContact = {};
+  }
+
+  cs.getAllPossibleContactsForSelectedLocation = function(location) {
+    var possiblePartners = [];
+    for (var i = 0; i < cs.contacts.length; i++) {
+      contactId = cs.contacts[i].id;
+      // jQuery.inArray returns index of value in array
+      // Returns -1 if array does not contain value.
+      if ($.inArray(contactId, location.partners) == -1) {
+        possiblePartners.push(cs.contacts[i]);
+      }
+    }
+    return possiblePartners;
   }
 
   cs.setSelectedContact = function (id) {
