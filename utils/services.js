@@ -62,6 +62,9 @@ app.service('locationService', function() {
     ];
   };
 
+  ls.addContactToSelectedLocation = function(contactId) {
+    ls.selectedLocation.partners.push(contactId);
+  }
 
   ls.locations = [{
       name: "Die Schenke",

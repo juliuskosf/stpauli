@@ -379,11 +379,9 @@ app.controller('locationsDetailCtrl', function($scope, $mdDialog, locationServic
     return x;
   }
 
-  $scope.addContactClicked = function(ev) {
+  $scope.addContactClicked = function(ev, contactId) {
     $scope.allContacts = contactService.getAllContacts();
-
-    var id = 0; // temp
-    var locationId = 0;
+    var locationId = $scope.selectedLocation.id;
 
     $mdDialog.show({
       controller: 'addContactDialogCtrl',
@@ -393,8 +391,10 @@ app.controller('locationsDetailCtrl', function($scope, $mdDialog, locationServic
       targetEvent: ev,
       clickOutsideToClose: true,
       locals: {
-        clickedContact: id, // handover the id of the clicked contact
         selectedLocation: locationId
+      },
+      onRemoving: function () {
+        $scope.contacts = getContactsOfLocation();
       }
     });
   }
@@ -403,10 +403,10 @@ app.controller('locationsDetailCtrl', function($scope, $mdDialog, locationServic
 
 
 
-app.controller('addContactDialogCtrl', function($scope, $mdDialog, contactService, locationService, clickedContact, selectedLocation) {
+app.controller('addContactDialogCtrl', function($scope, $mdDialog, contactService, locationService, selectedLocation) {
   $scope.allContacts = contactService.getAllContacts();
-  $scope.contactPressed = function() {
-    // add contact here
+  $scope.contactPressed = function(contactId) {
+    locationService.addContactToSelectedLocation(contactId);
     $mdDialog.hide();
   };
 });
