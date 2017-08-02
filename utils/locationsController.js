@@ -346,7 +346,8 @@ app.controller('SummaryController', function($scope, locationService) {
 
 
 
-app.controller('locationsDetailCtrl', function($scope, locationService, designService, contactService) {
+app.controller('locationsDetailCtrl', function($scope, $mdDialog, locationService, designService, contactService) {
+
   $scope.selectedLocation = locationService.getSelectedLocation();
 
   $scope.waterDecision = $scope.selectedLocation.waterDecision;
@@ -377,12 +378,38 @@ app.controller('locationsDetailCtrl', function($scope, locationService, designSe
     var x = designService.getCategoryIconSourceForIndex(index);
     return x;
   }
+
+  $scope.addContactClicked = function(ev) {
+    $scope.allContacts = contactService.getAllContacts();
+
+    var id = 0; // temp
+    var locationId = 0;
+
+    $mdDialog.show({
+      controller: 'addContactDialogCtrl',
+      templateUrl: 'templates/addContactDialog.html',
+      bindToController: true,
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose: true,
+      locals: {
+        clickedContact: id, // handover the id of the clicked contact
+        selectedLocation: locationId
+      }
+    });
+  }
 });
 
 
 
 
-
+app.controller('addContactDialogCtrl', function($scope, $mdDialog, contactService, locationService, clickedContact, selectedLocation) {
+  $scope.allContacts = contactService.getAllContacts();
+  $scope.contactPressed = function() {
+    // add contact here
+    $mdDialog.hide();
+  };
+});
 
 
 
