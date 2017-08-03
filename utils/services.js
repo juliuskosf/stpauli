@@ -154,14 +154,12 @@ app.service('locationService', function() {
   };
 
   ls.convertGoogleAddressToObjectAddress = function(address_components) {
-    if (address_components.length === 8) {
       address = {
         street: address_components[1].long_name + ' ' + address_components[0].long_name,
         additionalAddress: "",
-        postcode: parseInt(address_components[7].long_name),
+        postcode: parseInt(address_components[6].long_name),
         city: address_components[5].long_name
       }
-    }
     return address;
   }
 

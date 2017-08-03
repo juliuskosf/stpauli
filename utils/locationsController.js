@@ -78,22 +78,8 @@ app.controller('LocationInformationCtrl', function($scope, $state, $mdToast, $ti
 
   $scope.confirmAddress = function() {
 
-    function getLocation() {
+    function calcAddress() {
       $scope.loading = true;
-
-      if (navigator.geolocation) {
-        // Get position using geolocation api
-        navigator.geolocation.getCurrentPosition(successHandler, errorHandlerGeo, {timeout: 7000});
-      } else {
-        errorHandler();
-      }
-    }
-
-    // some error in Geolocating
-    function errorHandlerGeo() {
-      if ($scope.loading == true) {
-        console.log("Using Google API!");
-        // use google api
         var url = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCegJ74_T3HkjEpaLthv92YTG3xZpjG7bs";
 
         $.ajax({
@@ -104,14 +90,7 @@ app.controller('LocationInformationCtrl', function($scope, $state, $mdToast, $ti
           method: "POST",
           error: errorHandler
         });
-      } else {
-        // navigator.geolocation API acts stupid...!
-        // errorHandler of navigator.geolocation triggers twice ...
-        // we need to analyse this behavior
-        // see the stack overflow question below as a reference:
-        // https://stackoverflow.com/questions/9738167/issue-with-geolocation-timeout-callback-firing-whether-response-received-or-not/9740300#9740300
-        console.log("Triggered twice");
-      }
+
     }
 
     function errorHandler() {
@@ -132,9 +111,6 @@ app.controller('LocationInformationCtrl', function($scope, $state, $mdToast, $ti
       if (position.location && position.location) {
         lat = position.location.lat;
         lng = position.location.lng;
-      } else if (position.coords && position.coords) {
-        lat = position.coords.latitude;
-        lng = position.coords.longitude;
       } else {
         errorHandler();
       }
@@ -149,6 +125,8 @@ app.controller('LocationInformationCtrl', function($scope, $state, $mdToast, $ti
           success: showPosition,
           error: errorHandler
         });
+      } else {
+        errorHandler();
       }
     }
 
@@ -174,7 +152,7 @@ app.controller('LocationInformationCtrl', function($scope, $state, $mdToast, $ti
       locationService.setAddress(address);
     }
 
-    getLocation();
+    calcAddress();
 
   };
 
