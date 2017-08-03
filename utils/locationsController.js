@@ -149,6 +149,10 @@ app.controller('LocationInformationCtrl', function($scope, $state, $mdToast, $ti
 
     function saveAddress(address) {
       address = locationService.convertGoogleAddressToObjectAddress(address.address_components);
+      if (address.error) {
+        errorHandler();
+        log(address.error);
+      }
       locationService.setAddress(address);
     }
 

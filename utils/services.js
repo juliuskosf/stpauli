@@ -154,12 +154,27 @@ app.service('locationService', function() {
   };
 
   ls.convertGoogleAddressToObjectAddress = function(address_components) {
-      address = {
-        street: address_components[1].long_name + ' ' + address_components[0].long_name,
-        additionalAddress: "",
-        postcode: parseInt(address_components[6].long_name),
-        city: address_components[5].long_name
+
+      if(address_components.length === 8) {
+        address = {
+          street: address_components[1].long_name + ' ' + address_components[0].long_name,
+          additionalAddress: "",
+          postcode: parseInt(address_components[7].long_name),
+          city: address_components[3].long_name
+        }
+      } else if (address_components.length === 7) {
+        address = {
+          street: address_components[1].long_name + ' ' + address_components[0].long_name,
+          additionalAddress: "",
+          postcode: parseInt(address_components[6].long_name),
+          city: address_components[4].long_name
+        }
+      } else {
+        address = {
+          error: "Google API convertion failed!"
+        };
       }
+
     return address;
   }
 
