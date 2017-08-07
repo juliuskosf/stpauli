@@ -15,7 +15,7 @@ AngularJS is a Framework to design Single-Page-Applications. Get basic informati
 All documents related to the barcheck mircoservice are linked below. <br>
 [Architecture](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Architecture.pdf) <br>
 [Hybrid vs. SPA](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Hybrid%20vs.%20SPA.pdf) <br>
-[Requirements: Prototype, Minimum & Most](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Prototype%2C%20Minimum%20%26%20Most.pdf) <br>
+[Requirements: Prototype, Minimum & Most](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Prototype%2C%20Minimal%20%26%20Most.pdf) <br>
 [Prototype Data Persistence](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Prototype%20Data%20Persistence.pdf)
 
 NOTE: Please update PDFs in projectmanagement/PDFs after changing the .pptx files!
