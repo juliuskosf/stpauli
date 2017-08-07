@@ -1,6 +1,7 @@
 app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocation, $scope) {
 // In the first round we do not get the result, therefore we have to give another starting coordinates.
 // When the map updates, it will show the approximate geolocation. 
+// https://github.com/ninjatronic/ngGeolocation 
 
 	$geolocation.getCurrentPosition({
             timeout: 60000,
