@@ -25,6 +25,8 @@ NOTE: Please update PDFs in projectmanagement/PDFs after changing the .pptx file
 - [ZenHub Board](https://app.zenhub.com/workspace/o/viva-con-agua/barcheck/boards?repos=95428427) for Issue Tracking
 - [AnglarJS Material](https://material.angularjs.org/latest/)
 - [Material Design Icons](https://material.io/icons/#ic_mail)
+- [Technology Choice](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Technology%20Choice.pdf)
+
 
 ## Used Frameworks (beside basic AngularJS)
 - AngularJS Material
