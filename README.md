@@ -1,5 +1,6 @@
 # Table of Contents
 **[General information and project management](#general-information-and-project-management)**<br>
+[Prototype](#prototype)
 **[Technical Insights](#technical-insights)**<br>
 [Testing](#testing)<br>
 [Base structure of the app](#base-structure-of-the-app)<br>
@@ -16,7 +17,6 @@ All documents related to the barcheck mircoservice are linked below. <br>
 [Architecture](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Architecture.pdf) <br>
 [Hybrid vs. SPA](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Hybrid%20vs.%20SPA.pdf) <br>
 [Requirements: Prototype, Minimum & Most](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Prototype%2C%20Minimal%20%26%20Most.pdf) <br>
-[Prototype Data Persistence](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Prototype%20Data%20Persistence.pdf)
 
 NOTE: Please update PDFs in projectmanagement/PDFs after changing the .pptx files!
 
@@ -26,13 +26,21 @@ NOTE: Please update PDFs in projectmanagement/PDFs after changing the .pptx file
 - [AnglarJS Material](https://material.angularjs.org/latest/)
 - [Material Design Icons](https://material.io/icons/#ic_mail)
 
+## Used Frameworks (beside basic AngularJS)
+- AngularJS Material
+- jQuery
 
 ## Stable / Presentation Version
 There is a stable version for presentations that contains some mock up feature for the presentation purpose. You can find the deployment link [here](https://barcheckshow-acb28be61.dispatcher.hana.ondemand.com/?hc_reset).
 
-## Used Frameworks (beside basic AngularJS)
-- AngularJS Material
-- jQuery
+## Prototype
+
+### Architecture / Requirements
+
+### Prototype specific documents
+**General Idea**
+[Prototype Data Persistence](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Prototype%20Data%20Persistence.pdf)
+**ODATA & Communication**
 
 # Technical Insights
 
