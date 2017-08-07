@@ -37,12 +37,9 @@ There is a stable version for presentations that contains some mock up feature f
 
 ## Prototype
 
-### Architecture / Requirements
-
-### Prototype specific documents
-**General Idea** <br>
+**General Idea:**
 [Prototype Data Persistence](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Prototype%20Data%20Persistence.pdf) <br>
-**ODATA & Communication** <br>
+**ODATA & Communication:**
 [Technical Background Information](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/OData%20%26%20Communication.pdf)
 # Technical Insights
 
