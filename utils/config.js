@@ -1,4 +1,4 @@
-app.config(function($stateProvider, $mdThemingProvider, uiGmapGoogleMapApiProvider) {
+app.config(['$stateProvider', '$mdThemingProvider', 'uiGmapGoogleMapApiProvider', function($stateProvider, $mdThemingProvider, uiGmapGoogleMapApiProvider) {
 uiGmapGoogleMapApiProvider.configure({
         key: 'AIzaSyAzzmCZNBcEjUJjWhaUl-PAZK7lcJs9HxE'
     });
@@ -42,4 +42,4 @@ uiGmapGoogleMapApiProvider.configure({
     .state('contacts-search-result', {templateUrl: 'pages/contacts/contacts-search-result.html'})
     .state('contacts-create', {templateUrl: 'pages/contacts/contacts-create.html'})
     .state('contacts-detail', {templateUrl: 'pages/contacts/contacts-detail.html'});
-});
+}]);
