@@ -24,7 +24,6 @@ app.directive('personInfoForm', function() {
 
 });
 
-
 app.directive('locationInfoForm', function() {
   return {
     restrict: 'AE',

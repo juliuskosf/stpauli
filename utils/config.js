@@ -45,5 +45,7 @@ uiGmapGoogleMapApiProvider.configure({
 
     .state('contacts-search-result', {templateUrl: 'pages/contacts/contacts-search-result.html'})
     .state('contacts-create', {templateUrl: 'pages/contacts/contacts-create.html'})
-    .state('contacts-detail', {templateUrl: 'pages/contacts/contacts-detail.html'});
+    .state('contacts-detail', {templateUrl: 'pages/contacts/contacts-detail.html'})
+
+    .state('feedback', {templateUrl: 'pages/feedback.html'});
 }]);
