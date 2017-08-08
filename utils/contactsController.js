@@ -81,8 +81,10 @@ app.controller('contactsCreateCtrl', ['$scope', '$state', '$stateParams', 'conta
     }
 
     if (isSelected) {
-      $state.go('locations-detail', {tab: 1});
+    	$scope.newContact.id = contactService.getAllContacts().length;
       contactService.addNewContact($scope.newContact);
+      locationService.addContactToSelectedLocation(contactService.getAllContacts().length-1);
+      $state.go('locations-detail', {tab: 1});
     }  else {
       console.log("error");
     }

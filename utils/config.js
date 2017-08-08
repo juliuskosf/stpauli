@@ -25,7 +25,7 @@ uiGmapGoogleMapApiProvider.configure({
 
     .state('locations-search-result', {templateUrl: 'pages/locations-search-result.html'})
     .state('locations-detail',
-      {
+    {
         templateUrl: 'pages/locations-detail.html',
         params: {tab: null}
     })
