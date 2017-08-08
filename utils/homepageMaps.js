@@ -4,28 +4,30 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 // https://github.com/ninjatronic/ngGeolocation
 
 	$geolocation.getCurrentPosition({
-            timeout: 60000,
-            maximumAge: 250,
-            enableHighAccuracy: true
-        }).then(function(position) {
-    		$scope.myPosition = position;
-    		if ($scope.myPosition) {
-	    		$scope.map = {
-				  center: {
-				    latitude: $scope.myPosition.coords.latitude,
-				    longitude: $scope.myPosition.coords.longitude
-				  },
-				  zoom: 12
-				};
-    		}
-         });
-     	$scope.map = {
-		  center: {
-		    latitude: 51.312801,
-		    longitude: 9.481544
-		  },
-		  zoom: 5
-		};
+    timeout: 60000,
+    maximumAge: 250,
+    enableHighAccuracy: true
+  }).then(function(position) {
+		$scope.myPosition = position;
+		if ($scope.myPosition) {
+  		$scope.map = {
+			  center: {
+			    latitude: $scope.myPosition.coords.latitude,
+			    longitude: $scope.myPosition.coords.longitude
+			  },
+			  zoom: 12
+			};
+		}
+	});
+
+	$scope.map = {
+	  center: {
+	    latitude: 51.312801,
+	    longitude: 9.481544
+	  },
+	  zoom: 5
+	};
+
  // $scope.map = { center: { latitude: 53.563384, longitude: 9.991794 }, zoom: 15 }; location from Hamburg
   $scope.options = {scrollwheel: false};
 
