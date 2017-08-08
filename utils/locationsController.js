@@ -328,7 +328,9 @@ app.controller('SummaryController', ['$scope', 'locationService', function($scop
 
 
 
-app.controller('locationsDetailCtrl', ['$scope', '$mdDialog', 'locationService', 'designService', 'contactService', function($scope, $mdDialog, locationService, designService, contactService) {
+app.controller('locationsDetailCtrl', ['$scope', '$mdDialog', 'locationService', 'designService', 'contactService', '$stateParams', function($scope, $mdDialog, locationService, designService, contactService, $stateParams) {
+
+  $scope.tabIndex = $stateParams.tab;
 
   $scope.selectedLocation = locationService.getSelectedLocation();
 
@@ -385,12 +387,16 @@ app.controller('locationsDetailCtrl', ['$scope', '$mdDialog', 'locationService',
 
 
 
-app.controller('addContactDialogCtrl', ['$scope', '$mdDialog', 'contactService', 'locationService', 'selectedLocation', function($scope, $mdDialog, contactService, locationService, selectedLocation) {
+app.controller('addContactDialogCtrl', ['$scope', '$state', '$mdDialog', 'contactService', 'locationService', 'selectedLocation', function($scope, $state, $mdDialog, contactService, locationService, selectedLocation) {
   $scope.allContacts = contactService.getAllPossibleContactsForSelectedLocation(selectedLocation);
   $scope.contactPressed = function(contactId) {
     locationService.addContactToSelectedLocation(contactId);
     $mdDialog.hide();
   };
+  $scope.addNewContact = function() {
+    $mdDialog.hide();
+    $state.go('contacts-create');
+  }
 }]);
 
 
@@ -398,10 +404,10 @@ app.controller('addContactDialogCtrl', ['$scope', '$mdDialog', 'contactService',
 
 
 
-app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', function($scope, locationService, $state, designService) {
+app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', function($scope, locationService, $state, designService, $stateParams) {
   $scope.itemPressed = function(id) {
     locationService.setSelectedLocation(id);
-    $state.go('locations-detail');
+    $state.go('locations-detail', {tab: null});
   };
 
   $scope.getCategoryName = function (index) {

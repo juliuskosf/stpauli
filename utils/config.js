@@ -24,7 +24,11 @@ uiGmapGoogleMapApiProvider.configure({
     .state('contacts', {templateUrl: 'pages/contacts/contacts.html'})
 
     .state('locations-search-result', {templateUrl: 'pages/locations-search-result.html'})
-    .state('locations-detail', {templateUrl: 'pages/locations-detail.html'})
+    .state('locations-detail',
+      {
+        templateUrl: 'pages/locations-detail.html',
+        params: {tab: null}
+    })
     .state('locations-create', {templateUrl: 'pages/locations-create-category.html'})
     .state('locations-create-information', {templateUrl: 'pages/locations-create-information.html'})
     .state('locations-manual-adress', {templateUrl: 'pages/manual-adress-form.html'})

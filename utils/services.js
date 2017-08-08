@@ -149,7 +149,7 @@ app.service('locationService', function() {
   };
 
   ls.setAddress = function(address) {
-    ls.oLocation.address = address
+    ls.oLocation.address = address;
     parseInt(ls.oLocation.address.postcode);
   };
 
@@ -302,6 +302,10 @@ app.service('contactService', function() {
       telefon: "017233351321"
     }
   ];
+
+  cs.addNewContact = function(contact) {
+    cs.contacts.push(contact);
+  }
 
   cs.getAllContacts = function() {
     return cs.contacts;

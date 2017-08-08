@@ -67,12 +67,26 @@ app.controller('contactDetailCtrl',['$state', '$scope', 'contactService', functi
   $scope.selectedContact = contactService.getSelectedContact();
 }]);
 
-app.controller('contactsCreateCtrl', ['$scope', function($scope) {
+app.controller('contactsCreateCtrl', ['$scope', '$state', '$stateParams', 'contactService', 'locationService', function($scope, $state, $stateParams, contactService, locationService) {
   $scope.createPressed = function() {
     // $scope.newContact contains the binded values of all fields from the person-info-component
     // just get it from $scope.newContact
     // that's data binding ;)
-    console.log($scope.newContact);
+    var isSelected = null;
+
+    try {
+        isSelected = locationService.getSelectedLocation();
+    } catch (e) {
+      console.log("error");
+    }
+
+    if (isSelected) {
+      $state.go('locations-detail', {tab: 1});
+      contactService.addNewContact($scope.newContact);
+    }  else {
+      console.log("error");
+    }
+
   };
 
 }]);
