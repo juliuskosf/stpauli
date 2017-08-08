@@ -15,7 +15,7 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 				    latitude: $scope.myPosition.coords.latitude,
 				    longitude: $scope.myPosition.coords.longitude
 				  },
-				  zoom: 12
+				  zoom: 13
 				}; 
     		}
          });
@@ -31,11 +31,11 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 
   var _options = {
     icon: {
-        url: 'https://www.iflebenskunde.de/wp-content/uploads/2016/07/Viva-con-Agua.png',
-        scaledSize: new google.maps.Size(80, 55)
+        url: '/sources/img/icons/dropgmarkerblue.png',
+        scaledSize: new google.maps.Size(42,68)
     }
   };
-
+// https://www.iflebenskunde.de/wp-content/uploads/2016/07/Viva-con-Agua.png 
   $scope.markers = [{
     id: 0,
     coords: {
@@ -51,5 +51,3 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
     options: _options
   }];
 }]);
-
-  
