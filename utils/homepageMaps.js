@@ -1,7 +1,7 @@
 app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocation, $scope) {
 // In the first round we do not get the result, therefore we have to give another starting coordinates.
-// When the map updates, it will show the approximate geolocation. 
-// https://github.com/ninjatronic/ngGeolocation 
+// When the map updates, it will show the approximate geolocation.
+// https://github.com/ninjatronic/ngGeolocation
 
 	$geolocation.getCurrentPosition({
             timeout: 60000,
@@ -16,7 +16,7 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 				    longitude: $scope.myPosition.coords.longitude
 				  },
 				  zoom: 12
-				}; 
+				};
     		}
          });
      	$scope.map = {
@@ -25,7 +25,7 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 		    longitude: 9.481544
 		  },
 		  zoom: 5
-		}; 
+		};
  // $scope.map = { center: { latitude: 53.563384, longitude: 9.991794 }, zoom: 15 }; location from Hamburg
   $scope.options = {scrollwheel: false};
 
@@ -51,5 +51,3 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
     options: _options
   }];
 }]);
-
-  

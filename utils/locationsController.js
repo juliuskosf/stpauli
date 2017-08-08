@@ -1,4 +1,4 @@
-app.controller('ToiletPaperDecisionCtrl', function($scope, $state, locationService, designService) {
+app.controller('ToiletPaperDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService, designService) {
   var reasons = [];
 
   if ($state.current.name === 'locations-toilet-paper-decision-interest') {
@@ -51,7 +51,7 @@ app.controller('ToiletPaperDecisionCtrl', function($scope, $state, locationServi
   // ------
   // Reduntanter Code!! Einfacheren Weg überlegen (Core-Funktionen auslagern)
 
-});
+}]);
 
 
 
@@ -66,7 +66,7 @@ app.controller('ToiletPaperDecisionCtrl', function($scope, $state, locationServi
 
 
 
-app.controller('LocationInformationCtrl', function($scope, $state, $mdToast, $timeout, $mdDialog, locationService, designService) {
+app.controller('LocationInformationCtrl', ['$scope', '$state', '$mdToast', '$timeout', '$mdDialog', 'locationService', 'designService', function($scope, $state, $mdToast, $timeout, $mdDialog, locationService, designService) {
   $scope.locationName = locationService.getLocationName() || "";
 
   //test implementation
@@ -167,7 +167,7 @@ app.controller('LocationInformationCtrl', function($scope, $state, $mdToast, $ti
   $scope.$watch('locationName', function() {
     locationService.setLocationName($scope.locationName);
   });
-});
+}]);
 
 
 
@@ -185,7 +185,7 @@ app.controller('LocationInformationCtrl', function($scope, $state, $mdToast, $ti
 
 
 
-app.controller('ManualAdressCtrl', function ($scope, $state, $mdDialog, locationService) {
+app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationService', function ($scope, $state, $mdDialog, locationService) {
     $scope.locationName = locationService.getLocationName();
 
     $scope.address = locationService.oLocation.address || {};
@@ -209,7 +209,7 @@ app.controller('ManualAdressCtrl', function ($scope, $state, $mdDialog, location
       $scope.address = {};
       locationService.setAddress({});
     };
-});
+}]);
 
 
 
@@ -223,7 +223,7 @@ app.controller('ManualAdressCtrl', function ($scope, $state, $mdDialog, location
 
 
 
-app.controller('CategorySelectionCtrl', function ($scope, $state, locationService, designService) {
+app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 'designService', function ($scope, $state, locationService, designService) {
   $scope.tileClicked = function(index) {
     locationService.oLocation.categoryIndex = index;
     $state.go('locations-create-information');
@@ -234,7 +234,7 @@ app.controller('CategorySelectionCtrl', function ($scope, $state, locationServic
   };
 
   $scope.tiles = designService.getTiles();
-});
+}]);
 
 
 
@@ -252,7 +252,7 @@ app.controller('CategorySelectionCtrl', function ($scope, $state, locationServic
 
 
 
-app.controller('WaterDecisionCtrl', function ($scope, $state, locationService, designService) {5
+app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', function ($scope, $state, locationService, designService) {5
 
   $scope.selected = [];
 
@@ -297,7 +297,7 @@ app.controller('WaterDecisionCtrl', function ($scope, $state, locationService, d
     return 0;
   };
 
-});
+}]);
 
 
 
@@ -310,7 +310,7 @@ app.controller('WaterDecisionCtrl', function ($scope, $state, locationService, d
 
 
 
-app.controller('SummaryController', function($scope, locationService) {
+app.controller('SummaryController', ['$scope', 'locationService', function($scope, locationService) {
   $scope.waterDecision = locationService.getWaterDecision();
   $scope.paperDecision = locationService.getPaperDecision();
   $scope.location = locationService.oLocation;
@@ -318,7 +318,7 @@ app.controller('SummaryController', function($scope, locationService) {
   $scope.getDecisionText = function(decisionCode) {
     return locationService.getTextForInterestDecisionCode(decisionCode);
   }
-});
+}]);
 
 
 
@@ -328,7 +328,7 @@ app.controller('SummaryController', function($scope, locationService) {
 
 
 
-app.controller('locationsDetailCtrl', function($scope, $mdDialog, locationService, designService, contactService) {
+app.controller('locationsDetailCtrl', ['$scope', '$mdDialog', 'locationService', 'designService', 'contactService', function($scope, $mdDialog, locationService, designService, contactService) {
 
   $scope.selectedLocation = locationService.getSelectedLocation();
 
@@ -380,25 +380,25 @@ app.controller('locationsDetailCtrl', function($scope, $mdDialog, locationServic
       }
     });
   }
-});
+}]);
 
 
 
 
-app.controller('addContactDialogCtrl', function($scope, $mdDialog, contactService, locationService, selectedLocation) {
+app.controller('addContactDialogCtrl', ['$scope', '$mdDialog', 'contactService', 'locationService', 'selectedLocation', function($scope, $mdDialog, contactService, locationService, selectedLocation) {
   $scope.allContacts = contactService.getAllPossibleContactsForSelectedLocation(selectedLocation);
   $scope.contactPressed = function(contactId) {
     locationService.addContactToSelectedLocation(contactId);
     $mdDialog.hide();
   };
-});
+}]);
 
 
 
 
 
 
-app.controller('locationSearchController', function($scope, locationService, $state, designService) {
+app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', function($scope, locationService, $state, designService) {
   $scope.itemPressed = function(id) {
     locationService.setSelectedLocation(id);
     $state.go('locations-detail');
@@ -409,4 +409,4 @@ app.controller('locationSearchController', function($scope, locationService, $st
   };
 
   $scope.locations = locationService.getAllLocations();
-});
+}]);

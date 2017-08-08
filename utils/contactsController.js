@@ -1,4 +1,4 @@
-app.controller('contactsController', function($state, $scope, $timeout, contactService) {
+app.controller('contactsController', ['$state', '$scope', '$timeout', 'contactService', function($state, $scope, $timeout, contactService) {
   $scope.contacts = contactService.getAllContacts();
   $scope.itemPressed = function (contactId) {
     // functionalty is a total mock up, need to replace everything in here!
@@ -14,9 +14,9 @@ app.controller('contactsController', function($state, $scope, $timeout, contactS
     $scope.loading = true;
     $state.go('contacts-search-result');
   };
-});
+}]);
 
-app.controller('contactDetailCtrl', function($state, $scope, contactService) {
+app.controller('contactDetailCtrl',['$state', '$scope', 'contactService', function($state, $scope, contactService) {
 
   $scope.notes = [{
     text: "Das ist eine Notiz",
@@ -65,9 +65,9 @@ app.controller('contactDetailCtrl', function($state, $scope, contactService) {
 
 
   $scope.selectedContact = contactService.getSelectedContact();
-});
+}]);
 
-app.controller('contactsCreateCtrl', function($scope) {
+app.controller('contactsCreateCtrl', ['$scope', function($scope) {
   $scope.createPressed = function() {
     // $scope.newContact contains the binded values of all fields from the person-info-component
     // just get it from $scope.newContact
@@ -75,4 +75,4 @@ app.controller('contactsCreateCtrl', function($scope) {
     console.log($scope.newContact);
   };
 
-});
+}]);

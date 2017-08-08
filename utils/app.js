@@ -5,23 +5,21 @@ var app = angular.module('VivaConAgua', [
     'ngGeolocation'
 ]);
 
-app.controller('MainController', function ($scope, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService) {
+app.controller('MainController', ['$scope', '$timeout', '$state', '$mdSidenav', 'locationService', '$rootScope', 'progressService', function ($scope, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService) {
+  $state.go('home');
+  $scope.toggleLeft = buildToggler('left');
 
-    $state.go('home');
-    $scope.toggleLeft = buildToggler('left');
+  function buildToggler(componentId) {
 
-    function buildToggler(componentId) {
+    return function() {
+      locationService.oLocation = {}
+      $mdSidenav(componentId).toggle();
+    };
+  }
 
-      return function() {
-        //delete the oLocation here, too!
-        locationService.oLocation = {}
-        $mdSidenav(componentId).toggle();
-      };
-    }
-
-    // for progress bar
-    $rootScope.$on('$stateChangeStart',
-      function(event, toState, toParams, fromState, fromParams){
-        progressService.getProgressAtState(fromState);
-      })
-    });
+  // for progress bar
+  $rootScope.$on('$stateChangeStart',
+    function(event, toState, toParams, fromState, fromParams){
+      progressService.getProgressAtState(fromState);
+    })
+}]);
