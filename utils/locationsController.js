@@ -27,9 +27,9 @@ app.controller('ToiletPaperDecisionCtrl', ['$scope', '$state', 'locationService'
   $scope.goSendSupporter = function() {
     var mode;
     if ($state.current.name === "locations-toilet-paper-decision-interest") {
-      mode = 1
+      mode = 1;
     } else if ($state.current.name === "locations-toilet-paper-decision-no-interest") {
-      mode = 2
+      mode = 2;
     }
 
     if (mode) {
@@ -41,10 +41,12 @@ app.controller('ToiletPaperDecisionCtrl', ['$scope', '$state', 'locationService'
   };
 
   var compare = function(a, b) {
-    if (a.id < b.id)
+    if (a.id < b.id){
       return -1;
-    if (a.id > b.id)
+    }
+    if (a.id > b.id){
       return 1;
+    }
     return 0;
   };
 
@@ -116,7 +118,7 @@ app.controller('LocationInformationCtrl', ['$scope', '$state', '$mdToast', '$tim
       }
 
       if (lat && lng) {
-        var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lng + "&key=AIzaSyD2122kKcLcNKWAApGcKOmzoTqWXW4hznY"
+        var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lng + "&key=AIzaSyD2122kKcLcNKWAApGcKOmzoTqWXW4hznY";
 
         $.ajax({
           dataType: "json",
@@ -276,9 +278,9 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
   $scope.goSendSupporter = function() {
     var mode;
     if ($state.current.name === "locations-water-decision-interest") {
-      mode = 1
+      mode = 1;
     } else if ($state.current.name === "locations-water-decision-no-interest") {
-      mode = 2
+      mode = 2;
     }
 
     if (mode) {
@@ -290,10 +292,12 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
   };
 
   var compare = function(a, b) {
-    if (a.id < b.id)
+    if (a.id < b.id){
       return -1;
-    if (a.id > b.id)
+    }
+    if (a.id > b.id){
       return 1;
+    }
     return 0;
   };
 
@@ -317,7 +321,7 @@ app.controller('SummaryController', ['$scope', 'locationService', function($scop
 
   $scope.getDecisionText = function(decisionCode) {
     return locationService.getTextForInterestDecisionCode(decisionCode);
-  }
+  };
 }]);
 
 
@@ -361,7 +365,7 @@ app.controller('locationsDetailCtrl', ['$scope', '$mdDialog', 'locationService',
   $scope.getSourceForIndex = function (index) {
     var x = designService.getCategoryIconSourceForIndex(index);
     return x;
-  }
+  };
 
   $scope.addContactClicked = function(ev, contactId) {
     $scope.allContacts = contactService.getAllContacts();
@@ -381,7 +385,7 @@ app.controller('locationsDetailCtrl', ['$scope', '$mdDialog', 'locationService',
         $scope.contacts = getContactsOfLocation();
       }
     });
-  }
+  };
 }]);
 
 
@@ -396,7 +400,7 @@ app.controller('addContactDialogCtrl', ['$scope', '$state', '$mdDialog', 'contac
   $scope.addNewContact = function() {
     $mdDialog.hide();
     $state.go('contacts-create');
-  }
+  };
 }]);
 
 
