@@ -73,11 +73,13 @@ app.service('locationService', function() {
   }
 
   ls.saveLocation = function() {
+
     // mockup until xsodata is implemented
     var highestLocation = ls.locations[ls.locations.length - 1];
     ls.oLocation.id = highestLocation.id + 1;
     ls.locations.push(ls.oLocation);
     // mockup until xsodata is implemented
+    ls.oLocation = {};
     return highestLocation.id + 1;
   }
 
