@@ -81,7 +81,7 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 		category: 'One'
 	}];
 
-	// define the array of categories 
+	// define the array of categories
 	$scope.categories = ['One', 'Two', 'Three'];
 	$scope.selected = [1];
 
@@ -89,7 +89,7 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 	var selectedCategories = [];
 
 	$scope.markers = [];
-	
+
 // filter the categories and bind with the right marker from our markers array.
 	$scope.filterChanged = function(category) {
 // check the selected categories
@@ -100,7 +100,7 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 			selectedCategories.push(category);
 		}
 // compare the selected category/ies with markers
-// when selecting more than one categories, we cannot add the same markers again and again therefore 
+// when selecting more than one categories, we cannot add the same markers again and again therefore
 // clear the markers from the previous time and continue
 		$scope.markers = [];
 		for (i = 0; i < selectedCategories.length; i++) {

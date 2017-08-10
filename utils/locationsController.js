@@ -319,6 +319,14 @@ app.controller('SummaryController', ['$scope', 'locationService', function($scop
   //$scope.paperDecision = locationService.getPaperDecision();
   $scope.location = locationService.oLocation;
 
+  $scope.map = {
+		center: {
+			latitude: 51.312801,
+			longitude: 9.481544
+		},
+		zoom: 5
+	};
+
   $scope.getDecisionText = function(decisionCode) {
     return locationService.getTextForInterestDecisionCode(decisionCode);
   };

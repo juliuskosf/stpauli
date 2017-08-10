@@ -1,17 +1,33 @@
 <div ng-layout="column" ng-controller="SummaryController">
-  <h2>{{location.name}}</h2>
-  <h3>Adresse</h3>
-  <h4 class="createAddressHeader">{{location.address.street}}</h4>
-  <h4 class="createAddressHeader">{{location.address.additionalAddress}}</h4>
-  <h4 class="createAddressHeader">{{location.address.postcode}}</h4>
-  <h4 class="createAddressHeader">{{location.address.city}}</h4>
-  <h3>Wasser</h3>
-  <h4>{{getDecisionText(waterDecision.decisionCode)}}</h4>
-  <ul ng-if="waterDecision.reasons.length !== 0">
-    <li ng-repeat="reason in waterDecision.reasons">
-      {{reason.text}}
-    </li>
-  </ul>
+
+  <md-card>
+    <md-card-title>
+      <img src="">
+      <md-card-title-text>
+        <span class="md-headline"><b>{{location.name}}</b>
+          wurde angelegt!</span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      <p>
+        {{location.address.street}} <br>
+        <span ng-if="location.address.additionalAddress">{{location.address.additionalAddress}} <br></span>
+        {{location.address.postcode}} <br>
+        {{location.address.city}} <br>
+      </p>
+      <p><u>Wasser</u></p>
+      <p><i>{{getDecisionText(waterDecision.decisionCode)}}</i>
+      <ul ng-if="waterDecision.reasons.length !== 0">
+        <li ng-repeat="reason in waterDecision.reasons">
+          {{reason.text}}
+        </li>
+      </ul>
+      </p>
+    </md-card-content>
+    <md-card-actions layout="column" layout-align="start">
+      <md-button class="md-raised">Zum Ansprechpartner-Menu</md-button>
+    </md-card-actions>
+  </md-card>
   <!--
   <h3>Toilettenpapier</h3>
   <h4>{{getDecisionText(paperDecision.decisionCode)}}</h4>
