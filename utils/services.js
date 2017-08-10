@@ -72,6 +72,15 @@ app.service('locationService', function() {
     ls.selectedLocation.partners.sort(sortNumber);
   }
 
+  ls.saveLocation = function() {
+    // mockup until xsodata is implemented
+    var highestLocation = ls.locations[ls.locations.length - 1];
+    ls.oLocation.id = highestLocation.id + 1;
+    ls.locations.push(ls.oLocation);
+    // mockup until xsodata is implemented
+    return highestLocation.id + 1;
+  }
+
   ls.locations = [{
       name: "Die Schenke",
       id: 0,

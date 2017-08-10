@@ -314,10 +314,12 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 
 
 
-app.controller('SummaryController', ['$scope', 'locationService', function($scope, locationService) {
+app.controller('SummaryController', ['$scope', '$state', 'locationService', function($scope, $state, locationService) {
   $scope.waterDecision = locationService.getWaterDecision();
   //$scope.paperDecision = locationService.getPaperDecision();
   $scope.location = locationService.oLocation;
+
+  $scope.newID = locationService.saveLocation(); // richtige ID erzeugen
 
   $scope.map = {
 		center: {
@@ -326,6 +328,11 @@ app.controller('SummaryController', ['$scope', 'locationService', function($scop
 		},
 		zoom: 5
 	};
+
+  $scope.toContactMenu = function() {
+    locationService.setSelectedLocation($scope.newID);
+    $state.go('locations-detail', {tab: 1});
+  };
 
   $scope.getDecisionText = function(decisionCode) {
     return locationService.getTextForInterestDecisionCode(decisionCode);
@@ -347,7 +354,6 @@ app.controller('locationsDetailCtrl', ['$scope', '$mdDialog', 'locationService',
   $scope.selectedLocation = locationService.getSelectedLocation();
 
   $scope.waterDecision = $scope.selectedLocation.waterDecision;
-  $scope.paperDecision = $scope.selectedLocation.paperDecision;
 
   $scope.getCategoryName = function (index) {
     return designService.getNameForCategoryIndex(index);
@@ -361,7 +367,7 @@ app.controller('locationsDetailCtrl', ['$scope', '$mdDialog', 'locationService',
 
   function getContactsOfLocation() {
     // just for mockup! we will use ids to match or something simuliar
-    var indexes = $scope.selectedLocation.partners;
+    var indexes = $scope.selectedLocation.partners || [];
     var allPartners = contactService.getAllContacts();
     var partners = [];
     for (var i = 0; i < indexes.length; i++) {
