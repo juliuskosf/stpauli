@@ -60,9 +60,8 @@ app.controller('contactDetailCtrl',['$state', '$scope', 'contactService', functi
 
   $scope.backPressed = function() {
     contactService.clearSelectedContact();
-    $state.go('contacts-search-result');
+    $state.go($state.previous);
   };
-
 
   $scope.selectedContact = contactService.getSelectedContact();
 }]);

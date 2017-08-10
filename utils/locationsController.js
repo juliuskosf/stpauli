@@ -347,8 +347,7 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 
 
 
-app.controller('locationsDetailCtrl', ['$scope', '$mdDialog', 'locationService', 'designService', 'contactService', '$stateParams', function($scope, $mdDialog, locationService, designService, contactService, $stateParams) {
-
+app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDialog', 'locationService', 'designService', 'contactService', '$stateParams', function($rootScope, $scope, $state, $mdDialog, locationService, designService, contactService, $stateParams) {
   $scope.tabIndex = $stateParams.tab;
 
   $scope.selectedLocation = locationService.getSelectedLocation();
@@ -357,6 +356,15 @@ app.controller('locationsDetailCtrl', ['$scope', '$mdDialog', 'locationService',
 
   $scope.getCategoryName = function (index) {
     return designService.getNameForCategoryIndex(index);
+  };
+
+  $scope.contactClicked = function(id) {
+    contactService.setSelectedContact(id);
+    $state.go('contacts-detail');
+  };
+
+  $scope.backClicked = function() {
+    $state.go($state.previous);
   };
 
   $scope.interestReasons = locationService.getInterestReasons();

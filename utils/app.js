@@ -23,3 +23,9 @@ app.controller('MainController', ['$scope', '$timeout', '$state', '$mdSidenav', 
       progressService.getProgressAtState(fromState);
     })
 }]);
+
+app.run(['$rootScope', '$state', function ($rootScope, $state) {
+  $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState) {
+    $state.previous = fromState;
+  });
+}]);
