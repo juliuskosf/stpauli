@@ -288,7 +288,7 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
     } else {
         locationService.setWaterDecision(0);
     }
-    $state.go('locations-toilet-paper-decision');
+    $state.go('locations-create-summary');
   };
 
   var compare = function(a, b) {
@@ -316,7 +316,7 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 
 app.controller('SummaryController', ['$scope', 'locationService', function($scope, locationService) {
   $scope.waterDecision = locationService.getWaterDecision();
-  $scope.paperDecision = locationService.getPaperDecision();
+  //$scope.paperDecision = locationService.getPaperDecision();
   $scope.location = locationService.oLocation;
 
   $scope.getDecisionText = function(decisionCode) {
