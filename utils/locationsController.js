@@ -351,7 +351,7 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
   $scope.tabIndex = $stateParams.tab;
 
   $scope.selectedLocation = locationService.getSelectedLocation();
-
+	console.log($scope.selectedLocation);
   $scope.waterDecision = $scope.selectedLocation.waterDecision;
 
   $scope.getCategoryName = function (index) {

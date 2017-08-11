@@ -63,7 +63,11 @@ app.service('locationService', function() {
   };
 
   ls.addContactToSelectedLocation = function(contactId) {
-    ls.selectedLocation.partners.push(contactId);
+  	if  (ls.selectedLocation.partners){
+    	ls.selectedLocation.partners.push(contactId);
+  	}else{
+  		ls.selectedLocation.partners = [contactId];
+  	}
 
     function sortNumber(a,b) {
       return a - b;
