@@ -2,12 +2,12 @@
   "welcomeFile": "index.html",
   "routes": [
     {
-      "path": "/destinations/northwind",
+      "path": "/destinations/vca",
       "target": {
         "type": "destination",
-        "name": "northwind"
+        "name": "vca"
       },
-      "description": "northwind"
+      "description": "vca"
     }
   ],
   "cacheControl": [

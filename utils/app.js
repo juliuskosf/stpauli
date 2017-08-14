@@ -5,8 +5,19 @@ var app = angular.module('VivaConAgua', [
     'ngGeolocation'
 ]);
 
-app.controller('MainController', ['$scope', '$timeout', '$state', '$mdSidenav', 'locationService', '$rootScope', 'progressService', function ($scope, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService) {
+app.controller('MainController', ['$scope', '$timeout', '$state', '$mdSidenav', 'locationService', '$rootScope', 'progressService', '$http', function ($scope, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService, $http) {
   $state.go('home');
+  
+  /*
+  	$http({
+	  method: 'GET',
+	  url: '/destinations/vca/d064868/location/location.xsodata/Location/?$format=json'
+	}).then(function successCallback(response) {
+		console.log(response.data.d.results);
+	}, function errorCallback(response) {
+	});
+  */
+  
   $scope.toggleLeft = buildToggler('left');
 
   function buildToggler(componentId) {
