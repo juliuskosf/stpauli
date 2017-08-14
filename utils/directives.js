@@ -61,6 +61,18 @@ app.directive('communicationHistory', function() {
   };
 });
 
+app.directive('locationHeader', function() {
+  return {
+    restrict: 'AE',
+    scope: {
+    	location: '=',
+    	categoryName: '=',
+    	source: '='
+    },
+    templateUrl: 'directives/location-header-component.html'
+  };
+});
+
 app.directive('noteList', function() {
   return {
     restrict: 'AE',
