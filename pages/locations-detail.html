@@ -1,16 +1,7 @@
 <div layout="column" ng-controller="locationsDetailCtrl">
-  <md-card>
-    <md-card-title>
-      <md-card-title-text>
-        <span class="md-headline">{{selectedLocation.name}}</span>
-        <span class="md-subhead">{{getCategoryName(selectedLocation.categoryIndex)}}</span>
-      </md-card-title-text>
-      <md-card-title-media>
-        <!-- Move everything from inline css to global design files -->
-        <img ng-src="{{getSourceForIndex(selectedLocation.categoryIndex)}}" style="background-color:blue; padding: 3px; border-radius: 10px" class="md-media-sm card-media"/>
-      </md-card-title-media>
-    </md-card-title>
-  </md-card>
+
+  <location-header location="selectedLocation" category-name="getCategoryName(selectedLocation.categoryIndex)" source="getSourceForIndex(selectedLocation.categoryIndex)"></location-header>
+
   <md-tabs md-selected="tabIndex" md-dynamic-height md-border-bottom md-stretch-tabs="yes">
     <md-tab label="Infos">
       <location-info-form
