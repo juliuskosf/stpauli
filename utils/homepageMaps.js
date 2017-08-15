@@ -46,7 +46,7 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 			longitude: 9.990634
 		},
 		options: _options,
-		category: 'Three'
+		category: 'Bar'
 	}, {
 		id: 1,
 		coords: {
@@ -54,7 +54,7 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 			longitude: 9.991254
 		},
 		options: _options,
-		category: 'Three'
+		category: 'Bar'
 	}, {
 		id: 2,
 		coords: {
@@ -62,7 +62,7 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 			longitude: 9.966551
 		},
 		options: _options,
-		category: 'Two'
+		category: 'Restaurant'
 	}, {
 		id: 3,
 		coords: {
@@ -70,7 +70,7 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 			longitude: 9.970016
 		},
 		options: _options,
-		category: 'One'
+		category: 'Shop'
 	}, {
 		id: 4,
 		coords: {
@@ -78,11 +78,11 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 			longitude: 9.986222
 		},
 		options: _options,
-		category: 'One'
+		category: 'Shop'
 	}];
 
 	// define the array of categories
-	$scope.categories = ['One', 'Two', 'Three'];
+	$scope.categories = ['Bar', 'Shop', 'Restaurant'];
 	$scope.selected = [1];
 
 // create an empty variable for the categories which will be selected

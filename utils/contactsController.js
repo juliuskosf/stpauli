@@ -60,7 +60,7 @@ app.controller('contactDetailCtrl',['$state', '$scope', 'contactService', functi
 
   $scope.backPressed = function() {
     contactService.clearSelectedContact();
-    $state.go($state.previous);
+    $state.go('locations-detail', {tab:1});
   };
 
   $scope.selectedContact = contactService.getSelectedContact();
