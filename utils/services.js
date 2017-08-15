@@ -7,7 +7,11 @@ app.service('locationService', function() {
     var textForCode = ["Bereits Supporter", "Interesse", "Kein Intresse"];
     return textForCode[dc];
   }
-
+  
+  ls.getLocation = function(){
+  	return ls.oLocation;
+  };
+  
   ls.setLocationName = function(newValue) {
     ls.oLocation.name = newValue;
   }

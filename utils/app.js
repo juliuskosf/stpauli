@@ -7,7 +7,7 @@ var app = angular.module('VivaConAgua', [
 
 app.controller('MainController', ['$scope', '$timeout', '$state', '$mdSidenav', 'locationService', '$rootScope', 'progressService', '$http', function ($scope, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService, $http) {
   $state.go('home');
-	/*
+	
   	var data = JSON.stringify({
 		ID: "1000",
 		FIRSTNAME: "Benedikt",
@@ -28,7 +28,7 @@ app.controller('MainController', ['$scope', '$timeout', '$state', '$mdSidenav', 
 			console.log(data);
 		}
 	});
-	*/
+	
   
   $scope.toggleLeft = buildToggler('left');
 
