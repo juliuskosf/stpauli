@@ -3,10 +3,10 @@ html, body {
 }
 
 .btn1 {
-	border-radius: 3px;
-	font-size: 14px;
-	border: solid;
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+	min-width: 100px;
+  border-radius: 3px;
+  font-size: 20px;
+  text-align: center;
 }
 
 .gridIcons {
@@ -29,3 +29,19 @@ html, body {
     width: 100%;
     height: 100%;
 }
+
+.vcalogo {
+	padding-top: 20%;
+    padding-bottom: 20%;
+    padding-left: 5%;
+}
+
+.vcalogo2 {
+	padding-top: 20%;
+    padding-bottom: 20%;
+}
+
+.googlemaps {
+    padding-top: 5%;
+}
+

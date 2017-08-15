@@ -217,9 +217,8 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 // -------------------------------------------
 // -------------------------------------------
 
-app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService,
-	designService) {
-	5
+app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService, designService) {
+
 	console.log(locationService.oLocation);
 	$scope.selected = [];
 	if ($state.current.name === "locations-water-decision-interest") {

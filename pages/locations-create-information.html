@@ -1,14 +1,14 @@
 <div layout="column" ng-controller="LocationInformationCtrl">
   <!-- Insert Category Picture here -->
-  <h3>
+  <h1>
     Name und Adresse
-  </h3>
+  </h1>
   <md-input-container>
     <input type="text" placeholder="Name" ng-model="locationName" name="nameInput">
   </md-input-container>
-  <h4>
+  <h2>
     Adresse
-  </h4>
+  </h2>
   <md-button md-layout="row" class="md-raised" ng-disabled="locationName.length == 0" ng-click="confirmAddress()">
     Standort verwenden
     <div layout="row" layout-sm="column" layout-align="space-around">

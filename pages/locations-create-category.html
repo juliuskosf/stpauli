@@ -1,11 +1,11 @@
 <div ng-controller="CategorySelectionCtrl" layout="column" layout-margin>
-  <h3>Wie lässt sich die Location <br/> kategorisieren?</h3>
-  <md-grid-list md-cols="3" md-gutter="30px" md-row-height="3:3">
+  <h2>Wie lässt sich die Location <br/> kategorisieren?</h2>
+  <md-grid-list md-gutter="1.5em" md-cols="2" md-row-height="2:1.75">
     <md-grid-tile class= "gridIcons" ng-repeat="(index, tile) in tiles" layout-padding ng-click="tileClicked(index)">
       <img ng-src={{tile.src}} width="100px" height="100%"/>
     </md-grid-tile>
   </md-grid-list>
-  <md-button class="btn1 md-primary" ng-click="beforeBack()" ui-sref="locations">
+  <md-button class="md-primary md-raised" ng-click="beforeBack()" ui-sref="locations">
     Zurück
   </md-button>
 </div>
