@@ -7,16 +7,28 @@ var app = angular.module('VivaConAgua', [
 
 app.controller('MainController', ['$scope', '$timeout', '$state', '$mdSidenav', 'locationService', '$rootScope', 'progressService', '$http', function ($scope, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService, $http) {
   $state.go('home');
-  
-  /*
-  	$http({
-	  method: 'GET',
-	  url: '/destinations/vca/d064868/location/location.xsodata/Location/?$format=json'
-	}).then(function successCallback(response) {
-		console.log(response.data.d.results);
-	}, function errorCallback(response) {
+	/*
+  	var data = JSON.stringify({
+		ID: "1000",
+		FIRSTNAME: "Benedikt",
+		NAME: "Bosshammer"
 	});
-  */
+	
+	$.ajax({
+		type: "POST",
+		url: "/destinations/vca/d064868/contact/contact.xsodata/Contact",
+		dataType: "json",
+		data: data,
+		cache: false, 
+		contentType: "application/json",
+		error : function(msg, textStatus) {
+			console.log(textStatus);
+		},
+		success : function(data) {
+			console.log(data);
+		}
+	});
+	*/
   
   $scope.toggleLeft = buildToggler('left');
 
