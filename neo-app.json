@@ -10,6 +10,7 @@
       "description": "vca"
     }
   ],
+  "authenticationMethod": "none",
   "cacheControl": [
     {
       "directive": "private",
