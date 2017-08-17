@@ -15,7 +15,7 @@ app.controller('MainController', ['$scope', '$mdDialog', '$timeout', '$state', '
   };
   // initial start
 
-  $state.go('home');
+  $state.go('home-help');
   /* ---- Enable this for authentication form
 
   showLoginDialog()
@@ -94,4 +94,8 @@ app.controller('MainController', ['$scope', '$mdDialog', '$timeout', '$state', '
     function(event, toState, toParams, fromState, fromParams){
       progressService.getProgressAtState(fromState);
     })
+}]);
+
+app.controller('HomeHelp', ['$scope', '$mdDialog', '$timeout', '$state', '$mdSidenav', 'locationService', '$rootScope', 'progressService', '$http', 'AUTH_EVENTS', function ($scope, $mdDialog, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService, $http, AUTH_EVENTS) {
+
 }]);

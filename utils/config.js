@@ -18,6 +18,7 @@ uiGmapGoogleMapApiProvider.configure({
 
 
   $stateProvider
+	.state('home-help', {templateUrl: 'pages/home-help.html'})
     .state('home', {templateUrl: 'pages/home.html'})
     .state('presentation', {templateUrl: 'pages/presentation.html'})
     .state('locations', {templateUrl: 'pages/locations.html'})
