@@ -2,73 +2,9 @@ var app = angular.module('VivaConAgua', [
     'ngMaterial',
     'ui.router',
     'uiGmapgoogle-maps',
+    'ui.bootstrap',
     'ngGeolocation'
 ]);
-
-app.controller('MainController', ['$scope', '$timeout', '$state', '$mdSidenav', 'locationService', '$rootScope', 'progressService', '$http', function ($scope, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService, $http) {
-  $state.go('home');
-	
-	/*
-	
-	// GET
-	$.ajax({
-		type: "GET",
-		url: "/destinations/vca/d064868/location.xsodata/Location",
-		cache: false, 
-		contentType: "application/json;charset=utf-8",
-		error : function(msg, textStatus) {
-			console.log(textStatus);
-		},
-		success : function(data) {
-			console.log(data);
-		}
-	});
-	
-	// Data for Post
-	var data = JSON.stringify({
-		ID: "1000",
-		NAME: "Henriks",
-		STREET: "Tesdorpfstraße 8",
-		AADDRESS: null,
-		POSTCODE: 20148,
-		CITY: "Hamburg",
-		CATEGORYID: 0,
-		WATER: "X"
-	});
-	
-	// POST
-	$.ajax({
-		type: "POST",
-		url: "/destinations/vca/d064868/location.xsodata/Location",
-		dataType: "json",
-		data: data,
-		cache: false, 
-		contentType: "application/json;charset=utf-8",
-		error : function(msg, textStatus) {
-			console.log(textStatus);
-		},
-		success : function(data) {
-			console.log(data);
-		}
-	});
-	*/
-	
-  $scope.toggleLeft = buildToggler('left');
-
-  function buildToggler(componentId) {
-
-    return function() {
-      locationService.oLocation = {}
-      $mdSidenav(componentId).toggle();
-    };
-  }
-
-  // for progress bar
-  $rootScope.$on('$stateChangeStart',
-    function(event, toState, toParams, fromState, fromParams){
-      progressService.getProgressAtState(fromState);
-    })
-}]);
 
 app.run(['$rootScope', '$state', function ($rootScope, $state) {
   $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState) {
