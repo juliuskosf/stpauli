@@ -7,6 +7,10 @@
           <p>{{ getCategoryName(location.categoryIndex)}}</p>
         </div>
       </md-list-item>
+      <md-list-item ng-if="locations.length === 0" class="secondary-button-padding">
+        <p>Keine Ergebnisse</p>
+        <md-button ui-sref="locations-create" class="md-raised md-accent">Neu hinzufügen</md-button>
+      </md-list-item>
     </md-list>
     <md-button ui-sref="locations" class="md-raised md-primary">Zurück</md-button>
   </div>
