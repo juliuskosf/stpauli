@@ -281,8 +281,6 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 	//$scope.paperDecision = locationService.getPaperDecision();
 	$scope.location = locationService.oLocation;
 
-	$scope.newID = locationService.saveLocation(); // richtige ID erzeugen
-
 	$scope.map = {
 		center: {
 			latitude: 51.312801,
@@ -291,16 +289,48 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 		zoom: 5
 	};
 
-	$scope.toContactMenu = function() {
+/*	$scope.toContactMenu = function() {
 		locationService.setSelectedLocation($scope.newID);
 		$state.go('locations-detail', {
 			tab: 1
 		});
-	};
+	};*/
 
 	$scope.getDecisionText = function(decisionCode) {
 		return locationService.getTextForInterestDecisionCode(decisionCode);
 	};
+	
+	$scope.saveLocationInfo = function(){
+		// Data for Post
+		var data = JSON.stringify({
+			ID: "1000",
+			NAME: locationService.getLocation().name,
+			STREET: locationService.getLocation().address.street,
+			AADDRESS: "",
+			POSTCODE: locationService.getLocation().address.postcode,
+			CITY: locationService.getLocation().address.city,
+			CATEGORYID: 0,
+			WATER: "X"
+		});
+	
+		// POST
+		$.ajax({
+			type: "POST",
+			url: "/destinations/vca/d064868/location.xsodata/Location",
+			dataType: "json",
+			data: data,
+			cache: false,
+			contentType: "application/json;charset=utf-8",
+			error : function(msg, textStatus) {
+				console.log(textStatus);
+			},
+			success : function(data) {
+				console.log(data);
+			}
+		});
+	};
+	// $scope.newID = locationService.saveLocation(); // richtige ID erzeugen
+	
 }]);
 
 app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDialog', 'locationService', 'designService', 'contactService',
