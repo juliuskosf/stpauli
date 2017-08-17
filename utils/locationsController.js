@@ -74,7 +74,7 @@ app.controller('LocationInformationCtrl', ['$scope', '$state', '$mdToast', '$tim
 
 			function calcAddress() {
 				$scope.loading = true;
-				var url = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCegJ74_T3HkjEpaLthv92YTG3xZpjG7bs";
+				var url = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCt1roauwbqBAC2qyqiQ2S2kboxLi-XXPw";
 
 				$.ajax({
 					dataType: "json",
@@ -111,7 +111,7 @@ app.controller('LocationInformationCtrl', ['$scope', '$state', '$mdToast', '$tim
 
 				if (lat && lng) {
 					var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lng +
-						"&key=AIzaSyD2122kKcLcNKWAApGcKOmzoTqWXW4hznY";
+						"&key=AIzaSyDUZ4ALqWtdH4aSR8xagxdnk0OafAYmUPk";
 
 					$.ajax({
 						dataType: "json",
