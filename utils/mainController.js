@@ -14,7 +14,15 @@ app.controller('MainController', ['$scope', '$mdDialog', '$timeout', '$state', '
     $mdDialog.hide();
   };
   // initial start
+
+
+  /* ---- Enable this for authentication form
+
   showLoginDialog()
+
+  ---- */
+
+
 	/*
 
 	// GET
