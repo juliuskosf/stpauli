@@ -2,7 +2,6 @@ var app = angular.module('VivaConAgua', [
     'ngMaterial',
     'ui.router',
     'uiGmapgoogle-maps',
-    'ui.bootstrap',
     'ngGeolocation'
 ]);
 

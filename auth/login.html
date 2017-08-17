@@ -5,19 +5,32 @@
 		</md-toolbar>
 		<div class="md-dialog-content">
 		<p>Hier kannst du dich mit deinem Pool-User anmelden</p>
-		<md-input-container>
-			<input placeholder="E-Mail Adresse">
-			</input>
-		</md-input-container>
-		<md-input-container>
-			<input placeholder="Password">
-			</input>
-		</md-input-container>
+		<form name="loginForm">
+			<md-input-container>
+				<input name="email" placeholder="E-Mail Adresse" required ng-model="email">
+				</input>
+			</md-input-container>
+			<!--
+			<div ng-messages="loginForm.email.$error" ng-show="loginForm.email.$dirty">
+				<div ng-message="required">Du brauchst eine Mail!</div>
+			</div>
+		-->
+			<md-input-container>
+				<input name="password" placeholder="Password" type="password" minlength="6" required ng-model="password">
+				</input>
+			</md-input-container>
+			<!--
+			<div ng-messages="loginForm.password.$error" ng-show="loginForm.password.$dirty">
+				<div ng-message="required">Du brauchst ein Password!</div>
+				<div ng-message="minlength">Dein Password ist min. 6 zeilen lang!</div>
+			</div>
+			-->
+		</form>
 		<div layout="row">
-			<md-button class="md-primary" ng-click="login()">
+			<md-button ng-disabled="loginForm.$invalid" class="md-primary md-raised" ng-click="login()">
 				Login
 			</md-button>
-			<md-button class="md-warn">
+			<md-button ng-disabled="true" class="md-warn md-raised">
 				Passwort vergessen?
 			</md-button>
 		</div>

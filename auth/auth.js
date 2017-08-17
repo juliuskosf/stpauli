@@ -1,8 +1,15 @@
 app.controller('LoginCtrl', ['scope', '$mdDialog', '$rootScope', 'AUTH_EVENTS', function($scope, $mdDialog, $rootScope, AUTH_EVENTS) {
 
   $scope.login = function() {
-    console.log("login");
-    $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+    var email = $scope.email;
+    var password = $scope.password;
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
+      console.log(firebase.auth().currentUser);
+      $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+    }, function(error) {
+      console.log(error.code)
+      console.log(error.message)
+    });
   };
 
 }]);

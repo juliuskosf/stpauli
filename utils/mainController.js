@@ -60,6 +60,14 @@ app.controller('MainController', ['$scope', '$mdDialog', '$timeout', '$state', '
 	});
 	*/
 
+  $scope.logout = function() {
+    firebase.auth().signOut().then(function() {
+      $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
+    }).catch(function(error) {
+      // TBD
+    });
+  };
+
   $scope.toggleLeft = buildToggler('left');
 
   function buildToggler(componentId) {
