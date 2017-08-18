@@ -43,6 +43,8 @@ uiGmapGoogleMapApiProvider.configure({
     .state('locations-toilet-paper-decision-no-interest', {templateUrl: 'pages/locations-toilet-paper-decision-no-interest.html'})
 
     .state('locations-create-summary', {templateUrl: 'pages/locations-create-summary.html'})
+    
+    .state('thankyou', {templateUrl: 'pages/thankyou.html'})
 
     .state('contacts-search-result', {templateUrl: 'pages/contacts/contacts-search-result.html'})
     .state('contacts-create', {templateUrl: 'pages/contacts/contacts-create.html'})
