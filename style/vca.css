@@ -80,3 +80,7 @@ padding: 0 6px 0 6px;
 .googlemaps {
     padding-top: 5%;
 }
+
+.textcenter {
+	text-align: center;
+}

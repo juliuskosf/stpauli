@@ -328,7 +328,7 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 				console.log(data);
 			}
 		});
-		$state.go('home');
+		$state.go('thankyou');
 	};
 	// $scope.newID = locationService.saveLocation(); // richtige ID erzeugen
 	

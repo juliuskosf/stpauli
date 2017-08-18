@@ -30,7 +30,7 @@ uiGmapGoogleMapApiProvider.configure({
         templateUrl: 'pages/locations-detail.html',
         params: {tab: null}
     })
-    .state('locations-create', {templateUrl: 'pages/locations-create-category.html'})
+    .state('locations-create-category', {templateUrl: 'pages/locations-create-category.html'})
     .state('locations-create-information', {templateUrl: 'pages/locations-create-information.html'})
     .state('locations-manual-adress', {templateUrl: 'pages/manual-adress-form.html'})
 
@@ -43,6 +43,8 @@ uiGmapGoogleMapApiProvider.configure({
     .state('locations-toilet-paper-decision-no-interest', {templateUrl: 'pages/locations-toilet-paper-decision-no-interest.html'})
 
     .state('locations-create-summary', {templateUrl: 'pages/locations-create-summary.html'})
+    
+    .state('thankyou', {templateUrl: 'pages/thankyou.html'})
 
     .state('contacts-search-result', {templateUrl: 'pages/contacts/contacts-search-result.html'})
     .state('contacts-create', {templateUrl: 'pages/contacts/contacts-create.html'})
