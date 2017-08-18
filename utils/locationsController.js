@@ -1,3 +1,7 @@
+app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', function($scope, $state, locationService) {
+		console.log($scope.searchName);
+	}]);
+
 app.controller('ToiletPaperDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService,
 	designService) {
 	var reasons = [];
@@ -62,7 +66,6 @@ app.controller('ToiletPaperDecisionCtrl', ['$scope', '$state', 'locationService'
 app.controller('LocationInformationCtrl', ['$scope', '$state', '$mdToast', '$timeout', '$mdDialog', 'locationService', 'designService',
 	function($scope, $state, $mdToast, $timeout, $mdDialog, locationService, designService) {
 		$scope.locationName = locationService.getLocationName() || "";
-
 		//test implementation
 		$scope.categorySource = designService.getCategoryIconSourceForIndex(
 			locationService.getCategoryIndex()

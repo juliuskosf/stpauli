@@ -1,7 +1,7 @@
-<div layout="column">
+<div ng-controller="LocationSearchCtrl" layout="column">
   <h1>Locations</h1>
   <md-input-container>
-      <input placeholder="Location Name">
+      <input type="text" placeholder="Location Name" ng-model="searchName">
   </md-input-container>
   <md-button ui-sref="locations-search-result" class="md-raised">
     Suchen
