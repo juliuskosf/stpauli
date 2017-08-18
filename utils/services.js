@@ -22,7 +22,15 @@ app.service('locationService', function() {
   ls.getCategoryIndex = function() {
     return ls.oLocation.categoryIndex;
   };
-
+	
+  ls.setSearchName = function(newValue){
+  	ls.searchName = newValue;
+  }
+  
+  ls.getSearchName = function(){
+  	return ls.searchName;
+  }
+	
   ls.setPaperDecision = function(dc, reasons) {
     ls.oLocation.paperDecision = {
       decisionCode: dc,

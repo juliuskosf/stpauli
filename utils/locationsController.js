@@ -1,5 +1,7 @@
 app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', function($scope, $state, locationService) {
-		console.log($scope.searchName);
+		$scope.rememberName = function(){
+			locationService.setSearchName($scope.searchName);
+		}
 	}]);
 
 app.controller('ToiletPaperDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService,
@@ -428,6 +430,24 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 	$scope.getCategoryName = function(index) {
 		return designService.getNameForCategoryIndex(index);
 	};
-
+	
+	var data = {};
+	// GET
+	$.ajax({
+		type: "GET",
+		url: "/destinations/vca/d064868/location.xsodata/Location/?$filter=NAME eq '" + locationService.getSearchName() + "'",
+		cache: false,
+		contentType: "application/json;charset=utf-8",
+		error : function(msg, textStatus) {
+			console.log(textStatus);
+		},
+		success : function(data) {
+			console.log(data);
+			console.log(JSON.stringify(data));
+			data = data;
+			console.log(JSON.stringify(data));
+		}
+	});
+	
 	$scope.locations = locationService.getAllLocations();
 }]);
