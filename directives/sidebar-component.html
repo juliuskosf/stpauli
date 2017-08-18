@@ -1,27 +1,26 @@
 <md-sidenav class="md-sidenav-left" md-component-id="left"md-whiteframe="4">
   <a>
-    <img class="vcalogo" src="https://upload.wikimedia.org/wikipedia/de/thumb/3/3a/Viva-con-Agua-Logo.svg/500px-Viva-con-Agua-Logo.svg.png"
+    <img class="vcalogo" src="sources/img/vcalogo_blue.png"
     width="90%" height="auto" />
   </a>
+  
+  
+  
   <md-toolbar class="md-theme-indigo md-hue-3">
-    <md-button ui-sref="home" ng-click="toggleLeft()">
+    <md-button ui-sref="home-help" ng-click="toggleLeft()">
       Home
     </md-button>
-    <md-button ui-sref="presentation" ng-click="toggleLeft()">
-      Präsentation
-    </md-button>
     <md-button ui-sref="locations" ng-click="toggleLeft()">
-      Locations
+      Location
+    </md-button>
+    <md-button ui-sref="home" ng-click="toggleLeft()">
+      Map
+    </md-button>
+    <md-button ui-sref="presentation" ng-click="toggleLeft()">
+      VcA
     </md-button>
     <md-button ng-click="toggleLeft()" ui-sref="feedback">
       Feedback
-    </md-button>
-  </md-toolbar>
-  <br>
-  <br>
-  <md-toolbar class="md-theme-indigo md-hue-4">
-    <md-button cng-click="toggleLeft()">
-      Login
     </md-button>
   </md-toolbar>
 </md-sidenav>
