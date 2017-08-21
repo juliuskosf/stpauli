@@ -183,7 +183,6 @@ app.service('locationService', function() {
 		ls.selectedLocation.address.postcode =
 			parseInt(ls.selectedLocation.address.postcode); // temporary work around!
 		// we will face this problem later depending on how the backend field looks like
-		console.log(ls.selectedLocation);
 		return ls.selectedLocation;
 	};
 
