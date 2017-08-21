@@ -1,8 +1,8 @@
 app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', function($scope, $state, locationService) {
-		$scope.rememberName = function(){
-			locationService.setSearchName($scope.searchName);
-		}
-	}]);
+	$scope.rememberName = function() {
+		locationService.setSearchName($scope.searchName);
+	}
+}]);
 
 app.controller('ToiletPaperDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService,
 	designService) {
@@ -222,7 +222,8 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 // -------------------------------------------
 // -------------------------------------------
 
-app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService, designService) {
+app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService,
+	designService) {
 
 	console.log(locationService.oLocation);
 	$scope.selected = [];
@@ -294,18 +295,18 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 		zoom: 5
 	};
 
-/*	$scope.toContactMenu = function() {
-		locationService.setSelectedLocation($scope.newID);
-		$state.go('locations-detail', {
-			tab: 1
-		});
-	};*/
+	/*	$scope.toContactMenu = function() {
+			locationService.setSelectedLocation($scope.newID);
+			$state.go('locations-detail', {
+				tab: 1
+			});
+		};*/
 
 	$scope.getDecisionText = function(decisionCode) {
 		return locationService.getTextForInterestDecisionCode(decisionCode);
 	};
-	
-	$scope.saveLocationInfo = function(){
+
+	$scope.saveLocationInfo = function() {
 		// Data for Post
 		var data = JSON.stringify({
 			ID: "1000",
@@ -317,7 +318,7 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 			CATEGORYID: 0,
 			WATER: "X"
 		});
-	
+
 		// POST
 		$.ajax({
 			type: "POST",
@@ -326,17 +327,17 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 			data: data,
 			cache: false,
 			contentType: "application/json;charset=utf-8",
-			error : function(msg, textStatus) {
+			error: function(msg, textStatus) {
 				console.log(textStatus);
 			},
-			success : function(data) {
+			success: function(data) {
 				console.log(data);
 			}
 		});
 		$state.go('thankyou');
 	};
 	// $scope.newID = locationService.saveLocation(); // richtige ID erzeugen
-	
+
 }]);
 
 app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDialog', 'locationService', 'designService', 'contactService',
@@ -345,7 +346,6 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 		$scope.tabIndex = $stateParams.tab;
 
 		$scope.selectedLocation = locationService.getSelectedLocation();
-		console.log($scope.selectedLocation);
 		$scope.waterDecision = $scope.selectedLocation.waterDecision;
 
 		$scope.getCategoryName = function(index) {
@@ -420,6 +420,24 @@ app.controller('addContactDialogCtrl', ['$scope', '$state', '$mdDialog', 'contac
 
 app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', function($scope, locationService,
 	$state, designService, $stateParams) {
+	$scope.data = {};
+	// GET
+	$.ajax({
+		type: "GET",
+		url: "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=NAME eq '" + locationService.getSearchName() + "'",
+		cache: false,
+		contentType: "application/json;charset=utf-8",
+		error: function(msg, textStatus) {
+			console.log(textStatus);
+		},
+		success: function(data) {
+			// console.log(data.d.results);
+			$scope.data = data.d.results;
+			// console.log($scope.data[0].NAME);
+			//$scope.locations = data;
+		}
+	});
+
 	$scope.itemPressed = function(id) {
 		locationService.setSelectedLocation(id);
 		$state.go('locations-detail', {
@@ -430,23 +448,6 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 	$scope.getCategoryName = function(index) {
 		return designService.getNameForCategoryIndex(index);
 	};
-	
-	var data = {};
-	// GET
-	$.ajax({
-		type: "GET",
-		url: "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=NAME eq '" + locationService.getSearchName() + "'",
-		cache: false,
-		contentType: "application/json;charset=utf-8",
-		error : function(msg, textStatus) {
-			console.log(textStatus);
-		},
-		success : function(data) {
-			console.log(data.d.results);
-			data = data.d.results;
-			//$scope.locations = data;
-		}
-	});
-	
-	$scope.locations = locationService.getAllLocations();
+
+	// $scope.locations = locationService.getAllLocations();
 }]);
