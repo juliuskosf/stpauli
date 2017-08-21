@@ -1,11 +1,10 @@
-<div ng-controller="WaterDecisionCtrl">
-  Imagine
-  <div layout="row">
+<div ng-controller="WaterDecisionCtrl" layout="column">
+  <h3>Imagine: Diese Location führt VcA Wasser <br>Vorstellbar?</h3>
+    <img width="100%" class="vcalogo2" height="auto" src="sources/img/vcaineralwasser.png">
     <md-button class="md-raised" ui-sref="locations-water-decision-interest" ng-click="saveDecision('imagineYes')">
       Ja
     </md-button>
     <md-button class="md-raised" ui-sref="locations-water-decision-no-interest" ng-click="saveDecision('imagineNo')">
       Nein
     </md-button>
-  </div>
 </div>

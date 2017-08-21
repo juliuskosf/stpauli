@@ -1,8 +1,15 @@
 <div ng-controller="WaterDecisionCtrl">
-  <md-button name="glas" ui-sref="locations-create-summary" ng-click="saveSelection($event)">
-    Glas
-  </md-button>
-  <md-button name="plastik" ui-sref="locations-create-summary" ng-click="saveSelection($event)">
-    Plastik
-  </md-button>
+  <h3>Welches Wasser siehst du?</h3>
+  <div layout="row">
+    <md-button class="md-raised" name="glas" ui-sref="locations-create-summary" ng-click="saveSelection($event)">
+      Glas
+    </md-button>
+    <md-button class="md-raised" name="plastik" ui-sref="locations-create-summary" ng-click="saveSelection($event)">
+      Plastik
+    </md-button>
+  </div>
+  <md-card class="bubble2">
+    In den nachfolgenden Screens wird je nach Auswahl die entsprechenden Gebindearten per Bild angezeigt und per "Frame" Auswahl (Mehrfachnennung möglich) abgefragt
+  </md-card>
+
 </div>
