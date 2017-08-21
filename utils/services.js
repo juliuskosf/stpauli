@@ -156,7 +156,25 @@ app.service('locationService', function() {
 	};
 
 	ls.setSelectedLocation = function(id) {
-		ls.selectedLocation = ls.locations["0"];
+		ls.selectedLocation = {
+			name: "",
+			id: "",
+			address: {
+				street: "",
+				additionalAddress: "",
+				postcode: "",
+				city: ""
+			},
+			partners: null,
+			categoryIndex: null,
+			waterDecision: {
+				decisionCode: null
+			},
+			paperDecision: {
+				decisionCode: null
+			}
+		};
+		
 		// GET
 		$.ajax({
 			type: "GET",
@@ -169,7 +187,7 @@ app.service('locationService', function() {
 			success: function(data) {
 				// console.log(data);
 				ls.selectedLocation.name = data.d.NAME;
-				ls.selectedLocation.id = data.d.ID;
+				ls.selectedLocation.id = id;
 				ls.selectedLocation.additionalAddress = data.d.AADDRESS;
 				ls.selectedLocation.address.street = data.d.STREET;
 				ls.selectedLocation.address.city = data.d.CITY;
@@ -183,7 +201,6 @@ app.service('locationService', function() {
 		ls.selectedLocation.address.postcode =
 			parseInt(ls.selectedLocation.address.postcode); // temporary work around!
 		// we will face this problem later depending on how the backend field looks like
-		console.log(ls.selectedLocation);
 		return ls.selectedLocation;
 	};
 
