@@ -323,12 +323,57 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 
 }]);
 
+app.controller('addContactDialogCtrl', ['$scope', '$state', '$mdDialog', 'contactService', 'locationService', 'selectedLocation', function(
+	$scope, $state, $mdDialog, contactService, locationService, selectedLocation) {
+	$scope.allContacts = contactService.getAllPossibleContactsForSelectedLocation(selectedLocation);
+	$scope.contactPressed = function(contactId) {
+		locationService.addContactToSelectedLocation(contactId);
+		$mdDialog.hide();
+	};
+	$scope.addNewContact = function() {
+		$mdDialog.hide();
+		$state.go('contacts-create');
+	};
+}]);
+
+app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', function($scope, locationService,
+	$state, designService, $stateParams) {
+	$scope.locations = [];
+
+	$scope.itemPressed = function(id) {
+		locationService.setSelectedLocation(id);
+	};
+
+	// GET
+	$.ajax({
+		type: "GET",
+		url: "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=NAME eq '" + locationService.getSearchName() + "'",
+		cache: false,
+		contentType: "application/json;charset=utf-8",
+		error: function(msg, textStatus) {
+			console.log(textStatus);
+		},
+		success: function(data){
+			$scope.$apply(function() {
+				$scope.locations = data.d.results;
+			});
+		}
+	});
+
+	$scope.getCategoryName = function(index) {
+		return designService.getNameForCategoryIndex(index);
+	};
+
+	// $scope.locations = locationService.getAllLocations();
+}]);
+
 app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDialog', 'locationService', 'designService', 'contactService',
 	'$stateParams',
 	function($rootScope, $scope, $state, $mdDialog, locationService, designService, contactService, $stateParams) {
 		$scope.tabIndex = $stateParams.tab;
-
+		console.log($scope.selectedLocation);
 		$scope.selectedLocation = locationService.getSelectedLocation();
+		console.log($scope.selectedLocation);
 		$scope.waterDecision = $scope.selectedLocation.waterDecision;
 
 		$scope.getCategoryName = function(index) {
@@ -365,7 +410,7 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 			var x = designService.getCategoryIconSourceForIndex(index);
 			return x;
 		};
-
+		
 		$scope.addContactClicked = function(ev, contactId) {
 			$scope.allContacts = contactService.getAllContacts();
 			var locationId = $scope.selectedLocation.id;
@@ -387,50 +432,3 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 		};
 	}
 ]);
-
-app.controller('addContactDialogCtrl', ['$scope', '$state', '$mdDialog', 'contactService', 'locationService', 'selectedLocation', function(
-	$scope, $state, $mdDialog, contactService, locationService, selectedLocation) {
-	$scope.allContacts = contactService.getAllPossibleContactsForSelectedLocation(selectedLocation);
-	$scope.contactPressed = function(contactId) {
-		locationService.addContactToSelectedLocation(contactId);
-		$mdDialog.hide();
-	};
-	$scope.addNewContact = function() {
-		$mdDialog.hide();
-		$state.go('contacts-create');
-	};
-}]);
-
-app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', function($scope, locationService,
-	$state, designService, $stateParams) {
-	$scope.data = {};
-
-	$scope.itemPressed = function(id) {
-		locationService.setSelectedLocation(id);
-		$state.go('locations-detail', {
-			tab: null
-		});
-	};
-
-	// GET
-	$.ajax({
-		type: "GET",
-		url: "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=NAME eq '" + locationService.getSearchName() + "'",
-		cache: false,
-		contentType: "application/json;charset=utf-8",
-		error: function(msg, textStatus) {
-			console.log(textStatus);
-		},
-		success: function(data) {
-			$scope.$apply(function() {
-				$scope.locations = data.d.results;
-			})
-		}
-	});
-
-	$scope.getCategoryName = function(index) {
-		return designService.getNameForCategoryIndex(index);
-	};
-
-	// $scope.locations = locationService.getAllLocations();
-}]);
