@@ -435,17 +435,16 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 	// GET
 	$.ajax({
 		type: "GET",
-		url: "/destinations/vca/d064868/location.xsodata/Location/?$filter=NAME eq '" + locationService.getSearchName() + "'",
+		url: "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=NAME eq '" + locationService.getSearchName() + "'",
 		cache: false,
 		contentType: "application/json;charset=utf-8",
 		error : function(msg, textStatus) {
 			console.log(textStatus);
 		},
 		success : function(data) {
-			console.log(data);
-			console.log(JSON.stringify(data));
-			data = data;
-			console.log(JSON.stringify(data));
+			console.log(data.d.results);
+			data = data.d.results;
+			//$scope.locations = data;
 		}
 	});
 	
