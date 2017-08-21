@@ -160,7 +160,7 @@ app.service('locationService', function() {
 	};
 
 	ls.setSelectedLocation = function(id) {
-<<<<<<< HEAD
+		
 		ls.selectedLocation = {
 			name: "",
 			id: "",
@@ -179,8 +179,6 @@ app.service('locationService', function() {
 				decisionCode: null
 			}
 		};
-=======
->>>>>>> 1e4f121c322f05d82e4e69408d77accdd677a912
 
 		// GET
 		$.ajax({
