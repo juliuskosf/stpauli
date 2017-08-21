@@ -1,16 +1,15 @@
 <div layout="column" ng-controller="WaterDecisionCtrl">
 
-<!--	<location-header location="sLocation" category-name="getCategoryName(sLocation.categoryIndex)" source="getSourceForIndex(sLocation.categoryIndex)"></location-header>-->
+<!--	<location-header location="sLocation" category-name="getCategoryName(sLocation.categoryIndex)" source="getSourceForIndex(sLocation.categoryIndex)"></location-header>
+    <img width="100%" class="vcalogo2" height="auto" src="sources/img/vcaineralwasser.png"> -->
+    <h3>Siehst du VcA Wasser?</h3>
     <img width="100%" class="vcalogo2" height="auto" src="sources/img/vcaineralwasser.png">
-    <!-- To get a dynamic design e.g. getting pictures from a server,
-    switch to ng-src and supply controller via designService -->
-    <md-button class="md-raised" ng-click="goSendSupporter()">
-      Bereits Supporter
-    </md-button>
-    <md-button class="md-raised" ui-sref="locations-water-decision-interest">
-      Interesse
-    </md-button>
-    <md-button class="md-raised" ui-sref="locations-water-decision-no-interest">
-      Kein Interesse
-    </md-button>
+    <div layout="row">
+      <button class="md-raised" name="seeYes" ui-sref="locations-water-selection" ng-click="saveDecision($event)">
+        Ja
+      </button>
+      <button class="md-raised" name="seeNo" ui-sref="locations-no-water" ng-click="saveDecision($event)">
+        Nein
+      </button>
+    </div>
 </div>

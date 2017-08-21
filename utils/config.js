@@ -35,13 +35,15 @@ app.config(['$stateProvider', '$mdThemingProvider', 'uiGmapGoogleMapApiProvider'
     .state('locations-manual-adress', {templateUrl: 'pages/manual-adress-form.html'})
 
     .state('locations-water-decision', {templateUrl: 'pages/locations-water-decision.html'})
+    .state('locations-water-selection', {templateUrl: 'pages/locations-water-selection.html'})
+    .state('locations-no-water', {templateUrl: 'pages/locations-no-water.html'})
     .state('locations-water-decision-interest', {templateUrl: 'pages/locations-water-decision-interest.html'})
     .state('locations-water-decision-no-interest', {templateUrl: 'pages/locations-water-decision-no-interest.html'})
-
+    /*
     .state('locations-toilet-paper-decision', {templateUrl: 'pages/locations-toilet-paper-decision.html'})
     .state('locations-toilet-paper-decision-interest', {templateUrl: 'pages/locations-toilet-paper-decision-interest.html'})
     .state('locations-toilet-paper-decision-no-interest', {templateUrl: 'pages/locations-toilet-paper-decision-no-interest.html'})
-
+    */
     .state('locations-create-summary', {templateUrl: 'pages/locations-create-summary.html'})
 
     .state('thankyou', {templateUrl: 'pages/thankyou.html'})

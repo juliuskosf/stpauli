@@ -225,13 +225,60 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService,
 	designService) {
 
-	console.log(locationService.oLocation);
+	$scope.saveDecision = function(event) {
+
+		// clear the decisionValue
+
+		switch (event.target.name) {
+			case "seeYes":
+				break;
+			case "seeNo":
+				break;
+			case "imagineYes":
+				break;
+			case "imagineNo":
+				break;
+			default:
+		}
+	}
+
 	$scope.selected = [];
 	if ($state.current.name === "locations-water-decision-interest") {
 		$scope.reasons = locationService.getInterestReasons();
 	} else if ($state.current.name === "locations-water-decision-no-interest") {
 		$scope.reasons = locationService.getNoInterestReasons();
 	}
+
+	$scope.toggle = function(reason, list) {
+		var idx = list.indexOf(reason);
+		if (idx > -1) {
+			list.splice(idx, 1);
+		} else {
+			list.push(reason);
+		}
+		list.sort(compare);
+	};
+
+	var compare = function(a, b) {
+		if (a.id < b.id) {
+			return -1;
+		}
+		if (a.id > b.id) {
+			return 1;
+		}
+		return 0;
+	};
+
+	$scope.sendSupporter = function() {
+		$state.go('locations-create-summary');
+	}
+
+	$scope.saveSelection = function() {
+		
+	}
+		/*
+	console.log(locationService.oLocation);
+
 
 	$scope.getCategoryName = function(index) {
 		return designService.getNameForCategoryIndex(index);
@@ -244,15 +291,7 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 		return x;
 	};
 
-	$scope.toggle = function(reason, list) {
-		var idx = list.indexOf(reason);
-		if (idx > -1) {
-			list.splice(idx, 1);
-		} else {
-			list.push(reason);
-		}
-		list.sort(compare);
-	};
+
 
 	$scope.goSendSupporter = function() {
 		var mode;
@@ -270,15 +309,7 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 		$state.go('locations-create-summary');
 	};
 
-	var compare = function(a, b) {
-		if (a.id < b.id) {
-			return -1;
-		}
-		if (a.id > b.id) {
-			return 1;
-		}
-		return 0;
-	};
+	*/
 
 }]);
 
