@@ -6,19 +6,16 @@
 <!--  <md-input-container>
     <input type="text" placeholder="Name" ng-model="locationName" name="nameInput">
   </md-input-container> -->
-    
      <div>
-      <label for="Autocomplete2">Autocomplete: </label>
+<!--      <label for="Autocomplete2"></label> -->
+      <md-input-container>
       <input type="text" id="Autocomplete2" ng-model="vm.autocomplete" class="form-control" ng-autocomplete options="vm.options" details="vm.details" initial-address="vm.initialAddress"/>
-
+      </md-input-container>
       <br>
       <b>autocomplete</b>: {{vm.autocomplete}}
       <br><br>
       <b>Details</b>: {{vm.details.formatted_address}}
-
     </div>
-
-    
   <h2 class="textcenter">
     Adresse
   </h2>
@@ -30,13 +27,14 @@
     </div>
     <md-tooltip ng-if="locationName.length == 0">Enter a name first</md-tooltip>
   </md-button> -->
-  <md-button class="md-raised" ng-disabled="locationName.length == 0" ng-click="save()">
+  
+  <md-button class="md-raised" ng-disabled="locationName.length == 0" ng-click="save()" ui-sref= 'locations-manual-adress' >
     <!-- I used ng-click instead of ui-sref, because ui-sref
     and ng-disabled does not work together -->
     <md-tooltip ng-if="locationName.length == 0">Enter a name first</md-tooltip>
     Eingeben
   </md-button>
-  <md-button class="md-primary md-raised" ui-sref="locations-water-decision"  ng-click="save()">
+  <md-button class="md-raised" ui-sref="locations-water-decision"  ng-click="save()">
     Weiter
   </md-button>
   <md-button class="md-primary md-raised" ui-sref="locations-create">

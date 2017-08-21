@@ -2,8 +2,10 @@
   <h3 style="color: blue;">{{locationName}}</h3>
   <!-- Small icon with category or something similiar -->
   <h3>Adresse</h3>
+  <md-input-container>
+    <input type="text" placeholder="Name" ng-model="locationName" name="nameInput">
+  </md-input-container>
   <location-info-form
-    form-name="manualAddressForm"
     street-model="address.street"
     additionaladdress-model="address.additionalAddress"
     postcode-model="address.postcode"
