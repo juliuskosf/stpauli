@@ -289,7 +289,6 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 	$scope.getDecisionText = function(decisionCode) {
 		return locationService.getTextForInterestDecisionCode(decisionCode);
 	};
-
 	$scope.saveLocationInfo = function() {
 		// Data for Post
 		var data = JSON.stringify({
@@ -299,7 +298,7 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 			AADDRESS: "",
 			POSTCODE: locationService.getLocation().address.postcode,
 			CITY: locationService.getLocation().address.city,
-			CATEGORYID: 0,
+			CATEGORYID: locationService.getLocation().categoryIndex,
 			WATER: "X"
 		});
 
@@ -405,6 +404,14 @@ app.controller('addContactDialogCtrl', ['$scope', '$state', '$mdDialog', 'contac
 app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', function($scope, locationService,
 	$state, designService, $stateParams) {
 	$scope.data = {};
+
+	$scope.itemPressed = function(id) {
+		locationService.setSelectedLocation(id);
+		$state.go('locations-detail', {
+			tab: null
+		});
+	};
+
 	// GET
 	$.ajax({
 		type: "GET",
@@ -421,13 +428,6 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 			//$scope.locations = data;
 		}
 	});
-
-	$scope.itemPressed = function(id) {
-		locationService.setSelectedLocation(id);
-		$state.go('locations-detail', {
-			tab: null
-		});
-	};
 
 	$scope.getCategoryName = function(index) {
 		return designService.getNameForCategoryIndex(index);

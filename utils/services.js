@@ -160,6 +160,7 @@ app.service('locationService', function() {
 	};
 
 	ls.setSelectedLocation = function(id) {
+<<<<<<< HEAD
 		ls.selectedLocation = {
 			name: "",
 			id: "",
@@ -178,6 +179,8 @@ app.service('locationService', function() {
 				decisionCode: null
 			}
 		};
+=======
+>>>>>>> 1e4f121c322f05d82e4e69408d77accdd677a912
 
 		// GET
 		$.ajax({
@@ -190,13 +193,31 @@ app.service('locationService', function() {
 			},
 			success: function(data) {
 				// console.log(data);
-				ls.selectedLocation.name = data.d.NAME;
+				/*ls.selectedLocation.name = data.d.NAME;
 				ls.selectedLocation.id = id;
 				ls.selectedLocation.additionalAddress = data.d.AADDRESS;
 				ls.selectedLocation.address.street = data.d.STREET;
 				ls.selectedLocation.address.city = data.d.CITY;
 				ls.selectedLocation.address.postcode = data.d.POSTCODE;
-				ls.selectedLocation.categoryIndex = data.d.CATEGORYID;
+				ls.selectedLocation.categoryIndex = data.d.CATEGORYID;*/
+				ls.selectedLocation = {
+					name: data.d.NAME,
+					id: data.d.ID,
+					address: {
+						street: data.d.STREET,
+						additionalAddress: data.d.AADDRESS,
+						postcode: data.d.POSTCODE,
+						city: data.d.CITY
+					},
+					partners: null,
+					categoryIndex: data.d.CATEGORYID,
+					waterDecision: {
+						decisionCode: 0
+					},
+					paperDecision: {
+						decisionCode: null
+					}
+				};
 			}
 		});
 	};
