@@ -1,26 +1,43 @@
-<div layout="column" ng-controller="LocationInformationCtrl">
+<div layout="column" ng-controller="TestCtrl">
   <!-- Insert Category Picture here -->
-  <h1>
-    Name und Adresse
+  <h1 class="textcenter">
+    Name
   </h1>
-  <md-input-container>
+<!--  <md-input-container>
     <input type="text" placeholder="Name" ng-model="locationName" name="nameInput">
-  </md-input-container>
-  <h2>
+  </md-input-container> -->
+    
+     <div>
+      <label for="Autocomplete2">Autocomplete: </label>
+      <input type="text" id="Autocomplete2" ng-model="vm.autocomplete" class="form-control" ng-autocomplete options="vm.options" details="vm.details" initial-address="vm.initialAddress"/>
+
+      <br>
+      <b>autocomplete</b>: {{vm.autocomplete}}
+      <br><br>
+      <b>Details</b>: {{vm.details.formatted_address}}
+
+    </div>
+
+    
+  <h2 class="textcenter">
     Adresse
   </h2>
-  <md-button md-layout="row" class="md-raised" ng-disabled="locationName.length == 0" ng-click="confirmAddress()">
+   
+<!--  <md-button md-layout="row" class="md-raised" ng-disabled="locationName.length == 0" ng-click="confirmAddress()">
     Standort verwenden
     <div layout="row" layout-sm="column" layout-align="space-around">
       <md-progress-circular md-mode="indeterminate" ng-if="loading"></md-progress-circular>
     </div>
     <md-tooltip ng-if="locationName.length == 0">Enter a name first</md-tooltip>
-  </md-button>
-  <md-button class="md-raised" ng-disabled="locationName.length == 0" ng-click="goEnterManual()">
+  </md-button> -->
+  <md-button class="md-raised" ng-disabled="locationName.length == 0" ng-click="save()">
     <!-- I used ng-click instead of ui-sref, because ui-sref
     and ng-disabled does not work together -->
     <md-tooltip ng-if="locationName.length == 0">Enter a name first</md-tooltip>
-    Manuell eingeben
+    Eingeben
+  </md-button>
+  <md-button class="md-primary md-raised" ui-sref="locations-water-decision"  ng-click="save()">
+    Weiter
   </md-button>
   <md-button class="md-primary md-raised" ui-sref="locations-create">
     Zurück

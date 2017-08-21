@@ -65,7 +65,7 @@ app.controller('ToiletPaperDecisionCtrl', ['$scope', '$state', 'locationService'
 // -------------------------------------------
 // -------------------------------------------
 
-app.controller('LocationInformationCtrl', ['$scope', '$state', '$mdToast', '$timeout', '$mdDialog', 'locationService', 'designService',
+/* app.controller('LocationInformationCtrl', ['$scope', '$state', '$mdToast', '$timeout', '$mdDialog', 'locationService', 'designService',
 	function($scope, $state, $mdToast, $timeout, $mdDialog, locationService, designService) {
 		$scope.locationName = locationService.getLocationName() || "";
 		//test implementation
@@ -168,7 +168,7 @@ app.controller('LocationInformationCtrl', ['$scope', '$state', '$mdToast', '$tim
 			locationService.setLocationName($scope.locationName);
 		});
 	}
-]);
+]); */
 
 // -------------------------------------------
 // -------------------------------------------
