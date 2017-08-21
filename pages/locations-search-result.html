@@ -1,7 +1,7 @@
 <div ng-controller="locationSearchController">
   <div layout="column">
     <md-list flex>
-      <md-list-item ng-repeat="location in data" class="md-2-line" ng-click="itemPressed(location.ID)">
+      <md-list-item ng-repeat="location in locations" class="md-2-line" ng-click="itemPressed(location.ID)">
         <div class="md-list-item-text" layout="column">
           <h3>{{ location.NAME }}</h3>
           <p>{{ getCategoryName(location.CATEGORYID)}}</p>

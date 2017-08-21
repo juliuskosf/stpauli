@@ -422,10 +422,9 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 			console.log(textStatus);
 		},
 		success: function(data) {
-			// console.log(data.d.results);
-			$scope.data = data.d.results;
-			// console.log($scope.data[0].NAME);
-			//$scope.locations = data;
+			$scope.$apply(function() {
+				$scope.locations = data.d.results;
+			})
 		}
 	});
 
