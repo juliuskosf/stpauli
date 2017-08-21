@@ -1,6 +1,6 @@
 app.config(['$stateProvider', '$mdThemingProvider', 'uiGmapGoogleMapApiProvider', function($stateProvider, $mdThemingProvider, uiGmapGoogleMapApiProvider) {
-uiGmapGoogleMapApiProvider.configure({
-        key: 'AIzaSyAzzmCZNBcEjUJjWhaUl-PAZK7lcJs9HxE'
+    uiGmapGoogleMapApiProvider.configure({
+        key: 'AIzaSyCz8oF7ATzPWSx8hQEWeAXjR2um3VUtod4'
     });
 
     	$mdThemingProvider.theme('default')
@@ -43,7 +43,7 @@ uiGmapGoogleMapApiProvider.configure({
     .state('locations-toilet-paper-decision-no-interest', {templateUrl: 'pages/locations-toilet-paper-decision-no-interest.html'})
 
     .state('locations-create-summary', {templateUrl: 'pages/locations-create-summary.html'})
-    
+
     .state('thankyou', {templateUrl: 'pages/thankyou.html'})
 
     .state('contacts-search-result', {templateUrl: 'pages/contacts/contacts-search-result.html'})
