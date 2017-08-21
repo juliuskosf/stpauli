@@ -5,11 +5,11 @@
     <h3>Siehst du VcA Wasser?</h3>
     <img width="100%" class="vcalogo2" height="auto" src="sources/img/vcaineralwasser.png">
     <div layout="row">
-      <button class="md-raised" name="seeYes" ui-sref="locations-water-selection" ng-click="saveDecision($event)">
+      <md-button class="md-raised" name="seeYes" ui-sref="locations-water-selection" ng-click="saveDecision('seeYes')">
         Ja
-      </button>
-      <button class="md-raised" name="seeNo" ui-sref="locations-no-water" ng-click="saveDecision($event)">
+      </md-button>
+      <md-button class="md-raised" name="seeNo" ui-sref="locations-no-water" ng-click="saveDecision('seeNo')">
         Nein
-      </button>
+      </md-button>
     </div>
 </div>

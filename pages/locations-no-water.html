@@ -1,10 +1,10 @@
 <div ng-controller="WaterDecisionCtrl">
   Imagine
   <div layout="row">
-    <md-button class="md-raised" name="imagineYes" ui-sref="locations-water-decision-interest" ng-click="saveDecision($event)">
+    <md-button class="md-raised" ui-sref="locations-water-decision-interest" ng-click="saveDecision('imagineYes')">
       Ja
     </md-button>
-    <md-button class="md-raised" name="imagineNo" ui-sref="locations-water-decision-no-interest" ng-click="saveDecision($event)">
+    <md-button class="md-raised" ui-sref="locations-water-decision-no-interest" ng-click="saveDecision('imagineNo')">
       Nein
     </md-button>
   </div>

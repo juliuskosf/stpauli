@@ -4,63 +4,6 @@ app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', fun
 	}
 }]);
 
-app.controller('ToiletPaperDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService,
-	designService) {
-	var reasons = [];
-
-	if ($state.current.name === 'locations-toilet-paper-decision-interest') {
-		reasons = locationService.getInterestReasons();
-
-	} else if ($state.current.name === 'locations-toilet-paper-decision-no-interest') {
-		reasons = locationService.getNoInterestReasons();
-	}
-
-	$scope.reasons = reasons;
-	$scope.selected = [];
-	// Reduntanter Code!! Einfacheren Weg überlegen (Core-Funktionen auslagern)
-	// -------
-
-	$scope.toggle = function(reason, list) {
-		var idx = list.indexOf(reason);
-		if (idx > -1) {
-			list.splice(idx, 1);
-		} else {
-			list.push(reason);
-		}
-		list.sort(compare);
-	};
-
-	$scope.goSendSupporter = function() {
-		var mode;
-		if ($state.current.name === "locations-toilet-paper-decision-interest") {
-			mode = 1;
-		} else if ($state.current.name === "locations-toilet-paper-decision-no-interest") {
-			mode = 2;
-		}
-
-		if (mode) {
-			locationService.setPaperDecision(mode, $scope.selected);
-		} else {
-			locationService.setPaperDecision(0);
-		}
-		$state.go('locations-create-summary');
-	};
-
-	var compare = function(a, b) {
-		if (a.id < b.id) {
-			return -1;
-		}
-		if (a.id > b.id) {
-			return 1;
-		}
-		return 0;
-	};
-
-	// ------
-	// Reduntanter Code!! Einfacheren Weg überlegen (Core-Funktionen auslagern)
-
-}]);
-
 // -------------------------------------------
 // -------------------------------------------
 // -------------------------------------------
@@ -225,21 +168,27 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService,
 	designService) {
 
-	$scope.saveDecision = function(event) {
+	$scope.saveDecision = function(selectedValue) {
+		var decision = locationService.oLocation.decision || {};
 
-		// clear the decisionValue
-
-		switch (event.target.name) {
+		switch (selectedValue) {
 			case "seeYes":
+				decision.already = 'X';
+				decision.imagine = '';
 				break;
 			case "seeNo":
+				decision.already = '';
 				break;
 			case "imagineYes":
+				decision.imagine = 'X';
 				break;
 			case "imagineNo":
+				decision.imagine = '';
 				break;
 			default:
 		}
+
+		locationService.setDecision(decision);
 	}
 
 	$scope.selected = [];
@@ -273,8 +222,12 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 		$state.go('locations-create-summary');
 	}
 
-	$scope.saveSelection = function() {
-		
+	$scope.saveSelection = function(event) {
+		if(event.target.name === "glas") {
+			// Save glas
+		} else {
+			// save plastik
+		}
 	}
 		/*
 	console.log(locationService.oLocation);

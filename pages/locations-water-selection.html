@@ -1,6 +1,8 @@
 <div ng-controller="WaterDecisionCtrl">
-  Selection(tbd)
-  <md-button ui-sref="locations-create-summary" ng-click="saveSelection()">
-    Weiter
+  <md-button name="glas" ui-sref="locations-create-summary" ng-click="saveSelection($event)">
+    Glas
+  </md-button>
+  <md-button name="plastik" ui-sref="locations-create-summary" ng-click="saveSelection($event)">
+    Plastik
   </md-button>
 </div>

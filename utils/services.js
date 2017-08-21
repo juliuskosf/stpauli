@@ -1,6 +1,10 @@
 app.service('locationService', function() {
 	var ls = this; // ls => locationService
 
+	ls.setDecision = function(decision) {
+		ls.oLocation.decision = decision;
+	}
+
 	ls.oLocation = {}; // variable for persistence
 
 	ls.getTextForInterestDecisionCode = function(dc) {
@@ -174,7 +178,7 @@ app.service('locationService', function() {
 				decisionCode: null
 			}
 		};
-		
+
 		// GET
 		$.ajax({
 			type: "GET",
