@@ -449,29 +449,6 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 	$scope.getCategoryName = function(index) {
 		return designService.getNameForCategoryIndex(index);
 	};
-<<<<<<< Upstream, based on 90b5221a2363d415e1a44e35de0b4a0c3b999960
-	
-	var data = {};
-	// GET
-	$.ajax({
-		type: "GET",
-		url: "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=NAME eq '" + locationService.getSearchName() + "'",
-		cache: false,
-		contentType: "application/json;charset=utf-8",
-		error : function(msg, textStatus) {
-			console.log(textStatus);
-		},
-		success : function(data) {
-			console.log(data.d.results);
-			data = data.d.results;
-			//$scope.locations = data;
-		}
-	});
-	
-	$scope.locations = locationService.getAllLocations();
-}]);
-=======
 
 	// $scope.locations = locationService.getAllLocations();
 }]);
->>>>>>> 72423e6 get selected Location from HANA
