@@ -301,7 +301,8 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 			POSTCODE: locationService.getLocation().address.postcode,
 			CITY: locationService.getLocation().address.city,
 			CATEGORYID: locationService.getLocation().categoryIndex,
-			WATER: "X"
+			WATER: locationService.getLocation().decision.already,
+			IMAGINE: locationService.getLocation().decision.imagine
 		});
 
 		// POST
@@ -365,7 +366,6 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 			}
 		});
 	}
-	// GET
 
 	$scope.getCategoryName = function(index) {
 		return designService.getNameForCategoryIndex(index);
