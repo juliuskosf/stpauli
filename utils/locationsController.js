@@ -124,6 +124,7 @@ app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationSe
 
 	$scope.showConfirm = function(event) {
 		locationService.setAddress($scope.address); // next command uses it so assign it here!
+		locationService.setLocationName($scope.locationName);                        
 		var confirm = $mdDialog.confirm()
 			.title('Ist das wirklich die Lokation?')
 			.textContent(locationService.addressToString())
