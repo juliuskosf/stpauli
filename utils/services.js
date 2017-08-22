@@ -243,14 +243,21 @@ app.service('locationService', function($state) {
 				street: address_components[1].long_name + ' ' + address_components[0].long_name,
 				additionalAddress: "",
 				postcode: parseInt(address_components[7].long_name),
-				city: address_components[4].long_name
+				city: address_components[3].long_name
 			}
 		} else if (address_components.length === 7) {
 			address = {
 				street: address_components[1].long_name + ' ' + address_components[0].long_name,
 				additionalAddress: "",
 				postcode: parseInt(address_components[6].long_name),
-				city: address_components[4].long_name
+				city: address_components[3].long_name
+			}
+		} else if (address_components.length === 6) {
+			address = {
+				street: address_components[1].long_name + ' ' + address_components[0].long_name,
+				additionalAddress: "",
+				postcode: parseInt(address_components[5].long_name),
+				city: address_components[2].long_name
 			}
 		} else {
 			address = {
