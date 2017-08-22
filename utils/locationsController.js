@@ -293,6 +293,7 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 		// Data for Post
 		var data = JSON.stringify({
 			ID: "1000",
+			CAPS_NAME: locationService.getLocation().name.toUpperCase(),
 			NAME: locationService.getLocation().name,
 			STREET: locationService.getLocation().address.street,
 			AADDRESS: "",
@@ -347,7 +348,7 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 	// GET
 	$.ajax({
 		type: "GET",
-		url: "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=NAME eq '" + locationService.getSearchName() + "'",
+		url: "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName().toUpperCase() + "', CAPS_NAME)",
 		cache: false,
 		contentType: "application/json;charset=utf-8",
 		error: function(msg, textStatus) {
