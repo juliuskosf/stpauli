@@ -52,5 +52,5 @@ app.config(['$stateProvider', '$mdThemingProvider', 'uiGmapGoogleMapApiProvider'
     .state('contacts-create', {templateUrl: 'pages/contacts/contacts-create.html'})
     .state('contacts-detail', {templateUrl: 'pages/contacts/contacts-detail.html'})
 
-    .state('feedback', {templateUrl: 'pages/feedback.html'});
+    .state('feedback', {templateUrl: 'pages/feedback-help.html'});
 }]);
