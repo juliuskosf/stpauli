@@ -20,7 +20,7 @@ html, body {
 }
 
 .bubble2{
-	padding: 20px 20px 0 20px;
+	padding: 20px 20px 20px 20px;
 	border: solid;
 	border-radius: 6px;
 	box-shadow: 2px 2px 4px #888;
