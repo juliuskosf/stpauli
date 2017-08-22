@@ -1,0 +1,24 @@
+<div id="map_canvas" ng-controller="HomeLocationCtrl">
+	<h3 >Where can I get VcA?</h3>
+
+ <div layout="row" layout-wrap>
+    <div flex="100" flex-gt-sm="50" layout="column">
+      <div>
+        <fieldset class="standard" >
+          <legend>Choose the category</legend>
+          <div layout="row" layout-wrap flex>
+              <md-checkbox ng-repeat="category in categories" ng-click="filterChanged(category)">
+                {{ category }}
+              </md-checkbox>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    </div>
+    <div class="googlemaps">
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
+    	<ui-gmap-marker ng-repeat="marker in markers" coords="marker.coords" idkey="marker.id" options="marker.options">
+        </ui-gmap-marker>
+    </ui-gmap-google-map>
+    </div>
+</div>

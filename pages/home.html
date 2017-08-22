@@ -1,24 +1,14 @@
-<div id="map_canvas" ng-controller="HomeLocationCtrl">
-	<h3 >Where can I get VcA?</h3>
+<div layout="column" ng-controller="HomeHelp">
 
- <div layout="row" layout-wrap>
-    <div flex="100" flex-gt-sm="50" layout="column">
-      <div>
-        <fieldset class="standard" >
-          <legend>Choose the category</legend>
-          <div layout="row" layout-wrap flex>
-              <md-checkbox ng-repeat="category in categories" ng-click="filterChanged(category)">
-                {{ category }}
-              </md-checkbox>
-          </div>
-        </fieldset>
-      </div>
-    </div>
-    </div>
-    <div class="googlemaps">
-    <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
-    	<ui-gmap-marker ng-repeat="marker in markers" coords="marker.coords" idkey="marker.id" options="marker.options">
-        </ui-gmap-marker>
-    </ui-gmap-google-map>
-    </div>
+<!--	<location-header location="sLocation" category-name="getCategoryName(sLocation.categoryIndex)" source="getSourceForIndex(sLocation.categoryIndex)"></location-header>-->
+    <img width="100%" class="vcalogo2" height="auto" src="sources/img/vcalogo_blue.png">
+    <!-- To get a dynamic design e.g. getting pictures from a server,
+    switch to ng-src and supply controller via designService -->
+    <md-card class="bubble2">Willkommen in der BARCHECKER APP<br />
+ 
+ Hier kannst Du aktuell:<br />
+<ul><li>eine Location eintragen, wo Du VcA Wasser entdeckst.</li>
+<li>einen Ansprechpartner der Location hinterlegen</li>
+<li>eine Karte der eingetrangen Locations ansehen</li></ul></md-card>
+    
 </div>

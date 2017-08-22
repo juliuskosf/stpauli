@@ -269,7 +269,6 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 
 app.controller('SummaryController', ['$scope', '$state', 'locationService', function($scope, $state, locationService) {
 	$scope.waterDecision = locationService.getWaterDecision();
-	//$scope.paperDecision = locationService.getPaperDecision();
 	$scope.location = locationService.oLocation;
 
 	$scope.map = {
