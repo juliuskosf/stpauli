@@ -346,7 +346,7 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 		locationService.setSelectedLocation(id);
 	};
 
-	if (locationService.getSearchName().length === 0) {
+	if (!locationService.getSearchName()) {
 		// empty search string
 		// action need to be evaluated
 	} else {
