@@ -124,7 +124,7 @@ app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationSe
 
 	$scope.showConfirm = function(event) {
 		locationService.setAddress($scope.address); // next command uses it so assign it here!
-		locationService.setLocationName($scope.locationName);                        
+		locationService.setLocationName($scope.locationName);
 		var confirm = $mdDialog.confirm()
 			.title('Ist das wirklich die Lokation?')
 			.textContent(locationService.addressToString())
@@ -346,21 +346,26 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 		locationService.setSelectedLocation(id);
 	};
 
+	if (locationService.getSearchName().length === 0) {
+		// empty search string
+		// action need to be evaluated
+	} else {
+		$.ajax({
+			type: "GET",
+			url: "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName().toUpperCase() + "', CAPS_NAME)",
+			cache: false,
+			contentType: "application/json;charset=utf-8",
+			error: function(msg, textStatus) {
+				console.log("Search failed in locationSearchController with error code: " + textStatus);
+			},
+			success: function(data){
+				$scope.$apply(function() {
+					$scope.locations = data.d.results;
+				});
+			}
+		});
+	}
 	// GET
-	$.ajax({
-		type: "GET",
-		url: "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName().toUpperCase() + "', CAPS_NAME)",
-		cache: false,
-		contentType: "application/json;charset=utf-8",
-		error: function(msg, textStatus) {
-			console.log(textStatus);
-		},
-		success: function(data){
-			$scope.$apply(function() {
-				$scope.locations = data.d.results;
-			});
-		}
-	});
 
 	$scope.getCategoryName = function(index) {
 		return designService.getNameForCategoryIndex(index);
@@ -412,7 +417,7 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 			var x = designService.getCategoryIconSourceForIndex(index);
 			return x;
 		};
-		
+
 		$scope.addContactClicked = function(ev, contactId) {
 			$scope.allContacts = contactService.getAllContacts();
 			var locationId = $scope.selectedLocation.id;
