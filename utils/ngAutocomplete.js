@@ -6,8 +6,6 @@
  *
  * Usage:
  *
- * <input type="text"  ng-autocomplete ng-model="autocomplete" options="options" details="details/>
- *
  * + ng-model - autocomplete textbox value
  *
  * + details - more detailed autocomplete result, includes address parts, latlng, etc. (Optional)
