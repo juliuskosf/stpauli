@@ -292,6 +292,12 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 		return locationService.getTextForInterestDecisionCode(decisionCode);
 	};
 	$scope.saveLocationInfo = function() {
+		var user = "";
+		if (firebase.auth().currentUser) {
+			// in case login form is not active
+			user = firebase.auth().currentUser.uid;
+		}
+		
 		// Data for Post
 		var data = JSON.stringify({
 			ID: "1000",
@@ -303,7 +309,8 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 			CITY: locationService.getLocation().address.city,
 			CATEGORYID: locationService.getLocation().categoryIndex,
 			WATER: locationService.getLocation().decision.already,
-			IMAGINE: locationService.getLocation().decision.imagine
+			IMAGINE: locationService.getLocation().decision.imagine,
+			USER: user
 		});
 
 		// POST
@@ -323,8 +330,6 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 		});
 		$state.go('thankyou');
 	};
-	// $scope.newID = locationService.saveLocation(); // richtige ID erzeugen
-
 }]);
 
 app.controller('addContactDialogCtrl', ['$scope', '$state', '$mdDialog', 'contactService', 'locationService', 'selectedLocation', function(

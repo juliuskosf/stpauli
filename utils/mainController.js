@@ -24,11 +24,8 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
   // initial start
 
   $state.go('home');
-  /* ---- Enable this for authentication form
 
-  showLoginDialog()
-
-  ---- */
+  //showLoginDialog()
 
 
 	/*
