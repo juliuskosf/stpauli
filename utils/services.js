@@ -302,8 +302,23 @@ app.service('locationService', function($state) {
 
    ------------ */
 
-app.service('designService', function() {
+app.service('designService', function($state) {
 	var ds = this;
+
+	ds.iconContinue = function() {
+		switch ($state.current.name) {
+			case "locations":
+				return "sources/img/icons/search.svg";
+			case "locations-create-category":
+				return "sources/img/icons/save.svg";
+			case "locations-create-information":
+				return "sources/img/icons/save.svg";
+			case "locations-search-result":
+				return "sources/img/icons/edit.svg";
+			default:
+				return "";
+		}
+	};
 
 	ds.tiles = [{
 		src: "sources/img/beerjack.svg",

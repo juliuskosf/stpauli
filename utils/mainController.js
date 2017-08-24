@@ -1,4 +1,4 @@
-app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '$state', '$mdSidenav', 'locationService', '$rootScope', 'progressService', '$http', 'AUTH_EVENTS', function ($state, $scope, $mdDialog, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService, $http, AUTH_EVENTS) {
+app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '$state', '$mdSidenav', 'locationService', 'designService', '$rootScope', 'progressService', '$http', 'AUTH_EVENTS', function ($state, $scope, $mdDialog, $timeout, $state, $mdSidenav, locationService, designService, $rootScope, progressService, $http, AUTH_EVENTS) {
   var showLoginDialog = function(ev) {
     $mdDialog.show({
       controller: 'LoginCtrl',
@@ -10,6 +10,10 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
   
    $scope.goBack = function (){
     	$state.go($state.previous);
+    };
+    
+    $scope.getIcon = function(){
+    	return designService.iconContinue();
     };
 
   var setCurrentUser = function() {
