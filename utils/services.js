@@ -315,8 +315,28 @@ app.service('designService', function($state) {
 				return "sources/img/icons/save.svg";
 			case "locations-search-result":
 				return "sources/img/icons/edit.svg";
+			case "locations-water-decision":
+				return "sources/img/icons/continue.svg";
+			case "locations-water-selection":
+				return "sources/img/icons/continue.svg";
+			case "locations-no-water":
+				return "sources/img/icons/continue.svg";
+			case "locations-water-decision-interest":
+				return "sources/img/icons/continue.svg";
+			case "locations-water-decision-no-interest":
+				return "sources/img/icons/continue.svg";
 			default:
 				return "";
+		}
+	};
+
+	ds.continueFunction = function() {
+		switch ($state.current.name) {
+			case "locations":
+				console.log("location");
+				break;
+			default:
+				console.log("default");
 		}
 	};
 

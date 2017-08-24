@@ -12,6 +12,10 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
     	$state.go($state.previous);
     };
     
+    $scope.continueSave = function(){
+    	return designService.continueFunction();
+    };
+    
     $scope.getIcon = function(){
     	return designService.iconContinue();
     };
