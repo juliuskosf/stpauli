@@ -157,6 +157,8 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 
 	$scope.beforeBack = function() {
 		locationService.oLocation = {};
+		
+		$state.go($state.previous);
 	};
 
 	$scope.tiles = designService.getTiles();
