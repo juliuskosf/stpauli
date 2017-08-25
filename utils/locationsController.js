@@ -1,7 +1,15 @@
-app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', function($scope, $state, locationService) {
+app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService, designService) {
 	$scope.rememberName = function() {
 		locationService.setSearchName($scope.searchName);
-	}
+	};
+	
+	$scope.goBack = function (){
+    	$state.go($state.previous);
+    };
+    
+    $scope.getIcon = function(){
+    	return designService.iconContinue();
+    };
 }]);
 
 // -------------------------------------------
@@ -160,6 +168,10 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 		
 		$state.go($state.previous);
 	};
+	
+	$scope.goBack = function (){
+    	$state.go($state.previous);
+    };
 
 	$scope.tiles = designService.getTiles();
 }]);
@@ -171,6 +183,10 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService,
 	designService) {
 
+	$scope.goBack = function (){
+    	$state.go($state.previous);
+    };
+    
 	$scope.saveDecision = function(selectedValue) {
 		var decision = locationService.oLocation.decision || {};
 
@@ -352,6 +368,14 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 	$scope.itemPressed = function(id) {
 		locationService.setSelectedLocation(id);
 	};
+	
+	$scope.goBack = function (){
+    	$state.go($state.previous);
+    };
+    
+    $scope.getIcon = function(){
+    	return designService.iconContinue();
+    };
 
 	if (!locationService.getSearchName()) {
 		// empty search string

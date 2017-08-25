@@ -1,4 +1,4 @@
-app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '$state', '$mdSidenav', 'locationService', 'designService', '$rootScope', 'progressService', '$http', 'AUTH_EVENTS', function ($state, $scope, $mdDialog, $timeout, $state, $mdSidenav, locationService, designService, $rootScope, progressService, $http, AUTH_EVENTS) {
+app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '$state', '$mdSidenav', 'locationService', '$rootScope', 'progressService', '$http', 'AUTH_EVENTS', function ($state, $scope, $mdDialog, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService, $http, AUTH_EVENTS) {
   var showLoginDialog = function(ev) {
     $mdDialog.show({
       controller: 'LoginCtrl',
@@ -7,18 +7,6 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
       targetEvent: ev
     });
   };
-  
-   $scope.goBack = function (){
-    	$state.go($state.previous);
-    };
-    
-    $scope.continueSave = function(){
-    	return designService.continueFunction();
-    };
-    
-    $scope.getIcon = function(){
-    	return designService.iconContinue();
-    };
 
   var setCurrentUser = function() {
     $scope.currentUser = $rootScope.currentUser;
@@ -90,7 +78,7 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
   function buildToggler(componentId) {
 
     return function() {
-      locationService.oLocation = {}
+      locationService.oLocation = {};
       $mdSidenav(componentId).toggle();
     };
   }
@@ -102,7 +90,7 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
   $rootScope.$on('$stateChangeStart',
     function(event, toState, toParams, fromState, fromParams){
       progressService.getProgressAtState(fromState);
-    })
+    });
 }]);
 
 app.controller('HomeHelp', ['$scope', '$mdDialog', '$timeout', '$state', '$mdSidenav', 'locationService', '$rootScope', 'progressService', '$http', 'AUTH_EVENTS', function ($scope, $mdDialog, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService, $http, AUTH_EVENTS) {

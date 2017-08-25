@@ -32,14 +32,27 @@
     <md-tooltip ng-if="locationName.length == 0">Enter a name first</md-tooltip>
   </md-button> -->
   
-  <md-button class="md-raised" ng-disabled="locationName.length == 0" ng-click="save()" ui-sref= 'locations-manual-adress' >
+  <!--<md-button class="md-raised" ng-disabled="locationName.length == 0" ng-click="save()" ui-sref= 'locations-manual-adress' >-->
     <!-- I used ng-click instead of ui-sref, because ui-sref
     and ng-disabled does not work together -->
-    <md-tooltip ng-if="locationName.length == 0">Enter a name first</md-tooltip>
+<!--    <md-tooltip ng-if="locationName.length == 0">Enter a name first</md-tooltip>
     Eingeben
   </md-button>
   <md-button class="md-raised" ui-sref="locations-water-decision"  ng-click="save()">
     Weiter
-  </md-button>
+  </md-button>-->
+  <footer>
+        	<div layout="row" layout-align="center center">
+            	<md-button ng-click="goBack()">
+            		<md-icon md-svg-src="sources/img/icons/backarrow.svg"></md-icon>
+            	</md-button>
+            	<md-button  ng-click="save()" ui-sref= 'locations-manual-adress'>
+            		<md-icon md-svg-src="sources/img/icons/edit.svg"></md-icon>
+            	</md-button>
+            	<md-button ui-sref="locations-water-decision"  ng-click="save()">
+            		<md-icon md-svg-src="sources/img/icons/continue.svg"></md-icon>
+            	</md-button>
+        	</div>
+    	</footer>
 
 </div>

@@ -9,8 +9,19 @@
       </md-list-item>
       <md-list-item ng-if="true" class="secondary-button-padding">
         <p>Keine Ergebnisse</p>
-        <md-button ui-sref="locations-create-category" class="md-raised md-accent">Neu hinzufügen</md-button>
+        
+        <!--<md-button ui-sref="locations-create-category" class="md-raised md-accent">Neu hinzufügen</md-button>-->
       </md-list-item>
     </md-list>
+    <footer>
+        	<div layout="row" layout-align="center center">
+            	<md-button ng-click="goBack()">
+            		<md-icon md-svg-src="sources/img/icons/backarrow.svg"></md-icon>
+            	</md-button>
+            	<md-button ui-sref="locations-create-category">
+            		<md-icon md-svg-src="{{getIcon()}}"></md-icon>
+            	</md-button>
+        	</div>
+    	</footer>
   </div>
 </div>
