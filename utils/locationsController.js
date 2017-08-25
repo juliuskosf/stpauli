@@ -314,6 +314,9 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 			user = firebase.auth().currentUser.uid;
 		}
 		
+		var latitude = locationService.getGeoPosition().latitude;
+		var longitude = locationService.getGeoPosition().longitude;
+		
 		// Data for Post
 		var data = JSON.stringify({
 			ID: "1000",

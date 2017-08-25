@@ -5,6 +5,17 @@ app.service('locationService', function($state) {
 		ls.oLocation.decision = decision;
 	}
 
+	ls.setGeoPosition = function(lat, lng) {
+		ls.oLocation.geoLocation = {
+			latitude: lat,
+			longitude: lng
+		}
+	}
+	
+	ls.getGeoPosition = function() {
+		return ls.oLocation.geoLocation;
+	}
+	
 	ls.oLocation = {}; // variable for persistence
 
 	ls.getTextForInterestDecisionCode = function(dc) {
