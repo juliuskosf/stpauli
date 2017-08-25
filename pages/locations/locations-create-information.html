@@ -13,22 +13,20 @@
      <div>
 <!--      <label for="Autocomplete2"></label> -->
       <md-input-container>
-      <input type="text" id="Autocomplete2" ng-model="vm.autocomplete" class="form-control" ng-autocomplete options="vm.options" details="vm.details" initial-address="vm.initialAddress"/>
+      <input type="text" id="Autocomplete2" ng-model="vm.autocomplete" class="form-control" ng-autocomplete options="vm.options" details="vm.details" style="width: 350px;" initial-address="vm.initialAddress"/>
       </md-input-container>
+    <h2 class="textcenter">
+    Adresse
+	</h2>
+      
       <br>
       <b>autocomplete</b>: {{vm.autocomplete}}
       <br><br>
       <b>Details</b>: {{vm.details.formatted_address}}
     </div>
     
-     <ul>
-      <li>Lat: {{ vm.lat }}</li>
-      <li>Lng: {{ vm.lng }}</li>
-    </ul>
     
-  <h2 class="textcenter">
-    Adresse
-  </h2>
+  
    
 <!--  <md-button md-layout="row" class="md-raised" ng-disabled="locationName.length == 0" ng-click="confirmAddress()">
     Standort verwenden
