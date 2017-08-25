@@ -11,8 +11,17 @@
         </md-checkbox>
      </div>
   </fieldset>
-  <md-button class="md-primary md-raised" ng-click="sendSupporter()">
+ <!-- <md-button class="md-primary md-raised" ng-click="sendSupporter()">
     Weiter
-  </md-button>
- 
+  </md-button>-->
+    <footer>
+        <div layout="row" layout-align="center center">
+            <md-button ng-click="goBack()">
+            	<md-icon md-svg-src="sources/img/icons/backarrow.svg"></md-icon>
+            </md-button>
+            <md-button ng-click="sendSupporter()">
+            	<md-icon  md-svg-src="sources/img/icons/continue.svg">></md-icon>
+            </md-button>
+        </div>
+    </footer>
 </div>
