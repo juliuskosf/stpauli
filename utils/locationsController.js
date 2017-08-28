@@ -329,7 +329,9 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 			CATEGORYID: locationService.getLocation().categoryIndex,
 			WATER: locationService.getLocation().decision.already,
 			IMAGINE: locationService.getLocation().decision.imagine,
-			USER: user
+			USER: user,
+			LATITUDE: latitude.toString(),
+			LONGITUDE: longitude.toString()
 		});
 
 		// POST
