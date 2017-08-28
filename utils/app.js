@@ -3,7 +3,8 @@ var app = angular.module('VivaConAgua', [
     'ui.router',
     'uiGmapgoogle-maps',
     'ngGeolocation',
-    'ngAutocomplete'
+    'ngAutocomplete',
+    'gm'
 ]);
 
 app.run(['$rootScope', '$state', function ($rootScope, $state) {
