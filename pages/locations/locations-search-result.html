@@ -1,5 +1,7 @@
 <div ng-controller="locationSearchController">
-  <div layout="column">
+  <div layout="column" layout-align="center center">
+         <img class="vcalogo3" src="sources/img/vcalogo_blue.png"
+    	width="90%" height="auto" />
     <md-list flex>
       <md-list-item ng-repeat="location in locations" class="md-2-line" ng-click="itemPressed(location.ID)">
         <div class="md-list-item-text" layout="column">
@@ -7,13 +9,16 @@
           <p>{{ getCategoryName(location.CATEGORYID)}}</p>
         </div>
       </md-list-item>
+
       <md-list-item ng-if="locations.length === 0" class="secondary-button-padding">
-        <p>Keine Ergebnisse</p>
+        <h3>Keine Ergebnisse</h3>
         
         <!--<md-button ui-sref="locations-create-category" class="md-raised md-accent">Neu hinzufügen</md-button>-->
       </md-list-item>
     </md-list>
+      </div>
     <footer>
+    	
         	<div layout="row" layout-align="center center">
             	<md-button ng-click="goBack()">
             		<md-icon md-svg-src="sources/img/icons/backarrow.svg"></md-icon>
@@ -23,5 +28,5 @@
             	</md-button>
         	</div>
     	</footer>
-  </div>
+
 </div>

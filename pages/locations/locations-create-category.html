@@ -3,7 +3,7 @@
 </div>
 
 <div ng-controller="CategorySelectionCtrl" layout="column" layout-margin>
-  <h2>Wie lässt sich die Location <br/> kategorisieren?</h2>
+  <h2 class = 'textcenter'>Wie lässt sich die Location <br/> kategorisieren?</h2>
   <md-grid-list md-gutter="1.5em" md-cols="2" md-row-height="2:1.75">
     <md-grid-tile class= "gridIcons" ng-repeat="(index, tile) in tiles" layout-padding ng-click="tileClicked(index)">
       <img ng-src={{tile.src}} width="100px" height="100%"/>
