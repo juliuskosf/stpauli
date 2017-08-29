@@ -2,7 +2,7 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 	// In the first round we do not get the result, therefore we have to give another starting coordinates.
 	// When the map updates, it will show the approximate geolocation.
 	// https://github.com/ninjatronic/ngGeolocation
-
+	
 	$geolocation.getCurrentPosition({
 		timeout: 60000,
 		maximumAge: 250,
@@ -27,10 +27,46 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 		},
 		zoom: 5
 	};
+	
+	var markers;
+
+	var fill_markers = function() {
+		markers = [];
+		for (i = 0; i < $scope.locations.length; i++) {
+			marker = {
+				id: $scope.locations[i].ID,
+				coords: {
+					latitude: parseFloat($scope.locations[i].LATITUDE),
+					longitude: parseFloat($scope.locations[i].LONGITUDE)
+				},
+				options: _options,
+				category: $scope.locations[i].CATEGORYID
+			};
+			markers.push(marker);
+		}
+	};
 
 	$scope.options = {
 		scrollwheel: false
 	};
+
+	$.ajax({
+		type: "GET",
+		url: "/destinations/vca/d064868/location.xsodata/Location",
+		cache: false,
+		dataType: "json",
+		error: function(msg, textStatus) {
+			console.log(textStatus);
+		},
+		success: function(data) {
+			$scope.$apply(function() {
+				$scope.locations = data.d.results;
+				fill_markers();
+			});
+		}
+	});
+	
+	
 
 	var _options = {
 		icon: {
@@ -39,69 +75,70 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 		}
 	};
 
-	var markers = [{
-		id: 0,
-		coords: {
-			latitude: 53.563385,
-			longitude: 9.990634
-		},
-		options: _options,
-		category: 'Bar'
-	}, {
-		id: 1,
-		coords: {
-			latitude: 53.566519,
-			longitude: 9.991254
-		},
-		options: _options,
-		category: 'Bar'
-	}, {
-		id: 2,
-		coords: {
-			latitude: 53.553355,
-			longitude: 9.966551
-		},
-		options: _options,
-		category: 'Restaurant'
-	}, {
-		id: 3,
-		coords: {
-			latitude: 53.556423,
-			longitude: 9.970016
-		},
-		options: _options,
-		category: 'Shop'
-	}, {
-		id: 4,
-		coords: {
-			latitude: 53.553997,
-			longitude: 9.986222
-		},
-		options: _options,
-		category: 'Shop'
-	}];
+	/*	var markers = [{
+			id: 0,
+			coords: {
+				latitude: 53.563385,
+				longitude: 9.990634
+			},
+			options: _options,
+			category: 'Bar'
+		}, {
+			id: 1,
+			coords: {
+				latitude: 53.566519,
+				longitude: 9.991254
+			},
+			options: _options,
+			category: 'Bar'
+		}, {
+			id: 2,
+			coords: {
+				latitude: 53.553355,
+				longitude: 9.966551
+			},
+			options: _options,
+			category: 'Restaurant'
+		}, {
+			id: 3,
+			coords: {
+				latitude: 53.556423,
+				longitude: 9.970016
+			},
+			options: _options,
+			category: 'Shop'
+		}, {
+			id: 4,
+			coords: {
+				latitude: 53.553997,
+				longitude: 9.986222
+			},
+			options: _options,
+			category: 'Shop'
+		}]; */
 
 	// define the array of categories
-	$scope.categories = ['Bar', 'Shop', 'Restaurant'];
+	//	$scope.categories = ['Bar', 'Shop', 'Restaurant'];
+	$scope.categories = [0, 1, 2, 3, 4, 5];
 	$scope.selected = [1];
 
-// create an empty variable for the categories which will be selected
+	// create an empty variable for the categories which will be selected
 	var selectedCategories = [];
 
 	$scope.markers = [];
 
-// filter the categories and bind with the right marker from our markers array.
+	// filter the categories and bind with the right marker from our markers array.
 	$scope.filterChanged = function(category) {
-// check the selected categories
+		// check the selected categories
 		var idx = selectedCategories.indexOf(category);
 		if (idx > -1) {
 			selectedCategories.splice(idx, 1);
 		} else {
 			selectedCategories.push(category);
 		}
-// compare the selected category/ies with markers
-// when selecting more than one categories, we cannot add the same markers again and again therefore
-// clear the markers from the previous time and continue
+		// compare the selected category/ies with markers
+		// when selecting more than one categories, we cannot add the same markers again and again therefore
+		// clear the markers from the previous time and continue
 		$scope.markers = [];
 		for (i = 0; i < selectedCategories.length; i++) {
 			selectedCategory = selectedCategories[i];
