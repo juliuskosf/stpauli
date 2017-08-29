@@ -430,10 +430,6 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 		$scope.backClicked = function() {
 			$state.go($state.previous);
 		};
-		
-		$scope.goBack = function (){
-    		$state.go($state.previous);
-    	};
 
 		$scope.interestReasons = locationService.getInterestReasons();
 
