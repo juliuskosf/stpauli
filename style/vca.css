@@ -89,3 +89,13 @@ padding: 0 6px 0 6px;
 	padding-top: 25px;
     padding-bottom: 20px;
 }
+
+/* Autocomplete text field */
+.style-4 {
+  padding: 10px;
+  border: none;
+  font-family: 'museo';
+  border-bottom: solid 2px #2196F3;
+  transition: border 0.2s;
+  background: transparent;
+}

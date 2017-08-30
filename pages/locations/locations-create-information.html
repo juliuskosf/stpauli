@@ -7,21 +7,18 @@
   <h1 class="textcenter">
     Name
   </h1>
-<!--  <md-input-container>
-    <input type="text" placeholder="Name" ng-model="locationName" name="nameInput">
-  </md-input-container> -->
      <div>
 <!--      <label for="Autocomplete2"></label> -->
-      <md-input-container>
-      <input type="text" id="Autocomplete2" ng-model="vm.autocomplete" class="form-control" ng-autocomplete options="vm.options" details="vm.details" style="width: 350px;" initial-address="vm.initialAddress"/>
-      </md-input-container>
-    <h2 class="textcenter">
+<!-- <md-input-container> -->
+      <input type="text" id="Autocomplete2" ng-model="vm.autocomplete" 
+      class="style-4" ng-autocomplete options="vm.options" details="vm.details" style="width: 350px;" initial-address="vm.initialAddress" placeholder = "Enter the name"/>
+<!-- </md-input-container> -->
+    <h2 class="textcenter"> 
     Adresse
 	</h2>
-      
       <br>
-      <b>autocomplete</b>: {{vm.autocomplete}}
-      <br><br>
+<!--      <b>autocomplete</b>: {{vm.autocomplete}} -->
+     
       <b>Details</b>: {{vm.details.formatted_address}}
     </div>
   <footer>
