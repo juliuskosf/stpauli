@@ -425,8 +425,19 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 			$state.go('contacts-detail');
 		};
 		
-		$scope.already = (($scope.selectedLocation.decision.already === 'X') ? true : false);
-		$scope.imagine = (($scope.selectedLocation.decision.imagine === 'X') ? true : false);
+		if($scope.selectedLocation.decision.already) {
+			$scope.already = (($scope.selectedLocation.decision.already === 'X') ? true : false);	
+		} else {
+			$scope.already = false;
+		}
+		
+		if($scope.selectedLocation.decision.imagine) {
+			$scope.imagine = (($scope.selectedLocation.decision.imagine === 'X') ? true : false);	
+		} else  {
+			$scope.imagine = false;
+		}
+		
+		
 		
 		
 

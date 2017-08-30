@@ -220,8 +220,9 @@ app.service('locationService', function($state) {
 					},
 					partners: null,
 					categoryIndex: data.d.CATEGORYID,
-					waterDecision: {
-						decisionCode: 0
+					decision: {
+						already: data.d.ALREADY,
+						imagine: data.d.IMAGINE
 					},
 					paperDecision: {
 						decisionCode: null
