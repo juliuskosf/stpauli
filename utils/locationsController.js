@@ -413,9 +413,7 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 	'$stateParams',
 	function($rootScope, $scope, $state, $mdDialog, locationService, designService, contactService, $stateParams) {
 		$scope.tabIndex = $stateParams.tab;
-		console.log($scope.selectedLocation);
 		$scope.selectedLocation = locationService.getSelectedLocation();
-		console.log($scope.selectedLocation);
 		$scope.waterDecision = $scope.selectedLocation.waterDecision;
 
 		$scope.getCategoryName = function(index) {
@@ -426,6 +424,11 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 			contactService.setSelectedContact(id);
 			$state.go('contacts-detail');
 		};
+		
+		$scope.already = (($scope.selectedLocation.decision.already === 'X') ? true : false);
+		$scope.imagine = (($scope.selectedLocation.decision.imagine === 'X') ? true : false);
+		
+		
 
 		$scope.backClicked = function() {
 			$state.go($state.previous);

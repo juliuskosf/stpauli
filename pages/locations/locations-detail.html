@@ -12,8 +12,8 @@
         form-name="locationInfoForm">
       </location-info-form>
     <!--  <md-button class="md-rasied btn1">Änderungen speichern</md-button> -->
-    </md-tab>
-    <md-tab label="Ansprechpartner">
+	</md-tab>
+    <!--<md-tab label="Ansprechpartner">
       <md-content class="md-padding">
         <md-list flex>
           <md-list-item ng-repeat="contact in contacts" class="md-2-line" ng-click="contactClicked(contact.id)">
@@ -28,18 +28,15 @@
       <md-button class="md-raised btn1" ng-click="addContactClicked()">
         Ansprechpartner hinzufügen
       </md-button>
-    </md-tab>
-    <md-tab label="Support">
+    </md-tab>-->
+    <md-tab label="Wasser">
       <div class="md-padding">
-        <form ng-cloak>
-          <p>Viva Con Agua - Wasser</p>
-          <!-- duplicate with paper decision code below -->
-          <support-component
-            decision-value-model="waterDecision.decisionCode"
-            interest-reasons="interestReasons"
-            no-interest-reasons="noInterestReasons">
-          </support-component>
-        </form>
+		<md-switch ng-model="already">
+			Siehst du Wasser?
+		</md-switch>
+		<md-switch ng-model="imagine" ng-if="!already">
+			Diese Location führt VcA Wasser. Vorstellbar?
+		</md-switch>
       </div>
     </md-tab>
   </md-tabs>
