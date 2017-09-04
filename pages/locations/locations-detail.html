@@ -31,11 +31,11 @@
     </md-tab>-->
     <md-tab label="Wasser">
       <div class="md-padding">
+      	<p>Siehst du Wasser?</p>
 		<md-switch ng-model="already">
-			Siehst du Wasser?
 		</md-switch>
+		<p ng-if="!already">Diese Location führt VcA Wasser. Vorstellbar?</p>
 		<md-switch ng-model="imagine" ng-if="!already">
-			Diese Location führt VcA Wasser. Vorstellbar?
 		</md-switch>
       </div>
     </md-tab>
