@@ -446,14 +446,16 @@ app.controller('locationSearchController', ['$geolocation', '$scope', 'locationS
 							$scope.$apply(function() {
 								$scope.cityName = locationService.convertGoogleAddressToObjectAddress(results[0].address_components).city;
 							});
+							sUrl = "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName()
+								.toUpperCase() +
+								"', CAPS_NAME) and substringof('" + locationService.convertGoogleAddressToObjectAddress(results[0].address_components).city +
+								"',CITY)";
+							_getData(sUrl);
 						} else {
 							_loadLocations(false);
 						}
 						// set URL with cityName
-						sUrl = "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName()
-							.toUpperCase() +
-							"', CAPS_NAME)";
-						_getData(sUrl);
+
 					}); // end of geocode promise
 
 				}); // end of geolocation promise
