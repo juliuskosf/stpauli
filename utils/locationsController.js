@@ -370,9 +370,11 @@ app.controller('addContactDialogCtrl', ['$scope', '$state', '$mdDialog', 'contac
 app.controller('locationSearchController', ['$geolocation', '$scope', 'locationService', '$state', 'designService', function($geolocation,
 	$scope, locationService,
 	$state, designService) {
-
+	
+	$scope.showNoResults = false;
+	
 	$scope.locations = [];
-
+	
 	$scope.loading = false;
 
 	$scope.cityName = "...";
@@ -400,11 +402,15 @@ app.controller('locationSearchController', ['$geolocation', '$scope', 'locationS
 			contentType: "application/json;charset=utf-8",
 			error: function(msg, textStatus) {
 				console.log("Search failed in locationSearchController with error code: " + textStatus);
+				$scope.showNoResults = true;
 			},
 			success: function(data) {
 				$scope.loading = false;
 				$scope.$apply(function() {
 					$scope.locations = data.d.results;
+					if ($scope.locations.length === 0) {
+						$scope.showNoResults = true;
+					}
 				});
 			}
 		});
