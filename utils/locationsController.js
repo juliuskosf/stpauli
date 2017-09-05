@@ -1,19 +1,19 @@
-
-app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', 'designService', 'historyService', function($scope, $state, locationService, designService, historyService) {
+app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', 'designService', 'historyService', function($scope, $state,
+	locationService, designService, historyService) {
 
 	$scope.rememberName = function() {
 		locationService.setSearchName($scope.searchName);
 	};
-	
-	$scope.goBack = function (){
-    	// $state.go($state.previous);
-    	historyService.setNavigatedBack(1);
-    	$state.go(historyService.getPreviousState());
-    };
-    
-    $scope.getIcon = function(){
-    	return designService.iconContinue();
-    };
+
+	$scope.goBack = function() {
+		// $state.go($state.previous);
+		historyService.setNavigatedBack(1);
+		$state.go(historyService.getPreviousState());
+	};
+
+	$scope.getIcon = function() {
+		return designService.iconContinue();
+	};
 
 }]);
 
@@ -161,7 +161,8 @@ app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationSe
 // -------------------------------------------
 // -------------------------------------------
 
-app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 'designService', 'historyService', function($scope, $state, locationService,
+app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 'designService', 'historyService', function($scope, $state,
+	locationService,
 	designService, historyService) {
 	$scope.tileClicked = function(index) {
 		locationService.oLocation.categoryIndex = index;
@@ -174,11 +175,11 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 		historyService.setNavigatedBack(1);
     	$state.go(historyService.getPreviousState());
 	};*/
-	
-	$scope.goBack = function (){
-    	historyService.setNavigatedBack(1);
-    	$state.go(historyService.getPreviousState());
-    };
+
+	$scope.goBack = function() {
+		historyService.setNavigatedBack(1);
+		$state.go(historyService.getPreviousState());
+	};
 
 	$scope.tiles = designService.getTiles();
 }]);
@@ -187,13 +188,14 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 // -------------------------------------------
 // -------------------------------------------
 
-app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', 'historyService', function($scope, $state, locationService,
+app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', 'historyService', function($scope, $state,
+	locationService,
 	designService, historyService) {
 
-	$scope.goBack = function (){
-    	historyService.setNavigatedBack(1);
-    	$state.go(historyService.getPreviousState());
-    };
+	$scope.goBack = function() {
+		historyService.setNavigatedBack(1);
+		$state.go(historyService.getPreviousState());
+	};
 
 	$scope.saveDecision = function(selectedValue) {
 		var decision = locationService.oLocation.decision || {};
@@ -374,131 +376,132 @@ app.controller('addContactDialogCtrl', ['$scope', '$state', '$mdDialog', 'contac
 	};
 }]);
 
-app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', 'historyService', '$geolocation', function($scope, locationService,
-	$state, designService, historyService, $geolocation) {
-	
-	$scope.showNoResults = false;
-	
-	$scope.locations = [];
-	
-	$scope.loading = false;
+app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', 'historyService', '$geolocation',
+	function($scope, locationService, $state, designService, historyService, $geolocation) {
 
-	$scope.cityName = "...";
+		$scope.showNoResults = false;
 
-	$scope.filteredWithCity = true;
+		$scope.locations = [];
 
-	$scope.itemPressed = function(id) {
-		locationService.setSelectedLocation(id);
-	};
-	
-	$scope.goBack = function (){
-    	historyService.setNavigatedBack(1);
-    	$state.go(historyService.getPreviousState());
-    };
-    
-    $scope.getIcon = function(){
-    	return designService.iconContinue();
-    };
+		$scope.loading = false;
 
-	function _getData(sUrl) {
+		$scope.cityName = "...";
 
-		$.ajax({
-			type: "GET",
-			url: sUrl,
-			cache: false,
-			contentType: "application/json;charset=utf-8",
-			error: function(msg, textStatus) {
-				console.log("Search failed in locationSearchController with error code: " + textStatus);
-				$scope.showNoResults = true;
-			},
-			success: function(data) {
-				$scope.loading = false;
-				$scope.$apply(function() {
-					$scope.locations = data.d.results;
-					if ($scope.locations.length === 0) {
-						$scope.showNoResults = true;
-					}
-				});
-			}
-		});
-	}
+		$scope.filteredWithCity = true;
 
-	function _loadLocations(withLocation) {
+		$scope.itemPressed = function(id) {
+			locationService.setSelectedLocation(id);
+		};
 
-		if (!locationService.getSearchName()) {
-			// empty search string
-			// action need to be evaluated
-			$scope.filteredWithCity = false;
-		} else {
-			var sUrl = "";
+		$scope.goBack = function() {
+			historyService.setNavigatedBack(1);
+			$state.go(historyService.getPreviousState());
+		};
 
-			if (withLocation) {
+		$scope.getIcon = function() {
+			return designService.iconContinue();
+		};
 
-				$scope.loading = true;
+		function _getData(sUrl) {
 
-				// get gelocation
-				$geolocation.getCurrentPosition({
-					timeout: 60000,
-					maximumAge: 250,
-					enableHighAccuracy: true
-				}).then(function(position) {
-
-					// get city from geodata
-					var geocoder = new google.maps.Geocoder;
-
-					var geoObject = {
-						lat: position.coords.latitude,
-						lng: position.coords.longitude
-					};
-					geocoder.geocode({
-						'location': geoObject
-					}, function(results, status) {
-						if (status === 'OK') {
-							console.log(results);
-							// set location into the info control
-							$scope.$apply(function() {
-								$scope.cityName = locationService.convertGoogleAddressToObjectAddress(results[0].address_components).city;
-							});
-							sUrl = "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName()
-								.toUpperCase() +
-								"', CAPS_NAME) and substringof('" + locationService.convertGoogleAddressToObjectAddress(results[0].address_components).city +
-								"',CITY)";
-							_getData(sUrl);
-						} else {
-							_loadLocations(false);
+			$.ajax({
+				type: "GET",
+				url: sUrl,
+				cache: false,
+				contentType: "application/json;charset=utf-8",
+				error: function(msg, textStatus) {
+					console.log("Search failed in locationSearchController with error code: " + textStatus);
+					$scope.showNoResults = true;
+				},
+				success: function(data) {
+					$scope.loading = false;
+					$scope.$apply(function() {
+						$scope.locations = data.d.results;
+						if ($scope.locations.length === 0) {
+							$scope.showNoResults = true;
 						}
-						// set URL with cityName
+					});
+				}
+			});
+		}
 
-					}); // end of geocode promise
+		function _loadLocations(withLocation) {
 
-				}); // end of geolocation promise
-
-			} else {
+			if (!locationService.getSearchName()) {
+				// empty search string
+				// action need to be evaluated
 				$scope.filteredWithCity = false;
-				sUrl = "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName().toUpperCase() +
-					"', CAPS_NAME)";
-				_getData(sUrl);
+			} else {
+				var sUrl = "";
+
+				if (withLocation) {
+
+					$scope.loading = true;
+
+					// get gelocation
+					$geolocation.getCurrentPosition({
+						timeout: 60000,
+						maximumAge: 250,
+						enableHighAccuracy: true
+					}).then(function(position) {
+
+						// get city from geodata
+						var geocoder = new google.maps.Geocoder;
+
+						var geoObject = {
+							lat: position.coords.latitude,
+							lng: position.coords.longitude
+						};
+						geocoder.geocode({
+							'location': geoObject
+						}, function(results, status) {
+							if (status === 'OK') {
+								console.log(results);
+								// set location into the info control
+								$scope.$apply(function() {
+									$scope.cityName = locationService.convertGoogleAddressToObjectAddress(results[0].address_components).city;
+								});
+								sUrl = "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName()
+									.toUpperCase() +
+									"', CAPS_NAME) and substringof('" + locationService.convertGoogleAddressToObjectAddress(results[0].address_components).city +
+									"',CITY)";
+								_getData(sUrl);
+							} else {
+								_loadLocations(false);
+							}
+							// set URL with cityName
+
+						}); // end of geocode promise
+
+					}); // end of geolocation promise
+
+				} else {
+					$scope.filteredWithCity = false;
+					sUrl = "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName().toUpperCase() +
+						"', CAPS_NAME)";
+					_getData(sUrl);
+				}
+
 			}
 
 		}
 
+		$scope.loadAllPressed = function() {
+			_loadLocations(false);
+		};
+
+		_loadLocations(true);
+
+		$scope.getCategoryName = function(index) {
+			return designService.getNameForCategoryIndex(index);
+		};
+
+		// $scope.locations = locationService.getAllLocations();
 	}
+]);
 
-	$scope.loadAllPressed = function() {
-		_loadLocations(false);
-	};
-
-	_loadLocations(true);
-
-	$scope.getCategoryName = function(index) {
-		return designService.getNameForCategoryIndex(index);
-	};
-
-	// $scope.locations = locationService.getAllLocations();
-}]);
-
-app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDialog', 'locationService', 'designService', 'contactService', 'historyService',
-	'$stateParams',
+app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDialog', 'locationService', 'designService', 'contactService',
+	'historyService', '$stateParams',
 	function($rootScope, $scope, $state, $mdDialog, locationService, designService, contactService, historyService, $stateParams) {
 		$scope.tabIndex = $stateParams.tab;
 		$scope.selectedLocation = locationService.getSelectedLocation();
@@ -527,7 +530,7 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 
 		$scope.backClicked = function() {
 			historyService.setNavigatedBack(1);
-    		$state.go(historyService.getPreviousState());
+			$state.go(historyService.getPreviousState());
 		};
 
 		$scope.interestReasons = locationService.getInterestReasons();

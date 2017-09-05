@@ -11,11 +11,11 @@ app.service('locationService', function($state) {
 			longitude: lng
 		};
 	};
-	
+
 	ls.getGeoPosition = function() {
 		return ls.oLocation.geoLocation;
 	};
-	
+
 	ls.oLocation = {}; // variable for persistence
 
 	ls.getTextForInterestDecisionCode = function(dc) {
@@ -472,7 +472,7 @@ app.service('progressService', function($state) {
 	};
 	// brauchen wir das?
 	ps.getProgressAtState = function(state) {};
-	
+
 });
 
 app.service('historyService', function($state) {
@@ -480,36 +480,36 @@ app.service('historyService', function($state) {
 	hs.history = [];
 	hs.index = -1;
 	hs.navigatedBack = 0;
-	
-	hs.getNavigatedBack = function(){
+
+	hs.getNavigatedBack = function() {
 		return hs.navigatedBack;
 	};
-	
-	hs.setNavigatedBack = function(value){
+
+	hs.setNavigatedBack = function(value) {
 		hs.navigatedBack = value;
 	};
-	
-	hs.addStateToHistory = function(){
-		if (hs.getNavigatedBack() === 1){
+
+	hs.addStateToHistory = function() {
+		if (hs.getNavigatedBack() === 1) {
 			hs.index = hs.index - 1;
 		} else {
 			hs.index = hs.index + 1;
 			hs.history.push($state.current.name);
 		}
 	};
-	
-	hs.getHistory = function(){
+
+	hs.getHistory = function() {
 		return hs.history;
 	};
-	
-	hs.getIndex = function(){
+
+	hs.getIndex = function() {
 		return hs.index;
 	};
-	
-	hs.getPreviousState = function(){
+
+	hs.getPreviousState = function() {
 		hs.history.pop();
-		var state = hs.history[hs.history.length-1];
+		var state = hs.history[hs.history.length - 1];
 		return state;
 	};
-	
+
 });
