@@ -1,15 +1,16 @@
-app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService, designService) {
+app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService,
+	designService) {
 	$scope.rememberName = function() {
 		locationService.setSearchName($scope.searchName);
 	};
-	
-	$scope.goBack = function (){
-    	$state.go($state.previous);
-    };
-    
-    $scope.getIcon = function(){
-    	return designService.iconContinue();
-    };
+
+	$scope.goBack = function() {
+		$state.go($state.previous);
+	};
+
+	$scope.getIcon = function() {
+		return designService.iconContinue();
+	};
 }]);
 
 // -------------------------------------------
@@ -165,13 +166,13 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 
 	$scope.beforeBack = function() {
 		locationService.oLocation = {};
-		
+
 		$state.go($state.previous);
 	};
-	
-	$scope.goBack = function (){
-    	$state.go($state.previous);
-    };
+
+	$scope.goBack = function() {
+		$state.go($state.previous);
+	};
 
 	$scope.tiles = designService.getTiles();
 }]);
@@ -183,10 +184,10 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService,
 	designService) {
 
-	$scope.goBack = function (){
-    	$state.go($state.previous);
-    };
-    
+	$scope.goBack = function() {
+		$state.go($state.previous);
+	};
+
 	$scope.saveDecision = function(selectedValue) {
 		var decision = locationService.oLocation.decision || {};
 
@@ -242,12 +243,12 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 	}
 
 	$scope.saveSelection = function(event) {
-		if(event.target.name === "glas") {
-			// Save glas
-		} else {
-			// save plastik
+			if (event.target.name === "glas") {
+				// Save glas
+			} else {
+				// save plastik
+			}
 		}
-	}
 		/*
 	console.log(locationService.oLocation);
 
@@ -313,10 +314,10 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 			// in case login form is not active
 			user = firebase.auth().currentUser.uid;
 		}
-		
+
 		var latitude = locationService.getGeoPosition().latitude;
 		var longitude = locationService.getGeoPosition().longitude;
-		
+
 		// Data for Post
 		var data = JSON.stringify({
 			ID: "1000",
@@ -368,39 +369,71 @@ app.controller('addContactDialogCtrl', ['$scope', '$state', '$mdDialog', 'contac
 
 app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', function($scope, locationService,
 	$state, designService, $stateParams) {
+
 	$scope.locations = [];
+
+	$scope.filteredWithCity = true;
 
 	$scope.itemPressed = function(id) {
 		locationService.setSelectedLocation(id);
 	};
-	
-	$scope.goBack = function (){
-    	$state.go($state.previous);
-    };
-    
-    $scope.getIcon = function(){
-    	return designService.iconContinue();
-    };
 
-	if (!locationService.getSearchName()) {
-		// empty search string
-		// action need to be evaluated
-	} else {
-		$.ajax({
-			type: "GET",
-			url: "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName().toUpperCase() + "', CAPS_NAME)",
-			cache: false,
-			contentType: "application/json;charset=utf-8",
-			error: function(msg, textStatus) {
-				console.log("Search failed in locationSearchController with error code: " + textStatus);
-			},
-			success: function(data){
-				$scope.$apply(function() {
-					$scope.locations = data.d.results;
-				});
+	$scope.goBack = function() {
+		$state.go($state.previous);
+	};
+
+	$scope.getIcon = function() {
+		return designService.iconContinue();
+	};
+
+	function _loadLocations(withLocation) {
+
+		if (!locationService.getSearchName()) {
+			// empty search string
+			// action need to be evaluated
+		} else {
+			var sUrl = "";
+
+			if (withLocation) {
+
+				// get location
+
+				// set location into the info control
+				$scope.cityName = "Hamburg";
+
+				// set URL with cityName
+				sUrl = "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName().toUpperCase() +
+					"', CAPS_NAME)";
+
+			} else {
+				$scope.filteredWithCity = false;
+				sUrl = "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName().toUpperCase() +
+					"', CAPS_NAME)";
 			}
-		});
+
+			$.ajax({
+				type: "GET",
+				url: sUrl,
+				cache: false,
+				contentType: "application/json;charset=utf-8",
+				error: function(msg, textStatus) {
+					console.log("Search failed in locationSearchController with error code: " + textStatus);
+				},
+				success: function(data) {
+					$scope.$apply(function() {
+						$scope.locations = data.d.results;
+					});
+				}
+			});
+		}
+
 	}
+
+	$scope.loadAllPressed = function() {
+		_loadLocations(false);
+	};
+	
+	_loadLocations(true);
 
 	$scope.getCategoryName = function(index) {
 		return designService.getNameForCategoryIndex(index);
@@ -424,22 +457,18 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 			contactService.setSelectedContact(id);
 			$state.go('contacts-detail');
 		};
-		
-		if($scope.selectedLocation.decision.already) {
-			$scope.already = (($scope.selectedLocation.decision.already === 'X') ? true : false);	
+
+		if ($scope.selectedLocation.decision.already) {
+			$scope.already = (($scope.selectedLocation.decision.already === 'X') ? true : false);
 		} else {
 			$scope.already = false;
 		}
-		
-		if($scope.selectedLocation.decision.imagine) {
-			$scope.imagine = (($scope.selectedLocation.decision.imagine === 'X') ? true : false);	
-		} else  {
+
+		if ($scope.selectedLocation.decision.imagine) {
+			$scope.imagine = (($scope.selectedLocation.decision.imagine === 'X') ? true : false);
+		} else {
 			$scope.imagine = false;
 		}
-		
-		
-		
-		
 
 		$scope.backClicked = function() {
 			$state.go($state.previous);
