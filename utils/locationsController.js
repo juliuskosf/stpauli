@@ -1,13 +1,9 @@
-<<<<<<< HEAD
+
 app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', 'designService', 'historyService', function($scope, $state, locationService, designService, historyService) {
-=======
-app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService,
-	designService) {
->>>>>>> 7872537ffde8e5bf14ed92acf8a16241028eb7ce
+
 	$scope.rememberName = function() {
 		locationService.setSearchName($scope.searchName);
 	};
-<<<<<<< HEAD
 	
 	$scope.goBack = function (){
     	// $state.go($state.previous);
@@ -18,16 +14,7 @@ app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', 'de
     $scope.getIcon = function(){
     	return designService.iconContinue();
     };
-=======
 
-	$scope.goBack = function() {
-		$state.go($state.previous);
-	};
-
-	$scope.getIcon = function() {
-		return designService.iconContinue();
-	};
->>>>>>> 7872537ffde8e5bf14ed92acf8a16241028eb7ce
 }]);
 
 // -------------------------------------------
@@ -192,15 +179,6 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
     	historyService.setNavigatedBack(1);
     	$state.go(historyService.getPreviousState());
     };
-=======
-
-		$state.go($state.previous);
-	};
-
-	$scope.goBack = function() {
-		$state.go($state.previous);
-	};
->>>>>>> 7872537ffde8e5bf14ed92acf8a16241028eb7ce
 
 	$scope.tiles = designService.getTiles();
 }]);
@@ -212,18 +190,11 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', 'historyService', function($scope, $state, locationService,
 	designService, historyService) {
 
-<<<<<<< HEAD
 	$scope.goBack = function (){
     	historyService.setNavigatedBack(1);
     	$state.go(historyService.getPreviousState());
     };
-    
-=======
-	$scope.goBack = function() {
-		$state.go($state.previous);
-	};
 
->>>>>>> 7872537ffde8e5bf14ed92acf8a16241028eb7ce
 	$scope.saveDecision = function(selectedValue) {
 		var decision = locationService.oLocation.decision || {};
 
@@ -403,21 +374,11 @@ app.controller('addContactDialogCtrl', ['$scope', '$state', '$mdDialog', 'contac
 	};
 }]);
 
-<<<<<<< HEAD
-app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', 'historyService', function($scope, locationService,
-	$state, designService, historyService, $stateParams) {
-=======
-app.controller('locationSearchController', ['$geolocation', '$scope', 'locationService', '$state', 'designService', function($geolocation,
-	$scope, locationService,
-	$state, designService) {
-<<<<<<< HEAD
-
->>>>>>> 7872537ffde8e5bf14ed92acf8a16241028eb7ce
-=======
+app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', 'historyService', '$geolocation', function($scope, locationService,
+	$state, designService, historyService, $geolocation) {
 	
 	$scope.showNoResults = false;
 	
->>>>>>> 8ecccec8cfccefd053c1ad16c1b8afabad8be1c5
 	$scope.locations = [];
 	
 	$scope.loading = false;
@@ -429,7 +390,6 @@ app.controller('locationSearchController', ['$geolocation', '$scope', 'locationS
 	$scope.itemPressed = function(id) {
 		locationService.setSelectedLocation(id);
 	};
-<<<<<<< HEAD
 	
 	$scope.goBack = function (){
     	historyService.setNavigatedBack(1);
@@ -439,16 +399,6 @@ app.controller('locationSearchController', ['$geolocation', '$scope', 'locationS
     $scope.getIcon = function(){
     	return designService.iconContinue();
     };
-=======
->>>>>>> 7872537ffde8e5bf14ed92acf8a16241028eb7ce
-
-	$scope.goBack = function() {
-		$state.go($state.previous);
-	};
-
-	$scope.getIcon = function() {
-		return designService.iconContinue();
-	};
 
 	function _getData(sUrl) {
 
