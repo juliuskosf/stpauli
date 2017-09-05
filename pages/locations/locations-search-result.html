@@ -2,7 +2,12 @@
   <div layout="column" layout-align="center center">
          <img class="vcalogo3" src="sources/img/vcalogo_blue.png"
     	width="90%" height="auto" />
+  <md-subheader ng-if="filteredWithCity" class="md-primary">Alle in {{cityName}}<md-button ng-click="loadAllPressed()">Alle laden</md-button></md-subheader>
+	
     <md-list flex>
+    	<div layout="row" layout-sm="column" layout-align="space-around">
+    <md-progress-circular ng-if="loading" md-mode="indeterminate"></md-progress-circular>
+    </div>
       <md-list-item ng-repeat="location in locations" class="md-3-line" ng-click="itemPressed(location.ID)">
         <div class="md-list-item-text" layout="column">
           <h3>{{ location.NAME }}</h3>
