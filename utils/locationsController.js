@@ -431,6 +431,9 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 				// empty search string
 				// action need to be evaluated
 				$scope.filteredWithCity = false;
+				$scope.loading = false;
+				$scope.showNoResults = true;
+				
 			} else {
 				var sUrl = "";
 
@@ -473,6 +476,9 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 
 						}); // end of geocode promise
 
+					}).error(function() {
+						_loadLocations(false);
+						$scope.loading = false;
 					}); // end of geolocation promise
 
 				} else {
