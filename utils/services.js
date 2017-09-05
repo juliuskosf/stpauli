@@ -3,25 +3,25 @@ app.service('locationService', function($state) {
 
 	ls.setDecision = function(decision) {
 		ls.oLocation.decision = decision;
-	}
+	};
 
 	ls.setGeoPosition = function(lat, lng) {
 		ls.oLocation.geoLocation = {
 			latitude: lat,
 			longitude: lng
-		}
-	}
+		};
+	};
 	
 	ls.getGeoPosition = function() {
 		return ls.oLocation.geoLocation;
-	}
+	};
 	
 	ls.oLocation = {}; // variable for persistence
 
 	ls.getTextForInterestDecisionCode = function(dc) {
 		var textForCode = ["Bereits Supporter", "Interesse", "Kein Intresse"];
 		return textForCode[dc];
-	}
+	};
 
 	ls.getLocation = function() {
 		return ls.oLocation;
@@ -29,7 +29,7 @@ app.service('locationService', function($state) {
 
 	ls.setLocationName = function(newValue) {
 		ls.oLocation.name = newValue;
-	}
+	};
 	ls.getLocationName = function() {
 		return ls.oLocation.name;
 	};
@@ -40,17 +40,17 @@ app.service('locationService', function($state) {
 
 	ls.setSearchName = function(newValue) {
 		ls.searchName = newValue;
-	}
+	};
 
 	ls.getSearchName = function() {
 		return ls.searchName;
-	}
+	};
 
 	ls.setPaperDecision = function(dc, reasons) {
 		ls.oLocation.paperDecision = {
 			decisionCode: dc,
 			reasons: reasons
-		}
+		};
 	};
 
 	ls.getInterestReasons = function() {
@@ -94,7 +94,7 @@ app.service('locationService', function($state) {
 		}
 		// sorting increases the performance when searching for possiblePartners
 		ls.selectedLocation.partners.sort(sortNumber);
-	}
+	};
 
 	ls.saveLocation = function() {
 
@@ -105,7 +105,7 @@ app.service('locationService', function($state) {
 		// mockup until xsodata is implemented
 		ls.oLocation = {};
 		return highestLocation.id + 1;
-	}
+	};
 
 	ls.locations = [{
 		name: "Die Schenke",
@@ -132,7 +132,7 @@ app.service('locationService', function($state) {
 			street: "Tesdorpfstraße 6",
 			additionalAddress: "",
 			postcode: "23441",
-			city: "Hamburg",
+			city: "Hamburg"
 		},
 		partners: [1],
 		categoryIndex: 3,
@@ -150,7 +150,7 @@ app.service('locationService', function($state) {
 			street: "Kaiserstraße 15",
 			additionalAddress: "",
 			postcode: "76133",
-			city: "Karlsruhe",
+			city: "Karlsruhe"
 		},
 		partners: [2],
 		categoryIndex: 4,
@@ -256,21 +256,21 @@ app.service('locationService', function($state) {
 				additionalAddress: "",
 				postcode: parseInt(address_components[7].long_name),
 				city: address_components[3].long_name
-			}
+			};
 		} else if (address_components.length === 7) {
 			address = {
 				street: address_components[1].long_name + ' ' + address_components[0].long_name,
 				additionalAddress: "",
 				postcode: parseInt(address_components[6].long_name),
 				city: address_components[3].long_name
-			}
+			};
 		} else if (address_components.length === 6) {
 			address = {
 				street: address_components[1].long_name + ' ' + address_components[0].long_name,
 				additionalAddress: "",
 				postcode: parseInt(address_components[5].long_name),
 				city: address_components[2].long_name
-			}
+			};
 		} else {
 			address = {
 				error: "Google API convertion failed!"
@@ -278,22 +278,22 @@ app.service('locationService', function($state) {
 		}
 
 		return address;
-	}
+	};
 
 	ls.getPaperDecision = function() {
 		return ls.oLocation.paperDecision;
-	}
+	};
 
 	ls.setWaterDecision = function(dc, reasons) {
 		ls.oLocation.waterDecision = {
 			decisionCode: dc,
 			reasons: reasons
-		}
-	}
+		};
+	};
 
 	ls.getWaterDecision = function() {
 		return ls.oLocation.waterDecision;
-	}
+	};
 
 	ls.addressToString = function() {
 		if (ls.oLocation.address.additionalAddress) {
@@ -431,7 +431,7 @@ app.service('contactService', function() {
 
 	cs.addNewContact = function(contact) {
 		cs.contacts.push(contact);
-	}
+	};
 
 	cs.getAllContacts = function() {
 		return cs.contacts;
@@ -439,7 +439,7 @@ app.service('contactService', function() {
 
 	cs.clearSelectedContact = function() {
 		cs.selectedContact = {};
-	}
+	};
 
 	cs.getAllPossibleContactsForSelectedLocation = function(location) {
 		var possiblePartners = [];
@@ -447,17 +447,17 @@ app.service('contactService', function() {
 			contactId = cs.contacts[i].id;
 			// jQuery.inArray returns index of value in array
 			// Returns -1 if array does not contain value.
-			if ($.inArray(contactId, location.partners) == -1) {
+			if ($.inArray(contactId, location.partners) === -1) {
 				possiblePartners.push(cs.contacts[i]);
 			}
 		}
 		return possiblePartners;
-	}
+	};
 
 	cs.setSelectedContact = function(id) {
 		cs.selectedContact = cs.contacts[id];
 	};
-
+	// brauchen wir das?
 	cs.selectedContact;
 
 	cs.getSelectedContact = function() {
@@ -470,6 +470,46 @@ app.service('progressService', function($state) {
 	ps.getCurrentState = function() {
 		return $state.current.name;
 	};
-
+	// brauchen wir das?
 	ps.getProgressAtState = function(state) {};
+	
+});
+
+app.service('historyService', function($state) {
+	var hs = this;
+	hs.history = [];
+	hs.index = -1;
+	hs.navigatedBack = 0;
+	
+	hs.getNavigatedBack = function(){
+		return hs.navigatedBack;
+	};
+	
+	hs.setNavigatedBack = function(value){
+		hs.navigatedBack = value;
+	};
+	
+	hs.addStateToHistory = function(){
+		if (hs.getNavigatedBack() === 1){
+			hs.index = hs.index - 1;
+		} else {
+			hs.index = hs.index + 1;
+			hs.history.push($state.current.name);
+		}
+	};
+	
+	hs.getHistory = function(){
+		return hs.history;
+	};
+	
+	hs.getIndex = function(){
+		return hs.index;
+	};
+	
+	hs.getPreviousState = function(){
+		hs.history.pop();
+		var state = hs.history[hs.history.length-1];
+		return state;
+	};
+	
 });

@@ -1,4 +1,4 @@
-app.controller("TestCtrl",['$state', '$scope', 'locationService', function ($state, $scope, locationService) {
+app.controller("TestCtrl",['$state', '$scope', 'locationService', 'historyService', function ($state, $scope, locationService, historyService) {
 
     $scope.result1 = 'initial value';
     $scope.options1 = null;
@@ -22,7 +22,8 @@ app.controller("TestCtrl",['$state', '$scope', 'locationService', function ($sta
     };
     
     $scope.goBack = function (){
-    	$state.go($state.previous);
+    	historyService.setNavigatedBack(1);
+    	$state.go(historyService.getPreviousState());
     };
     
 }]);

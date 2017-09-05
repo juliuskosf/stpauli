@@ -1,10 +1,12 @@
-app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService, designService) {
+app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', 'designService', 'historyService', function($scope, $state, locationService, designService, historyService) {
 	$scope.rememberName = function() {
 		locationService.setSearchName($scope.searchName);
 	};
 	
 	$scope.goBack = function (){
-    	$state.go($state.previous);
+    	// $state.go($state.previous);
+    	historyService.setNavigatedBack(1);
+    	$state.go(historyService.getPreviousState());
     };
     
     $scope.getIcon = function(){
@@ -156,21 +158,22 @@ app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationSe
 // -------------------------------------------
 // -------------------------------------------
 
-app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService,
-	designService) {
+app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 'designService', 'historyService', function($scope, $state, locationService,
+	designService, historyService) {
 	$scope.tileClicked = function(index) {
 		locationService.oLocation.categoryIndex = index;
 		$state.go('locations-create-information');
 	};
 
-	$scope.beforeBack = function() {
+	/*$scope.beforeBack = function() {
 		locationService.oLocation = {};
-		
-		$state.go($state.previous);
-	};
+		historyService.setNavigatedBack(1);
+    	$state.go(historyService.getPreviousState());
+	};*/
 	
 	$scope.goBack = function (){
-    	$state.go($state.previous);
+    	historyService.setNavigatedBack(1);
+    	$state.go(historyService.getPreviousState());
     };
 
 	$scope.tiles = designService.getTiles();
@@ -180,11 +183,12 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 // -------------------------------------------
 // -------------------------------------------
 
-app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', function($scope, $state, locationService,
-	designService) {
+app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', 'historyService', function($scope, $state, locationService,
+	designService, historyService) {
 
 	$scope.goBack = function (){
-    	$state.go($state.previous);
+    	historyService.setNavigatedBack(1);
+    	$state.go(historyService.getPreviousState());
     };
     
 	$scope.saveDecision = function(selectedValue) {
@@ -366,8 +370,8 @@ app.controller('addContactDialogCtrl', ['$scope', '$state', '$mdDialog', 'contac
 	};
 }]);
 
-app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', function($scope, locationService,
-	$state, designService, $stateParams) {
+app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', 'historyService', function($scope, locationService,
+	$state, designService, historyService, $stateParams) {
 	$scope.locations = [];
 
 	$scope.itemPressed = function(id) {
@@ -375,7 +379,8 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 	};
 	
 	$scope.goBack = function (){
-    	$state.go($state.previous);
+    	historyService.setNavigatedBack(1);
+    	$state.go(historyService.getPreviousState());
     };
     
     $scope.getIcon = function(){
@@ -409,9 +414,9 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 	// $scope.locations = locationService.getAllLocations();
 }]);
 
-app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDialog', 'locationService', 'designService', 'contactService',
+app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDialog', 'locationService', 'designService', 'contactService', 'historyService',
 	'$stateParams',
-	function($rootScope, $scope, $state, $mdDialog, locationService, designService, contactService, $stateParams) {
+	function($rootScope, $scope, $state, $mdDialog, locationService, designService, contactService, historyService, $stateParams) {
 		$scope.tabIndex = $stateParams.tab;
 		$scope.selectedLocation = locationService.getSelectedLocation();
 		$scope.waterDecision = $scope.selectedLocation.waterDecision;
@@ -436,13 +441,10 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 		} else  {
 			$scope.imagine = false;
 		}
-		
-		
-		
-		
 
 		$scope.backClicked = function() {
-			$state.go($state.previous);
+			historyService.setNavigatedBack(1);
+    		$state.go(historyService.getPreviousState());
 		};
 
 		$scope.interestReasons = locationService.getInterestReasons();

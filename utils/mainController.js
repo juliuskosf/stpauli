@@ -93,6 +93,7 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
     });
 }]);
 
-app.controller('HomeHelp', ['$scope', '$mdDialog', '$timeout', '$state', '$mdSidenav', 'locationService', '$rootScope', 'progressService', '$http', 'AUTH_EVENTS', function ($scope, $mdDialog, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService, $http, AUTH_EVENTS) {
-
+app.controller('HomeHelp', ['$scope', '$mdDialog', '$timeout', '$state', '$mdSidenav', 'locationService', '$rootScope', 'progressService', 'historyService', '$http', 'AUTH_EVENTS', function ($scope, $mdDialog, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService, historyService, $http, AUTH_EVENTS) {
+	/*historyService.addStateToHistory($state);
+	console.log(historyService.getHistory())*/
 }]);
