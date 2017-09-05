@@ -367,10 +367,15 @@ app.controller('addContactDialogCtrl', ['$scope', '$state', '$mdDialog', 'contac
 	};
 }]);
 
-app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', function($scope, locationService,
-	$state, designService, $stateParams) {
+app.controller('locationSearchController', ['$geolocation', '$scope', 'locationService', '$state', 'designService', function($geolocation,
+	$scope, locationService,
+	$state, designService) {
 
 	$scope.locations = [];
+
+	$scope.loading = false;
+
+	$scope.cityName = "...";
 
 	$scope.filteredWithCity = true;
 
@@ -386,45 +391,80 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 		return designService.iconContinue();
 	};
 
+	function _getData(sUrl) {
+
+		$.ajax({
+			type: "GET",
+			url: sUrl,
+			cache: false,
+			contentType: "application/json;charset=utf-8",
+			error: function(msg, textStatus) {
+				console.log("Search failed in locationSearchController with error code: " + textStatus);
+			},
+			success: function(data) {
+				$scope.loading = false;
+				$scope.$apply(function() {
+					$scope.locations = data.d.results;
+				});
+			}
+		});
+	}
+
 	function _loadLocations(withLocation) {
 
 		if (!locationService.getSearchName()) {
 			// empty search string
 			// action need to be evaluated
+			$scope.filteredWithCity = false;
 		} else {
 			var sUrl = "";
 
 			if (withLocation) {
 
-				// get location
+				$scope.loading = true;
 
-				// set location into the info control
-				$scope.cityName = "Hamburg";
+				// get gelocation
+				$geolocation.getCurrentPosition({
+					timeout: 60000,
+					maximumAge: 250,
+					enableHighAccuracy: true
+				}).then(function(position) {
 
-				// set URL with cityName
-				sUrl = "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName().toUpperCase() +
-					"', CAPS_NAME)";
+					// get city from geodata
+					var geocoder = new google.maps.Geocoder;
+
+					var geoObject = {
+						lat: position.coords.latitude,
+						lng: position.coords.longitude
+					};
+					geocoder.geocode({
+						'location': geoObject
+					}, function(results, status) {
+						if (status === 'OK') {
+							console.log(results);
+							// set location into the info control
+							$scope.$apply(function() {
+								$scope.cityName = locationService.convertGoogleAddressToObjectAddress(results[0].address_components).city;
+							});
+						} else {
+							_loadLocations(false);
+						}
+						// set URL with cityName
+						sUrl = "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName()
+							.toUpperCase() +
+							"', CAPS_NAME)";
+						_getData(sUrl);
+					}); // end of geocode promise
+
+				}); // end of geolocation promise
 
 			} else {
 				$scope.filteredWithCity = false;
 				sUrl = "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName().toUpperCase() +
 					"', CAPS_NAME)";
+				_getData(sUrl);
 			}
 
-			$.ajax({
-				type: "GET",
-				url: sUrl,
-				cache: false,
-				contentType: "application/json;charset=utf-8",
-				error: function(msg, textStatus) {
-					console.log("Search failed in locationSearchController with error code: " + textStatus);
-				},
-				success: function(data) {
-					$scope.$apply(function() {
-						$scope.locations = data.d.results;
-					});
-				}
-			});
 		}
 
 	}
@@ -432,7 +472,7 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 	$scope.loadAllPressed = function() {
 		_loadLocations(false);
 	};
-	
+
 	_loadLocations(true);
 
 	$scope.getCategoryName = function(index) {
