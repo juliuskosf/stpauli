@@ -2,20 +2,21 @@
   <md-progress-linear md-mode="determinate" value="{{vm.determinateValue3}}"></md-progress-linear>
 </div>
 
-<div ng-controller="WaterDecisionCtrl" layout="column">
-  <h3>Imagine: Diese Location führt VcA Wasser <br>Vorstellbar?</h3>
-    <img width="100%" class="vcalogo2" height="auto" src="sources/img/vcaineralwasser.png">
+<div ng-controller="WaterDecisionCtrl" layout="column" layout-align="center center">
+  <h2>Imagine: Diese Location führt VcA Wasser Vorstellbar?</h2>
+    <img class="vcalogo2" hide-gt-sm flex src="sources/img/vcaineralwasser.png">
+    <img class="drop" hide show-gt-sm flex src="sources/img/vcaineralwasser.png">
     <md-button class="md-raised" ui-sref="locations-water-decision-interest" ng-click="saveDecision('imagineYes')">
       Ja
     </md-button>
     <md-button class="md-raised" ui-sref="locations-water-decision-no-interest" ng-click="saveDecision('imagineNo')">
       Nein
     </md-button>
-        <footer>
-        	<div layout="row" layout-align="center center">
-            	<md-button ng-click="goBack()">
-            		<md-icon md-svg-src="sources/img/icons/backarrow.svg"></md-icon>
-            	</md-button>
-        	</div>
-    	</footer>
+    <footer>
+        <div layout="row" layout-align="center center">
+            <md-button ng-click="goBack()">
+            	<md-icon md-svg-src="sources/img/icons/backarrow.svg"></md-icon>
+            </md-button>
+        </div>
+    </footer>
 </div>

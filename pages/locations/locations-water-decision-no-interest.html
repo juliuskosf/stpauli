@@ -5,15 +5,12 @@
 <div layout="column" ng-controller="WaterDecisionCtrl">
   <fieldset class="standard">
      <legend>Warum nicht?</legend>
-     <div layout="column" layout-wrap flex>
+     <div layout="column" layout-wrap>
         <md-checkbox class="md-primary" ng-repeat="reason in reasons" ng-click="toggle(reason, selected)">
           {{reason.text}}
         </md-checkbox>
-     </div>
+      </div>
   </fieldset>
-<!--  <md-button class="md-primary md-raised" ng-click="sendSupporter()">
-    Weiter
-  </md-button>-->
     <footer>
         <div layout="row" layout-align="center center">
             <md-button ng-click="goBack()">
@@ -24,5 +21,4 @@
             </md-button>
         </div>
     </footer>
- 
 </div>

@@ -1,49 +1,27 @@
 html, body {
 	font-family: 'museo';
+	font-size: 1em;
 }
 
-.bubble{
-  position: relative;
-  width: 200px;
-  height: 100px;
-  text-align: center;
-  line-height: 100px;
-  background-color: #fff;
-  border: 8px solid #666;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border-radius: 30px;
-  -webkit-box-shadow: 2px 2px 4px #888;
-  -moz-box-shadow: 2px 2px 4px #888;
-  box-shadow: 2px 2px 4px #888;
-
+.textcenter {
+	text-align: center;
 }
 
+/* home and feedback */
 .bubble2{
-	padding: 20px 20px 20px 20px;
+	position: relative;
+	padding: 3% 3% 3% 3%;
 	border: solid;
-	border-radius: 6px;
-	box-shadow: 2px 2px 4px #888;
-}
-
-.btn1 {
-padding: 0 6px 0 6px;
-  margin: 6px 8px 6px 8px;
-  border-radius: 3px;
-  font-size: 14px;
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration:none;
-  border: none;
-  outline: none;
-  width: 355px;
+	border-radius: 0.25em;
+	box-shadow: 0.25em 0.25em 0.5em #888;
 }
 
 .gridIcons {
 	background-color: #FFD600;
-	border-radius: 10px;
+	border-radius: 1em;
+	
 }
-
+/* presentation page */
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -51,7 +29,7 @@ padding: 0 6px 0 6px;
     height: 0;
     overflow: hidden;
 }
-
+/* presentation page */
 .video-container iframe {
     position: absolute;
     top:0;
@@ -60,29 +38,56 @@ padding: 0 6px 0 6px;
     height: 100%;
 }
 
+ /* for BIG screens */
+.drop {
+	padding-top: 3%;
+    padding-bottom: 3%;
+    position: relative;
+    max-width: 25%;
+    height: auto;
+}
+/* for BIG screens, Siehst du Wasser image */
+.drop2 {
+	padding-top: 3%;
+    padding-bottom: 3%;
+    position: relative;
+}
+
+/* for SMALL and MEDUIM Thank you page  */
+.vcalogo0 {
+	padding-top: 20%;
+    padding-bottom: 20%;
+    padding-left: 5%;
+    width:90%; 
+    height:auto;
+}
+/* for SMALL and MEDUIM Thank you page  */
 .vcalogo {
 	padding-top: 20%;
     padding-bottom: 20%;
     padding-left: 5%;
+    width: 60%; 
+    height: auto;
 }
-
+ /* for SMALL and MEDUIM screens */
 .vcalogo2 {
-	padding-top: 20%;
-    padding-bottom: 20%;
+	padding-top: 15%;
+    padding-bottom: 15%;
+    position: relative;
+    max-width: 100%;
+    height: auto;
 }
-
+/* logo for presentation page SMALL screen */
 .vcalogo3 {
 	padding-top: 10%;
     padding-bottom: 5%;
-    padding-left: 4%;
+    position: relative;
+    max-width: 90%; 
+    height: auto;
 }
 
 .googlemaps {
     padding-top: 5%;
-}
-
-.textcenter {
-	text-align: center;
 }
 
 .progressbar {
@@ -98,4 +103,19 @@ padding: 0 6px 0 6px;
   border-bottom: solid 2px #2196F3;
   transition: border 0.2s;
   background: transparent;
+  width:90%;
+}
+
+/* test buttons, not used */
+.btn1 {
+	padding: 0 6px 0 6px;
+	margin: 6px 8px 6px 8px;
+	border-radius: 3px;
+	font-size: 14px;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration:none;
+	border: none;
+	outline: none;
+	width: 355px;
 }

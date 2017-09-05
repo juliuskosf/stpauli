@@ -1,11 +1,9 @@
 <div ng-controller="AppCtrl as vm" layout="column" class="progressbar" ng-cloak>
   <md-progress-linear md-mode="determinate" value="{{vm.determinateValue2}}"></md-progress-linear>
 </div>
-
 <div layout="column" layout-fill ng-controller="ManualAdressCtrl">
   <h3 style="color: blue;">{{locationName}}</h3>
-  <!-- Small icon with category or something similiar -->
-  <h3>Adresse</h3>
+  <h3 class = "textcenter">Adresse</h3>
   <md-input-container>
     <input type="text" placeholder="Name" ng-model="locationName" name="nameInput">
   </md-input-container>
@@ -21,5 +19,4 @@
   <md-button class="md-raised" ng-click="showConfirm($event)" ng-disabled="manualAddressForm.$invalid">
     Go on!
   </md-button>
- 
 </div>

@@ -2,8 +2,8 @@
   <md-progress-linear md-mode="determinate" value="{{vm.determinateValue3}}"></md-progress-linear>
 </div>
 
-<div ng-controller="WaterDecisionCtrl">
-  <h2 class = 'textcenter'>Welches Wasser siehst du?</h2>
+<div layout="column" layout-align="center center" ng-controller="WaterDecisionCtrl">
+  <h2>Welches Wasser siehst du?</h2>
   <div layout="row">
     <md-button class="md-raised" name="glas" ui-sref="locations-create-summary" ng-click="saveSelection($event)">
       Glas
@@ -13,7 +13,7 @@
     </md-button>
   </div>
   <md-card class="bubble2">
-    In den nachfolgenden Screens wird je nach Auswahl die entsprechenden Gebindearten per Bild angezeigt und per "Frame" Auswahl (Mehrfachnennung möglich) abgefragt
+    <div>In den nachfolgenden Screens wird je nach Auswahl die entsprechenden Gebindearten per Bild angezeigt und per "Frame" Auswahl (Mehrfachnennung möglich) abgefragt</div>
   </md-card>
     <footer>
         	<div layout="row" layout-align="center center">
