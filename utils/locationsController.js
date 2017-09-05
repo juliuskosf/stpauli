@@ -476,10 +476,7 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 
 						}); // end of geocode promise
 
-					}).error(function() {
-						_loadLocations(false);
-						$scope.loading = false;
-					}); // end of geolocation promise
+					})
 
 				} else {
 					$scope.filteredWithCity = false;
