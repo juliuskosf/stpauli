@@ -410,10 +410,16 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 app.controller('locationSearchController', ['$geolocation', '$scope', 'locationService', '$state', 'designService', function($geolocation,
 	$scope, locationService,
 	$state, designService) {
+<<<<<<< HEAD
 
 >>>>>>> 7872537ffde8e5bf14ed92acf8a16241028eb7ce
+=======
+	
+	$scope.showNoResults = false;
+	
+>>>>>>> 8ecccec8cfccefd053c1ad16c1b8afabad8be1c5
 	$scope.locations = [];
-
+	
 	$scope.loading = false;
 
 	$scope.cityName = "...";
@@ -453,11 +459,15 @@ app.controller('locationSearchController', ['$geolocation', '$scope', 'locationS
 			contentType: "application/json;charset=utf-8",
 			error: function(msg, textStatus) {
 				console.log("Search failed in locationSearchController with error code: " + textStatus);
+				$scope.showNoResults = true;
 			},
 			success: function(data) {
 				$scope.loading = false;
 				$scope.$apply(function() {
 					$scope.locations = data.d.results;
+					if ($scope.locations.length === 0) {
+						$scope.showNoResults = true;
+					}
 				});
 			}
 		});
