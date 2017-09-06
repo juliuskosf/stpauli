@@ -250,34 +250,47 @@ app.service('locationService', function($state) {
 
 	ls.convertGoogleAddressToObjectAddress = function(address_components) {
 
-		if (address_components.length === 8) {
-			address = {
-				street: address_components[1].long_name + ' ' + address_components[0].long_name,
-				additionalAddress: "",
-				postcode: parseInt(address_components[7].long_name),
-				city: address_components[4].long_name
-			};
-		} else if (address_components.length === 7) {
-			address = {
-				street: address_components[1].long_name + ' ' + address_components[0].long_name,
-				additionalAddress: "",
-				postcode: parseInt(address_components[6].long_name),
-				city: address_components[3].long_name
-			};
-		} else if (address_components.length === 6) {
-			address = {
-				street: address_components[1].long_name + ' ' + address_components[0].long_name,
-				additionalAddress: "",
-				postcode: parseInt(address_components[5].long_name),
-				city: address_components[2].long_name
-			};
-		} else {
-			address = {
-				error: "Google API convertion failed!"
-			};
-		}
+		var address = {};
 
-		return address;
+		var sStreetNumber;
+		var types = [];
+		
+		for (var i = 0; i < address_components.length; i++) {
+			types = address_components[i].types;
+			if ($.inArray('locality', types) === 0) { // found
+				address.city = address_components[i].long_name;
+				if (address_components.length - 1 !== i) {
+					continue;	
+				}
+			}
+
+			if ($.inArray('street_number', types) === 0) { // found
+				sStreetNumber = address_components[i].long_name;
+				if (address_components.length - 1 !== i) {
+					continue;	
+				}
+			}
+
+			if ($.inArray('route', types) === 0) { // found
+				address.street = address_components[i].long_name;
+				if (address_components.length - 1 !== i) {
+					continue;	
+				}
+			}
+
+			if ($.inArray('postal_code', types) === 0) { // found
+				address.postcode = address_components[i].long_name;
+				if (address_components.length - 1 !== i) {
+					continue;	
+				}
+				
+			}
+
+			if (address.street && address.city && address.postcode && sStreetNumber) {
+				address.street = address.street + " " + sStreetNumber;
+				return address;
+			}
+		}
 	};
 
 	ls.getPaperDecision = function() {
