@@ -1,0 +1,324 @@
+app.service('locationService', function($state) {
+	var ls = this; // ls => locationService
+
+	ls.setDecision = function(decision) {
+		ls.oLocation.decision = decision;
+	};
+
+	ls.setGeoPosition = function(lat, lng) {
+		ls.oLocation.geoLocation = {
+			latitude: lat,
+			longitude: lng
+		};
+	};
+
+	ls.getGeoPosition = function() {
+		return ls.oLocation.geoLocation;
+	};
+
+	ls.oLocation = {}; // variable for persistence
+
+	ls.getTextForInterestDecisionCode = function(dc) {
+		var textForCode = ["Bereits Supporter", "Interesse", "Kein Intresse"];
+		return textForCode[dc];
+	};
+
+	ls.getLocation = function() {
+		return ls.oLocation;
+	};
+
+	ls.setLocationName = function(newValue) {
+		ls.oLocation.name = newValue;
+	};
+	ls.getLocationName = function() {
+		return ls.oLocation.name;
+	};
+
+	ls.getCategoryIndex = function() {
+		return ls.oLocation.categoryIndex;
+	};
+
+	ls.setSearchName = function(newValue) {
+		ls.searchName = newValue;
+	};
+
+	ls.getSearchName = function() {
+		return ls.searchName;
+	};
+
+	ls.setPaperDecision = function(dc, reasons) {
+		ls.oLocation.paperDecision = {
+			decisionCode: dc,
+			reasons: reasons
+		};
+	};
+
+	ls.getInterestReasons = function() {
+		return [{
+			id: 0,
+			text: "Zu teuer"
+		}, {
+			id: 1,
+			text: "Anderer Lieferant"
+		}, {
+			id: 2,
+			text: "Vorher nie gehört"
+		}, {
+			id: 3,
+			text: "Andere"
+		}];
+	};
+
+	ls.getNoInterestReasons = function() {
+		return [{
+			id: 0,
+			text: "Zu teuer"
+		}, {
+			id: 1,
+			text: "Blöd"
+		}, {
+			id: 3,
+			text: "Andere"
+		}];
+	};
+
+	ls.addContactToSelectedLocation = function(contactId) {
+		if (ls.selectedLocation.partners) {
+			ls.selectedLocation.partners.push(contactId);
+		} else {
+			ls.selectedLocation.partners = [contactId];
+		}
+
+		function sortNumber(a, b) {
+			return a - b;
+		}
+		// sorting increases the performance when searching for possiblePartners
+		ls.selectedLocation.partners.sort(sortNumber);
+	};
+
+	ls.saveLocation = function() {
+
+		// mockup until xsodata is implemented
+		var highestLocation = ls.locations[ls.locations.length - 1];
+		ls.oLocation.id = highestLocation.id + 1;
+		ls.locations.push(ls.oLocation);
+		// mockup until xsodata is implemented
+		ls.oLocation = {};
+		return highestLocation.id + 1;
+	};
+
+	ls.locations = [{
+		name: "Die Schenke",
+		id: 0,
+		address: {
+			street: "Rathausplatz",
+			additionalAddress: "2. Etage",
+			postcode: "45219",
+			city: "Essen"
+		},
+		partners: [0],
+		categoryIndex: 0,
+		// adapt to right format!!
+		waterDecision: {
+			decisionCode: 1
+		},
+		paperDecision: {
+			decisionCode: 0
+		}
+	}, {
+		name: "Henriks",
+		id: 1,
+		address: {
+			street: "Tesdorpfstraße 6",
+			additionalAddress: "",
+			postcode: "23441",
+			city: "Hamburg"
+		},
+		partners: [1],
+		categoryIndex: 3,
+		// s.o.
+		waterDecision: {
+			decisionCode: 1
+		},
+		paperDecision: {
+			decisionCode: 2
+		}
+	}, {
+		name: "Edeka",
+		id: 2,
+		address: {
+			street: "Kaiserstraße 15",
+			additionalAddress: "",
+			postcode: "76133",
+			city: "Karlsruhe"
+		},
+		partners: [2],
+		categoryIndex: 4,
+		// s.o.
+		waterDecision: {
+			decisionCode: 1
+		},
+		paperDecision: {
+			decisionCode: 1
+		}
+	}];
+
+	ls.getAllLocations = function() {
+		for (var i = 0; i < ls.locations.length; i++) {
+			parseInt(ls.locations[i].address.postcode);
+		}
+		return ls.locations;
+	};
+
+	ls.setSelectedLocation = function(id) {
+
+		/*	ls.selectedLocation = {
+				name: "",
+				id: "",
+				address: {
+					street: "",
+					additionalAddress: "",
+					postcode: "",
+					city: ""
+				},
+				partners: null,
+				categoryIndex: null,
+				waterDecision: {
+					decisionCode: null
+				},
+				paperDecision: {
+					decisionCode: null
+				}
+			};*/
+
+		// GET
+		$.ajax({
+			type: "GET",
+			url: "/destinations/vca/d064868/location.xsodata/Location(" + id + ")?$format=json",
+			cache: false,
+			contentType: "application/json;charset=utf-8",
+			error: function(msg, textStatus) {
+				console.log(textStatus);
+			},
+			success: function(data) {
+				// console.log(data);
+				/*ls.selectedLocation.name = data.d.NAME;
+				ls.selectedLocation.id = id;
+				ls.selectedLocation.additionalAddress = data.d.AADDRESS;
+				ls.selectedLocation.address.street = data.d.STREET;
+				ls.selectedLocation.address.city = data.d.CITY;
+				ls.selectedLocation.address.postcode = data.d.POSTCODE;
+				ls.selectedLocation.categoryIndex = data.d.CATEGORYID;*/
+				ls.selectedLocation = {
+					name: data.d.NAME,
+					id: data.d.ID,
+					address: {
+						street: data.d.STREET,
+						additionalAddress: data.d.AADDRESS,
+						postcode: data.d.POSTCODE,
+						city: data.d.CITY
+					},
+					partners: null,
+					categoryIndex: data.d.CATEGORYID,
+					decision: {
+						already: data.d.ALREADY,
+						imagine: data.d.IMAGINE
+					},
+					paperDecision: {
+						decisionCode: null
+					}
+				};
+				console.log(ls.getSelectedLocation());
+				$state.go('locations-detail', {
+					tab: null
+				});
+			}
+		});
+	};
+
+	ls.getSelectedLocation = function() {
+		ls.selectedLocation.address.postcode =
+			parseInt(ls.selectedLocation.address.postcode); // temporary work around!
+		// we will face this problem later depending on how the backend field looks like
+		return ls.selectedLocation;
+	};
+
+	ls.setAddress = function(address) {
+		ls.oLocation.address = address;
+		parseInt(ls.oLocation.address.postcode);
+	};
+
+	ls.convertGoogleAddressToObjectAddress = function(address_components) {
+
+		var address = {};
+
+		var sStreetNumber;
+		var types = [];
+		
+		for (var i = 0; i < address_components.length; i++) {
+			types = address_components[i].types;
+			if ($.inArray('locality', types) === 0) { // found
+				address.city = address_components[i].long_name;
+				if (address_components.length - 1 !== i) {
+					continue;	
+				}
+			}
+
+			if ($.inArray('street_number', types) === 0) { // found
+				sStreetNumber = address_components[i].long_name;
+				if (address_components.length - 1 !== i) {
+					continue;	
+				}
+			}
+
+			if ($.inArray('route', types) === 0) { // found
+				address.street = address_components[i].long_name;
+				if (address_components.length - 1 !== i) {
+					continue;	
+				}
+			}
+
+			if ($.inArray('postal_code', types) === 0) { // found
+				address.postcode = address_components[i].long_name;
+				if (address_components.length - 1 !== i) {
+					continue;	
+				}
+				
+			}
+
+			if (address.street && address.city && address.postcode && sStreetNumber) {
+				address.street = address.street + " " + sStreetNumber;
+				return address;
+			}
+		}
+	};
+
+	ls.getPaperDecision = function() {
+		return ls.oLocation.paperDecision;
+	};
+
+	ls.setWaterDecision = function(dc, reasons) {
+		ls.oLocation.waterDecision = {
+			decisionCode: dc,
+			reasons: reasons
+		};
+	};
+
+	ls.getWaterDecision = function() {
+		return ls.oLocation.waterDecision;
+	};
+
+	ls.addressToString = function() {
+		if (ls.oLocation.address.additionalAddress) {
+			return ls.oLocation.address.street + ' ' +
+				ls.oLocation.address.additionalAddress + ' ' +
+				ls.oLocation.address.postcode + ' ' +
+				ls.oLocation.address.city;
+		} else {
+			return ls.oLocation.address.street + ' ' +
+				ls.oLocation.address.postcode + ' ' +
+				ls.oLocation.address.city;
+		}
+	};
+
+});
