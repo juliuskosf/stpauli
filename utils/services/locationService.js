@@ -171,26 +171,6 @@ app.service('locationService', function($state) {
 	};
 
 	ls.setSelectedLocation = function(id) {
-
-		/*	ls.selectedLocation = {
-				name: "",
-				id: "",
-				address: {
-					street: "",
-					additionalAddress: "",
-					postcode: "",
-					city: ""
-				},
-				partners: null,
-				categoryIndex: null,
-				waterDecision: {
-					decisionCode: null
-				},
-				paperDecision: {
-					decisionCode: null
-				}
-			};*/
-
 		// GET
 		$.ajax({
 			type: "GET",
@@ -201,14 +181,6 @@ app.service('locationService', function($state) {
 				console.log(textStatus);
 			},
 			success: function(data) {
-				// console.log(data);
-				/*ls.selectedLocation.name = data.d.NAME;
-				ls.selectedLocation.id = id;
-				ls.selectedLocation.additionalAddress = data.d.AADDRESS;
-				ls.selectedLocation.address.street = data.d.STREET;
-				ls.selectedLocation.address.city = data.d.CITY;
-				ls.selectedLocation.address.postcode = data.d.POSTCODE;
-				ls.selectedLocation.categoryIndex = data.d.CATEGORYID;*/
 				ls.selectedLocation = {
 					name: data.d.NAME,
 					id: data.d.ID,

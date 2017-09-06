@@ -8,13 +8,6 @@ app.controller("TestCtrl", ['$state', '$scope', 'locationService', 'historyServi
 	$scope.lat = undefined;
 	$scope.lng = undefined;
 
-	/*	$scope.$on('gmPlacesAutocomplete::placeChanged', function(){
-	      var location = $scope.vm.autocomplete.getPlace().geometry.location;
-	      $scope.lat = location.lat();
-	      $scope.lng = location.lng();
-	      $scope.$apply();
-	  }); */
-
 	$scope.save = function() {
 		locationService.setLocationName($scope.vm.details.name);
 		var address = locationService.convertGoogleAddressToObjectAddress($scope.vm.details.address_components);

@@ -74,49 +74,7 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 			scaledSize: new google.maps.Size(42, 68)
 		}
 	};
-
-	/*	var markers = [{
-			id: 0,
-			coords: {
-				latitude: 53.563385,
-				longitude: 9.990634
-			},
-			options: _options,
-			category: 'Bar'
-		}, {
-			id: 1,
-			coords: {
-				latitude: 53.566519,
-				longitude: 9.991254
-			},
-			options: _options,
-			category: 'Bar'
-		}, {
-			id: 2,
-			coords: {
-				latitude: 53.553355,
-				longitude: 9.966551
-			},
-			options: _options,
-			category: 'Restaurant'
-		}, {
-			id: 3,
-			coords: {
-				latitude: 53.556423,
-				longitude: 9.970016
-			},
-			options: _options,
-			category: 'Shop'
-		}, {
-			id: 4,
-			coords: {
-				latitude: 53.553997,
-				longitude: 9.986222
-			},
-			options: _options,
-			category: 'Shop'
-		}]; */
-
+	
 	// define the array of categories
 	//	$scope.categories = ['Bar', 'Shop', 'Restaurant'];
 	$scope.categories = [0, 1, 2, 3, 4, 5];

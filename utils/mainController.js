@@ -21,51 +21,6 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
 
 		//showLoginDialog()
 
-		/*
-
-		// GET
-		$.ajax({
-			type: "GET",
-			url: "/destinations/vca/d064868/location.xsodata/Location",
-			cache: false,
-			contentType: "application/json;charset=utf-8",
-			error : function(msg, textStatus) {
-				console.log(textStatus);
-			},
-			success : function(data) {
-				console.log(data);
-			}
-		});
-
-		// Data for Post
-		var data = JSON.stringify({
-			ID: "1000",
-			NAME: "Henriks",
-			STREET: "Tesdorpfstraße 8",
-			AADDRESS: null,
-			POSTCODE: 20148,
-			CITY: "Hamburg",
-			CATEGORYID: 0,
-			WATER: "X"
-		});
-
-		// POST
-		$.ajax({
-			type: "POST",
-			url: "/destinations/vca/d064868/location.xsodata/Location",
-			dataType: "json",
-			data: data,
-			cache: false,
-			contentType: "application/json;charset=utf-8",
-			error : function(msg, textStatus) {
-				console.log(textStatus);
-			},
-			success : function(data) {
-				console.log(data);
-			}
-		});
-		*/
-
 		$scope.logout = function() {
 			firebase.auth().signOut().then(function() {
 				$rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
@@ -99,7 +54,5 @@ app.controller('HomeHelp', ['$scope', '$mdDialog', '$timeout', '$state', '$mdSid
 	'historyService', '$http', 'AUTH_EVENTS',
 	function($scope, $mdDialog, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService, historyService, $http,
 		AUTH_EVENTS) {
-		/*historyService.addStateToHistory($state);
-		console.log(historyService.getHistory())*/
 	}
 ]);
