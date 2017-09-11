@@ -12,6 +12,11 @@ app.service('locationService', function($state) {
 		};
 	};
 
+
+	ls.getAddressAsString = function() {
+		return ls.oLocation.address.street + ", " + ls.oLocation.address.city + ", Deutschland";
+	}
+
 	ls.getGeoPosition = function() {
 		return ls.oLocation.geoLocation;
 	};
@@ -226,36 +231,36 @@ app.service('locationService', function($state) {
 
 		var sStreetNumber;
 		var types = [];
-		
+
 		for (var i = 0; i < address_components.length; i++) {
 			types = address_components[i].types;
 			if ($.inArray('locality', types) === 0) { // found
 				address.city = address_components[i].long_name;
 				if (address_components.length - 1 !== i) {
-					continue;	
+					continue;
 				}
 			}
 
 			if ($.inArray('street_number', types) === 0) { // found
 				sStreetNumber = address_components[i].long_name;
 				if (address_components.length - 1 !== i) {
-					continue;	
+					continue;
 				}
 			}
 
 			if ($.inArray('route', types) === 0) { // found
 				address.street = address_components[i].long_name;
 				if (address_components.length - 1 !== i) {
-					continue;	
+					continue;
 				}
 			}
 
 			if ($.inArray('postal_code', types) === 0) { // found
 				address.postcode = address_components[i].long_name;
 				if (address_components.length - 1 !== i) {
-					continue;	
+					continue;
 				}
-				
+
 			}
 
 			if (address.street && address.city && address.postcode && sStreetNumber) {

@@ -40,26 +40,28 @@ app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationSe
 		$mdDialog.show(confirm).then(function() {
 
 			// check for geolocation data!!
+			
+			$state.go('locations-water-decision');
 
-			address = locationService.getAddressAsString();
+			/*address = locationService.getAddressAsString();
 			geocoder = new google.maps.Geocoder();
 
 			geocoder.geocode({'address': address}, function(results, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
 					if (status != google.maps.GeocoderStatus.ZERO_RESULTS) { // results found
-						var lat_koord = results[0].geometry.location.lat().toFixed(6);
-						var lng_koord = results[0].geometry.location.lng().toFixed(6);
+						var lat_koord = results[0].geometry.location.lat();
+						var lng_koord = results[0].geometry.location.lng();
 						locationService.setGeoPosition(lat_koord, lng_koord);
 						$state.go('locations-water-decision');
 					} else { // no results
-						alert("Keine Location gefunden");
+						alert("Zu dieser Adresse wurde keine Geoposition gefunden!");
 						$state.go('locations-water-decision');
 					}
 				} else {
 					alert("Das Geocodieren war nicht erfolgreich. Grund: " + status);
 					$state.go('locations-water-decision');
 				}
-			});
+			}); */
 		});
 	};
 
