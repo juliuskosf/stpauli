@@ -38,7 +38,28 @@ app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationSe
 			.cancel('Ändern');
 
 		$mdDialog.show(confirm).then(function() {
-			$state.go('locations-water-decision');
+
+			// check for geolocation data!!
+
+			address = locationService.getAddressAsString();
+			geocoder = new google.maps.Geocoder();
+
+			geocoder.geocode({'address': address}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					if (status != google.maps.GeocoderStatus.ZERO_RESULTS) { // results found
+						var lat_koord = results[0].geometry.location.lat().toFixed(6);
+						var lng_koord = results[0].geometry.location.lng().toFixed(6);
+						locationService.setGeoPosition(lat_koord, lng_koord);
+						$state.go('locations-water-decision');
+					} else { // no results
+						alert("Keine Location gefunden");
+						$state.go('locations-water-decision');
+					}
+				} else {
+					alert("Das Geocodieren war nicht erfolgreich. Grund: " + status);
+					$state.go('locations-water-decision');
+				}
+			});
 		});
 	};
 
@@ -324,7 +345,7 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 				$scope.filteredWithCity = false;
 				$scope.loading = false;
 				$scope.showNoResults = true;
-				
+
 			} else {
 				var sUrl = "";
 
