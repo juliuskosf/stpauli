@@ -4,7 +4,8 @@ var app = angular.module('VivaConAgua', [
 	'uiGmapgoogle-maps',
 	'ngGeolocation',
 	'ngAutocomplete',
-	'gm'
+	'gm',
+	'ngMap'
 ]);
 
 app.run(['$rootScope', '$state', 'historyService', function($rootScope, $state, historyService) {

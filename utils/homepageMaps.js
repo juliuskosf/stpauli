@@ -27,9 +27,8 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 		},
 		zoom: 5
 	};
-	
+  
 	var markers;
-
 	var fill_markers = function() {
 		markers = [];
 		for (i = 0; i < $scope.locations.length; i++) {
@@ -40,7 +39,8 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 					longitude: parseFloat($scope.locations[i].LONGITUDE)
 				},
 				options: _options,
-				category: $scope.locations[i].CATEGORYID
+				category: $scope.locations[i].CATEGORYID,
+				title: $scope.locations[i].NAME
 			};
 			markers.push(marker);
 		}
@@ -48,6 +48,13 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 
 	$scope.options = {
 		scrollwheel: false
+	};
+	
+	var _options = {
+		icon: {
+			url: '/sources/img/icons/dropgmarkerblue.png',
+			scaledSize: new google.maps.Size(42, 68)
+		}
 	};
 
 	$.ajax({
@@ -67,13 +74,8 @@ app.controller('HomeLocationCtrl', ['$geolocation', '$scope', function($geolocat
 	});
 	
 	
-
-	var _options = {
-		icon: {
-			url: '/sources/img/icons/dropgmarkerblue.png',
-			scaledSize: new google.maps.Size(42, 68)
-		}
-	};
+	
+	
 	
 	// define the array of categories
 	//	$scope.categories = ['Bar', 'Shop', 'Restaurant'];
