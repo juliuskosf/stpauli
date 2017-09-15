@@ -14,24 +14,40 @@
       </div>
     </div>
     </div>
-<!--    <div class="googlemaps">
-    <ui-gmap-google-map center="map.center" zoom="map.zoom" options="options">
-    	<ui-gmap-marker ng-repeat="marker in markers" coords="marker.coords" idkey="marker.id" options="marker.options" doCluster="true">
-        </ui-gmap-marker>
-    </ui-gmap-google-map>
-    </div>
-</div> -->
-	<style>
-		map, div[map] {display:block; width:100%; height:100%;}
-	</style>
-    <ng-map default-style="true" center="current-location" zoom="13">
+<style>
+  ng-map#custom1 {display:block; height:25em; padding-top: 3%;} /* SMALL SCREENS */
+</style>
+<style>
+  ng-map#custom2 {display:block; height:30em; padding-top: 3%;} /* BIG SCREENS */
+</style>
+<style>
+  ng-map#custom3 {display:block; height:40em; padding-top: 3%;} /* IPAD */
+</style>
+    <div hide-gt-xs flex>
+    <ng-map id="custom1" default-style="false" center="current-location" zoom="13">
         <info-window id="myInfoWindow" position="current-location">
             <div ng-non-bindable>
                 <h4>{{selectedLocation.NAME}}</h4>
             </div>
         </info-window>
     </ng-map>
-    <md-button ng-click="pressed()">
-    	Clear
-    </md-button>
+    </div>
+    <div hide show-gt-md flex>
+    <ng-map id="custom2" default-style="false" center="current-location" zoom="13">
+        <info-window id="myInfoWindow" position="current-location">
+            <div ng-non-bindable>
+                <h4>{{selectedLocation.NAME}}</h4>
+            </div>
+        </info-window>
+    </ng-map>
+    </div>
+    <div hide show-sm show-md flex>
+    <ng-map id="custom3" default-style="false" center="current-location" zoom="13">
+        <info-window id="myInfoWindow" position="current-location">
+            <div ng-non-bindable>
+                <h4>{{selectedLocation.NAME}}</h4>
+            </div>
+        </info-window>
+    </ng-map>
+    </div>
 </div>
