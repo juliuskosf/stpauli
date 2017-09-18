@@ -5,6 +5,7 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
 			$mdDialog.show({
 				controller: 'LoginCtrl',
 				templateUrl: 'auth/login.html',
+				escapeToClose: false,
 				parent: angular.element(document.body),
 				targetEvent: ev
 			});
