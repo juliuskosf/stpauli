@@ -1,3 +1,4 @@
+// initialize the AngularJS App
 var app = angular.module('VivaConAgua', [
 	'ngMaterial',
 	'ui.router',
@@ -8,12 +9,13 @@ var app = angular.module('VivaConAgua', [
 	'ngMap'
 ]);
 
+// routine for backtracking logic
 app.run(['$rootScope', '$state', 'historyService', function($rootScope, $state, historyService) {
+	
+	// catch the event that is triggered when $state changes
 	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState) {
 		$state.previous = fromState;
 		historyService.addStateToHistory($state);
-		console.log(historyService.getHistory());
-		console.log(historyService.getIndex());
 		historyService.setNavigatedBack(0);
 	});
 }]);

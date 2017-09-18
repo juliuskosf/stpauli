@@ -2,15 +2,17 @@ app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', 'de
 	locationService, designService, historyService) {
 
 	$scope.rememberName = function() {
+		// (obsolete) save entered name for search on next screen
 		locationService.setSearchName($scope.searchName);
 	};
 
+	// navBack logic
 	$scope.goBack = function() {
-		// $state.go($state.previous);
 		historyService.setNavigatedBack(1);
 		$state.go(historyService.getPreviousState());
 	};
 
+	// dynamic source for correct icon in each state
 	$scope.getIcon = function() {
 		return designService.iconContinue();
 	};
@@ -24,11 +26,12 @@ app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', 'de
 app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationService', function($scope, $state, $mdDialog, locationService) {
 	$scope.locationName = locationService.getLocationName();
 
-	$scope.address = locationService.oLocation.address || {};
+	$scope.address = locationService.oLocation.address || {}; // default '{}' if locationService.oLocation.address is undefined 
 
 	$scope.showConfirm = function(event) {
 		locationService.setAddress($scope.address); // next command uses it so assign it here!
-		locationService.setLocationName($scope.locationName);
+		locationService.setLocationName($scope.locationName); // save location name
+
 		var confirm = $mdDialog.confirm()
 			.title('Ist das wirklich die Lokation?')
 			.textContent(locationService.addressToString())
@@ -38,30 +41,7 @@ app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationSe
 			.cancel('Ändern');
 
 		$mdDialog.show(confirm).then(function() {
-
-			// check for geolocation data!!
-			
 			$state.go('locations-water-decision');
-
-			/*address = locationService.getAddressAsString();
-			geocoder = new google.maps.Geocoder();
-
-			geocoder.geocode({'address': address}, function(results, status) {
-				if (status == google.maps.GeocoderStatus.OK) {
-					if (status != google.maps.GeocoderStatus.ZERO_RESULTS) { // results found
-						var lat_koord = results[0].geometry.location.lat();
-						var lng_koord = results[0].geometry.location.lng();
-						locationService.setGeoPosition(lat_koord, lng_koord);
-						$state.go('locations-water-decision');
-					} else { // no results
-						alert("Zu dieser Adresse wurde keine Geoposition gefunden!");
-						$state.go('locations-water-decision');
-					}
-				} else {
-					alert("Das Geocodieren war nicht erfolgreich. Grund: " + status);
-					$state.go('locations-water-decision');
-				}
-			}); */
 		});
 	};
 
@@ -78,24 +58,18 @@ app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationSe
 app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 'designService', 'historyService', function($scope, $state,
 	locationService,
 	designService, historyService) {
-	$scope.tileClicked = function(index) {
-		locationService.oLocation.categoryIndex = index;
+
+	$scope.tileClicked = function(index) { // index contains index of selected tile
+		locationService.oLocation.categoryIndex = index; // assign index to categoryIndex in locationService
 		$state.go('locations-create-information');
 	};
-
-	/*$scope.beforeBack = function() {
-		locationService.oLocation = {};
-<<<<<<< HEAD
-		historyService.setNavigatedBack(1);
-    	$state.go(historyService.getPreviousState());
-	};*/
 
 	$scope.goBack = function() {
 		historyService.setNavigatedBack(1);
 		$state.go(historyService.getPreviousState());
 	};
 
-	$scope.tiles = designService.getTiles();
+	$scope.tiles = designService.getTiles(); // get all tile sources
 }]);
 
 // -------------------------------------------
@@ -112,8 +86,9 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 	};
 
 	$scope.saveDecision = function(selectedValue) {
-		var decision = locationService.oLocation.decision || {};
+		var decision = locationService.oLocation.decision || {}; // see above
 
+		// fill the decision in the locationservice according to selected selectedValue
 		switch (selectedValue) {
 			case "seeYes":
 				decision.already = 'X';
@@ -132,16 +107,22 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 		}
 
 		locationService.setDecision(decision);
-	}
+	};
 
-	$scope.selected = [];
+	$scope.selected = []; // empty array as placeholder for selected reasons
+
+	// fetch reasons for interest or no interest according to current states name
 	if ($state.current.name === "locations-water-decision-interest") {
 		$scope.reasons = locationService.getInterestReasons();
 	} else if ($state.current.name === "locations-water-decision-no-interest") {
 		$scope.reasons = locationService.getNoInterestReasons();
 	}
-
+	
+	// add or remove selected reason
 	$scope.toggle = function(reason, list) {
+		
+		// list contains reference to selected
+		
 		var idx = list.indexOf(reason);
 		if (idx > -1) {
 			list.splice(idx, 1);
@@ -150,7 +131,8 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 		}
 		list.sort(compare);
 	};
-
+	
+	// sort function
 	var compare = function(a, b) {
 		if (a.id < b.id) {
 			return -1;
@@ -163,49 +145,15 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 
 	$scope.sendSupporter = function() {
 		$state.go('locations-create-summary');
-	}
+	};
 
 	$scope.saveSelection = function(event) {
-			if (event.target.name === "glas") {
-				// Save glas
-			} else {
-				// save plastik
-			}
-		}
-		/*
-	console.log(locationService.oLocation);
-
-
-	$scope.getCategoryName = function(index) {
-		return designService.getNameForCategoryIndex(index);
-	};
-
-	$scope.sLocation = locationService.getLocation();
-
-	$scope.getSourceForIndex = function(index) {
-		var x = designService.getCategoryIconSourceForIndex(index);
-		return x;
-	};
-
-
-
-	$scope.goSendSupporter = function() {
-		var mode;
-		if ($state.current.name === "locations-water-decision-interest") {
-			mode = 1;
-		} else if ($state.current.name === "locations-water-decision-no-interest") {
-			mode = 2;
-		}
-
-		if (mode) {
-			locationService.setWaterDecision(mode, $scope.selected);
+		if (event.target.name === "glas") {
+			// Save glas
 		} else {
-			locationService.setWaterDecision(0);
+			// save plastik
 		}
-		$state.go('locations-create-summary');
 	};
-
-	*/
 
 }]);
 
@@ -213,30 +161,20 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 	$scope.waterDecision = locationService.getWaterDecision();
 	$scope.location = locationService.oLocation;
 
-	$scope.map = {
-		center: {
-			latitude: 51.312801,
-			longitude: 9.481544
-		},
-		zoom: 5
-	};
-
-	/*	$scope.toContactMenu = function() {
-			locationService.setSelectedLocation($scope.newID);
-			$state.go('locations-detail', {
-				tab: 1
-			});
-		};*/
-
 	$scope.getDecisionText = function(decisionCode) {
 		return locationService.getTextForInterestDecisionCode(decisionCode);
 	};
+	
 	$scope.saveLocationInfo = function() {
+		// this function fetches all information from locationService and puts them together to push to DB
+		
 		var user = "";
 		if (firebase.auth().currentUser) {
-			// in case login form is not active
+			// in case login form is active assign Firebase userId to user field in DB
 			user = firebase.auth().currentUser.uid;
 		}
+		
+		// get latitude and longitude from locationService
 
 		var latitude = locationService.getGeoPosition().latitude;
 		var longitude = locationService.getGeoPosition().longitude;
@@ -267,40 +205,33 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 			cache: false,
 			contentType: "application/json;charset=utf-8",
 			error: function(msg, textStatus) {
-				console.log(textStatus);
+				// TODO: Error handling
 			},
 			success: function(data) {
-				console.log(data);
+				// TODO: Success handling
 			}
 		});
+		// jump to final state
 		$state.go('thankyou');
-	};
-}]);
-
-app.controller('addContactDialogCtrl', ['$scope', '$state', '$mdDialog', 'contactService', 'locationService', 'selectedLocation', function(
-	$scope, $state, $mdDialog, contactService, locationService, selectedLocation) {
-	$scope.allContacts = contactService.getAllPossibleContactsForSelectedLocation(selectedLocation);
-	$scope.contactPressed = function(contactId) {
-		locationService.addContactToSelectedLocation(contactId);
-		$mdDialog.hide();
-	};
-	$scope.addNewContact = function() {
-		$mdDialog.hide();
-		$state.go('contacts-create');
 	};
 }]);
 
 app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', 'historyService', '$geolocation',
 	function($scope, locationService, $state, designService, historyService, $geolocation) {
-
+		
+		// show the "no results"-Infofield when true
 		$scope.showNoResults = false;
-
+		
+		// empty placeholder for search results
 		$scope.locations = [];
-
+		
+		// show loading animation when true
 		$scope.loading = false;
-
+		
+		// initial placehold while locating the user (will be replaced by city)
 		$scope.cityName = "...";
-
+		
+		// false for no -> used to show "Alle Laden"
 		$scope.filteredWithCity = true;
 
 		$scope.itemPressed = function(id) {
@@ -317,7 +248,8 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 		};
 
 		function _getData(sUrl) {
-
+			// function for GET Request
+			
 			$.ajax({
 				type: "GET",
 				url: sUrl,
@@ -340,10 +272,13 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 		}
 
 		function _loadLocations(withLocation) {
-
+			
+			// withLocation = false -> load all locations without city filter
+			// withLocation = false -> load all locations with city filter
+			
 			if (!locationService.getSearchName()) {
 				// empty search string
-				// action need to be evaluated
+				
 				$scope.filteredWithCity = false;
 				$scope.loading = false;
 				$scope.showNoResults = true;
@@ -361,36 +296,49 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 						maximumAge: 250,
 						enableHighAccuracy: true
 					}).then(function(position) {
-
-						// get city from geodata
+						// position contains current position of the user
+						
+						// get google-Geocoder
 						var geocoder = new google.maps.Geocoder;
-
+						
+						// create object with latitude and longitude
 						var geoObject = {
 							lat: position.coords.latitude,
 							lng: position.coords.longitude
 						};
+						
 						geocoder.geocode({
 							'location': geoObject
 						}, function(results, status) {
+							
+							// results contains all results for the geodata
+							
 							if (status === 'OK') {
-								console.log(results);
 								// set location into the info control
 								$scope.$apply(function() {
-									$scope.cityName = locationService.convertGoogleAddressToObjectAddress(results[0].address_components).city;
+									
+									var result = results[0];
+									var addressComponents = result.address_components;
+									var city = locationService.convertGoogleAddressToObjectAddress(addressComponents).city;
+									
+									$scope.cityName = city;
 								});
+								
+								// build URL with search string and city name
 								sUrl = "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName()
 									.toUpperCase() +
-									"', CAPS_NAME) and substringof('" + locationService.convertGoogleAddressToObjectAddress(results[0].address_components).city +
+									"', CAPS_NAME) and substringof('" + $scope.cityName +
 									"',CITY)";
+									
+								// fetch data with URL	
 								_getData(sUrl);
 							} else {
 								_loadLocations(false);
 							}
-							// set URL with cityName
-
+							
 						}); // end of geocode promise
 
-					})
+					});
 
 				} else {
 					$scope.filteredWithCity = false;
@@ -412,37 +360,35 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 		$scope.getCategoryName = function(index) {
 			return designService.getNameForCategoryIndex(index);
 		};
-
-		// $scope.locations = locationService.getAllLocations();
 	}
 ]);
 
 app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDialog', 'locationService', 'designService', 'contactService',
 	'historyService', '$stateParams',
 	function($rootScope, $scope, $state, $mdDialog, locationService, designService, contactService, historyService, $stateParams) {
+		
+		// (obsolete) get correct tab from state parameter
 		$scope.tabIndex = $stateParams.tab;
+		
+		
 		$scope.selectedLocation = locationService.getSelectedLocation();
+		
 		$scope.waterDecision = $scope.selectedLocation.waterDecision;
 
 		$scope.getCategoryName = function(index) {
 			return designService.getNameForCategoryIndex(index);
 		};
 
-		$scope.contactClicked = function(id) {
-			contactService.setSelectedContact(id);
-			$state.go('contacts-detail');
-		};
-
-		if ($scope.selectedLocation.decision.already) {
+		if ($scope.selectedLocation.decision.already) { // check if undefined
 			$scope.already = (($scope.selectedLocation.decision.already === 'X') ? true : false);
 		} else {
-			$scope.already = false;
+			$scope.already = false; // default
 		}
 
-		if ($scope.selectedLocation.decision.imagine) {
+		if ($scope.selectedLocation.decision.imagine) { // check if undefined
 			$scope.imagine = (($scope.selectedLocation.decision.imagine === 'X') ? true : false);
 		} else {
-			$scope.imagine = false;
+			$scope.imagine = false; // default
 		}
 
 		$scope.backClicked = function() {
@@ -454,42 +400,9 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 
 		$scope.noInterestReasons = locationService.getNoInterestReasons();
 
-		$scope.contacts = getContactsOfLocation();
-
-		function getContactsOfLocation() {
-			// just for mockup! we will use ids to match or something simuliar
-			var indexes = $scope.selectedLocation.partners || [];
-			var allPartners = contactService.getAllContacts();
-			var partners = [];
-			for (var i = 0; i < indexes.length; i++) {
-				partners.push(allPartners[indexes[i]]);
-			}
-			return partners;
-		}
-
 		$scope.getSourceForIndex = function(index) {
 			var x = designService.getCategoryIconSourceForIndex(index);
 			return x;
-		};
-
-		$scope.addContactClicked = function(ev, contactId) {
-			$scope.allContacts = contactService.getAllContacts();
-			var locationId = $scope.selectedLocation.id;
-
-			$mdDialog.show({
-				controller: 'addContactDialogCtrl',
-				templateUrl: 'templates/addContactDialog.html',
-				bindToController: true,
-				parent: angular.element(document.body),
-				targetEvent: ev,
-				clickOutsideToClose: true,
-				locals: {
-					selectedLocation: $scope.selectedLocation
-				},
-				onRemoving: function() {
-					$scope.contacts = getContactsOfLocation();
-				}
-			});
 		};
 	}
 ]);
