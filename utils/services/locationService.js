@@ -179,7 +179,7 @@ app.service('locationService', function($state) {
 		// GET
 		$.ajax({
 			type: "GET",
-			url: "/destinations/vca/d064868/location.xsodata/Location(" + id + ")?$format=json",
+			url: "/destinations/vca/VivaConAgua/location.xsodata/Location(" + id + ")?$format=json",
 			cache: false,
 			contentType: "application/json;charset=utf-8",
 			error: function(msg, textStatus) {

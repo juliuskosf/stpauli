@@ -199,7 +199,7 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 		// POST
 		$.ajax({
 			type: "POST",
-			url: "/destinations/vca/d064868/location.xsodata/Location",
+			url: "/destinations/vca/VivaConAgua/location.xsodata/Location",
 			dataType: "json",
 			data: data,
 			cache: false,
@@ -325,7 +325,7 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 								});
 								
 								// build URL with search string and city name
-								sUrl = "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName()
+								sUrl = "/destinations/vca/VivaConAgua/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName()
 									.toUpperCase() +
 									"', CAPS_NAME) and substringof('" + $scope.cityName +
 									"',CITY)";
@@ -342,7 +342,7 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 
 				} else {
 					$scope.filteredWithCity = false;
-					sUrl = "/destinations/vca/d064868/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName().toUpperCase() +
+					sUrl = "/destinations/vca/VivaConAgua/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName().toUpperCase() +
 						"', CAPS_NAME)";
 					_getData(sUrl);
 				}

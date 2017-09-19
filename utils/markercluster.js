@@ -66,7 +66,7 @@ app.controller('mapController', function($scope, NgMap) {
 		$scope.map = map;
 		$.ajax({
 			type: "GET",
-			url: "/destinations/vca/d064868/location.xsodata/Location",
+			url: "/destinations/vca/VivaConAgua/location.xsodata/Location",
 			cache: false,
 			dataType: "json",
 			error: function(msg, textStatus) {
