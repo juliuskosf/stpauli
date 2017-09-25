@@ -3,9 +3,9 @@ app.controller("TestCtrl", ['$state', '$scope', 'locationService', 'historyServi
 
 	$scope.result1 = ''; // result of query
 	$scope.options1 = {
-      country: 'de',
-      types: 'establishment'
-    }; // filter based on country
+      country: 'de', // filter based on country
+      types: 'establishment' // filter based on company
+    }; 
 	$scope.details1 = ''; // complete address in detail
 	
 	// latitude and longitude of the result
