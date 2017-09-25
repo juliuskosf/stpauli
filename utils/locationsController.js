@@ -61,7 +61,7 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 
 	$scope.tileClicked = function(index) { // index contains index of selected tile
 		locationService.oLocation.categoryIndex = index; // assign index to categoryIndex in locationService
-		$state.go('locations-create-information');
+		$state.go('locations-water-decision');
 	};
 
 	$scope.goBack = function() {

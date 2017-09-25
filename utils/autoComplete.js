@@ -14,6 +14,7 @@ app.controller("TestCtrl", ['$state', '$scope', 'locationService', 'historyServi
 	
 	// saves the location info before moving forward
 	$scope.save = function() {
+		locationService.setSearchName($scope.details1.name);
 		locationService.setLocationName($scope.details1.name);
 		var address = locationService.convertGoogleAddressToObjectAddress($scope.details1.address_components);
 		locationService.setAddress(address);

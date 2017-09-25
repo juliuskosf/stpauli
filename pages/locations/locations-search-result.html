@@ -17,8 +17,16 @@
       </md-list-item>
 
       <md-list-item ng-if="showNoResults" class="secondary-button-padding">
-        <h3>Keine Ergebnisse</h3>
+        <h3>Die Location wurde noch nicht angelegt!</h3></br>
         
+      </md-list-item>
+      <md-list-item ng-if="showNoResults" class="secondary-button-padding">
+
+        <md-button ui-sref="locations-create-category">
+        	
+            		<md-icon md-svg-src="{{getIcon()}}"></md-icon>
+            		<md-text>Zum anlegen hier klicken!</md-text>
+            	</md-button>
         <!--<md-button ui-sref="locations-create-category" class="md-raised md-accent">Neu hinzufügen</md-button>-->
       </md-list-item>
     </md-list>
@@ -28,9 +36,7 @@
             	<md-button ng-click="goBack()">
             		<md-icon md-svg-src="sources/img/icons/backarrow.svg"></md-icon>
             	</md-button>
-            	<md-button ui-sref="locations-create-category">
-            		<md-icon md-svg-src="{{getIcon()}}"></md-icon>
-            	</md-button>
+            	
         	</div>
     </footer>
 </div>
