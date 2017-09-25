@@ -14,10 +14,10 @@ app.controller("TestCtrl", ['$state', '$scope', 'locationService', 'historyServi
 	
 	// saves the location info before moving forward
 	$scope.save = function() {
-		locationService.setLocationName($scope.vm.details.name);
-		var address = locationService.convertGoogleAddressToObjectAddress($scope.vm.details.address_components);
+		locationService.setLocationName($scope.details1.name);
+		var address = locationService.convertGoogleAddressToObjectAddress($scope.details1.address_components);
 		locationService.setAddress(address);
-		locationService.setGeoPosition($scope.vm.details.geometry.location.lat(), $scope.vm.details.geometry.location.lng());
+		locationService.setGeoPosition($scope.details1.geometry.location.lat(), $scope.details1.geometry.location.lng());
 	};
 	
 	// back navigation logic
