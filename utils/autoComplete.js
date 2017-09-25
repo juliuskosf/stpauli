@@ -1,8 +1,11 @@
 app.controller("TestCtrl", ['$state', '$scope', 'locationService', 'historyService', function($state, $scope, locationService,
 	historyService) {
 
-	$scope.result1 = 'initial value'; // result of query
-	$scope.options1 = null; // not showns details
+	$scope.result1 = ''; // result of query
+	$scope.options1 = {
+      country: 'de',
+      types: 'establishment'
+    }; // filter based on country
 	$scope.details1 = ''; // complete address in detail
 	
 	// latitude and longitude of the result

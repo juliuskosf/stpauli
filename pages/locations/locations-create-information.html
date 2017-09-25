@@ -1,14 +1,14 @@
-<div ng-controller="AppCtrl as vm" layout="column" class="progressbar" ng-cloak>
+<div ng-controller="AppCtrl" layout="column" class="progressbar" ng-cloak>
   <md-progress-linear md-mode="determinate" value="{{vm.determinateValue2}}"></md-progress-linear>
 </div>
 
 <div layout="column" layout-align="center center" ng-controller="TestCtrl">
   <h1>Name</h1>
-  <input type="text" id="Autocomplete2" ng-model="vm.autocomplete" 
-      class="style-4" ng-autocomplete options="vm.options" details="vm.details" initial-address="vm.initialAddress" placeholder = "Enter the name"/>
+  <input type="text" id="Autocomplete" ng-model="autocomplete" 
+      class="style-4" ng-autocomplete options="options1" details="details1" initial-address="initialAddress" placeholder = "Enter the name"/>
 	<br>
   <h2> Adresse</h2>
-    <b>Details:</b>{{vm.details.formatted_address}} 
+    <b>Details:</b>{{details1.formatted_address}} 
      <br/>
   <footer>
         <div layout="row" layout-align="center center">
