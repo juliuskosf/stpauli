@@ -15,8 +15,8 @@
           <p>{{ location.STREET }}, {{ location.POSTCODE }} {{ location.CITY }}</p>
         </div>
       </md-list-item>
-	<md-card class="bubble2">
-      <md-list-item ng-if="showNoResults" class="secondary-button-padding">
+	<md-card class="bubble2" ng-if="showNoResults" >
+      <md-list-item class="secondary-button-padding">
         <h3>Die Location wurde noch nicht angelegt!</h3></br>
         
       </md-list-item>
