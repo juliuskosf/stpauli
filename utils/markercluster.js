@@ -11,15 +11,17 @@ app.controller('mapController', function($scope, NgMap) {
 	};
 
 	// define the array of categories
-	//	$scope.categories = ['Bar', 'Shop', 'Restaurant'];
-	$scope.categories = [0, 1, 2, 3, 4, 5];
-	$scope.selected = [1];
+	
+//	$scope.categories = [0, 1, 2, 3, 4, 5];
+	$scope.categories = ['Bar', 'Festival', 'Cafe', 'Restaurant', 'Shop', 'Other'];
+	$scope.selected = ['Bar'];
 
 	// create an empty variable for the categories which will be selected
 	var selectedCategories = [];
 
 	$scope.filterChanged = function(category) {
 		var idx = selectedCategories.indexOf(category);
+		console.log(idx)
 		if (idx > -1) {
 			selectedCategories.splice(idx, 1);
 		} else {
@@ -31,9 +33,11 @@ app.controller('mapController', function($scope, NgMap) {
 		$scope.markers = [];
 		
 		var location = {};
-		for (i = 0; i < selectedCategories.length; i++) {
-			selectedCategory = selectedCategories[i];
-			for (j = 0; j < $scope.allLocations.length; j++) {
+		for (var i = 0; i < selectedCategories.length; i++) {
+			// selectedCategory = selectedCategories[i];
+			var selectedCategory = $scope.categories.indexOf(selectedCategories[i]);
+			console.log(selectedCategory)
+			for (var j = 0; j < $scope.allLocations.length; j++) {
 				location = $scope.allLocations[j];
 				if (location.CATEGORYID === selectedCategory) {
 					$scope.createMarker(location);

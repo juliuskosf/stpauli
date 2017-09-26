@@ -181,7 +181,7 @@ app.service('locationService', function($state) {
 			type: "GET",
 			url: "/destinations/vca/VivaConAgua/location.xsodata/Location(" + id + ")?$format=json",
 			cache: false,
-			contentType: "application/json;charset=utf-8",
+			contentType: "application/json; charset=utf-8",
 			error: function(msg, textStatus) {
 				console.log(textStatus);
 			},
