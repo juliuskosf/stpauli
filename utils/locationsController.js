@@ -203,7 +203,7 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', func
 			dataType: "json",
 			data: data,
 			cache: false,
-			contentType: "application/json;charset=utf-8",
+			contentType: "application/json;charset=unicode",
 			error: function(msg, textStatus) {
 				// TODO: Error handling
 			},
@@ -325,10 +325,13 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 								});
 								
 								// build URL with search string and city name
-								sUrl = "/destinations/vca/VivaConAgua/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName()
+								/*sUrl = "/destinations/vca/VivaConAgua/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName()
 									.toUpperCase() +
 									"', CAPS_NAME) and substringof('" + $scope.cityName +
-									"',CITY)";
+									"',CITY)";*/
+								sUrl = "/destinations/vca/VivaConAgua/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName()
+									.toUpperCase() +
+									"', CAPS_NAME) and STREET eq '" + locationService.getStreet() + "'";
 									
 								// fetch data with URL	
 								_getData(sUrl);
@@ -342,8 +345,9 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 
 				} else {
 					$scope.filteredWithCity = false;
-					sUrl = "/destinations/vca/VivaConAgua/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName().toUpperCase() +
-						"', CAPS_NAME)";
+					/*sUrl = "/destinations/vca/VivaConAgua/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName().toUpperCase() +
+						"', CAPS_NAME)";*/
+					sUrl=  "/destinations/vca/VivaConAgua/location.xsodata/Location/?$format=json&$filter=CAPS_NAME eq '" + locationService.getSearchName().toUpperCase() + "' and STREET eq '" + locationService.getStreet() + "'";
 					_getData(sUrl);
 				}
 

@@ -2,7 +2,7 @@
   <div layout="column" layout-align="center center">
       <img class="vcalogo2" hide-gt-sm flex src="sources/img/vcalogo_blue.png"/>
       <img class="drop" hide show-gt-sm flex src="sources/img/vcalogo_blue.png">
-	<md-subheader ng-if="filteredWithCity" class="md-primary">Alle in {{cityName}}<md-button ng-click="loadAllPressed()">Alle laden</md-button></md-subheader>
+	<!--<md-subheader ng-if="filteredWithCity" class="md-primary">Alle in {{cityName}}<md-button ng-click="loadAllPressed()">Alle laden</md-button></md-subheader>-->
 	
     <md-list flex>
     	<div layout="row" layout-sm="column" layout-align="space-around">
@@ -15,8 +15,8 @@
           <p>{{ location.STREET }}, {{ location.POSTCODE }} {{ location.CITY }}</p>
         </div>
       </md-list-item>
-	<md-card class="bubble2">
-      <md-list-item ng-if="showNoResults" class="secondary-button-padding">
+	<md-card class="bubble2" ng-if="showNoResults" >
+      <md-list-item class="secondary-button-padding">
         <h3>Die Location wurde noch nicht angelegt!</h3></br>
         
       </md-list-item>
