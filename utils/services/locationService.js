@@ -31,6 +31,10 @@ app.service('locationService', function($state) {
 	ls.getLocation = function() {
 		return ls.oLocation;
 	};
+	
+	ls.getStreet = function() {
+		return ls.oLocation.address.street;
+	};
 
 	ls.setLocationName = function(newValue) {
 		ls.oLocation.name = newValue;
@@ -181,7 +185,7 @@ app.service('locationService', function($state) {
 			type: "GET",
 			url: "/destinations/vca/VivaConAgua/location.xsodata/Location(" + id + ")?$format=json",
 			cache: false,
-			contentType: "application/json;charset=utf-8",
+			contentType: "application/json;charset=unicode",
 			error: function(msg, textStatus) {
 				console.log(textStatus);
 			},
