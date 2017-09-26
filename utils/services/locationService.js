@@ -185,11 +185,8 @@ app.service('locationService', function($state) {
 			type: "GET",
 			url: "/destinations/vca/VivaConAgua/location.xsodata/Location(" + id + ")?$format=json",
 			cache: false,
-<<<<<<< HEAD
-			contentType: "application/json; charset=utf-8",
-=======
+
 			contentType: "application/json;charset=unicode",
->>>>>>> branch 'master' of https://github.com/Viva-con-Agua/barcheck.git
 			error: function(msg, textStatus) {
 				console.log(textStatus);
 			},
