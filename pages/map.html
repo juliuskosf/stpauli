@@ -17,13 +17,13 @@
 <style>
   ng-map#custom1 {display:block; height:25em; padding-top: 3%;} /* SMALL SCREENS */
 </style>
-<!--<style>
-  ng-map#custom2 {display:block; height:30em; padding-top: 3%;} /* BIG SCREENS */
+<style>
+  ng-map#custom2 {display:block; height:30em; padding-top: 3%;} /* BIG SCREENS - not in use*/
 </style>
 <style>
-  ng-map#custom3 {display:block; height:40em; padding-top: 3%;} /* IPAD */
-</style> -->
-    <div hide-gt-xs flex>
+  ng-map#custom3 {display:block; height:40em; padding-top: 3%;} /* IPAD - not in use*/
+</style>
+   <!-- <div hide-gt-xs flex>-->
     <ng-map id="custom1" default-style="false" center="current-location" zoom="13">
         <info-window id="myInfoWindow" position="current-location">
             <div ng-non-bindable>
@@ -31,8 +31,7 @@
             </div>
         </info-window>
     </ng-map>
-    </div>
-    <div hide show-gt-md flex>
+    <!-- <div hide show-gt-md flex>
     <ng-map id="custom2" default-style="false" center="current-location" zoom="13">
         <info-window id="myInfoWindow" position="current-location">
             <div ng-non-bindable>
@@ -49,5 +48,5 @@
             </div>
         </info-window>
     </ng-map>
-    </div>
+    </div> -->
 </div>
