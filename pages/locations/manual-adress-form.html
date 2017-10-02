@@ -3,7 +3,7 @@
 </div>
 <div layout="column" layout-fill ng-controller="ManualAdressCtrl">
   <h3 style="color: blue;">{{locationName}}</h3>
-  <h3 class = "textcenter">Adresse</h3>
+  <h3 class = "textcenter">Address</h3>
   <md-input-container>
     <input type="text" placeholder="Name" ng-model="locationName" name="nameInput">
   </md-input-container>
@@ -14,7 +14,7 @@
     city-model="address.city">
   </location-info-form>
   <md-button class="md-warn md-raised" ng-click="deletePressed()">
-    Löschen
+    Delete
   </md-button>
   <md-button class="md-raised" ng-click="showConfirm($event)" ng-disabled="manualAddressForm.$invalid">
     Go on!

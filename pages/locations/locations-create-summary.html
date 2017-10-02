@@ -8,7 +8,7 @@
       <img src="">
       <md-card-title-text>
         <span class="md-headline"><b>{{location.name}}</b>
-          wurde angelegt!</span>
+          was created!</span>
       </md-card-title-text>
     </md-card-title>
     <md-card-content>
@@ -18,7 +18,7 @@
         {{location.address.postcode}} <br>
         {{location.address.city}} <br>
       </p>
-      <p><u>Wasser</u></p>
+      <p><u>Water</u></p>
       <p><i>{{getDecisionText(waterDecision.decisionCode)}}</i>
       <ul ng-if="waterDecision.reasons.length !== 0">
         <li ng-repeat="reason in waterDecision.reasons">
@@ -28,7 +28,7 @@
       </p>
     </md-card-content>
     <md-card-actions layout="column" layout-align="start">
-      <md-button ng-click="saveLocationInfo()" class="md-raised">Abschließen und Speichern</md-button>
+      <md-button ng-click="saveLocationInfo()" class="md-raised">Close and save</md-button>
     </md-card-actions>
   </md-card>
 </div>

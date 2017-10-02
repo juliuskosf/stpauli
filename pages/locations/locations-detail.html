@@ -1,7 +1,7 @@
 <div layout="column" layout-align="center" ng-controller="locationsDetailCtrl">
   <location-header location="selectedLocation" category-name="getCategoryName(selectedLocation.categoryIndex)" source="getSourceForIndex(selectedLocation.categoryIndex)"></location-header>
   <md-tabs md-selected="tabIndex" md-dynamic-height md-border-bottom md-stretch-tabs="yes">
-    <md-tab label="Infos">
+    <md-tab label="Info">
       <location-info-form
         street-model="selectedLocation.address.street"
         additionaladdress-model="selectedLocation.address.additionalAddress"
@@ -10,12 +10,12 @@
         form-name="locationInfoForm">
       </location-info-form>
 	</md-tab>
-    <md-tab label="Wasser">
+    <md-tab label="Water">
       <div class="md-padding">
-      	<p>Siehst du Wasser?</p>
+      	<p>Do you see the VcA water?</p>
 		<md-switch ng-model="already">
 		</md-switch>
-		<p ng-if="!already">Diese Location führt VcA Wasser. Vorstellbar?</p>
+		<p ng-if="!already">We can imagine to offer VcA water!</p>
 		<md-switch ng-model="imagine" ng-if="!already">
 		</md-switch>
       </div>

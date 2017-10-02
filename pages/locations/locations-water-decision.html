@@ -2,14 +2,14 @@
   <md-progress-linear md-mode="determinate" value="{{vm.determinateValue3}}"></md-progress-linear>
 </div>
 <div layout="column" layout-align="center center" ng-controller="WaterDecisionCtrl">
-   <h2>Siehst du VcA Wasser?</h2>
+   <h2>Do you see VcA water?</h2>
    <img class="vcalogo2" hide-gt-sm flex height="auto" src="sources/img/watervariants.jpg">
    <img class="drop2" hide show-gt-sm flex src="sources/img/watervariants.jpg">
    <md-button class="md-raised" name="seeYes" ui-sref="locations-water-selection" ng-click="saveDecision('seeYes')">
-     Ja
+     Yes
    </md-button>
    <md-button class="md-raised" name="seeNo" ui-sref="locations-no-water" ng-click="saveDecision('seeNo')">
-     Nein
+     No
    </md-button>
    <footer>
        <div layout="row" layout-align="center center">

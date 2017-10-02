@@ -65,29 +65,29 @@ app.service('locationService', function($state) {
 	ls.getInterestReasons = function() {
 		return [{
 			id: 0,
-			text: "Zu teuer"
+			text: "too expensive"
 		}, {
 			id: 1,
-			text: "Anderer Lieferant"
+			text: "other supplier"
 		}, {
 			id: 2,
-			text: "Vorher nie gehört"
+			text: "never heard before"
 		}, {
 			id: 3,
-			text: "Andere"
+			text: "other"
 		}];
 	};
 
 	ls.getNoInterestReasons = function() {
 		return [{
 			id: 0,
-			text: "Zu teuer"
+			text: "too expensive"
 		}, {
 			id: 1,
-			text: "Blöd"
+			text: "I don't like it"
 		}, {
 			id: 3,
-			text: "Andere"
+			text: "other"
 		}];
 	};
 
