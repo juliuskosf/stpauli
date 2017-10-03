@@ -5,6 +5,7 @@ app.config(function($mdThemingProvider) {
 
     self.mode = 'query';
     self.activated = true;
+    self.determinateValue0 = 0;
     self.determinateValue1 = 25;
     self.determinateValue2 = 50;
     self.determinateValue3 = 75;
