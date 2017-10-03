@@ -13,7 +13,7 @@ app.controller('mapController', function($scope, NgMap) {
 	// define the array of categories
 	
 //	$scope.categories = [0, 1, 2, 3, 4, 5];
-	$scope.categories = ['retail', 'gastronomy', 'event', 'enterprise', 'public facility', 'accomodation'];
+	$scope.categories = ['retail', 'gastronomy', 'event', 'enterprise', 'public facility', 'accommodation'];
 	$scope.selected = ['retail'];
 
 	// create an empty variable for the categories which will be selected

@@ -157,12 +157,17 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 
 }]);
 
-app.controller('SummaryController', ['$scope', '$state', 'locationService', function($scope, $state, locationService) {
+app.controller('SummaryController', ['$scope', '$state', 'locationService', 'historyService', function($scope, $state, locationService, historyService) {
 	$scope.waterDecision = locationService.getWaterDecision();
 	$scope.location = locationService.oLocation;
 
 	$scope.getDecisionText = function(decisionCode) {
 		return locationService.getTextForInterestDecisionCode(decisionCode);
+	};
+	
+	$scope.goBack = function() {
+		historyService.setNavigatedBack(1);
+		$state.go(historyService.getPreviousState());
 	};
 	
 	$scope.saveLocationInfo = function() {
