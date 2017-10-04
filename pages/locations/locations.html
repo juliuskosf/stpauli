@@ -1,35 +1,10 @@
-<!--<div ng-controller="LocationSearchCtrl" >
-	<div layout="column" layout-align="center center">
-		<img class="vcalogo2"  hide-gt-sm flex src="sources/img/vcalogo_blue.png"/>
-		<img class="drop" hide show-gt-sm flex src="sources/img/vcalogo_blue.png">
-		<h1 class = 'textcenter'>Locations</h1>
-		<md-input-container>
-    		<input type="text" placeholder="Location Name" ng-model="searchName">
-		</md-input-container>
-	</div>
-  	<footer>
-        <div layout="row" layout-align="center center">
-            <md-button ng-click="goBack()">
-            	<md-icon md-svg-src="sources/img/icons/backarrow.svg"></md-icon>
-            </md-button>
-            <md-button ui-sref="locations-search-result" ng-click="rememberName()">
-            	<md-icon md-svg-src="{{getIcon()}}"></md-icon>
-            </md-button>
-        </div>
-    </footer>
-</div>-->
-
-<!--<div ng-controller="AppCtrl as vm" layout="column" class="progressbar" ng-cloak>
-  <md-progress-linear md-mode="determinate" value="{{vm.determinateValue2}}"></md-progress-linear>
-</div>-->
-
 <div layout="column" layout-align="center center" ng-controller="TestCtrl">
   <div layout="column" layout-align="center center">
 		<img class="vcalogo2"  hide-gt-sm flex src="sources/img/vcalogo_blue.png"/>
 		<img class="drop" hide show-gt-sm flex src="sources/img/vcalogo_blue.png">
 		<h1 class = 'textcenter'>Where are YOU?</h1>
 		 <input type="text" id="Autocomplete" ng-model="autocomplete" 
-      class="style-4" ng-autocomplete options="options1" details="details1" initial-address="initialAddress" placeholder = "Enter name or adress"/>
+      class="style-4" ng-autocomplete options="options1" details="details1" initial-address="initialAddress" placeholder = "Enter name or address"/>
 	<br>
 	</div>
   
