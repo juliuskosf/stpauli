@@ -233,11 +233,11 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 
 		// initial placehold while locating the user (will be replaced by city)
 		$scope.cityName = "...";
-
+		console.log(locationService.getSearchName())
 		$.ajax({
+			
 			type: "GET",
-			url: "/destinations/vca/VivaConAgua/location.xsodata/Location/?$filter=substringof('" + locationService.getSearchName()
-				.toUpperCase() + "', CAPS_NAME) and STREET eq '" + locationService.getStreet() + "'",
+			url: "/destinations/vca/VivaConAgua/location.xsodata/Location/?$filter=STREET eq '" + locationService.getStreet() + "'",
 			cache: false,
 			contentType: "application/xml;charset=utf-8",
 			error: function(msg, textStatus) {
