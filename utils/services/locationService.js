@@ -183,28 +183,31 @@ app.service('locationService', function($state) {
 		// GET
 		$.ajax({
 			type: "GET",
-			url: "/destinations/vca/VivaConAgua/location.xsodata/Location(" + id + ")?$format=json",
+			url: "/destinations/vca/VivaConAgua/location.xsodata/Location(" + id + ")",
 			cache: false,
 
-			contentType: "application/json;charset=unicode",
+			contentType: "application/json;charset=utf-8",
 			error: function(msg, textStatus) {
 				console.log(textStatus);
 			},
 			success: function(data) {
+				console.log(data)
+				var data = data;
+				console.log(data)
 				ls.selectedLocation = {
-					name: data.d.NAME,
-					id: data.d.ID,
+					name: data.documentElement.getElementsByTagName('d:NAME')[0].innerHTML,
+					id: data.documentElement.getElementsByTagName('d:ID')[0].innerHTML,
 					address: {
-						street: data.d.STREET,
-						additionalAddress: data.d.AADDRESS,
-						postcode: data.d.POSTCODE,
-						city: data.d.CITY
+						street: data.documentElement.getElementsByTagName('d:STREET')[0].innerHTML,
+						additionalAddress: data.documentElement.getElementsByTagName('d:AADDRESS')[0].innerHTML,
+						postcode: data.documentElement.getElementsByTagName('d:POSTCODE')[0].innerHTML,
+						city: data.documentElement.getElementsByTagName('d:CITY')[0].innerHTML
 					},
 					partners: null,
-					categoryIndex: data.d.CATEGORYID,
+					categoryIndex: data.documentElement.getElementsByTagName('d:CATEGORYID')[0].innerHTML,
 					decision: {
-						already: data.d.ALREADY,
-						imagine: data.d.IMAGINE
+						already: null,
+						imagine: data.documentElement.getElementsByTagName('d:IMAGINE')[0].innerHTML
 					},
 					paperDecision: {
 						decisionCode: null

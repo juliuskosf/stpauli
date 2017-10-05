@@ -117,12 +117,12 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 	} else if ($state.current.name === "locations-water-decision-no-interest") {
 		$scope.reasons = locationService.getNoInterestReasons();
 	}
-	
+
 	// add or remove selected reason
 	$scope.toggle = function(reason, list) {
-		
+
 		// list contains reference to selected
-		
+
 		var idx = list.indexOf(reason);
 		if (idx > -1) {
 			list.splice(idx, 1);
@@ -131,7 +131,7 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 		}
 		list.sort(compare);
 	};
-	
+
 	// sort function
 	var compare = function(a, b) {
 		if (a.id < b.id) {
@@ -157,28 +157,29 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 
 }]);
 
-app.controller('SummaryController', ['$scope', '$state', 'locationService', 'historyService', function($scope, $state, locationService, historyService) {
+app.controller('SummaryController', ['$scope', '$state', 'locationService', 'historyService', function($scope, $state, locationService,
+	historyService) {
 	$scope.waterDecision = locationService.getWaterDecision();
 	$scope.location = locationService.oLocation;
 
 	$scope.getDecisionText = function(decisionCode) {
 		return locationService.getTextForInterestDecisionCode(decisionCode);
 	};
-	
+
 	$scope.goBack = function() {
 		historyService.setNavigatedBack(1);
 		$state.go(historyService.getPreviousState());
 	};
-	
+
 	$scope.saveLocationInfo = function() {
 		// this function fetches all information from locationService and puts them together to push to DB
-		
+
 		var user = "";
 		if (firebase.auth().currentUser) {
 			// in case login form is active assign Firebase userId to user field in DB
 			user = firebase.auth().currentUser.uid;
 		}
-		
+
 		// get latitude and longitude from locationService
 
 		var latitude = locationService.getGeoPosition().latitude;
@@ -223,21 +224,81 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', 'his
 
 app.controller('locationSearchController', ['$scope', 'locationService', '$state', 'designService', 'historyService', '$geolocation',
 	function($scope, locationService, $state, designService, historyService, $geolocation) {
-		
+
 		// show the "no results"-Infofield when true
 		$scope.showNoResults = false;
-		
+
 		// empty placeholder for search results
 		$scope.locations = [];
-		
-		// show loading animation when true
-		$scope.loading = false;
-		
+
 		// initial placehold while locating the user (will be replaced by city)
 		$scope.cityName = "...";
-		
-		// false for no -> used to show "Alle Laden"
-		$scope.filteredWithCity = true;
+
+		$.ajax({
+			type: "GET",
+			url: "/destinations/vca/VivaConAgua/location.xsodata/Location/?$filter=substringof('" + locationService.getSearchName()
+				.toUpperCase() + "', CAPS_NAME) and STREET eq '" + locationService.getStreet() + "'",
+			cache: false,
+			contentType: "application/xml;charset=utf-8",
+			error: function(msg, textStatus) {
+				console.log(textStatus);
+			},
+			success: function(data) {
+				console.log(data)
+				var data = data;
+				if (data.documentElement.getElementsByTagName('d:NAME')[0] === undefined) {
+					$scope.$apply(function() {
+						$scope.showNoResults = true;
+					});
+					
+					
+				} else {
+
+					$scope.$apply(function() {
+
+						console.log(data)
+						data = {
+							NAME: data.documentElement.getElementsByTagName('d:NAME')[0].innerHTML,
+							ID: data.documentElement.getElementsByTagName('d:ID')[0].innerHTML,
+							STREET: data.documentElement.getElementsByTagName('d:STREET')[0].innerHTML,
+							AADDRESS: data.documentElement.getElementsByTagName('d:AADDRESS')[0].innerHTML,
+							POSTCODE: data.documentElement.getElementsByTagName('d:POSTCODE')[0].innerHTML,
+							CITY: data.documentElement.getElementsByTagName('d:CITY')[0].innerHTML,
+							CATEGORYID: data.documentElement.getElementsByTagName('d:CATEGORYID')[0].innerHTML,
+							CAPS_NAME: data.documentElement.getElementsByTagName('d:CAPS_NAME')[0].innerHTML,
+							IMAGINE: data.documentElement.getElementsByTagName('d:IMAGINE')[0].innerHTML
+						};
+
+						$scope.locations.push(data);
+
+					});
+				}
+			}
+		});
+
+		/*	$.ajax({
+				type: "GET",
+				url: "/destinations/vca/VivaConAgua/location.xsodata/Location/?$filter=substringof('" + locationService.getSearchName()
+					.toUpperCase() +
+					"', CAPS_NAME) and STREET eq '" + locationService.getStreet() + "'",
+				cache: false,
+				contentType: "application/json;charset=utf-8",
+				error: function(msg, textStatus) {
+					console.log("Search failed in locationSearchController with error code: " + textStatus);
+					$scope.showNoResults = true;
+				},
+				success: function(data) {
+					console.log(data)
+					// console.log($("object").contents().find('entry'))
+					$scope.loading = false;
+					$scope.$apply(function() {
+						$scope.locations = data.d.results;
+						if ($scope.locations.length === 0) {
+							$scope.showNoResults = true;
+						}
+					});
+				}
+			});*/
 
 		$scope.itemPressed = function(id) {
 			locationService.setSelectedLocation(id);
@@ -252,136 +313,134 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 			return designService.iconContinue();
 		};
 
-		function _getData(sUrl) {
-			// function for GET Request
-			
-			$.ajax({
-				type: "GET",
-				url: sUrl,
-				cache: false,
-				contentType: "application/json;charset=utf-8",
-				error: function(msg, textStatus) {
-					console.log("Search failed in locationSearchController with error code: " + textStatus);
-					$scope.showNoResults = true;
-				},
-				success: function(data) {
-					$scope.loading = false;
-					$scope.$apply(function() {
-						$scope.locations = data.d.results;
-						if ($scope.locations.length === 0) {
-							$scope.showNoResults = true;
-						}
-					});
-				}
-			});
-		}
-
-		function _loadLocations(withLocation) {
-			
-			// withLocation = false -> load all locations without city filter
-			// withLocation = false -> load all locations with city filter
-			
-			if (!locationService.getSearchName()) {
-				// empty search string
+		/*	function _getData(sUrl) {
+				// function for GET Request
 				
-				$scope.filteredWithCity = false;
-				$scope.loading = false;
-				$scope.showNoResults = true;
+				$.ajax({
+					type: "GET",
+					url: sUrl,
+					cache: false,
+					contentType: "application/xml;charset=utf-8",
+					error: function(msg, textStatus) {
+						console.log("Search failed in locationSearchController with error code: " + textStatus);
+						$scope.showNoResults = true;
+					},
+					success: function(data) {
 
-			} else {
-				var sUrl = "";
-
-				if (withLocation) {
-
-					$scope.loading = true;
-
-					// get gelocation
-					$geolocation.getCurrentPosition({
-						timeout: 60000,
-						maximumAge: 250,
-						enableHighAccuracy: true
-					}).then(function(position) {
-						// position contains current position of the user
-						
-						// get google-Geocoder
-						var geocoder = new google.maps.Geocoder;
-						
-						// create object with latitude and longitude
-						var geoObject = {
-							lat: position.coords.latitude,
-							lng: position.coords.longitude
-						};
-						
-						geocoder.geocode({
-							'location': geoObject
-						}, function(results, status) {
-							
-							// results contains all results for the geodata
-							
-							if (status === 'OK') {
-								// set location into the info control
-								$scope.$apply(function() {
-									
-									var result = results[0];
-									var addressComponents = result.address_components;
-									var city = locationService.convertGoogleAddressToObjectAddress(addressComponents).city;
-									
-									$scope.cityName = city;
-								});
-								
-								// build URL with search string and city name
-								/*sUrl = "/destinations/vca/VivaConAgua/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName()
-									.toUpperCase() +
-									"', CAPS_NAME) and substringof('" + $scope.cityName +
-									"',CITY)";*/
-								sUrl = "/destinations/vca/VivaConAgua/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName()
-									.toUpperCase() +
-									"', CAPS_NAME) and STREET eq '" + locationService.getStreet() + "'";
-									
-								// fetch data with URL	
-								_getData(sUrl);
-							} else {
-								_loadLocations(false);
+						console.log(data.getProperty('#document/entry'))
+						$scope.loading = false;
+						$scope.$apply(function() {
+							$scope.locations = data.d.results;
+							if ($scope.locations.length === 0) {
+								$scope.showNoResults = true;
 							}
-							
-						}); // end of geocode promise
-
-					});
-
-				} else {
-					$scope.filteredWithCity = false;
-					/*sUrl = "/destinations/vca/VivaConAgua/location.xsodata/Location/?$format=json&$filter=substringof('" + locationService.getSearchName().toUpperCase() +
-						"', CAPS_NAME)";*/
-					sUrl=  "/destinations/vca/VivaConAgua/location.xsodata/Location/?$format=json&$filter=CAPS_NAME eq '" + locationService.getSearchName().toUpperCase() + "' and STREET eq '" + locationService.getStreet() + "'";
-					_getData(sUrl);
-				}
-
+						});
+					}
+				});
 			}
 
-		}
+			function _loadLocations(withLocation) {
+				
+				// withLocation = false -> load all locations without city filter
+				// withLocation = false -> load all locations with city filter
+				
+				if (!locationService.getSearchName()) {
+					// empty search string
+					
+					$scope.filteredWithCity = false;
+					$scope.loading = false;
+					$scope.showNoResults = true;
 
-		$scope.loadAllPressed = function() {
-			_loadLocations(false);
-		};
+				} else {
+					var sUrl = "";
 
-		_loadLocations(true);
+					if (withLocation) {
 
-		$scope.getCategoryName = function(index) {
-			return designService.getNameForCategoryIndex(index);
-		};
+						$scope.loading = true;
+
+						// get gelocation
+						$geolocation.getCurrentPosition({
+							timeout: 60000,
+							maximumAge: 250,
+							enableHighAccuracy: true
+						}).then(function(position) {
+							// position contains current position of the user
+							
+							// get google-Geocoder
+							var geocoder = new google.maps.Geocoder;
+							
+							// create object with latitude and longitude
+							var geoObject = {
+								lat: position.coords.latitude,
+								lng: position.coords.longitude
+							};
+							
+							geocoder.geocode({
+								'location': geoObject
+							}, function(results, status) {
+								
+								// results contains all results for the geodata
+								
+								if (status === 'OK') {
+									// set location into the info control
+									$scope.$apply(function() {
+										
+										var result = results[0];
+										var addressComponents = result.address_components;
+										var city = locationService.convertGoogleAddressToObjectAddress(addressComponents).city;
+										
+										$scope.cityName = city;
+									});
+									
+									// build URL with search string and city name
+							
+									sUrl = "/destinations/vca/VivaConAgua/location.xsodata/Location/?$format=xml&$filter=substringof('" + locationService.getSearchName()
+										.toUpperCase() +
+										"', CAPS_NAME) and STREET eq '" + locationService.getStreet() + "'";
+										
+									// fetch data with URL	
+									_getData(sUrl);
+								} else {
+									_loadLocations(false);
+								}
+								
+							}); // end of geocode promise
+
+						});
+
+					} else {
+						$scope.filteredWithCity = false;
+
+						sUrl=  "/destinations/vca/VivaConAgua/location.xsodata/Location/?$format=xml&$filter=CAPS_NAME eq '" + locationService.getSearchName().toUpperCase() + "' and STREET eq '" + locationService.getStreet() + "'";
+						_getData(sUrl);
+					}
+
+				}
+
+			}*/
+
+		/*	$scope.loadAllPressed = function() {
+				_loadLocations(false);
+			};*/
+
+		// _loadLocations(true);
+		/*
+				$scope.getCategoryName = function(index) {
+					return designService.getNameForCategoryIndex(index);
+				};*/
 	}
 ]);
 
-app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDialog', 'locationService', 'designService', 'contactService',
+app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDialog', 'locationService', 'designService',
+	'contactService',
 	'historyService', '$stateParams',
 	function($rootScope, $scope, $state, $mdDialog, locationService, designService, contactService, historyService, $stateParams) {
-		
+
 		// (obsolete) get correct tab from state parameter
 		$scope.tabIndex = $stateParams.tab;
-		
-		
+
 		$scope.selectedLocation = locationService.getSelectedLocation();
-		
+
 		$scope.waterDecision = $scope.selectedLocation.waterDecision;
 
 		$scope.getCategoryName = function(index) {
