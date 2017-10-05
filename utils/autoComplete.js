@@ -11,10 +11,10 @@ app.controller("TestCtrl", ['$state', '$scope', 'locationService', 'historyServi
 	// latitude and longitude of the result
 	$scope.lat = undefined;
 	$scope.lng = undefined;
-
+	
 	// saves the location info before moving forward
 	$scope.save = function() {
-		if ($scope.details1.name === undefined) {
+		if ($scope.details1.name === undefined || locationService.convertGoogleAddressToObjectAddress($scope.details1.address_components) === undefined) {
 			$state.go('locations-manual-adress');
 		} else {
 			locationService.setSearchName($scope.details1.name);
@@ -24,6 +24,7 @@ app.controller("TestCtrl", ['$state', '$scope', 'locationService', 'historyServi
 			locationService.setGeoPosition($scope.details1.geometry.location.lat(), $scope.details1.geometry.location.lng());
 			$state.go('locations-search-result');
 		}
+	
 	};
 
 	// back navigation logic

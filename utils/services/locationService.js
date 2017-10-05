@@ -305,5 +305,10 @@ app.service('locationService', function($state) {
 				ls.oLocation.address.city;
 		}
 	};
-
+	
+	ls.resetSelectedLocation = function() {
+		ls.selectedLocation = {};
+		ls.oLocation = {};
+	};
+	
 });

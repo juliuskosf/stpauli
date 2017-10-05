@@ -46,6 +46,7 @@ app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationSe
 	};*/
 
 	$scope.goBack = function() {
+		locationService.resetSelectedLocation();
 		historyService.setNavigatedBack(1);
 		$state.go(historyService.getPreviousState());
 	};
@@ -189,7 +190,7 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', 'his
 		var data = JSON.stringify({
 			ID: "1000",
 			CAPS_NAME: locationService.getLocation().name.toUpperCase(),
-			NAME: locationService.getLocation().name,
+			NAME: locationService.getLocation().name.replace(/'/g, '´'),
 			STREET: locationService.getLocation().address.street,
 			AADDRESS: "",
 			POSTCODE: locationService.getLocation().address.postcode,
@@ -230,23 +231,22 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 
 		// empty placeholder for search results
 		$scope.locations = [];
-
 		// initial placehold while locating the user (will be replaced by city)
 		$scope.cityName = "...";
-		console.log(locationService.getSearchName())
+		var searchName = locationService.getSearchName().replace(/'/g, '´');
+		console.log(searchName)
 		$.ajax({
 			
 			type: "GET",
-			url: "/destinations/vca/VivaConAgua/location.xsodata/Location/?$filter=STREET eq '" + locationService.getStreet() + "'",
+			url: "/destinations/vca/VivaConAgua/location.xsodata/Location/?$filter=NAME eq '" + locationService.getSearchName().replace(/'/g, '´') + "' and STREET eq '" + locationService.getStreet() + "'",
 			cache: false,
 			contentType: "application/xml;charset=utf-8",
 			error: function(msg, textStatus) {
 				console.log(textStatus);
 			},
 			success: function(data) {
-				console.log(data)
 				var data = data;
-				if (data.documentElement.getElementsByTagName('d:NAME')[0] === undefined) {
+				if (data.documentElement.getElementsByTagName('d:NAME')[0] === undefined || data.documentElement.getElementsByTagName('d:STREET')[0] === undefined) {
 					$scope.$apply(function() {
 						$scope.showNoResults = true;
 					});
@@ -255,8 +255,6 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 				} else {
 
 					$scope.$apply(function() {
-
-						console.log(data)
 						data = {
 							NAME: data.documentElement.getElementsByTagName('d:NAME')[0].innerHTML,
 							ID: data.documentElement.getElementsByTagName('d:ID')[0].innerHTML,
@@ -305,6 +303,7 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 		};
 
 		$scope.goBack = function() {
+			locationService.resetSelectedLocation();
 			historyService.setNavigatedBack(1);
 			$state.go(historyService.getPreviousState());
 		};
@@ -460,6 +459,7 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 		}
 
 		$scope.backClicked = function() {
+			locationService.resetSelectedLocation();
 			historyService.setNavigatedBack(1);
 			$state.go(historyService.getPreviousState());
 		};
