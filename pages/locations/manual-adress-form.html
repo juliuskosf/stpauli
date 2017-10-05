@@ -13,10 +13,17 @@
     postcode-model="address.postcode"
     city-model="address.city">
   </location-info-form>
-  <md-button class="md-warn md-raised" ng-click="deletePressed()">
-    Delete
-  </md-button>
-  <md-button class="md-raised" ng-click="showConfirm($event)" ng-disabled="manualAddressForm.$invalid">
+  
+<!--  <md-button class="md-raised" ng-click="showConfirm($event)" ng-disabled="manualAddressForm.$invalid">
     Go on!
-  </md-button>
+  </md-button>-->
+  
+    <footer>
+        <div layout="row" layout-align="center center">
+            <md-button ng-click="goBack()">
+            	<md-icon md-svg-src="sources/img/icons/backarrow.svg"></md-icon>
+            </md-button>
+
+        </div>
+   </footer>
 </div>

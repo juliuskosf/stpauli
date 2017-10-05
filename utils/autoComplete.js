@@ -3,24 +3,29 @@ app.controller("TestCtrl", ['$state', '$scope', 'locationService', 'historyServi
 
 	$scope.result1 = ''; // result of query
 	$scope.options1 = {
-      country: 'de' // filter based on country
-     // types: 'establishment' // filter based on company
-    }; 
+		country: 'de' // filter based on country
+			// types: 'establishment' // filter based on company
+	};
 	$scope.details1 = ''; // complete address in detail
-	
+
 	// latitude and longitude of the result
 	$scope.lat = undefined;
 	$scope.lng = undefined;
-	
+
 	// saves the location info before moving forward
 	$scope.save = function() {
-		locationService.setSearchName($scope.details1.name);
-		locationService.setLocationName($scope.details1.name);
-		var address = locationService.convertGoogleAddressToObjectAddress($scope.details1.address_components);
-		locationService.setAddress(address);
-		locationService.setGeoPosition($scope.details1.geometry.location.lat(), $scope.details1.geometry.location.lng());
+		if ($scope.details1.name === undefined) {
+			$state.go('locations-manual-adress');
+		} else {
+			locationService.setSearchName($scope.details1.name);
+			locationService.setLocationName($scope.details1.name);
+			var address = locationService.convertGoogleAddressToObjectAddress($scope.details1.address_components);
+			locationService.setAddress(address);
+			locationService.setGeoPosition($scope.details1.geometry.location.lat(), $scope.details1.geometry.location.lng());
+			$state.go('locations-search-result');
+		}
 	};
-	
+
 	// back navigation logic
 	$scope.goBack = function() {
 		historyService.setNavigatedBack(1);

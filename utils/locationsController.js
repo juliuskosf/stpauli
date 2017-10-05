@@ -23,12 +23,12 @@ app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', 'de
 // -------------------------------------------
 // -------------------------------------------
 
-app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationService', function($scope, $state, $mdDialog, locationService) {
+app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationService', 'historyService', function($scope, $state, $mdDialog, locationService, historyService) {
 	$scope.locationName = locationService.getLocationName();
 
 	$scope.address = locationService.oLocation.address || {}; // default '{}' if locationService.oLocation.address is undefined 
 
-	$scope.showConfirm = function(event) {
+/*	$scope.showConfirm = function(event) {
 		locationService.setAddress($scope.address); // next command uses it so assign it here!
 		locationService.setLocationName($scope.locationName); // save location name
 
@@ -43,11 +43,11 @@ app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationSe
 		$mdDialog.show(confirm).then(function() {
 			$state.go('locations-water-decision');
 		});
-	};
+	};*/
 
-	$scope.deletePressed = function() {
-		$scope.address = {};
-		locationService.setAddress({});
+	$scope.goBack = function() {
+		historyService.setNavigatedBack(1);
+		$state.go(historyService.getPreviousState());
 	};
 }]);
 
