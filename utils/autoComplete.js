@@ -15,7 +15,7 @@ app.controller("TestCtrl", ['$state', '$scope', 'locationService', 'historyServi
 	// saves the location info before moving forward
 	$scope.save = function() {
 		if ($scope.details1.name === undefined || locationService.convertGoogleAddressToObjectAddress($scope.details1.address_components) === undefined) {
-			$state.go('locations-manual-adress');
+			$state.go('address-not-found');
 		} else {
 			locationService.setSearchName($scope.details1.name);
 			locationService.setLocationName($scope.details1.name);

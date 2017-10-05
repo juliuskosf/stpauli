@@ -53,6 +53,9 @@ app.config(['$stateProvider', '$mdThemingProvider', 'uiGmapGoogleMapApiProvider'
 		.state('locations-manual-adress', {
 			templateUrl: 'pages/locations/manual-adress-form.html'
 		})
+		.state('address-not-found', {
+			templateUrl: 'pages/locations/address-not-found.html'
+		})
 		.state('locations-water-decision', {
 			templateUrl: 'pages/locations/locations-water-decision.html'
 		})

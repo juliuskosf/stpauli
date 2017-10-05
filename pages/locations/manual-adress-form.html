@@ -7,16 +7,28 @@
   <md-input-container>
     <input type="text" placeholder="Name" ng-model="locationName" name="nameInput">
   </md-input-container>
-  <location-info-form
-    street-model="address.street"
-    additionaladdress-model="address.additionalAddress"
-    postcode-model="address.postcode"
-    city-model="address.city">
-  </location-info-form>
+   <form name="formName">
+    <div layout="row">
+      <md-input-container>
+        <input placeholder="Street" ng-model="streetModel" >
+      </md-input-container>
+      <md-input-container>
+        <input placeholder="Additional address" ng-model="additionaladdressModel" >
+      </md-input-container>
+    </div>
+    <div layout="row">
+      <md-input-container>
+        <input type="number" maxlength="5" minlength="4" placeholder="ZIP code" ng-model="postcodeModel" >
+      </md-input-container>
+      <md-input-container>
+        <input placeholder="City" ng-model="cityModel" >
+      </md-input-container>
+    </div>
+  </form>
   
-<!--  <md-button class="md-raised" ng-click="showConfirm($event)" ng-disabled="manualAddressForm.$invalid">
+  <md-button class="md-raised" ng-click="showConfirm($event)" ng-disabled="manualAddressForm.$invalid">
     Go on!
-  </md-button>-->
+  </md-button>
   
     <footer>
         <div layout="row" layout-align="center center">

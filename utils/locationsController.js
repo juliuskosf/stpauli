@@ -28,8 +28,16 @@ app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationSe
 
 	$scope.address = locationService.oLocation.address || {}; // default '{}' if locationService.oLocation.address is undefined 
 
-/*	$scope.showConfirm = function(event) {
+	$scope.showConfirm = function(event) {
 		locationService.setAddress($scope.address); // next command uses it so assign it here!
+		console.log($scope.streetModel)
+		locationService.setAddress( {
+						street: $scope.streetModel,
+						additionalAddress: $scope.additionaladdressModel,
+						postcode: $scope.postcodeModel,
+						city: $scope.cityModel
+
+					});
 		locationService.setLocationName($scope.locationName); // save location name
 
 		var confirm = $mdDialog.confirm()
@@ -43,7 +51,7 @@ app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationSe
 		$mdDialog.show(confirm).then(function() {
 			$state.go('locations-water-decision');
 		});
-	};*/
+	};
 
 	$scope.goBack = function() {
 		locationService.resetSelectedLocation();
