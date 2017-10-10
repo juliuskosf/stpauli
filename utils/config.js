@@ -13,8 +13,8 @@ app.config(['$stateProvider', '$mdThemingProvider', 'uiGmapGoogleMapApiProvider'
 				//	'hue-1': '900' // use shade 100 for the <code>md-hue-1</code> class
 		})
 
-		.accentPalette('yellow', {
-				'default': 'A700'
+		.accentPalette('orange', {
+				'default': '500'
 			})
 			.warnPalette('red', {
 				'default': 'A700'

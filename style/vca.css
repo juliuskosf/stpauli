@@ -1,5 +1,5 @@
 html, body {
-	font-family: 'museo';
+	font-family: 'lato';
 	font-size: 1em;
 }
 
@@ -51,8 +51,8 @@ html, body {
 }
 /* for BIG screens, Siehst du Wasser image */
 .drop2 {
-	padding-top: 3%;
-    padding-bottom: 3%;
+	padding-top: 1%;
+    padding-bottom: 1%;
     margin-top: 1em;
     margin-bottom: 1em;
     position: relative;
@@ -80,8 +80,8 @@ html, body {
 }
  /* for SMALL and MEDUIM screens */
 .vcalogo2 {
-	padding-top: 15%;
-    padding-bottom: 15%;
+	padding-top: 5%;
+    padding-bottom: 5%;
     margin-top: 1em;
     margin-bottom: 1em;
     position: relative;
@@ -120,14 +120,16 @@ html, body {
 
 /* test buttons, not used */
 .btn1 {
+	background-color: #0288D1; /* Blue */
+	color: #EEEEEE;  /* Text */
+	font-size: 20px;
 	padding: 0 6px 0 6px;
 	margin: 6px 8px 6px 8px;
-	border-radius: 3px;
-	font-size: 14px;
+	border-radius: 17px;
 	text-align: center;
 	text-transform: uppercase;
 	text-decoration:none;
 	border: none;
 	outline: none;
-	width: 355px;
+	width: 200px;
 }
