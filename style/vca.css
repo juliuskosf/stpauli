@@ -118,10 +118,9 @@ html, body {
   width:90%;
 }
 
-/* test buttons, not used */
 .btn1 {
-	background-color: #0288D1; /* Blue */
-	color: #EEEEEE;  /* Text */
+	background-color:rgb(63, 170, 210);
+	color: #EEEEEE;
 	font-size: 20px;
 	padding: 0 6px 0 6px;
 	margin: 6px 8px 6px 8px;
@@ -132,4 +131,36 @@ html, body {
 	border: none;
 	outline: none;
 	width: 200px;
+}
+
+.btn2 {
+	background-color: #EEEEEE; /* White */
+	color:rgb(41, 90, 120);  /* Text */
+	font-size: 20px;
+	padding: 0 6px 0 6px;
+	margin: 6px 8px 6px 8px;
+	border-radius: 17px;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration:none;
+	border: none;
+	outline: none;
+	width: 300px;
+}
+
+/* tick am ende SMALL screen */
+.tick {
+	padding-top: 5%;
+    padding-bottom: 2%;
+    margin-top: 1em;
+    position: relative;
+    max-width: 30%; 
+    height: auto;
+    fill: #2196F3;
+}
+
+md-checkbox.new .md-icon {
+	background-color: #FAFAFA;
+	border-radius: 40px;
+	border-width: 1px;
 }

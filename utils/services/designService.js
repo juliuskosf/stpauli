@@ -38,22 +38,22 @@ app.service('designService', function($state) {
 
 	ds.tiles = [{
 		src: "sources/img/beerjack.svg",
-		name: "retail"
+		name: "bar"
 	}, {
 		src: "sources/img/music-player.svg",
-		name: "gatronomy"
+		name: "club"
 	}, {
 		src: "sources/img/tea-cup.svg",
-		name: "event"
+		name: "café"
 	}, {
 		src: "sources/img/restaurant.svg",
-		name: "enterprise"
+		name: "restaurant"
 	}, {
 		src: "sources/img/shopping-cart.svg",
-		name: "public facility"
+		name: "shop"
 	}, {
 		src: "sources/img/question-mark.svg",
-		name: "accommodation"
+		name: "other"
 	}];
 
 	ds.getNameForCategoryIndex = function(index) {

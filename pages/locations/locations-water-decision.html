@@ -2,19 +2,21 @@
   <md-progress-linear md-mode="determinate" value="{{vm.determinateValue2}}"></md-progress-linear>
 </div>
 <div layout="column" layout-align="center center" ng-controller="WaterDecisionCtrl">
-   <img class="vcalogo2" hide-gt-sm flex height="auto" src="sources/img/VcA_330ml_Doppel_web.png">
-   <img class="drop2" hide show-gt-sm flex src="sources/img/VcA_330ml_Doppel_web.png">
+   <img class="vcalogo2" hide-gt-sm flex height="auto" src="sources/img/VcA_330ml_Doppel_web2.png">
+   <img class="drop2" hide show-gt-sm flex src="sources/img/VcA_330ml_Doppel_web2.png">
    <h2>Do you see VcA water?</h2>
+   <div layout=row>
    <md-button class="md-raised" name="seeYes" ui-sref="locations-water-selection" ng-click="saveDecision('seeYes')">
      Yes
    </md-button>
    <md-button class="md-raised" name="seeNo" ui-sref="locations-no-water" ng-click="saveDecision('seeNo')">
      No
    </md-button>
+   </div>
    <footer>
         <div layout="column" layout-align="center center">
             <md-button class='btn1' ng-click="goBack()">
-            	zurück
+            	back
             </md-button>
         </div>
     </footer>

@@ -2,40 +2,35 @@
   <md-progress-linear md-mode="determinate" value="{{vm.determinateValue4}}"></md-progress-linear>
 </div>
 
-<div ng-layout="column" ng-controller="SummaryController">
-  <md-card>
-    <md-card-title>
-      <img src="">
-      <md-card-title-text>
-        <span class="md-headline"><b>{{location.name}}</b>
-          was created!</span>
-      </md-card-title-text>
-    </md-card-title>
-    <md-card-content>
-      <p>
-        {{location.address.street}} <br>
-        <span ng-if="location.address.additionalAddress">{{location.address.additionalAddress}} <br></span>
-        {{location.address.postcode}} <br>
-        {{location.address.city}} <br>
-      </p>
-      <p><u>Water</u></p>
-      <p><i>{{getDecisionText(waterDecision.decisionCode)}}</i>
-      <ul ng-if="waterDecision.reasons.length !== 0">
-        <li ng-repeat="reason in waterDecision.reasons">
-          {{reason.text}}
-        </li>
-      </ul>
-      </p>
-    </md-card-content>
-    <md-card-actions layout="column" layout-align="start">
-      <md-button ng-click="saveLocationInfo()" class="md-raised">Close and save</md-button>
-    </md-card-actions>
-  </md-card>
+<div layout="column" layout-align="center center" ng-controller="SummaryController">
+  <img class="tick" src="sources/img/tick.svg">
+   <h1>
+     <span class="md-headline"><b>{{location.name}}</b>
+       was created!</span>
+   </h1>
+   <div>
+     <p>
+       {{location.address.street}} <br>
+       <span ng-if="location.address.additionalAddress">{{location.address.additionalAddress}} <br></span>
+       {{location.address.postcode}} <br>
+       {{location.address.city}} <br>
+     </p>
+     <p><u>Water</u></p>
+     <p><i>{{getDecisionText(waterDecision.decisionCode)}}</i>
+     <ul ng-if="waterDecision.reasons.length !== 0">
+       <li ng-repeat="reason in waterDecision.reasons">
+         {{reason.text}}
+       </li>
+     </ul>
+     </p>
+   </div>
+  
   <footer>
-       <div layout="row" layout-align="center center">
-           <md-button ng-click="goBack()">
-            <md-icon md-svg-src="sources/img/icons/backarrow.svg"></md-icon>
-           </md-button>
+        <div layout="column" layout-align="center center">
+        	<md-button ng-click="saveLocationInfo()" class="btn2">save</md-button>
+            <md-button class='btn1' ng-click="goBack()">
+            	back
+            </md-button>
         </div>
-   </footer>
+    </footer>
 </div>

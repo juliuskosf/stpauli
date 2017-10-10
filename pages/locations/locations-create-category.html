@@ -4,7 +4,7 @@
 
 <div ng-controller="CategorySelectionCtrl">
   <div layout="column" layout-align="center center">
-  <h2>In which category the location belongs to?</h2>
+  <h2 class="textcenter">In which category the location belongs to?</h2>
   </div>
   <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
       <md-button class="md-raised md-accent" ng-repeat="(index, tile) in tiles" layout-padding ng-click="tileClicked(index)">
@@ -14,7 +14,7 @@
 	<footer>
         <div layout="column" layout-align="center center">
             <md-button class='btn1' ng-click="goBack()">
-            	zurück
+            	back
             </md-button>
         </div>
     </footer>

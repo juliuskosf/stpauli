@@ -12,9 +12,6 @@
       <md-input-container>
         <input placeholder="Street" ng-model="streetModel" >
       </md-input-container>
-      <md-input-container>
-        <input placeholder="Additional address" ng-model="additionaladdressModel" >
-      </md-input-container>
     </div>
     <div layout="row">
       <md-input-container>
@@ -25,17 +22,14 @@
       </md-input-container>
     </div>
   </form>
-  
-  <md-button class="md-raised" ng-click="showConfirm($event)" ng-disabled="manualAddressForm.$invalid">
-    Go on!
-  </md-button>
-  
     <footer>
-        <div layout="row" layout-align="center center">
-            <md-button ng-click="goBack()">
-            	<md-icon md-svg-src="sources/img/icons/backarrow.svg"></md-icon>
-            </md-button>
-
+    	<div layout="column" layout-align="center center">
+    	<md-button class="btn2" ng-click="showConfirm($event)" ng-disabled="manualAddressForm.$invalid">
+		 approve
+		</md-button>
+        <md-button class='btn1' ng-click="goBack()">
+         back
+        </md-button>
         </div>
-   </footer>
+    </footer>
 </div>

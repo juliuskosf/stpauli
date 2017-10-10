@@ -2,23 +2,24 @@
   <md-progress-linear md-mode="determinate" value="{{vm.determinateValue3}}"></md-progress-linear>
 </div>
 
-<div layout="column" ng-controller="WaterDecisionCtrl">
-  <fieldset class="standard">
-     <legend>Why wasn't it before?</legend>
-     <div layout="column" layout-wrap>
-        <md-checkbox class="md-primary" ng-repeat="reason in reasons" ng-click="toggle(reason, selected)">
+<div layout="column" layout-align="center center" ng-controller="WaterDecisionCtrl">
+     <h3>Why wasn't it before?</h3>
+     <br>
+     <div layout="column" layout-align="center">
+        <md-checkbox class="new" ng-repeat="reason in reasons" ng-click="toggle(reason, selected)">
           {{reason.text}}
         </md-checkbox>
      </div>
-  </fieldset>
     <footer>
-        <div layout="row" layout-align="center center">
-            <md-button ng-click="goBack()">
-            	<md-icon md-svg-src="sources/img/icons/backarrow.svg"></md-icon>
-            </md-button>
-            <md-button ng-click="sendSupporter()">
-            	<md-icon  md-svg-src="sources/img/icons/continue.svg">></md-icon>
-            </md-button>
-        </div>
+        <div layout="column" layout-align="center center">
+            <div layout="column" layout-align="center center">
+            	<md-button class='btn2' ng-click="sendSupporter()">
+        			approve
+            	</md-button>
+            	<md-button class='btn1' ng-click="goBack()">
+            		back
+            	</md-button>
+        	</div>
+       </div>
     </footer>
 </div>

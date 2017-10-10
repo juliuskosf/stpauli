@@ -41,12 +41,12 @@ app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationSe
 		locationService.setLocationName($scope.locationName); // save location name
 
 		var confirm = $mdDialog.confirm()
-			.title('Ist das wirklich die Lokation?')
+			.title('Is this the right location?')
 			.textContent(locationService.addressToString())
-			.ariaLabel('Bestätigung')
+			.ariaLabel('Save')
 			.targetEvent(event)
-			.ok('Ja!')
-			.cancel('Ändern');
+			.ok('Yes')
+			.cancel('Change');
 
 		$mdDialog.show(confirm).then(function() {
 			$state.go('locations-create-category');
@@ -439,9 +439,7 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 ]);
 
 app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDialog', 'locationService', 'designService',
-	'contactService',
-	'historyService', '$stateParams',
-	function($rootScope, $scope, $state, $mdDialog, locationService, designService, contactService, historyService, $stateParams) {
+	'contactService','historyService', '$stateParams', function($rootScope, $scope, $state, $mdDialog, locationService, designService, contactService, historyService, $stateParams) {
 
 		// (obsolete) get correct tab from state parameter
 		$scope.tabIndex = $stateParams.tab;
@@ -471,6 +469,11 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 			historyService.setNavigatedBack(1);
 			$state.go(historyService.getPreviousState());
 		};
+		
+		$scope.goBack = function() {
+		historyService.setNavigatedBack(1);
+		$state.go(historyService.getPreviousState());
+	};
 
 		$scope.interestReasons = locationService.getInterestReasons();
 
