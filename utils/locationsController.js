@@ -49,7 +49,7 @@ app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationSe
 			.cancel('Ändern');
 
 		$mdDialog.show(confirm).then(function() {
-			$state.go('locations-water-decision');
+			$state.go('locations-create-category');
 		});
 	};
 
