@@ -41,12 +41,12 @@ html, body {
 
  /* for BIG screens */
 .drop {
-	padding-top: 3%;
-    padding-bottom: 3%;
+	padding-top: 1%;
+    padding-bottom: 1%;
     margin-top: 1em;
     margin-bottom: 1em;
     position: relative;
-    max-width: 25%;
+    max-width: 30%;
     height: auto;
 }
 /* for BIG screens, Siehst du Wasser image */
@@ -60,32 +60,30 @@ html, body {
 
 /* for SMALL and MEDUIM Thank you page  */
 .vcalogo0 {
-	padding-top: 20%;
-    padding-bottom: 20%;
+	padding-top: 15%;
+    padding-bottom: 15%;
     margin-top: 1em;
     margin-bottom: 1em;
-    padding-left: 5%;
-    width:90%; 
+    width:100%; 
     height:auto;
 }
 /* for SMALL and MEDUIM Thank you page  */
 .vcalogo {
-	padding-top: 20%;
-    padding-bottom: 20%;
+	padding-top: 5%;
+    padding-bottom: 2%;
     margin-top: 1em;
     margin-bottom: 1em;
-    padding-left: 5%;
     width: 60%; 
     height: auto;
 }
  /* for SMALL and MEDUIM screens */
 .vcalogo2 {
-	padding-top: 5%;
-    padding-bottom: 5%;
+	padding-top: 2%;
+    padding-bottom: 2%;
     margin-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
     position: relative;
-    max-width: 100%;
+    max-width: 30%;
     height: auto;
 }
 /* logo for presentation page SMALL screen */
@@ -94,7 +92,7 @@ html, body {
     padding-bottom: 5%;
     margin-top: 1em;
     position: relative;
-    max-width: 90%; 
+    max-width: 40%; 
     height: auto;
 }
 
@@ -110,9 +108,12 @@ html, body {
 /* Autocomplete text field */
 .style-4 {
   padding: 10px;
+  margin-top: 2em;
+  margin-bottom: 2em;
   border: none;
-  font-family: 'museo';
-  border-bottom: solid 2px #2196F3;
+  font-family: 'lato';
+  border-bottom: solid 2px;
+  border-bottom-color: rgb(230, 131, 82);
   transition: border 0.2s;
   background: transparent;
   width:90%;
@@ -163,4 +164,10 @@ md-checkbox.new .md-icon {
 	background-color: #FAFAFA;
 	border-radius: 40px;
 	border-width: 1px;
+}
+
+.icon-image {
+    position: relative;
+    max-width: 70%;
+    height: auto;
 }

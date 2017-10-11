@@ -1,22 +1,32 @@
 <div layout="column" layout-align="center center" ng-controller="TestCtrl">
-  <div layout="column" layout-align="center center">
-		<img class="vcalogo2"  hide-gt-sm flex src="sources/img/vcalogo_blue.png"/>
-		<img class="drop" hide show-gt-sm flex src="sources/img/vcalogo_blue.png">
-		<h1 class = 'textcenter'>Where are YOU?</h1>
-		 <input type="text" id="Autocomplete" ng-model="autocomplete" 
+		 <img class="vcalogo2"  hide-gt-sm flex src="sources/img/vcalogo_blue.png"/>
+		<img class="drop" hide show-gt-sm flex src="sources/img/vcalogo_blue.png"/>
+		
+<!--	<md-card flex-xs flex-gt-xs="80">
+	<md-card-title>
+		<md-card-title-text>
+		<!--	<span class="md-headline">Locations</span> -->
+	<!--	</md-card-title-text>
+		<md-card-title-media>
+		<!-- Move everything from inline css to global design files -->
+	<!--		<img ng-src="sources/img/VCA.png" style="border-radius: 1px" class="md-media-lg card-media"/>
+		</md-card-title-media>
+	</md-card-title>
+	</md-card> -->
+
+
+	<input type="text" id="Autocomplete" ng-model="autocomplete" 
       class="style-4" ng-autocomplete options="options1" details="details1" initial-address="initialAddress" placeholder = "Enter name or address"/>
 	<br>
-	</div>
-  
-  
+	
+	
   <footer>
-        <div layout="row" layout-align="center center">
-            <md-button ng-click="goBack()">
-            	<md-icon md-svg-src="sources/img/icons/backarrow.svg"></md-icon>
+        <div layout="column" layout-align="center center">
+            <md-button class='btn2' ng-click="save()">
+            	search
             </md-button>
-            
-            <md-button ng-click="save()">
-            	<md-icon md-svg-src="sources/img/icons/continue.svg"></md-icon>
+            <md-button class='btn1' ng-click="goBack()">
+            	back
             </md-button>
         </div>
    </footer>

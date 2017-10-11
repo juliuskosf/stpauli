@@ -3,14 +3,14 @@
  <div layout="row" layout-wrap>
     <div flex="100" flex-gt-sm="50" layout="column">
       <div>
-        <fieldset class="standard" >
-          <legend>Choose the category</legend>
-          <div layout="row" layout-wrap flex>
-              <md-checkbox ng-repeat="category in categories" ng-click="filterChanged(category)">
+       <!-- <fieldset class="standard" > -->
+          <h3>Choose the category</h3>
+          <div layout="column" layout-align="center">
+              <md-checkbox class="new" ng-repeat="category in categories" ng-click="filterChanged(category)">
                 {{ category }}
               </md-checkbox>
           </div>
-        </fieldset>
+        <!-- </fieldset> -->
       </div>
     </div>
     </div>

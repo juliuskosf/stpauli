@@ -44,14 +44,14 @@
     <section layout="row" layout-sm="column">
       <side-bar></side-bar>
       <div layout="column" layout-align="top center" flex>
-        <md-toolbar class="md-theme-blue">
+        <md-toolbar style="background-color:rgb(47,60,77)">
           <div class="md-toolbar-tools">
-            <md-button name="menu" ng-click="toggleLeft()" class="md-raised">
-              Menu
+            <md-button name="menu" class="md-icon-button md-primary" ui-sref="home">
+             <img src="sources/img/vcalogo_blue.png">
             </md-button>
             <span flex></span>
-            <md-button name="Logout" ng-click="logout()" class="md-raised">
-              Logout
+            <md-button name="Logout" ng-click="logout()" class="md-icon-button md-primary">
+              <md-icon md-svg-icon="sources/img/icons/menu.svg"></md-icon>
             </md-button>
           </div>
         </md-toolbar>
