@@ -1,10 +1,14 @@
 html, body {
 	font-family: 'lato';
-	font-size: 1em;
 }
 
 .textcenter {
 	text-align: center;
+}
+
+.main {
+	text-align: center;
+	font-size: 0.70em;
 }
 
 /* home and feedback */
@@ -61,9 +65,9 @@ html, body {
 /* for SMALL and MEDUIM Thank you page  */
 .vcalogo0 {
 	padding-top: 15%;
-    padding-bottom: 15%;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    padding-bottom: 5%;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     width:100%; 
     height:auto;
 }
@@ -71,9 +75,9 @@ html, body {
 .vcalogo {
 	padding-top: 5%;
     padding-bottom: 2%;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    width: 60%; 
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    width: 45%; 
     height: auto;
 }
  /* for SMALL and MEDUIM screens */
@@ -168,6 +172,6 @@ md-checkbox.new .md-icon {
 
 .icon-image {
     position: relative;
-    max-width: 70%;
+    max-width: 90%;
     height: auto;
 }
