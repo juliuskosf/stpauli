@@ -39,12 +39,13 @@
     <link rel="stylesheet" href="style/vca.css">
   </head>
   <!-- AIzaSyD2122kKcLcNKWAApGcKOmzoTqWXW4hznY -->
-  <body ng-app="VivaConAgua" ng-cloak ng-controller="MainController">
+  <body ng-app="VivaConAgua" ng-cloak ng-controller="MainController" back-img="sources/img/Background_hell.jpg">
     <!-- HTML Code below -->
     <section layout="row" layout-sm="column">
+
       <side-bar></side-bar>
       <div layout="column" layout-align="top center" flex>
-        <md-toolbar style="background-color:rgb(47,60,77)">
+        <md-toolbar back-img="sources/img/Background_dunkel.jpg">
           <div class="md-toolbar-tools">
           	
             <md-button name="menu" ui-sref="home" class="md-icon-button md-primary" >
@@ -57,8 +58,9 @@
             
           </div>
         </md-toolbar>
-        <div style="width:90%;" ui-view></div>
+        <div style="width:90%; height:100%" ui-view></div>
       </div>
+  
     </section>
     <!-- Angular Material Library requires certain Angular.js Libraries -->
     <script src="sources/libraries/jquery.min.js"></script>
@@ -95,6 +97,7 @@
     <script src="utils/autoComplete.js"></script>
     <script src="utils/progressBar.js"></script>
     <script src="utils/markercluster.js"></script>
-
+    <script src="utils/imageController.js"></script>
+    
   </body>
 </html>

@@ -1,5 +1,6 @@
 html, body {
 	font-family: 'lato';
+	height: 100%
 }
 
 .textcenter {
@@ -9,6 +10,7 @@ html, body {
 .main {
 	text-align: center;
 	font-size: 0.70em;
+	color: white;
 }
 
 /* home and feedback */
@@ -174,4 +176,12 @@ md-checkbox.new .md-icon {
     position: relative;
     max-width: 90%;
     height: auto;
+}
+
+div[back-img]{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }

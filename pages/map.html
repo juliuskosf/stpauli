@@ -1,19 +1,21 @@
-<div ng-controller="mapController">
-	<h3 >Where can I get VcA?</h3>
- <div layout="row" layout-wrap>
-   <div flex="100" flex-gt-sm="50" layout="column">
-      <div>
-        <fieldset class="standard" >
-          <legend>Choose the category</legend>
-          <div layout="row" layout-wrap flex>
-              <md-checkbox ng-repeat="category in categories" ng-click="filterChanged(category)">
-                {{ category }}
-              </md-checkbox>
-          </div>
-        </fieldset>
-      </div>
-    </div>
-    </div>
+<div ng-controller ='imageCtr' back-img="sources/img/Background_hell.jpg">
+<div layout="column" layout-align="center center" ng-controller="HomeHelp">
+	<div ng-controller="mapController">
+		<h3 >Where can I get VcA?</h3>
+			<div layout="row" layout-wrap>
+				<div flex="100" flex-gt-sm="50" layout="column">
+    				<div>
+        			<fieldset class="standard" >
+        			<legend>Choose the category</legend>
+        				<div layout="row" layout-wrap flex>
+            			<md-checkbox ng-repeat="category in categories" ng-click="filterChanged(category)">
+                		{{ category }}
+            			</md-checkbox>
+        				</div>
+        			</fieldset>
+    				</div>
+    			</div>
+    		</div>
 <style>
   ng-map#custom1 {display:block; height:25em; padding-top: 3%;} /* SMALL SCREENS */
 </style>
@@ -49,4 +51,6 @@
         </info-window>
     </ng-map>
     </div> -->
+    </div>
+    </div>
 </div>

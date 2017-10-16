@@ -48,7 +48,28 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
 			function(event, toState, toParams, fromState, fromParams) {
 				progressService.getProgressAtState(fromState);
 			});
-	}
+			
+		app.directive('backImg', function(){
+    	return function(scope, element, attrs){
+        	var url = attrs.backImg;
+        	element.css({
+            	'background-image': 'url(' + url +')',
+            	'background-size' : 'cover'
+        	});
+    	};
+	});
+	
+ if ($state === 'home') {
+    backImg: "sources/img/Background_dunkel.jpg"; 
+    }
+    else { backImg: "sources/img/Background_hell.jpg";
+    }
+	
+		
+		
+		
+		
+		}
 ]);
 
 app.controller('HomeHelp', ['$scope', '$mdDialog', '$timeout', '$state', '$mdSidenav', 'locationService', '$rootScope', 'progressService',
