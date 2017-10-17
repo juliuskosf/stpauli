@@ -1,4 +1,3 @@
-
 <div layout="column" layout-align="center center" ng-controller="WaterDecisionCtrl">
   <h2>What kind of water/bottle do you see?</h2>
   <div layout="row">
@@ -9,9 +8,41 @@
       Plastik
     </md-button>
   </div>
-  <md-card class="bubble2">
-    <div>In den nachfolgenden Screens wird je nach Auswahl die entsprechenden Gebindearten per Bild angezeigt und per "Frame" Auswahl (Mehrfachnennung möglich) abgefragt</div>
-  </md-card>
+  
+  <div layout=row layout-align="center end">
+    <md-button>
+      <img class="icon-image2" src="sources/img/water/VcA_330ml.png">
+    </md-button>
+    <md-button >
+      <img class="icon-image2" src="sources/img/water/VcA_500ml.png">
+    </md-button>
+    <md-button >
+      <img class="icon-image2" src="sources/img/water/VcA_750ml.png">
+    </md-button>
+    </div>
+    <!-- <div layout=row layout-align="center">
+    	<p>330 ml Glas</p> <br>
+    	<p>500 ml PET</p> <br>
+    	<p>750 ml Glas</p> <br> -->
+    </div>
+    <div layout=row layout-align="center end">
+    <md-button>
+     <img class="icon-image2" src="sources/img/water/VcA_1000ml.png">
+    </md-button>
+    <md-button>
+      <img class="icon-image2" src="sources/img/water/VcA_Flasche_750ml_TRIO.png">
+    </md-button>
+    <md-button>
+      <img class="icon-image2" src="sources/img/water/VcA_750ml_Leise_PET.png">
+    </md-button>
+    </div>
+    <!-- <div layout=row layout-align="center">
+    	<p>330 ml Glas</p>
+    	<p>500 ml PET</p>
+    	<p>750 ml Glas</p> 
+    </div> -->
+  
+  
     <footer>
         <div layout="column" layout-align="center center">
             <md-button class='btn1' ng-click="goBack()">

@@ -178,6 +178,12 @@ md-checkbox.new .md-icon {
     height: auto;
 }
 
+.icon-image2 {
+    position: relative;
+    max-width: 110%;
+    height: auto;
+}
+
 div[back-img]{
     width: 100%;
     height: 100%;
