@@ -1,7 +1,21 @@
+<div layout="column" layout-align="center">
+	<md-card class="new">
+	<md-card-title>
+		<md-card-title-text>
+			<span class="md-headline textcenter">LOCATIONS</span>
+		</md-card-title-text>
+		<md-card-title-media>
+		<!-- Move everything from inline css to global design files -->
+			<img ng-src="sources/img/Locations_yel.png" style="background-color:rgb(236,206,122); padding: ;" class="md-media-sm card-media"/>
+		</md-card-title-media>
+	</md-card-title>
+	</md-card>
+</div>
+
 <div ng-controller="locationSearchController">
   <div layout="column" layout-align="center center">
-      <img class="vcalogo2" hide-gt-sm flex src="sources/img/vcalogo_blue.png"/>
-      <img class="drop" hide show-gt-sm flex src="sources/img/vcalogo_blue.png">
+      <!-- <img class="vcalogo2" hide-gt-sm flex src="sources/img/vcalogo_blue.png"/>
+      <img class="drop" hide show-gt-sm flex src="sources/img/vcalogo_blue.png"> -->
 	<!--<md-subheader ng-if="filteredWithCity" class="md-primary">Alle in {{cityName}}<md-button ng-click="loadAllPressed()">Alle laden</md-button></md-subheader>-->
 	
     <md-list flex>

@@ -1,8 +1,13 @@
-
 <div layout="column" layout-align="center center" ng-controller="WaterDecisionCtrl">
    <img class="vcalogo" hide-gt-sm flex height="auto" src="sources/img/VcA_330ml_Doppel_web2.png">
    <img class="drop2" hide show-gt-sm flex src="sources/img/VcA_330ml_Doppel_web2.png">
    <h2>Do you see VcA water?</h2>
+   <div layout=row>
+   	<h3>yes</h3>
+   	<md-switch ng-model="already"></md-switch>
+	<h3>no</h3>
+   </div>
+   
    <div layout=row>
    <md-button class="md-raised" name="seeYes" ui-sref="locations-water-selection" ng-click="saveDecision('seeYes')">
      Yes
@@ -11,6 +16,8 @@
      No
    </md-button>
    </div>
+   
+   
    <footer>
         <div layout="column" layout-align="center center">
             <md-button class='btn1' ng-click="goBack()">

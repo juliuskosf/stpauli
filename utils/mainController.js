@@ -19,6 +19,8 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
 		// initial start
 
 		$state.go('home');
+		
+
 
 		//showLoginDialog()
 
@@ -59,11 +61,11 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
     	};
 	});
 	
- if ($state === 'home') {
-    backImg: "sources/img/Background_dunkel.jpg"; 
-    }
+	if ($scope.state === 'home') {
+    	backImg: "sources/img/Background_dunkel.jpg"; 
+    	}
     else { backImg: "sources/img/Background_hell.jpg";
-    }
+    	}
 	
 		
 		

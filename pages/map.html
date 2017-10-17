@@ -1,7 +1,18 @@
-<div ng-controller ='imageCtr' back-img="sources/img/Background_hell.jpg">
+<div layout="column" layout-align="center">
+	<md-card class="new">
+	<md-card-title>
+		<md-card-title-text>
+			<span class="md-headline textcenter">WHERE CAN <br>I GET VCA</span>
+		</md-card-title-text>
+		<md-card-title-media>
+		<!-- Move everything from inline css to global design files -->
+			<img ng-src="sources/img/Locations1.png" style="" class="md-media-sm card-media"/>
+		</md-card-title-media>
+	</md-card-title>
+	</md-card>
+</div>
 <div layout="column" layout-align="center center" ng-controller="HomeHelp">
 	<div ng-controller="mapController">
-		<h3 >Where can I get VcA?</h3>
 			<div layout="row" layout-wrap>
 				<div flex="100" flex-gt-sm="50" layout="column">
     				<div>
@@ -33,24 +44,5 @@
             </div>
         </info-window>
     </ng-map>
-    <!-- <div hide show-gt-md flex>
-    <ng-map id="custom2" default-style="false" center="current-location" zoom="13">
-        <info-window id="myInfoWindow" position="current-location">
-            <div ng-non-bindable>
-                <h4>{{selectedLocation.NAME}}</h4>
-            </div>
-        </info-window>
-    </ng-map>
-    </div>
-    <div hide show-sm show-md flex>
-    <ng-map id="custom3" default-style="false" center="current-location" zoom="13">
-        <info-window id="myInfoWindow" position="current-location">
-            <div ng-non-bindable>
-                <h4>{{selectedLocation.NAME}}</h4>
-            </div>
-        </info-window>
-    </ng-map>
-    </div> -->
-    </div>
     </div>
 </div>
