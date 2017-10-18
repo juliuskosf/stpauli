@@ -135,6 +135,9 @@ html, body {
   margin-bottom: 2em;
   border: none;
   font-family: 'lato';
+  font-weight: bold;
+  font-size: 7pt;
+  color: rgb(63,170,210);
   border-bottom: solid 2px;
   border-bottom-color: rgb(230, 131, 82);
   transition: border 0.2s;
@@ -146,6 +149,7 @@ html, body {
 	background-color:rgb(63, 170, 210);
 	color: #EEEEEE;
 	font-size: 20px;
+	font-weight: bold;
 	padding: 0 6px 0 6px;
 	margin: 6px 8px 6px 8px;
 	border-radius: 20px;
@@ -153,7 +157,6 @@ html, body {
 	text-transform: uppercase;
 	border: none;
 	outline: none;
-	
 	width: 260px;
 }
 
@@ -161,6 +164,7 @@ html, body {
 	background-color: #EEEEEE; /* White */
 	color:rgb(41, 90, 120);  /* Text */
 	font-size: 20px;
+	font-weight: bold;
 	padding: 0 6px 0 6px;
 	margin: 6px 8px 6px 8px;
 	border-radius: 20px;
