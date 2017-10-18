@@ -179,7 +179,8 @@ html, body {
 md-checkbox.new .md-icon {
 	background-color: #FAFAFA;
 	border-radius: 40px;
-	border-width: 1px;
+	border-width: 0.1px;
+	border-color: #FAFAFA;
 }
 
 md-card.new {
@@ -238,3 +239,8 @@ md-icon.new {
     width: auto; }
 .selectdemoSelectHeader md-content._md {
     max-height: 240px; }
+    
+.why {
+	margin-top: 3em;
+    margin-bottom: 2em;
+}

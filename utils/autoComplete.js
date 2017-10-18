@@ -3,8 +3,8 @@ app.controller("TestCtrl", ['$state', '$scope', 'locationService', 'historyServi
 
 	$scope.result1 = ''; // result of query
 	$scope.options1 = {
-		country: 'de' // filter based on country
-			// types: 'establishment' // filter based on company
+		country: 'de', // filter based on country
+		types: 'establishment' // filter based on company
 	};
 	$scope.details1 = ''; // complete address in detail
 
