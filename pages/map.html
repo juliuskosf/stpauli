@@ -11,11 +11,35 @@
 		</md-card-title-media>
 	</md-card-title>
 	</md-card> -->
-	
 </div>
-<div layout="column" layout-align="center center" ng-controller="HomeHelp">
+<div layout="column" layout-align="center" ng-controller="HomeHelp">
 	<div ng-controller="mapController">
-			<div layout="row" layout-wrap>
+		
+	<div>
+    <!-- <h1 class="md-title">CHOOSE THE CATEGORY</h1> -->
+    <div layout="row">
+      <md-input-container>
+        <label>SELECT CATEGORIES</label>
+        <md-select ng-model="selectedVegetables"
+                   md-on-close="clearSearchTerm()"
+                   data-md-container-class="selectdemoSelectHeader"
+                   multiple>
+          <md-select-header class="demo-select-header">
+            <input ng-model="searchTerm"
+                   type="search"
+                   placeholder="Search for a category.."
+                   class="demo-header-searchbox md-text">
+          </md-select-header>
+          <md-optgroup label="vegetables">
+            <md-option ng-value="category" ng-repeat="category in categories |
+              filter:searchTerm" ng-click="filterChanged(category)">{{category}}</md-option>
+          </md-optgroup>
+        </md-select>
+      </md-input-container>
+    </div>
+ </div>
+
+		<!--	<div layout="row" layout-wrap>
 				<div flex="100" flex-gt-sm="50" layout="column">
     				<div>
         			<fieldset class="standard" >
@@ -28,7 +52,10 @@
         			</fieldset>
     				</div>
     			</div>
-    		</div>
+    		</div> -->
+    		
+    		
+    		
 <style>
   ng-map#custom1 {display:block; height:25em; padding-top: 3%;} /* SMALL SCREENS */
 </style>

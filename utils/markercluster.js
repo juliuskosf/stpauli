@@ -1,4 +1,4 @@
-app.controller('mapController', function($scope, NgMap) {
+app.controller('mapController', function($scope, $element, NgMap) {
 	
 	$scope.initMarkerClusterer = function() {
 		/*var markers = $scope.locatons.map(function (location) {
@@ -16,12 +16,22 @@ app.controller('mapController', function($scope, NgMap) {
 	$scope.categories = ['bar', 'club', 'café', 'restaurant', 'shop', 'other'];
 	$scope.selected = ['bar'];
 
+	$scope.searchTerm;
+    $scope.clearSearchTerm = function() {
+        $scope.searchTerm = '';
+    };
+      // The md-select directive eats keydown events for some quick select
+      // logic. Since we have a search input here, we don't need that logic.
+    $element.find('input').on('keydown', function(ev) {
+        ev.stopPropagation();
+    });
+	
 	// create an empty variable for the categories which will be selected
 	var selectedCategories = [];
 
 	$scope.filterChanged = function(category) {
 		var idx = selectedCategories.indexOf(category);
-		console.log(idx)
+		console.log(idx);
 		if (idx > -1) {
 			selectedCategories.splice(idx, 1);
 		} else {
@@ -36,7 +46,7 @@ app.controller('mapController', function($scope, NgMap) {
 		for (var i = 0; i < selectedCategories.length; i++) {
 			// selectedCategory = selectedCategories[i];
 			var selectedCategory = $scope.categories.indexOf(selectedCategories[i]);
-			console.log(selectedCategory)
+			console.log(selectedCategory);
 			for (var j = 0; j < $scope.allLocations.length; j++) {
 				location = $scope.allLocations[j];
 				if (location.CATEGORYID === selectedCategory) {
