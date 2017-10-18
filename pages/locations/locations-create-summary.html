@@ -3,19 +3,18 @@
    <md-icon class="vcalogo" hide-gt-sm flex md-svg-icon="sources/img/icons/checked.svg"></md-icon>
    <md-icon class="drop" hide show-gt-sm flex md-svg-icon="sources/img/icons/checked.svg"></md-icon>
    
-   <h1>
-     <span class="md-headline"><b>{{location.name}}</b>
-       was created!</span>
+   <h1 class= "textcenter">
+     <span class="md-headline"><b>{{location.name}}</b> <br>
+        was created!</span>
    </h1>
    <div>
-     <p>
+     <p class= "textcenter">
        {{location.address.street}} <br>
        <span ng-if="location.address.additionalAddress">{{location.address.additionalAddress}} <br></span>
-       {{location.address.postcode}} <br>
-       {{location.address.city}} <br>
+       {{location.address.postcode}} {{location.address.city}} <br>
      </p>
-     <p><u>Water</u></p>
-     <p><i>{{getDecisionText(waterDecision.decisionCode)}}</i>
+     <p class= "textcenter"><u>Water</u></p>
+     <p class= "textcenter"><i>{{getDecisionText(waterDecision.decisionCode)}}</i>
      <ul ng-if="waterDecision.reasons.length !== 0">
        <li ng-repeat="reason in waterDecision.reasons">
          {{reason.text}}
