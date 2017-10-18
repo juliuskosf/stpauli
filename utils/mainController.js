@@ -20,7 +20,20 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
 
 		$state.go('home');
 		
+		function switchBackground(to) {
+			if (to === 'dark') {
+				$scope.myStyle = {'background-image': 'url(sources/img/Background_dunkel.jpg)',
+            		'background-size' : 'cover'};
 
+			} else {
+					$scope.myStyle = {'background-image': 'url(sources/img/Background_hell.jpg)',
+            		'background-size' : 'cover'};
+				
+			}
+			
+		}
+
+		switchBackground("dark");
 
 		//showLoginDialog()
 
@@ -41,6 +54,8 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
 				$mdSidenav(componentId).toggle();
 			};
 		}
+		
+
 
 		$rootScope.$on(AUTH_EVENTS.logoutSuccess, showLoginDialog);
 		$rootScope.$on(AUTH_EVENTS.loginSuccess, setCurrentUser);
@@ -48,35 +63,20 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
 		// for progress bar
 		$rootScope.$on('$stateChangeStart',
 			function(event, toState, toParams, fromState, fromParams) {
+
+				if (toState.name == 'home') {
+					switchBackground('dark');	
+				} else {
+					switchBackground('light');
+				}
 				progressService.getProgressAtState(fromState);
 			});
-			
-		app.directive('backImg', function(){
-    	return function(scope, element, attrs){
-        	var url = attrs.backImg;
-        	element.css({
-            	'background-image': 'url(' + url +')',
-            	'background-size' : 'cover'
-        	});
-    	};
-	});
-	
-	if ($scope.state === 'home') {
-    	backImg: "sources/img/Background_dunkel.jpg"; 
-    	}
-    else { backImg: "sources/img/Background_hell.jpg";
-    	}
-	
-		
-		
-		
-		
-		}
+
+	}
 ]);
 
 app.controller('HomeHelp', ['$scope', '$mdDialog', '$timeout', '$state', '$mdSidenav', 'locationService', '$rootScope', 'progressService',
 	'historyService', '$http', 'AUTH_EVENTS',
 	function($scope, $mdDialog, $timeout, $state, $mdSidenav, locationService, $rootScope, progressService, historyService, $http,
-		AUTH_EVENTS) {
-	}
+		AUTH_EVENTS) {}
 ]);
