@@ -94,20 +94,20 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 		$state.go(historyService.getPreviousState());
 	};
 	
-	$scope.data = 'true';
-	
 	$scope.data = [];
+	
+	
 	$scope.continueTo = function() { 
-		if ($scope.data === "true") {
+		if ($scope.data) {
 			$state.go('locations-water-selection');
 		} else {
 			$state.go('locations-no-water');
 		}
 	};
 	
-	$scope.data = [];
+	
 	$scope.continueTo2 = function() { 
-		if ($scope.data === "true") {
+		if ($scope.data) {
 			$state.go('locations-water-decision-interest');
 		} else {
 			$state.go('locations-water-decision-no-interest');
