@@ -6,7 +6,8 @@ var app = angular.module('VivaConAgua', [
 	'ngGeolocation',
 	'ngAutocomplete',
 	'gm',
-	'ngMap'
+	'ngMap',
+	'multipleSelection'
 ]);
 
 // routine for backtracking logic

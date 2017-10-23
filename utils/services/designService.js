@@ -56,6 +56,26 @@ app.service('designService', function($state) {
 		name: "other"
 	}];
 
+	/*ds.waterBottles = [{
+		src: "sources/img/water/VcA_330ml.png",
+		name: "330"
+	}, {
+		src: "sources/img/water/VcA_500ml.png",
+		name: "500"
+	}, {
+		src: "sources/img/water/VcA_750ml.png",
+		name: "750"
+	}, {
+		src: "sources/img/water/VcA_1000ml.png",
+		name: "1000"
+	}, {
+		src: "sources/img/water/VcA_Flasche_750ml_TRIO.png",
+		name: "750trio"
+	}, {
+		src: "sources/img/water/VcA_750ml_Leise_PET.png",
+		name: "750pet"
+	}];*/
+	
 	ds.getNameForCategoryIndex = function(index) {
 		return ds.tiles[index].name;
 	};

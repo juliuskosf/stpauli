@@ -93,7 +93,27 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 		historyService.setNavigatedBack(1);
 		$state.go(historyService.getPreviousState());
 	};
-
+	
+	$scope.data = 'true';
+	
+	$scope.data = [];
+	$scope.continueTo = function() { 
+		if ($scope.data === "true") {
+			$state.go('locations-water-selection');
+		} else {
+			$state.go('locations-no-water');
+		}
+	};
+	
+	$scope.data = [];
+	$scope.continueTo2 = function() { 
+		if ($scope.data === "true") {
+			$state.go('locations-water-decision-interest');
+		} else {
+			$state.go('locations-water-decision-no-interest');
+		}
+	};
+	
 	$scope.saveDecision = function(selectedValue) {
 		var decision = locationService.oLocation.decision || {}; // see above
 
@@ -117,7 +137,8 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 
 		locationService.setDecision(decision);
 	};
-
+	
+	
 	$scope.selected = []; // empty array as placeholder for selected reasons
 
 	// fetch reasons for interest or no interest according to current states name
