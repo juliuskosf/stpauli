@@ -54,7 +54,8 @@ html, body {
 	border-radius: 1em;
 	
 }
-/* presentation page */
+
+ /* presentation */
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -62,14 +63,14 @@ html, body {
     height: 0;
     overflow: hidden;
 }
-/* presentation page */
+
 .video-container iframe {
     position: absolute;
     top:0;
     left: 0;
     width: 100%;
     height: 100%;
-}
+} 
 
  /* for BIG screens */
 .drop {
@@ -88,12 +89,22 @@ html, body {
     margin-top: 1em;
     margin-bottom: 1em;
     position: relative;
+    max-width: 10%;
+}
+
+.drop3 {
+	padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: 3em;
+    margin-bottom: 1em;
+    position: relative;
+    max-width: 20%;
 }
 
 .vcalogo-1 {
 	padding-top: 2%;
     padding-bottom: 2%;
-    margin-top: 1em;
+   	margin-top: 3em;
     margin-bottom: 0.5em;
     width: 45%; 
     height: auto;
@@ -114,7 +125,7 @@ html, body {
     padding-bottom: 2%;
     margin-top: 1em;
     margin-bottom: 0.5em;
-    width: 30%; 
+    width: 7em; 
     height: auto;
 }
  /* for SMALL and MEDUIM screens */
@@ -150,7 +161,7 @@ html, body {
 .vcalogo5 {
 	padding-top: 5%;
     margin-top: 5em;
-    width: 45%; 
+    width: 8em; 
     height: auto;
 }
 
@@ -296,4 +307,8 @@ md-icon.new {
 .why {
 	margin-top: 3em;
     margin-bottom: 2em;
+}
+
+.why2 {
+	margin-top: 3em;
 }

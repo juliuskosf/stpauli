@@ -1,12 +1,13 @@
 <div ng-controller="CategorySelectionCtrl">
   <div layout="column" layout-align="center center">
-  <h3 class="textcenter textGrayBlue">To which category does the location belong to?</h3>
+  <h3 class=" textcenter why textGrayBlue">To which category does the location belong to?</h3>
   </div>
   <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
       <md-button class="md-raised" style="background-color:rgb(236,206,122)" ng-repeat="(index, tile) in tiles" layout-padding ng-click="tileClicked(index)">
         <md-icon style="" md-svg-icon={{tile.src}}></md-icon>
       </md-button>
   </section>
+  <br>
 	<footer>
         <div layout="column" layout-align="center center">
             <md-button class='btn1' ng-click="goBack()">
