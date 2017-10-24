@@ -86,33 +86,14 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 // -------------------------------------------
 
 app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', 'historyService', function($scope, $state,
-	locationService,
-	designService, historyService) {
+	locationService,designService, historyService) {
 
 	$scope.goBack = function() {
 		historyService.setNavigatedBack(1);
 		$state.go(historyService.getPreviousState());
 	};
 	
-	$scope.data = [];
 	
-	
-	$scope.continueTo = function() { 
-		if ($scope.data) {
-			$state.go('locations-water-selection');
-		} else {
-			$state.go('locations-no-water');
-		}
-	};
-	
-	
-	$scope.continueTo2 = function() { 
-		if ($scope.data) {
-			$state.go('locations-water-decision-interest');
-		} else {
-			$state.go('locations-water-decision-no-interest');
-		}
-	};
 	
 	$scope.saveDecision = function(selectedValue) {
 		var decision = locationService.oLocation.decision || {}; // see above
@@ -138,6 +119,29 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 		locationService.setDecision(decision);
 	};
 	
+	// Switch Yes/No
+	$scope.data = [];
+	
+	$scope.continueTo = function() { 
+		if ($scope.data) {
+			$state.go('locations-water-selection');
+			$scope.saveDecision("seeYes");
+		} else {
+			$state.go('locations-no-water');
+			$scope.saveDecision("seeNo");
+		}
+	};
+	
+	
+	$scope.continueTo2 = function() { 
+		if ($scope.data) {
+			$state.go('locations-water-decision-interest');
+			$state.saveDecision("imagineYes");
+		} else {
+			$state.go('locations-water-decision-no-interest');
+			$state.saveDecision("imagineNo");
+		}
+	};
 	
 	$scope.selected = []; // empty array as placeholder for selected reasons
 
