@@ -188,6 +188,20 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 			// save plastik
 		}
 	};
+	
+	// put the images for selection
+	$scope.selected_images = {};
+  
+	$scope.property = {
+    	imageURLs: ['sources/img/water/330GLAS.png',
+    	'sources/img/water/500PET.png',
+    	'sources/img/water/750GLAS.png',
+    	'sources/img/water/1000PET.png',
+    	'sources/img/water/750TRIO.png',
+    	'sources/img/water/750PET.png'
+    	]
+  };
+
 
 }]);
 

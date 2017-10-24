@@ -242,8 +242,15 @@ md-card.new {
 
 .icon-image2 {
     position: relative;
-    max-width: 110%;
+    margin:0.2em;
+    max-width: 50%;
     height: auto;
+}
+
+.selected-image {
+  border: 3px solid rgb(63,170,210);
+  background: rgb(63,170,210);
+  opacity: 0.5;
 }
 
 div[back-img]{

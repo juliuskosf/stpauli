@@ -8,42 +8,23 @@
       Plastik
     </md-button>
   </div>
+  <div layout="row" layout-align="center end" layout-wrap>
+	 <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="image in property.imageURLs">
+      <img src={{image}} ng-click="selected_images[image] = {selected: !selected_images[image].selected }"
+      class="img-responsive" ng-class="{ 'selected-image': selected_images[image].selected }" 
+    	style="max-height: 10em;" alt="" title="">
+	</div>
+	</div>
   
-	<img class="icon-image2" ng-src="{{image}}"/>
-  
-  <div layout=row layout-align="center end">
+	
+	
+	<!--<img class="icon-image2" ng-src="{{image}}"/>
+ 
+ <section layout="row" layout-align="center end" layout-wrap>
     <md-button>
       <img class="icon-image2" src="sources/img/water/330GLAS.png">
     </md-button>
-    <md-button >
-      <img class="icon-image2" src="sources/img/water/500PET.png">
-    </md-button>
-    <md-button >
-      <img class="icon-image2" src="sources/img/water/750GLAS.png">
-    </md-button>
-    </div>
-    <!-- <div layout=row layout-align="center">
-    	<p>330 ml Glas</p> <br>
-    	<p>500 ml PET</p> <br>
-    	<p>750 ml Glas</p> <br> -->
-  
-    <div layout=row layout-align="center end">
-    <md-button>
-     <img class="icon-image2" src="sources/img/water/1000PET.png">
-    </md-button>
-    <md-button>
-      <img class="icon-image2" src="sources/img/water/750TRIO.png">
-    </md-button>
-    <md-button>
-      <img class="icon-image2" src="sources/img/water/750PET.png">
-    </md-button>
-    </div>
-    <!-- <div layout=row layout-align="center">
-    	<p>330 ml Glas</p>
-    	<p>500 ml PET</p>
-    	<p>750 ml Glas</p> 
-    </div> -->
-  
+</section>-->
   
     <footer>
         <div layout="column" layout-align="center center">
