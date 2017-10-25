@@ -201,7 +201,14 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
     	'sources/img/water/750PET.png'
     	]
   };
-
+  
+	$scope.tileClicked2 = function(index) { // index contains index of selected tile
+		locationService.oLocation.bottleIndex = index; // assign index to categoryIndex in locationService
+	};
+	
+	$scope.sendSupporter = function() {
+		$state.go('locations-create-summary');
+	};
 
 }]);
 
@@ -247,7 +254,8 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', 'his
 			IMAGINE: locationService.getLocation().decision.imagine,
 			USER: user,
 			LATITUDE: latitude.toString(),
-			LONGITUDE: longitude.toString()
+			LONGITUDE: longitude.toString(),
+			BOTTLE_TYPE: locationService.getLocation().bottleIndex        
 		});
 
 		// POST

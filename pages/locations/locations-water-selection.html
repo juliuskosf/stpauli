@@ -1,13 +1,13 @@
 <div layout="column" layout-align="center center" ng-controller="WaterDecisionCtrl">
   <h3 class=" texcenter textGrayBlue">What kind of water/bottle do you see?</h3>
-  <div layout="row">
+  <!--<div layout="row">
     <md-button class="md-raised" name="glas" ui-sref="locations-create-summary" ng-click="saveSelection($event)">
       Glas
     </md-button>
     <md-button class="md-raised" name="plastik" ui-sref="locations-create-summary" ng-click="saveSelection($event)">
       Plastik
     </md-button>
-  </div>
+  </div>-->
   <div layout="row" layout-align="center end" layout-wrap>
 	 <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="image in property.imageURLs">
       <img src={{image}} ng-click="selected_images[image] = {selected: !selected_images[image].selected }"
@@ -18,7 +18,7 @@
   <br>
     <footer>
         <div layout="column" layout-align="center center">
-        	<md-button class="btn2" ui-sref="locations-create-summary">continue</md-button>
+        	<md-button class="btn2" ng-click="sendSupporter()">continue</md-button>
             <md-button class='btn1' ng-click="goBack()">
             	back
             </md-button>

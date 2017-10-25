@@ -46,6 +46,10 @@ app.service('locationService', function($state) {
 	ls.getCategoryIndex = function() {
 		return ls.oLocation.categoryIndex;
 	};
+	
+	ls.getBottleIndex = function() {
+		return ls.olocation.bottleIndex;
+	};
 
 	ls.setSearchName = function(newValue) {
 		ls.searchName = newValue;
