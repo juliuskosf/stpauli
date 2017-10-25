@@ -23,11 +23,14 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
 		function switchBackground(to) {
 			if (to === 'dark') {
 				$scope.myStyle = {'background-image': 'url(sources/img/Background_dunkel.jpg)',
-            		'background-size' : 'cover'};
+            		'background-size' : 'cover'
+
+				};
 
 			} else {
 					$scope.myStyle = {'background-image': 'url(sources/img/Background_hell.jpg)',
-            		'background-size' : 'cover'};
+            		'background-size' : 'cover'
+					};
 				
 			}
 			
