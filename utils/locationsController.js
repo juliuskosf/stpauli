@@ -120,7 +120,7 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 	};
 	
 	// Switch Yes/No
-	$scope.data = [];
+	$scope.data = true;
 	
 	$scope.continueTo = function() { 
 		if ($scope.data) {
