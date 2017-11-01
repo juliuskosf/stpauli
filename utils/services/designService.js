@@ -37,44 +37,25 @@ app.service('designService', function($state) {
 	};
 
 	ds.tiles = [{
-		src: "sources/img/beerjack.svg",
+		src: "sources/img/categories_btn/Beer_btn.svg",
 		name: "bar"
 	}, {
-		src: "sources/img/music-player.svg",
+		src: "sources/img/categories_btn/Disco_btn.svg",
 		name: "club"
 	}, {
-		src: "sources/img/tea-cup.svg",
+		src: "sources/img/categories_btn/Cafe_btn.svg",
 		name: "café"
 	}, {
-		src: "sources/img/restaurant.svg",
+		src: "sources/img/categories_btn/Restaurant_btn.svg",
 		name: "restaurant"
 	}, {
-		src: "sources/img/shopping-cart.svg",
+		src: "sources/img/categories_btn/Shopping_btn.svg",
 		name: "shop"
 	}, {
-		src: "sources/img/question-mark.svg",
+		src: "sources/img/categories_btn/Question_btn.svg",
 		name: "other"
 	}];
 
-	/*ds.waterBottles = [{
-		src: "sources/img/water/VcA_330ml.png",
-		name: "330"
-	}, {
-		src: "sources/img/water/VcA_500ml.png",
-		name: "500"
-	}, {
-		src: "sources/img/water/VcA_750ml.png",
-		name: "750"
-	}, {
-		src: "sources/img/water/VcA_1000ml.png",
-		name: "1000"
-	}, {
-		src: "sources/img/water/VcA_Flasche_750ml_TRIO.png",
-		name: "750trio"
-	}, {
-		src: "sources/img/water/VcA_750ml_Leise_PET.png",
-		name: "750pet"
-	}];*/
 	
 	ds.getNameForCategoryIndex = function(index) {
 		return ds.tiles[index].name;

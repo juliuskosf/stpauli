@@ -271,6 +271,13 @@ md-card.new {
     height: auto;
 }
 
+.icon-image3 {
+    position: relative;
+    margin:0.2em;
+    width: 30%;
+    height: auto;
+}
+
 .selected-image {
   border: 3px solid rgb(63,170,210);
   background: rgb(63,170,210);
@@ -289,6 +296,12 @@ md-icon.new {
 	font-size:40px;
 	height: 40px;
 	width: 40px;
+}
+
+md-icon.category {
+	margin:0.1em;
+	padding-bottom:1.5px;
+	padding-right:2px;
 }
 
 .md-button.md-icon-button.new {

@@ -2,10 +2,12 @@
   <div layout="column" layout-align="center center">
   <h3 class=" textcenter why textGrayBlue">To which category does the location belong to?</h3>
   </div>
-  <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-      <md-button class="md-raised" style="background-color:rgb(236,206,122)" ng-repeat="(index, tile) in tiles" layout-padding ng-click="tileClicked(index)">
-        <md-icon style="" md-svg-icon={{tile.src}}></md-icon>
-      </md-button>
+  <section layout="row"  layout-align="center center" layout-wrap>
+      <!--<md-button  ng-repeat="(index, tile) in tiles" layout-padding ng-click="tileClicked(index)">-->
+        <md-icon ng-repeat="(index, tile) in tiles" ng-click="tileClicked(index)" hide-gt-sm class="category" style="width:30%; height:auto;" md-svg-icon={{tile.src}}></md-icon>
+    	<md-icon ng-repeat="(index, tile) in tiles" ng-click="tileClicked(index)" hide show-gt-sm class="category" style="width:10%; height:auto;" md-svg-icon={{tile.src}}></md-icon>
+
+      <!--</md-button>-->
   </section>
   <br>
 	<footer>
