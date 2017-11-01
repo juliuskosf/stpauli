@@ -1,34 +1,46 @@
-<div layout="column" layout-align="center center" ng-controller="SummaryController">
-   <md-icon class="vcalogo"  md-svg-icon="sources/img/icons/checked.svg"></md-icon>
+
+   <h3 layout-align="center center" class=" textcenter why textGrayBlue">Your Barcheck summary:</h3>
+
+   <!--For small screens-->
+   <div ng-controller="SummaryController" hide-gt-sm layout="row" layout-align="center center" >
+   	<div flex hide-gt-sm>
+		<h1 class= "textcenter textDarkBlue">
+    		<span class="md-headline"><b>{{location.name}} </b></span>
+		</h1>
+    	<p class= "textcenter textDarkBlue">
+    		{{location.address.street}} <br>
+    		<span ng-if="location.address.additionalAddress">{{location.address.additionalAddress}} <br></span>
+    		{{location.address.postcode}} {{location.address.city}} <br>
+    	</p>
+	</div>
+   	<div layout-align="center" flex hide-gt-sm>
+		<md-icon class="vcalogo summary"  md-svg-icon="sources/img/icons/exclamation_mark.svg"></md-icon>
+	</div>
+   </div>
    
-   
-   <h1 class= "textcenter textDarkBlue">
-     <span class="md-headline"><b>{{location.name}} </b><br>
-       <b> was created!</b></span>
-   </h1>
-   <div>
-     <p class= "textcenter textDarkBlue">
-       {{location.address.street}} <br>
-       <span ng-if="location.address.additionalAddress">{{location.address.additionalAddress}} <br></span>
-       {{location.address.postcode}} {{location.address.city}} <br>
-     </p>
-     <p class= "textcenter textDarkBlue"><u>Water</u></p>
-     <p class= "textcenter textDarkBlue"><i>{{getDecisionText(waterDecision.decisionCode)}}</i>
-     <ul ng-if="waterDecision.reasons.length !== 0">
-       <li ng-repeat="reason in waterDecision.reasons">
-         {{reason.text}}
-       </li>
-     </ul>
-     </p>
+    <!--For Big screens-->
+    <div ng-controller="SummaryController" hide show-gt-sm layout="row" >
+   	<div flex hide show-gt-sm layout-align="end center">
+		<h1 class= "textDarkBlue textright">
+    		<span class="md-headline"><b>{{location.name}} </b></span>
+		</h1>
+    	<p class= "textDarkBlue textright" >
+    		{{location.address.street}} <br>
+    		<span ng-if="location.address.additionalAddress">{{location.address.additionalAddress}} <br></span>
+    		{{location.address.postcode}} {{location.address.city}} <br>
+    	</p>
+	</div>
+   	<div layout-align="start center" flex hide show-gt-sm>
+		<md-icon class="vcalogo"  md-svg-icon="sources/img/icons/exclamation_mark.svg"></md-icon>
+	</div>
    </div>
    <br>
   
   <footer>
-        <div layout="column" layout-align="center center">
+        <div ng-controller="SummaryController" layout="column" layout-align="center center">
         	<md-button ng-click="saveLocationInfo()" class="btn2">save</md-button>
             <md-button class='btn1' ng-click="goBack()">
             	back
             </md-button>
         </div>
     </footer>
-</div>

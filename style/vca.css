@@ -23,6 +23,10 @@ html {
 	text-align: center;
 }
 
+.textright {
+	text-align: right;
+}
+
 .textDarkBlue {
 	color: rgb(41,90,120);
 }
@@ -302,6 +306,10 @@ md-icon.category {
 	margin:0.1em;
 	padding-bottom:1.5px;
 	padding-right:2px;
+}
+
+md-icon.summary {
+	display:flex;
 }
 
 .md-button.md-icon-button.new {
