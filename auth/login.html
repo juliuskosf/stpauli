@@ -4,10 +4,10 @@
 			<h2 class="md-toolbar-tools">Login</h2>
 		</md-toolbar>
 		<div class="md-dialog-content">
-		<p>Hier kannst du dich mit deinem Pool-User anmelden</p>
+		<p>Here you can log in with your pool user</p>
 		<form name="loginForm">
 			<md-input-container>
-				<input name="email" placeholder="E-Mail Adresse" required ng-model="email">
+				<input name="email" placeholder="E-mail address" required ng-model="email">
 				</input>
 			</md-input-container>
 			<!--
@@ -29,9 +29,6 @@
 		<div layout="row">
 			<md-button ng-disabled="loginForm.$invalid" class="md-primary md-raised" ng-click="login()">
 				Login
-			</md-button>
-			<md-button ng-disabled="true" class="md-warn md-raised">
-				Passwort vergessen?
 			</md-button>
 		</div>
 	</div>
