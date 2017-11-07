@@ -191,7 +191,6 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 	$scope.selected_images = {};
 
 	$scope.property = {
-<<<<<<< Upstream, based on f39dae16411f4d4d5faa8ee4b033ca36f3f909db
 		imageURLs: ['sources/img/water/330GLAS.png',
 			'sources/img/water/500PET.png',
 			'sources/img/water/750GLAS.png',
@@ -201,15 +200,6 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 		]
 	};
 
-=======
-    	imageURLs: ['sources/img/water/330GLAS.png',
-    	'sources/img/water/500PET.png',
-    	'sources/img/water/750GLAS.png',
-    	'sources/img/water/1000PET.png',
-    	'sources/img/water/750TRIO.png',
-    	'sources/img/water/750PET.png'
-    	]
-  };
 	// Save the reason - Why Not
 	$scope.sendSupporter1 = function(index) { // index contains index of selected tile
 		locationService.oLocation.reasonNoIndex = index;
@@ -222,19 +212,12 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 		$state.go('locations-create-summary');
 	};
 	
-	
->>>>>>> 09ccbe8  Save why not and why not before in HANA
 	$scope.tileClicked2 = function(index) { // index contains index of selected tile
 		locationService.oLocation.bottleIndex = index; // assign index to categoryIndex in locationService
 	};
-<<<<<<< Upstream, based on f39dae16411f4d4d5faa8ee4b033ca36f3f909db
 
-	$scope.sendSupporter = function() {
-=======
-	
 	// Continue button by reasons
 	/*$scope.sendSupporter = function() {
->>>>>>> 09ccbe8  Save why not and why not before in HANA
 		$state.go('locations-create-summary');
 	};*/
 
@@ -283,12 +266,9 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', 'his
 			USER: user,
 			LATITUDE: latitude.toString(),
 			LONGITUDE: longitude.toString(),
-<<<<<<< Upstream, based on f39dae16411f4d4d5faa8ee4b033ca36f3f909db
-			BOTTLE_TYPE: locationService.getLocation().bottleIndex
-=======
+			BOTTLE_TYPE: locationService.getLocation().bottleIndex,
 			WHY_NOT: locationService.getLocation().reasonNoIndex,
 			WHY_NOT_BEFORE: locationService.getLocation().reasonYesIndex
->>>>>>> 09ccbe8  Save why not and why not before in HANA
 		});
 
 		// POST
@@ -604,7 +584,8 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 				USER: locationService.getSelectedLocation().user,
 				LATITUDE: locationService.getSelectedLocation().latitude,
 				LONGITUDE: locationService.getSelectedLocation().longitude,
-				BOTTLE_TYPE: locationService.getSelectedLocation().bottleIndex
+				WHY_NOT: locationService.getLocation().reasonNoIndex,
+				WHY_NOT_BEFORE: locationService.getLocation().reasonYesIndex
 			});
 
 			// PUT
@@ -620,7 +601,7 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 					// TODO: Error handling
 				},
 				success: function(data) {
-					console.log("worked")
+					console.log("worked");
 						// TODO: Success handling
 				}
 			});
