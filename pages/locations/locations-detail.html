@@ -12,10 +12,10 @@
     <md-tab label="Water">
       <div class="md-padding">
       	<p class="textGrayBlue">Do you see the VcA water?</p>
-		<md-switch class="md-primary" ng-model="already">
+		<md-switch class="md-primary" ng-model="already" ng-change="updateAlready()">
 		</md-switch>
 		<p ng-if="!already" class="textGrayBlue">We can imagine to offer VcA water!</p>
-		<md-switch class="md-primary" ng-model="imagine" ng-if="!already">
+		<md-switch class="md-primary" ng-model="imagine" ng-if="!already" ng-change="updateImagine()">
 		</md-switch>
       </div>
     </md-tab>
@@ -23,7 +23,7 @@
      <footer>
   	
         <div layout="column" layout-align="center center">
-        	<md-button class="btn2">save</md-button>
+        	<md-button class="btn2" ng-click="saveChanges()">save</md-button>
             <md-button class='btn1' ng-click="goBack()">
             	back
             </md-button>

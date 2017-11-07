@@ -210,7 +210,7 @@ app.service('locationService', function($state) {
 					partners: null,
 					categoryIndex: data.documentElement.getElementsByTagName('d:CATEGORYID')[0].innerHTML,
 					decision: {
-						already: null,
+						already: data.documentElement.getElementsByTagName('d:WATER')[0].innerHTML,
 						imagine: data.documentElement.getElementsByTagName('d:IMAGINE')[0].innerHTML
 					},
 					paperDecision: {

@@ -23,7 +23,8 @@ app.controller('LocationSearchCtrl', ['$scope', '$state', 'locationService', 'de
 // -------------------------------------------
 // -------------------------------------------
 
-app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationService', 'historyService', function($scope, $state, $mdDialog, locationService, historyService) {
+app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationService', 'historyService', function($scope, $state,
+	$mdDialog, locationService, historyService) {
 	$scope.locationName = locationService.getLocationName();
 
 	$scope.address = locationService.oLocation.address || {}; // default '{}' if locationService.oLocation.address is undefined 
@@ -31,13 +32,13 @@ app.controller('ManualAdressCtrl', ['$scope', '$state', '$mdDialog', 'locationSe
 	$scope.showConfirm = function(event) {
 		locationService.setAddress($scope.address); // next command uses it so assign it here!
 		console.log($scope.streetModel)
-		locationService.setAddress( {
-						street: $scope.streetModel,
-						additionalAddress: $scope.additionaladdressModel,
-						postcode: $scope.postcodeModel,
-						city: $scope.cityModel
+		locationService.setAddress({
+			street: $scope.streetModel,
+			additionalAddress: $scope.additionaladdressModel,
+			postcode: $scope.postcodeModel,
+			city: $scope.cityModel
 
-					});
+		});
 		locationService.setLocationName($scope.locationName); // save location name
 
 		var confirm = $mdDialog.confirm()
@@ -86,15 +87,13 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 // -------------------------------------------
 
 app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', 'historyService', function($scope, $state,
-	locationService,designService, historyService) {
+	locationService, designService, historyService) {
 
 	$scope.goBack = function() {
 		historyService.setNavigatedBack(1);
 		$state.go(historyService.getPreviousState());
 	};
-	
-	
-	
+
 	$scope.saveDecision = function(selectedValue) {
 		var decision = locationService.oLocation.decision || {}; // see above
 
@@ -118,11 +117,11 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 
 		locationService.setDecision(decision);
 	};
-	
+
 	// Switch Yes/No
 	$scope.data = true;
-	
-	$scope.continueTo = function() { 
+
+	$scope.continueTo = function() {
 		if ($scope.data) {
 			$state.go('locations-water-selection');
 			$scope.saveDecision("seeYes");
@@ -131,18 +130,17 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 			$scope.saveDecision("seeNo");
 		}
 	};
-	
-	
-	$scope.continueTo2 = function() { 
+
+	$scope.continueTo2 = function() {
 		if ($scope.data) {
 			$state.go('locations-water-decision-interest');
-			$state.saveDecision("imagineYes");
+			$scope.saveDecision("imagineYes");
 		} else {
 			$state.go('locations-water-decision-no-interest');
-			$state.saveDecision("imagineNo");
+			$scope.saveDecision("imagineNo");
 		}
 	};
-	
+
 	$scope.selected = []; // empty array as placeholder for selected reasons
 
 	// fetch reasons for interest or no interest according to current states name
@@ -188,24 +186,24 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 			// save plastik
 		}
 	};
-	
+
 	// put the images for selection
 	$scope.selected_images = {};
-  
+
 	$scope.property = {
-    	imageURLs: ['sources/img/water/330GLAS.png',
-    	'sources/img/water/500PET.png',
-    	'sources/img/water/750GLAS.png',
-    	'sources/img/water/1000PET.png',
-    	'sources/img/water/750TRIO.png',
-    	'sources/img/water/750PET.png'
-    	]
-  };
-  
+		imageURLs: ['sources/img/water/330GLAS.png',
+			'sources/img/water/500PET.png',
+			'sources/img/water/750GLAS.png',
+			'sources/img/water/1000PET.png',
+			'sources/img/water/750TRIO.png',
+			'sources/img/water/750PET.png'
+		]
+	};
+
 	$scope.tileClicked2 = function(index) { // index contains index of selected tile
 		locationService.oLocation.bottleIndex = index; // assign index to categoryIndex in locationService
 	};
-	
+
 	$scope.sendSupporter = function() {
 		$state.go('locations-create-summary');
 	};
@@ -255,7 +253,7 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', 'his
 			USER: user,
 			LATITUDE: latitude.toString(),
 			LONGITUDE: longitude.toString(),
-			BOTTLE_TYPE: locationService.getLocation().bottleIndex        
+			BOTTLE_TYPE: locationService.getLocation().bottleIndex
 		});
 
 		// POST
@@ -291,9 +289,10 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 		var searchName = locationService.getSearchName().replace(/'/g, '´');
 		console.log(searchName)
 		$.ajax({
-			
+
 			type: "GET",
-			url: "/destinations/vca/VivaConAgua/location.xsodata/Location/?$filter=NAME eq '" + locationService.getSearchName().replace(/'/g, '´') + "' and STREET eq '" + locationService.getStreet() + "'",
+			url: "/destinations/vca/VivaConAgua/location.xsodata/Location/?$filter=NAME eq '" + locationService.getSearchName().replace(/'/g,
+				'´') + "' and STREET eq '" + locationService.getStreet() + "'",
 			cache: false,
 			contentType: "application/xml;charset=utf-8",
 			error: function(msg, textStatus) {
@@ -301,12 +300,12 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 			},
 			success: function(data) {
 				var data = data;
-				if (data.documentElement.getElementsByTagName('d:NAME')[0] === undefined || data.documentElement.getElementsByTagName('d:STREET')[0] === undefined) {
+				if (data.documentElement.getElementsByTagName('d:NAME')[0] === undefined || data.documentElement.getElementsByTagName('d:STREET')[
+						0] === undefined) {
 					$scope.$apply(function() {
 						$scope.showNoResults = true;
 					});
-					
-					
+
 				} else {
 
 					$scope.$apply(function() {
@@ -486,7 +485,8 @@ app.controller('locationSearchController', ['$scope', 'locationService', '$state
 ]);
 
 app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDialog', 'locationService', 'designService',
-	'contactService','historyService', '$stateParams', function($rootScope, $scope, $state, $mdDialog, locationService, designService, contactService, historyService, $stateParams) {
+	'contactService', 'historyService', '$stateParams',
+	function($rootScope, $scope, $state, $mdDialog, locationService, designService, contactService, historyService, $stateParams) {
 
 		// (obsolete) get correct tab from state parameter
 		$scope.tabIndex = $stateParams.tab;
@@ -494,6 +494,38 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 		$scope.selectedLocation = locationService.getSelectedLocation();
 
 		$scope.waterDecision = $scope.selectedLocation.waterDecision;
+		var decision = locationService.getSelectedLocation().decision;
+		$scope.updateAlready = function() {
+
+			console.log("worked");
+			if ($scope.selectedLocation.decision.already) { // check if undefined
+				console.log("worked2");
+				decision.already = '';
+				console.log($scope.selectedLocation.decision.already);
+
+			} else {
+				console.log("false");
+				decision.already = 'X';
+				decision.imagine = '';
+				console.log($scope.selectedLocation.decision.imagine);
+			}
+			locationService.setDecision(decision);
+		};
+
+		$scope.updateImagine = function() {
+			console.log("workedI");
+			if ($scope.selectedLocation.decision.imagine) { // check if undefined
+				console.log("workedi2");
+				decision.imagine = '';
+				console.log($scope.selectedLocation.decision.imagine);
+
+			} else {
+				console.log("falseI");
+				decision.imagine = 'X';
+				console.log($scope.selectedLocation.decision.imagine);
+			}
+			locationService.setDecision(decision);
+		};
 
 		$scope.getCategoryName = function(index) {
 			return designService.getNameForCategoryIndex(index);
@@ -516,11 +548,48 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 			historyService.setNavigatedBack(1);
 			$state.go(historyService.getPreviousState());
 		};
-		
+
 		$scope.goBack = function() {
-		historyService.setNavigatedBack(1);
-		$state.go(historyService.getPreviousState());
-	};
+			historyService.setNavigatedBack(1);
+			$state.go(historyService.getPreviousState());
+		};
+
+		$scope.saveChanges = function() {
+			var data = JSON.stringify({
+				ID: locationService.getSelectedLocation().id,
+				CAPS_NAME: locationService.getSelectedLocation().name.toUpperCase(),
+				NAME: locationService.getSelectedLocation().name,
+				STREET: locationService.getSelectedLocation().address.street,
+				AADDRESS: "",
+				POSTCODE: locationService.getSelectedLocation().address.postcode,
+				CITY: locationService.getSelectedLocation().address.city,
+				CATEGORYID: locationService.getSelectedLocation().categoryIndex,
+				WATER: locationService.getSelectedLocation().decision.already,
+				IMAGINE: locationService.getSelectedLocation().decision.imagine,
+				USER: locationService.getSelectedLocation().user,
+				LATITUDE: locationService.getSelectedLocation().latitude,
+				LONGITUDE: locationService.getSelectedLocation().longitude,
+				BOTTLE_TYPE: locationService.getSelectedLocation().bottleIndex
+			});
+
+			// PUT
+			$.ajax({
+				type: "PUT",
+				// url: "/destinations/vca/VivaConAgua/location.xsodata/Location?$ID('" + locationService.getSelectedLocation().id + "')",
+				url: "/destinations/vca/VivaConAgua/location.xsodata/Location(" + locationService.getSelectedLocation().id + ")",
+				dataType: "json",
+				data: data,
+				cache: false,
+				contentType: "application/json;charset=unicode",
+				error: function(msg, textStatus) {
+					// TODO: Error handling
+				},
+				success: function(data) {
+					console.log("worked")
+						// TODO: Success handling
+				}
+			});
+		};
 
 		$scope.interestReasons = locationService.getInterestReasons();
 
