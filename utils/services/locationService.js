@@ -12,10 +12,9 @@ app.service('locationService', function($state) {
 		};
 	};
 
-
 	ls.getAddressAsString = function() {
 		return ls.oLocation.address.street + ", " + ls.oLocation.address.city + ", Deutschland";
-	}
+	};
 
 	ls.getGeoPosition = function() {
 		return ls.oLocation.geoLocation;
@@ -47,10 +46,14 @@ app.service('locationService', function($state) {
 		return ls.oLocation.categoryIndex;
 	};
 	
-	ls.getBottleIndex = function() {
-		return ls.olocation.bottleIndex;
+	ls.getReasonNotIndex = function() {
+		return ls.olocation.reasonNoIndex;
 	};
 
+	ls.getReasonYesIndex = function() {
+		return ls.olocation.reasonYesIndex;
+	};
+	
 	ls.setSearchName = function(newValue) {
 		ls.searchName = newValue;
 	};
