@@ -59,7 +59,7 @@
 
       <side-bar></side-bar>
       <div layout="column" layout-align="top center" flex>
-        <md-toolbar back-img="sources/img/Background_dunkel.jpg">
+        <md-toolbar id="nav" ng-show="navigation" back-img="sources/img/Background_dunkel.jpg">
           <div class="md-toolbar-tools">
           	
             <md-button name="menu" ui-sref="home" class="md-icon-button md-primary new" >
@@ -67,7 +67,7 @@
             </md-button>
             <span flex></span>
             <md-button name="Logout" ng-click="logout()" class="md-icon-button md-primary">
-              <md-icon md-svg-icon="sources/img/icons/menu.svg"></md-icon>
+              <md-icon md-svg-icon="sources/img/icons/logout.svg"></md-icon>
             </md-button>
             
           </div>
@@ -113,6 +113,8 @@
     <script src="utils/progressBar.js"></script>
     <script src="utils/markercluster.js"></script>
     <script src="utils/imageController.js"></script>
+    <script src="utils/startController.js"></script>
+    <script src="utils/toolbarShow.js"></script>
     
   </body>
 </html>

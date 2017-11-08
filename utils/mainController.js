@@ -13,12 +13,12 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
 
 		var setCurrentUser = function() {
 			$scope.currentUser = $rootScope.currentUser;
-			$state.go('home');
+			$state.go('home'); //home
 			$mdDialog.hide();
 		};
 		// initial start
 
-		$state.go('home');
+		$state.go('start'); //home
 		
 		function switchBackground(to) {
 			if (to === 'dark') {
@@ -58,7 +58,13 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
 			};
 		}
 		
+		$scope.navigation = true; // default visibility state
 
+        $scope.showNavigation = function(show) {
+            $scope.navigation = show;
+        };
+		
+		$scope.showNavigation(true);
 
 		$rootScope.$on(AUTH_EVENTS.logoutSuccess, showLoginDialog);
 		$rootScope.$on(AUTH_EVENTS.loginSuccess, setCurrentUser);
@@ -67,7 +73,7 @@ app.controller('MainController', ['$state', '$scope', '$mdDialog', '$timeout', '
 		$rootScope.$on('$stateChangeStart',
 			function(event, toState, toParams, fromState, fromParams) {
 
-				if (toState.name == 'home') {
+				if (toState.name == 'home' || toState.name == 'start') {
 					switchBackground('dark');	
 				} else {
 					switchBackground('light');

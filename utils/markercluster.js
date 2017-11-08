@@ -1,5 +1,7 @@
 app.controller('mapController', function($scope, $element, NgMap) {
 	
+	$scope.showNavigation(true);
+	
 	$scope.initMarkerClusterer = function() {
 		/*var markers = $scope.locatons.map(function (location) {
 		    return $scope.createMarker(location);

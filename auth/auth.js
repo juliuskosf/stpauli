@@ -1,4 +1,4 @@
-app.controller('LoginCtrl', ['scope', '$mdDialog', '$rootScope', 'AUTH_EVENTS', function($scope, $mdDialog, $rootScope, AUTH_EVENTS) {
+app.controller('LoginCtrl', ['scope', '$state', '$mdDialog', '$rootScope', 'AUTH_EVENTS', function($scope, $state, $mdDialog, $rootScope, AUTH_EVENTS) {
 
   $scope.login = function() {
     var email = $scope.email;
@@ -7,10 +7,26 @@ app.controller('LoginCtrl', ['scope', '$mdDialog', '$rootScope', 'AUTH_EVENTS', 
       console.log(firebase.auth().currentUser);
       $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
     }, function(error) {
-      console.log(error.code)
-      console.log(error.message)
+      console.log(error.code);
+      console.log(error.message);
+    	/*if (error.code === 'auth/wrong-password') {
+    		alert('Wrong password.');
+		} else {
+    		alert(error.message);
+		} 
+      console.log(error);*/
+    if ($rootScope.$broadcast(AUTH_EVENTS.loginSuccess) === true) {
+		$state.go('home');
+	}
     });
   };
+  
+  $scope.submit = function(){ 
+    if ($scope.form.$valid) { 
+        // actually submit form data to server.
+    }
+};
+
 
 }]);
 

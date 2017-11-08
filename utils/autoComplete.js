@@ -12,6 +12,7 @@ app.controller("TestCtrl", ['$state', '$scope', 'locationService', 'historyServi
 	$scope.lat = undefined;
 	$scope.lng = undefined;
 	
+	$scope.showNavigation(true);
 	// saves the location info before moving forward
 	$scope.save = function() {
 		if ($scope.details1.name === undefined || locationService.convertGoogleAddressToObjectAddress($scope.details1.address_components) === undefined) {

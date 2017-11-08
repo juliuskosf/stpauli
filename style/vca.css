@@ -199,7 +199,7 @@ html {
   border: none;
   font-family: 'lato';
   font-weight: bold;
-  font-size: 10pt;
+  font-size: 12pt;
   border-bottom: solid 2px;
   border-bottom-color: rgb(230, 131, 82);
   transition: border 0.2s;
@@ -237,6 +237,20 @@ html {
 	outline: none;
 	border-color: rgb(149,166,179);
 	width: 300px;
+}
+.btn_login {
+	background-color:transparent;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 0 6px 0 6px;
+	margin: 6px 8px 6px 8px;
+	border-radius: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	border: solid;
+	outline: none;
+	width: 200px;
 }
 
 /* tick am ende SMALL screen */

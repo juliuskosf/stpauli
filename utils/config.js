@@ -91,6 +91,9 @@ app.config(['$stateProvider', '$mdThemingProvider', 'uiGmapGoogleMapApiProvider'
 	
 	$stateProvider
 		// configuration for ui.router see: 
+		.state('start', {
+			templateUrl: 'pages/start.html'
+		})
 		.state('home', {
 			templateUrl: 'pages/home.html'
 		})
