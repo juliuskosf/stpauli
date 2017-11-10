@@ -1,5 +1,5 @@
 app.controller("StartCtr", function($scope) {
-        $scope.showNavigation(true);
+        $scope.showNavigation(false);
 
         // ... the rest of you code         
     });
