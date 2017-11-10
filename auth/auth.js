@@ -15,9 +15,7 @@ app.controller('LoginCtrl', ['scope', '$state', '$mdDialog', '$rootScope', 'AUTH
     		alert(error.message);
 		} 
       console.log(error);*/
-    if ($rootScope.$broadcast(AUTH_EVENTS.loginSuccess) === true) {
-		$state.go('home');
-	}
+
     });
   };
   
