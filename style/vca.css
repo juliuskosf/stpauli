@@ -329,6 +329,10 @@ md-icon.summary {
 	width: 50px;
 }
 
+md-input-container.upgrade {
+	margin: 0px;
+}
+
 .selectdemoSelectHeader {
   /* Please note: All these selectors are only applied to children of elements with the 'selectdemoSelectHeader' class */ }
 .selectdemoSelectHeader .demo-header-searchbox {
