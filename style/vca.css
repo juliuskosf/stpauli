@@ -120,17 +120,14 @@ html {
 
 .vcalogo-1 {
 	padding-top: 2%;
-    padding-bottom: 2%;
-   	margin-top: 3em;
-    margin-bottom: 0.5em;
+   	margin-top: 1em;
     width: 45%; 
     height: auto;
 }
 
 /* for SMALL and MEDUIM Thank you page  */
 .vcalogo0 {
-	padding-top: 15%;
-    padding-bottom: 5%;
+	padding-top: 5%;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     width:100%; 
@@ -359,4 +356,8 @@ md-icon.summary {
 
 .why2 {
 	margin-top: 3em;
+}
+
+.why3 {
+	margin-top: 1.5em;
 }
