@@ -9,12 +9,12 @@ app.controller('LoginCtrl', ['scope', '$state', '$mdDialog', '$rootScope', 'AUTH
     }, function(error) {
       console.log(error.code);
       console.log(error.message);
-    	/*if (error.code === 'auth/wrong-password') {
-    		alert('Wrong password.');
+    	if (error.code === 'auth/wrong-password') {
+    		alert('Wrong credentials. Please try again or contact info@vivaconagua.org to reset your Pool User.');
 		} else {
     		alert(error.message);
 		} 
-      console.log(error);*/
+      console.log(error);
 
     });
   };
