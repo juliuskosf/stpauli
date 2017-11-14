@@ -64,8 +64,28 @@ app.service('designService', function($state) {
 	ds.getTiles = function() {
 		return ds.tiles;
 	};
-
+	
 	ds.getCategoryIconSourceForIndex = function(index) {
 		return ds.tiles[index].src;
 	};
+	
+	ds.getImages = function() {
+		return ds.images;
+	};
+	
+	ds.images = 
+	{
+		imageURLs: ['sources/img/water/330GLAS.png',
+			'sources/img/water/500PET.png',
+			'sources/img/water/750GLAS.png',
+			'sources/img/water/1000PET.png',
+			'sources/img/water/750TRIO.png',
+			'sources/img/water/750PET.png'
+		]
+	};
+	
+	ds.getBottlesForIndex = function(index) {
+		return ds.bottles[index].imageURLs;
+	};
+
 });

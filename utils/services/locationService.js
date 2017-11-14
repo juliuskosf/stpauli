@@ -46,6 +46,10 @@ app.service('locationService', function($state) {
 		return ls.oLocation.categoryIndex;
 	};
 	
+	ls.getBootleIndex = function() {
+		return ls.oLocation.bottleIndex;
+	};
+	
 	ls.getReasonNotIndex = function() {
 		return ls.olocation.reasonNoIndex;
 	};

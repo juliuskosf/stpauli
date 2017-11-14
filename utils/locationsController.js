@@ -187,18 +187,24 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 		}
 	};
 
-	// put the images for selection
-	$scope.selected_images = {};
+	// put the bottle images for selection
+	//$scope.selected_images = {};
 
-	$scope.property = {
-		imageURLs: ['sources/img/water/330GLAS.png',
-			'sources/img/water/500PET.png',
-			'sources/img/water/750GLAS.png',
-			'sources/img/water/1000PET.png',
-			'sources/img/water/750TRIO.png',
-			'sources/img/water/750PET.png'
-		]
+	$scope.property = designService.getImages();
+	
+	$scope.selected_images = function (image) {
+		// locationService.oLocation.bottleIndex = index;
+		// designService.ds.getBottlesForIndex = index;
+		var selected_images = {};
+		var idx = selected_images.indexOf(image);
+		console.log(idx);
 	};
+	
+	$scope.tileClicked = function(index) { // index contains index of selected tile
+		locationService.oLocation.categoryIndex = index; // assign index to categoryIndex in locationService
+		$state.go('locations-water-decision');
+	};
+	
 
 	// Save the reason - Why Not
 	$scope.sendSupporter1 = function(index) { // index contains index of selected tile
@@ -210,10 +216,6 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 	$scope.sendSupporter2 = function(index) { // index contains index of selected tile
 		locationService.oLocation.reasonYesIndex = index;
 		$state.go('locations-create-summary');
-	};
-	
-	$scope.tileClicked2 = function(index) { // index contains index of selected tile
-		locationService.oLocation.bottleIndex = index; // assign index to categoryIndex in locationService
 	};
 
 	// Continue button by reasons
