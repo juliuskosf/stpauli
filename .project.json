@@ -8,5 +8,12 @@
     "targetFolder": "dist",
     "sourceFolder": "webapp",
     "buildRequired": true
+  },
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "",
+    "defaultLanguage": "",
+    "defaultI18NPropertyFile": "",
+    "resourceModelName": ""
   }
 }
