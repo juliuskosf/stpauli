@@ -89,6 +89,7 @@ app.controller('CategorySelectionCtrl', ['$scope', '$state', 'locationService', 
 app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'designService', 'historyService', function($scope, $state,
 	locationService, designService, historyService) {
 
+
 	$scope.goBack = function() {
 		historyService.setNavigatedBack(1);
 		$state.go(historyService.getPreviousState());
@@ -176,6 +177,7 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 	};
 
 	$scope.sendSupporter = function() {
+		locationService.setBottletypes($scope.B_330GLAS, $scope.B_500PET, $scope.B_750GLAS, $scope.B_1000PET, $scope.B_750TRIO, $scope.B_750PET);
 		$state.go('locations-create-summary');
 	};
 
@@ -191,27 +193,76 @@ app.controller('WaterDecisionCtrl', ['$scope', '$state', 'locationService', 'des
 	//$scope.selected_images = {};
 
 	$scope.property = designService.getImages();
-	
-	$scope.selected_images = function (image) {
-		// locationService.oLocation.bottleIndex = index;
-		// designService.ds.getBottlesForIndex = index;
-		var selected_images = {};
-		var idx = selected_images.indexOf(image);
-		console.log(idx);
+	$scope.B_330GLAS = false;
+	$scope.B_500PET = false;
+	$scope.B_750GLAS = false;
+	$scope.B_1000PET = false;
+	$scope.B_750TRIO = false;
+	$scope.B_750PET = false;
+	$scope.selected_images = function(image) {
+			// locationService.oLocation.bottleIndex = index;
+			// designService.ds.getBottlesForIndex = index;
+			// var selected_images = {};
+		var idx = designService.getImages().imageURLs.indexOf(image);
+		
+		switch (idx) {
+			case 0:
+				if ($scope.B_330GLAS) {
+					$scope.B_330GLAS = false;
+				} else {
+					$scope.B_330GLAS = true;
+				}
+				break;
+			case 1:
+				if ($scope.B_500PET) {
+					$scope.B_500PET = false;
+				} else {
+					$scope.B_500PET = true;
+				}
+				break;
+			case 2:
+				if ($scope.B_750GLAS) {
+					$scope.B_750GLAS = false;
+				} else {
+					$scope.B_750GLAS = true;
+				}
+				break;
+			case 3:
+				if ($scope.B_1000PET) {
+					$scope.B_1000PET = false;
+				} else {
+					$scope.B_1000PET = true;
+				}
+				break;
+			case 4:
+				if ($scope.B_750TRIO) {
+					$scope.B_750TRIO = false;
+				} else {
+					$scope.B_750TRIO = true;
+				}
+				break;
+			case 5:
+				if ($scope.B_750PET) {
+					$scope.B_750PET = false;
+				} else {
+					$scope.B_750PET = true;
+				}
+				break;
+			default:
+		}
 	};
-	
+
 	$scope.tileClicked = function(index) { // index contains index of selected tile
 		locationService.oLocation.categoryIndex = index; // assign index to categoryIndex in locationService
 		$state.go('locations-water-decision');
 	};
-	
 
 	// Save the reason - Why Not
 	$scope.sendSupporter1 = function(index) { // index contains index of selected tile
 		locationService.oLocation.reasonNoIndex = index;
 		$state.go('locations-create-summary');
 	};
-	
+
 	// Save the reason - Why Not Before
 	$scope.sendSupporter2 = function(index) { // index contains index of selected tile
 		locationService.oLocation.reasonYesIndex = index;
@@ -268,7 +319,13 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', 'his
 			USER: user,
 			LATITUDE: latitude.toString(),
 			LONGITUDE: longitude.toString(),
-			BOTTLE_TYPE: locationService.getLocation().bottleIndex,
+			// BOTTLE_TYPE: locationService.getLocation().bottleIndex,
+			GLAS_330: locationService.getLocation().GLAS_330,
+			PET_500: locationService.getLocation().PET_500,
+			GLAS_750: locationService.getLocation().GLAS_750,
+			PET_1000: locationService.getLocation().PET_1000,
+			TRIO_750: locationService.getLocation().TRIO_750,
+			PET_750: locationService.getLocation().PET_750,
 			WHY_NOT: locationService.getLocation().reasonNoIndex,
 			WHY_NOT_BEFORE: locationService.getLocation().reasonYesIndex
 		});
@@ -285,7 +342,8 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', 'his
 				// TODO: Error handling
 			},
 			success: function(data) {
-				// TODO: Success handling
+				console.log(data)
+					// TODO: Success handling
 			}
 		});
 		// jump to final state
@@ -604,7 +662,7 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 				},
 				success: function(data) {
 					console.log("worked");
-						// TODO: Success handling
+					// TODO: Success handling
 				}
 			});
 		};

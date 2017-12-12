@@ -243,7 +243,9 @@ app.service('locationService', function($state) {
 		ls.oLocation.address = address;
 		parseInt(ls.oLocation.address.postcode);
 	};
-
+	
+	
+	
 	ls.convertGoogleAddressToObjectAddress = function(address_components) {
 
 		var address = {};
@@ -273,7 +275,7 @@ app.service('locationService', function($state) {
 					continue;
 				}
 			}
-
+			
 			if ($.inArray('postal_code', types) === 0) { // found
 				address.postcode = address_components[i].long_name;
 				if (address_components.length - 1 !== i) {
@@ -288,7 +290,17 @@ app.service('locationService', function($state) {
 			}
 		}
 	};
+	
+	ls.setBottletypes = function(B_330GLAS, B_500PET, B_750GLAS, B_1000PET, B_750TRIO, B_750PET){
 
+		if(B_330GLAS){ls.oLocation.GLAS_330 = "X";}
+		if(B_500PET){ls.oLocation.PET_500 = "X";}
+		if(B_750GLAS){ls.oLocation.GLAS_750 = "X";}
+		if(B_1000PET){ls.oLocation.PET_1000 = "X";}
+		if(B_750TRIO){ls.oLocation.TRIO_750 = "X";}
+		if(B_750PET){ls.oLocation.PET_750 = "X";}
+	};
+	
 	ls.getPaperDecision = function() {
 		return ls.oLocation.paperDecision;
 	};

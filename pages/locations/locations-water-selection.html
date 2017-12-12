@@ -3,7 +3,7 @@
 
   <div layout="row" layout-align="center end" layout-wrap>
 	 <div class="col-md-3 col-sm-4 col-xs-6" ng-value="image" ng-repeat="image in property.imageURLs">
-      <img ng-value="image" src={{image}} ng-click="selected_images[image] = {selected: !selected_images[image].selected }"
+      <img ng-value="image" src={{image}} ng-click="selected_images[image] = {selected: !selected_images[image].selected }; selected_images(image)"
       class="img-responsive" ng-class="{ 'selected-image': selected_images[image].selected }" 
     	style="max-height: 10em;" alt="" title="">
 	</div>
