@@ -22,7 +22,7 @@ All documents related to the barcheck mircoservice are linked below. <br>
 [OData & Communication](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/OData%20%26%20Communication.pdf) <br>
 [UI Element Definition](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Define_UI_Elements_for_VcA_app.pdf) <br>
 [Prototype Authentication & Firebase](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/Prototype%20Authentication%20%26%20Firebase.md)<br>
-[Testphase](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Testphase.pptx)
+[Testphase](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/Testphase.pptx)
 
 
 NOTE: Please update PDFs in projectmanagement/PDFs after changing the .pptx files!
