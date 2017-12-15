@@ -21,7 +21,8 @@ All documents related to the barcheck mircoservice are linked below. <br>
 [Prototype Data Persistence](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Prototype%20Data%20Persistence.pdf) <br>
 [OData & Communication](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/OData%20%26%20Communication.pdf) <br>
 [UI Element Definition](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Define_UI_Elements_for_VcA_app.pdf) <br>
-[Prototype Authentication & Firebase](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/Prototype%20Authentication%20%26%20Firebase.md)
+[Prototype Authentication & Firebase](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/Prototype%20Authentication%20%26%20Firebase.md)<br>
+[Testphase](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Testphase.pptx)
 
 
 NOTE: Please update PDFs in projectmanagement/PDFs after changing the .pptx files!
@@ -32,6 +33,7 @@ NOTE: Please update PDFs in projectmanagement/PDFs after changing the .pptx file
 - [AnglarJS Material](https://material.angularjs.org/latest/)
 - [Material Design Icons](https://material.io/icons/#ic_mail)
 - [Technology Choice](https://github.com/Viva-con-Agua/barcheck/blob/master/projectmanagement/PDFs/Technology%20Choice.pdf)
+- [Mixpanel](https://mixpanel.com)
 
 
 ## Used Frameworks (beside basic AngularJS)
