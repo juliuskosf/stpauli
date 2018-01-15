@@ -150,6 +150,6 @@ app.config(['$stateProvider', '$mdThemingProvider', 'uiGmapGoogleMapApiProvider'
 			templateUrl: 'pages/locations/thankyou.html'
 		})
 		.state('feedback', {
-			templateUrl: 'pages/feedback-help.html'
+			templateUrl: 'pages/feedback.html'
 		});
 }]);
