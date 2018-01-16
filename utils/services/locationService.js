@@ -5,12 +5,12 @@ app.service('locationService', function($state) {
 		ls.oLocation.decision = decision;
 	};
 
-	ls.setGeoPosition = function(lat, lng) {
+	/*ls.setGeoPosition = function(lat, lng) {
 		ls.oLocation.geoLocation = {
 			latitude: lat,
 			longitude: lng
 		};
-	};
+	}; */
 
 	ls.getAddressAsString = function() {
 		return ls.oLocation.address.street + ", " + ls.oLocation.address.city + ", Deutschland";

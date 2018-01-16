@@ -301,8 +301,8 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', 'his
 
 		// get latitude and longitude from locationService
 
-		var latitude = locationService.getGeoPosition().latitude;
-		var longitude = locationService.getGeoPosition().longitude;
+		//var latitude = locationService.getGeoPosition().latitude;
+		//var longitude = locationService.getGeoPosition().longitude;
 
 		// Data for Post
 		var data = JSON.stringify({
@@ -317,8 +317,8 @@ app.controller('SummaryController', ['$scope', '$state', 'locationService', 'his
 			WATER: locationService.getLocation().decision.already,
 			IMAGINE: locationService.getLocation().decision.imagine,
 			USER: user,
-			LATITUDE: latitude.toString(),
-			LONGITUDE: longitude.toString(),
+			//LATITUDE: latitude.toString(),
+			//LONGITUDE: longitude.toString(),
 			// BOTTLE_TYPE: locationService.getLocation().bottleIndex,
 			GLAS_330: locationService.getLocation().GLAS_330,
 			PET_500: locationService.getLocation().PET_500,
@@ -642,8 +642,8 @@ app.controller('locationsDetailCtrl', ['$rootScope', '$scope', '$state', '$mdDia
 				WATER: locationService.getSelectedLocation().decision.already,
 				IMAGINE: locationService.getSelectedLocation().decision.imagine,
 				USER: locationService.getSelectedLocation().user,
-				LATITUDE: locationService.getSelectedLocation().latitude,
-				LONGITUDE: locationService.getSelectedLocation().longitude,
+				// LATITUDE: locationService.getSelectedLocation().latitude,
+				// LONGITUDE: locationService.getSelectedLocation().longitude,
 				WHY_NOT: locationService.getLocation().reasonNoIndex,
 				WHY_NOT_BEFORE: locationService.getLocation().reasonYesIndex
 			});
