@@ -1,7 +1,6 @@
 html, body {
 	font-family: 'lato';
 	height: 100%
-	
 }
 
 html { 
@@ -24,7 +23,22 @@ md-toolbar {
     height: auto;
 }
 
-.btn {
+.inputAutoComplete {
+  padding: 10px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border: none;
+  font-family: 'lato';
+  font-weight: bold;
+  font-size: 12pt;
+  border-bottom: solid 2px;
+  border-bottom-color: rgb(230, 131, 82);
+  transition: border 0.2s;
+  background: transparent;
+  width:90%;
+}
+
+.btn_next {
 	background-color: #e20612;
 	color: white;
 	font-size: 20px;
@@ -39,7 +53,7 @@ md-toolbar {
 	width: 200px;
 }
 
-.btn_2 {
+.btn_back {
 	background-color: #624837;
 	color: white;
 	font-size: 20px;
@@ -52,6 +66,40 @@ md-toolbar {
 	border: solid;
 	outline: none;
 	width: 200px;
+}
+
+.logo_bigscreen {
+	padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    position: relative;
+    max-width: 10%;
+}
+
+.logo_smallscreen {
+	padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    width: 7em; 
+    height: auto;
+}
+
+.logo_thankyoupage {
+	padding-top: 5%;
+    margin-top: 5em;
+    width: 8em; 
+    height: auto;
+}
+
+.frame {
+	position: relative;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	border: solid;
+	border-radius: 0.25em;
+	box-shadow: 0.25em 0.25em 0.5em #888;
+	border-color: #624837;
 }
 
 .selected {
@@ -100,14 +148,7 @@ md-toolbar {
     margin-right: 0.8em;
 }
 /* home and feedback */
-.bubble2{
-	position: relative;
-	padding: 0.5em 0.5em 0.5em 0.5em;
-	border: solid;
-	border-radius: 0.25em;
-	box-shadow: 0.25em 0.25em 0.5em #888;
-	border-color: #624837;
-}
+
 
 .gridIcons {
 	background-color: #FFD600;
@@ -229,22 +270,6 @@ md-toolbar {
 .progressbar {
 	padding-top: 25px;
     padding-bottom: 20px;
-}
-
-/* Autocomplete text field */
-.style-4 {
-  padding: 10px;
-  margin-top: 2em;
-  margin-bottom: 2em;
-  border: none;
-  font-family: 'lato';
-  font-weight: bold;
-  font-size: 12pt;
-  border-bottom: solid 2px;
-  border-bottom-color: rgb(230, 131, 82);
-  transition: border 0.2s;
-  background: transparent;
-  width:90%;
 }
 
 .btn1 {

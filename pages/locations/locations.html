@@ -1,18 +1,17 @@
-<div layout="column" layout-align="center center">
+<div layout="column" layout-align="center center" ng-controller="autoCompleteController">
 	<img class="header" hide-gt-sm flex src="sources/img/header/header_locations.png"/>
-</div>
-<div layout="column" layout-align="center center" ng-controller="TestCtrl">
-	<input type="text" id="Autocomplete" ng-model="autocomplete" 
-		class="style-4" ng-autocomplete options="options1" details="details1" initial-address="initialAddress" placeholder = "Enter name or address"/>
-	<br>
-	<footer>
-        <div layout="column" layout-align="center center">
-            <md-button class='btn' ng-click="save()">
-				search
-            </md-button>
-            <md-button class='btn_2' ng-click="goBack()">
-				back
-            </md-button>
-        </div>
-   </footer>
+	<div layout="column" layout-align="center center">
+		<input type="text" id="Autocomplete" ng-model="autocomplete" 
+			class="inputAutoComplete" ng-autocomplete options="options1" details="details1" initial-address="initialAddress" placeholder = "Enter name or address"/>
+		<footer>
+			<div layout="column" layout-align="center center">
+				<md-button class='btn_next' ng-click="save()">
+					search
+				</md-button>
+				<md-button class='btn_back' ng-click="goBack()">
+					back
+				</md-button>
+			</div>
+		</footer>
+	</div>
 </div>

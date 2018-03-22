@@ -2,12 +2,12 @@
   "welcomeFile": "index.html",
   "routes": [
     {
-      "path": "/destinations/vca",
+      "path": "/destinations/fcstpauli",
       "target": {
         "type": "destination",
-        "name": "vca"
+        "name": "fcstpauli"
       },
-      "description": "vca"
+      "description": "fcstpauli"
     }
   ],
   "authenticationMethod": "none",

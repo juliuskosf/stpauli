@@ -1,4 +1,4 @@
-app.controller('mapController', function($scope, $element, NgMap) {
+app.controller("mapController", function($scope, $element, NgMap) {
 
 	$scope.showNavigation(true);
 
@@ -7,7 +7,7 @@ app.controller('mapController', function($scope, $element, NgMap) {
 		    return $scope.createMarker(location);
 		});*/
 		var mcOptions = {
-			imagePath: 'https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/images/m'
+			imagePath: "https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/images/m"
 		};
 		$scope.markerCluster = new MarkerClusterer($scope.map, $scope.markers, mcOptions);
 	};
@@ -15,16 +15,16 @@ app.controller('mapController', function($scope, $element, NgMap) {
 	// define the array of categories
 
 	//	$scope.categories = [0, 1, 2, 3, 4, 5];
-	$scope.categories = ['bar', 'club', 'café', 'restaurant', 'shop', 'other'];
-	$scope.selected = ['bar'];
+	$scope.categories = ["fanshop", "fankneipe", "fanclub", "other"];
+	// $scope.selected = ["fanshop"];
 
 	$scope.searchTerm;
 	$scope.clearSearchTerm = function() {
-		$scope.searchTerm = '';
+		$scope.searchTerm = "";
 	};
 	// The md-select directive eats keydown events for some quick select
 	// logic. Since we have a search input here, we don't need that logic.
-	$element.find('input').on('keydown', function(ev) {
+	$element.find("input").on("keydown", function(ev) {
 		ev.stopPropagation();
 	});
 
@@ -33,7 +33,6 @@ app.controller('mapController', function($scope, $element, NgMap) {
 
 	$scope.filterChanged = function(category) {
 		var idx = selectedCategories.indexOf(category);
-		console.log(idx);
 		if (idx > -1) {
 			selectedCategories.splice(idx, 1);
 		} else {
@@ -48,7 +47,6 @@ app.controller('mapController', function($scope, $element, NgMap) {
 		for (var i = 0; i < selectedCategories.length; i++) {
 			// selectedCategory = selectedCategories[i];
 			var selectedCategory = $scope.categories.indexOf(selectedCategories[i]);
-			console.log(selectedCategory);
 			for (var j = 0; j < $scope.allLocations.length; j++) {
 				location = $scope.allLocations[j];
 				if (location.CATEGORYID === selectedCategory) {
@@ -66,31 +64,27 @@ app.controller('mapController', function($scope, $element, NgMap) {
 			position: new google.maps.LatLng(location.LATITUDE, location.LONGITUDE),
 			title: location.NAME,
 			icon: {
-				url: '/sources/img/icons/dropgmarkerblue.png',
+				url: "/sources/img/icons/marker.png",
 				scaledSize: new google.maps.Size(42, 68)
 			}
 		});
 
-		google.maps.event.addListener(marker, 'click', function() {
+		google.maps.event.addListener(marker, "click", function() {
 			$scope.selectedLocation = location;
-			$scope.map.showInfoWindow('myInfoWindow', this);
+			$scope.map.showInfoWindow("myInfoWindow", this);
 		});
 		$scope.markers.push(marker);
 	};
 
 	NgMap.getMap().then(function(map) {
-		
-		/* NOTE: This fix determines the position (or sets default) first and then assigns
-				 map to $scope.map
-				
-				 The position is handed over to the ngMap 'center' property through
-				 $scope.latitude and $scope.longitude
-		*/
-		
+/* 
+		NOTE: This fix determines the position (or sets default) first and then assigns map to $scope.map
+		The position is handed over to the ngMap 'center' property through $scope.latitude and $scope.longitude
+*/
 		function getMarkers() {
 			$.ajax({
 				type: "GET",
-				url: "/destinations/vca/VivaConAgua/location.xsodata/Location",
+				url: "/destinations/fcstpauli/FcStPauli/location.xsodata/Location",
 				cache: false,
 				dataType: "json",
 				error: function(msg, textStatus) {
