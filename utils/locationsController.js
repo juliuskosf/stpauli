@@ -331,6 +331,7 @@ app.controller("SummaryController", ["$scope", "$state", "locationService", "his
 			contentType: "application/json;charset=unicode",
 			error: function(msg, textStatus) {
 				console.log(data);
+				console.log(msg);
 				// TODO: Error handling
 			},
 			success: function(data) {
