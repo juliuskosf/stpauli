@@ -1,52 +1,6 @@
-app.config(['$stateProvider', '$mdThemingProvider', 'uiGmapGoogleMapApiProvider', function($stateProvider, $mdThemingProvider,
+app.config(["$stateProvider", "$mdThemingProvider", "uiGmapGoogleMapApiProvider", function($stateProvider, $mdThemingProvider,
 	uiGmapGoogleMapApiProvider) {
 
-	/*var customPrimary = {
-        '50': '#3faad2', // light blue
-        '100': '#295a78', // dark blue
-        '200': '#95a6b3' // blue grey
-    };
-    $mdThemingProvider
-        .definePalette('customPrimary', 
-                        customPrimary);
-
-    var customAccent = {
-        '50': '	#e68352', //oragnge
-        '100': '#ecce7a', //yellow
-        '200': '#199f81' //green
-    };
-    $mdThemingProvider
-        .definePalette('customAccent', 
-                        customAccent);
-
-    /* var customWarn = {
-        '50': '#ffb280',
-        '100': '#ffa266'
-    };
-    $mdThemingProvider
-        .definePalette('customWarn', 
-                        customWarn);
-
-    var customBackground = {
-        '50': '#737373',
-        '100': '#666666' 
-    };
-    $mdThemingProvider
-        .definePalette('customBackground', 
-                        customBackground); */
-
-  /* $mdThemingProvider.theme('default')
-       .primaryPalette('customPrimary')
-       .accentPalette('customAccent')
-       .warnPalette('customWarn')
-       .backgroundPalette('customBackground');
-*/
-		
-	// (obsolete) Provide google api key
-	uiGmapGoogleMapApiProvider.configure({
-		key: "AIzaSyCz8oF7ATzPWSx8hQEWeAXjR2um3VUtod4"
-		// for barcheck.po@gmail.com Google Dev account
-	});
 	// Extend the exitsing color palettes with new additional coors
 		var newBlueMap = $mdThemingProvider.extendPalette("blue", {
 	    "500": "#3faad2",

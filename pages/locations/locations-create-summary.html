@@ -1,4 +1,4 @@
-<h3 layout-align="center center" class=" textcenter why3 textGrayBlue">Your summary:</h3>
+<h3 layout-align="center center" class=" textcenter textGrayBlue">Your summary:</h3>
 <!--For small screens-->
 <div ng-controller="SummaryController" hide-gt-sm layout="column" layout-align="center center" >
 	<h1 class= "textcenter">
@@ -23,7 +23,9 @@
 </div>
 <footer>
 	<div ng-controller="SummaryController" layout="column" layout-align="center center">
-		<md-button ng-click="saveLocationInfo()" class="btn_next">save</md-button>
+		<md-button ng-click="saveLocationInfo()" class="btn_next">
+			save
+		</md-button>
 		<md-button class='btn_back' ng-click="goBack()">
 			back
 		</md-button>

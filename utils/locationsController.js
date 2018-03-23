@@ -18,7 +18,7 @@ app.controller("LocationSearchCtrl", ["$scope", "$state", "locationService", "de
 
 // ---------------------------------------------------------------------------------------------------------------------------------
 
-app.controller("ManualAdressCtrl", ["$scope", "$state", "$mdDialog", "locationService", "historyService", function($scope, $state,
+app.controller("manualAddressController", ["$scope", "$state", "$mdDialog", "locationService", "historyService", function($scope, $state,
 	$mdDialog, locationService, historyService) {
 		
 	$scope.locationName = locationService.getLocationName();
@@ -287,30 +287,38 @@ app.controller("SummaryController", ["$scope", "$state", "locationService", "his
 
 		// Data for Post
 		var data = JSON.stringify({
-/*
+
 			ID: "1000",
-			CAPS_NAME: locationService.getLocation().name.toUpperCase(),
-			NAME: locationService.getLocation().name.replace(/'/g, '´'),
-			STREET: locationService.getLocation().address.street,
-			AADDRESS: "",
-			POSTCODE: locationService.getLocation().address.postcode,
-			CITY: locationService.getLocation().address.city,
-			CATEGORYID: locationService.getLocation().categoryIndex,
-			WATER: locationService.getLocation().decision.already,
-			IMAGINE: locationService.getLocation().decision.imagine,
-			USER: user,
-			LATITUDE: latitude.toString(),
-			LONGITUDE: longitude.toString(),
-			BOTTLE_TYPE: locationService.getLocation().bottleIndex,
-			GLAS_330: locationService.getLocation().GLAS_330,
-			PET_500: locationService.getLocation().PET_500,
-			GLAS_750: locationService.getLocation().GLAS_750,
-			PET_1000: locationService.getLocation().PET_1000,
-			TRIO_750: locationService.getLocation().TRIO_750,
-			PET_750: locationService.getLocation().PET_750,
-			WHY_NOT: locationService.getLocation().reasonNoIndex,
-			WHY_NOT_BEFORE: locationService.getLocation().reasonYesIndex
-*/
+			// CAPS_NAME: locationService.getLocation().name.toUpperCase(),
+// 			NAME: locationService.getLocation().name.replace(/'/g, '´'),
+// 			STREET: locationService.getLocation().address.street,
+// //			AADDRESS: "",
+// 			POSTCODE: locationService.getLocation().address.postcode,
+// 			CITY: locationService.getLocation().address.city,
+// 			CATEGORYID: locationService.getLocation().categoryIndex,
+			// WATER: locationService.getLocation().decision.already,
+			// IMAGINE: locationService.getLocation().decision.imagine,
+			// USER: user,
+			NAME: "aBC1",
+			STREET: "ADJLKSA",
+			POSTCODE: 43124,
+			CITY: "HAMBURG",
+			CATEGORYID: 2,
+			USER: "123",
+			// LATITUDE: latitude.toString(),
+			// LONGITUDE: longitude.toString()
+			LATITUDE: "3434345",
+			LONGITUDE: "44565"
+// 			BOTTLE_TYPE: locationService.getLocation().bottleIndex,
+// 			GLAS_330: locationService.getLocation().GLAS_330,
+// 			PET_500: locationService.getLocation().PET_500,
+// 			GLAS_750: locationService.getLocation().GLAS_750,
+// 			PET_1000: locationService.getLocation().PET_1000,
+// 			TRIO_750: locationService.getLocation().TRIO_750,
+// 			PET_750: locationService.getLocation().PET_750,
+// 			WHY_NOT: locationService.getLocation().reasonNoIndex,
+// 			WHY_NOT_BEFORE: locationService.getLocation().reasonYesIndex
+// */
 		});
 
 		// POST
