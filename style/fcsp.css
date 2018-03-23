@@ -73,7 +73,7 @@ md-toolbar {
 }
 
 .btn_back:hover {
-	background-color: #e624837 !important;
+	background-color: #624837 !important;
 }
 
 .logo_bigscreen {
@@ -234,6 +234,11 @@ md-toolbar {
     width: 7em; 
     height: auto;
 }
+
+.md-media-sm.card-media {
+	background-color: rgb(236,206,122); 
+	padding: 10px ; 
+}
  /* for SMALL and MEDUIM screens */
 /*.logo_2 {*/
 /*	padding-top: 2%;*/
@@ -311,22 +316,7 @@ md-toolbar {
 	border-color: rgb(149,166,179);
 	width: 300px;
 }*/
-.btn_login {
-	background-color:transparent;
-	color: white;
-	font-size: 20px;
-	font-weight: bold;
-	padding: 0 6px 0 6px;
-	margin: 6px 8px 6px 8px;
-	border-radius: 20px;
-	text-align: center;
-	text-transform: uppercase;
-	border: solid;
-	outline: none;
-	width: 200px;
-}
-
- tick am ende SMALL screen 
+ /*tick am ende SMALL screen */
 .tick {
 	padding-top: 5%;
     padding-bottom: 2%;

@@ -1,14 +1,22 @@
-<div layout="column" layout-align="center center">
+<div layout="column" layout-align="center center" controller="addressNotFoundController"> <!-- Controller liegt in locationsController -->
+Address not found
 	<img class="header flex" src="sources/img/header/header_locations.png"/>
 	<div layout="row" layout-align="center center">
-		<!--<md-card class="bubble2">-->
 		<md-card class="frame">
-			<md-button ui-sref="locations-manual-adress">
-				<md-text>
-					This location could not be found!<br>
-					Click here to enter the location manually!
-				</md-text>
-			</md-button>
+			<div class="textcenter">
+				This location could not be found!
+			</div>
 		</md-card>
-   	</div>
+	</div>
+	<br>
+	<footer>
+		<div layout="column" layout-align="center center">
+			<md-button class="btn_next" ui-sref="locations-manual-address">
+				create
+			</md-button>
+			<md-button class='btn_back' ui-sref="locations">
+				back
+			</md-button>
+		</div>
+	</footer>
 </div>

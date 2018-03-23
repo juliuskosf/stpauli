@@ -1,4 +1,5 @@
 <div layout="column" layout-align="center center" ng-controller="locationSearchController">
+	locations search result
 	<img class="header flex" src="sources/img/header/header_locations.png"/>
 	<div layout="column" layout-align="center center">
 		<md-list flex>
@@ -18,9 +19,10 @@
 			</md-card>
 		</md-list>
 	</div>
+	<br>
 	<footer>
 		<div layout="column" layout-align="center center">
-			<md-button class="btn_next" ui-sref="locations-create-category">
+			<md-button class="btn_next" ng-click="create()">
 				create
 			</md-button>
 			<md-button class="btn_back" ng-click="goBack()">

@@ -66,8 +66,8 @@ app.config(["$stateProvider", "$mdThemingProvider", "uiGmapGoogleMapApiProvider"
 		.state("locations-create-information", {
 			templateUrl: "pages/locations/locations-create-information.html"
 		})
-		.state("locations-manual-adress", {
-			templateUrl: "pages/locations/manual-adress-form.html"
+		.state("locations-manual-address", {
+			templateUrl: "pages/locations/manual-address-form.html"
 		})
 		.state("address-not-found", {
 			templateUrl: "pages/locations/address-not-found.html"

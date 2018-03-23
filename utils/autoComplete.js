@@ -14,7 +14,7 @@ app.controller("autoCompleteController", ["$state", "$scope", "locationService",
 	
 	$scope.showNavigation(true);
 	// saves the location info before moving forward
-	$scope.save = function() {
+	$scope.search = function() {
 		if ($scope.details1.name === undefined || locationService.convertGoogleAddressToObjectAddress($scope.details1.address_components) === undefined) {
 			$state.go("address-not-found");
 		} else {

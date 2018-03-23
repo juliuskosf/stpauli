@@ -365,6 +365,10 @@ app.controller("locationSearchController", ["$scope", "locationService", "$state
 			locationService.setSelectedLocation(id);
 		};
 
+		$scope.create = function() {
+			$state.go("locations-create-category");
+		};
+
 		$scope.goBack = function() {
 			locationService.resetSelectedLocation();
 			historyService.setNavigatedBack(1);
