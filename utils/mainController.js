@@ -4,23 +4,20 @@ app.controller("MainController", ["$state", "$scope", "$mdDialog", "$timeout", "
 		
 		var showLoginDialog = function(ev) {
 			$mdDialog.show({
-				controller: "LoginCtrl",
+				controller: "loginController",
 				templateUrl: "auth/login.html",
 				escapeToClose: false,
 				parent: angular.element(document.body),
 				targetEvent: ev
 			});
 		};
-
 		var setCurrentUser = function() {
 			$scope.showNavigation(true);
 			$scope.currentUser = $rootScope.currentUser;
 			$state.go("home"); 
 			$mdDialog.hide();
 		};
-	
-		// Initial start
-		// Home
+		// Initial start; -> home
 		$state.go("start"); 
 	
 		function switchBackground(to) {
@@ -40,7 +37,6 @@ app.controller("MainController", ["$state", "$scope", "$mdDialog", "$timeout", "
 		switchBackground("dark");
 
 		//showLoginDialog()
-
 		$scope.logout = function() {
 			firebase.auth().signOut().then(
 				function() {
@@ -50,7 +46,6 @@ app.controller("MainController", ["$state", "$scope", "$mdDialog", "$timeout", "
 				// TBD
 			});
 		};
-
 		$scope.toggleLeft = buildToggler("left");
 
 		function buildToggler(componentId) {
@@ -61,13 +56,11 @@ app.controller("MainController", ["$state", "$scope", "$mdDialog", "$timeout", "
 		}
 		
 		$scope.navigation = true; // Default visibility state
-
         $scope.showNavigation = function(show) {
             $scope.navigation = show;
         };
 		$rootScope.$on(AUTH_EVENTS.logoutSuccess, showLoginDialog);
 		$rootScope.$on(AUTH_EVENTS.loginSuccess, setCurrentUser);
-
 		// For progress bar
 		$rootScope.$on("$stateChangeStart",
 			function(event, toState, toParams, fromState, fromParams) {

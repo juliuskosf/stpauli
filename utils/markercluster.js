@@ -1,36 +1,25 @@
 app.controller("mapController", function($scope, $element, NgMap) {
 
 	$scope.showNavigation(true);
-
 	$scope.initMarkerClusterer = function() {
-		/*var markers = $scope.locatons.map(function (location) {
-		    return $scope.createMarker(location);
-		});*/
 		var mcOptions = {
 			imagePath: "https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/images/m"
 		};
 		$scope.markerCluster = new MarkerClusterer($scope.map, $scope.markers, mcOptions);
 	};
 
-	// define the array of categories
-
-	//	$scope.categories = [0, 1, 2, 3, 4, 5];
-	$scope.categories = ["fanshop", "fankneipe", "fanclub", "other"];
-	// $scope.selected = ["fanshop"];
-
+	// Definition of category array	
+	$scope.categories = ["fan shop", "fan bar", "fan club", "other"];
 	$scope.searchTerm;
 	$scope.clearSearchTerm = function() {
 		$scope.searchTerm = "";
 	};
-	// The md-select directive eats keydown events for some quick select
-	// logic. Since we have a search input here, we don't need that logic.
 	$element.find("input").on("keydown", function(ev) {
 		ev.stopPropagation();
 	});
 
-	// create an empty variable for the categories which will be selected
+	// Creation of empty variable for categories to be selected 
 	var selectedCategories = [];
-
 	$scope.filterChanged = function(category) {
 		var idx = selectedCategories.indexOf(category);
 		if (idx > -1) {
@@ -38,14 +27,10 @@ app.controller("mapController", function($scope, $element, NgMap) {
 		} else {
 			selectedCategories.push(category);
 		}
-
 		$scope.markerCluster.clearMarkers();
-
 		$scope.markers = [];
-
 		var location = {};
 		for (var i = 0; i < selectedCategories.length; i++) {
-			// selectedCategory = selectedCategories[i];
 			var selectedCategory = $scope.categories.indexOf(selectedCategories[i]);
 			for (var j = 0; j < $scope.allLocations.length; j++) {
 				location = $scope.allLocations[j];
@@ -68,7 +53,6 @@ app.controller("mapController", function($scope, $element, NgMap) {
 				scaledSize: new google.maps.Size(42, 68)
 			}
 		});
-
 		google.maps.event.addListener(marker, "click", function() {
 			$scope.selectedLocation = location;
 			$scope.map.showInfoWindow("myInfoWindow", this);
@@ -101,34 +85,31 @@ app.controller("mapController", function($scope, $element, NgMap) {
 		}
 
 		function showPosition(position) {
-			// standard geolocation successHandler
+			// Standard geolocation successHandler
 			$scope.longitude = position.coords.longitude;
 			$scope.latitude = position.coords.latitude;
-			// assign the map after determining the position
+			// Assign the map after determining the position
 			$scope.map = map;
-			// at the end load markers
+			// Load markers
 			getMarkers();
 		}
 
 		function errorHandler() {
-			// set position to Hamburg
+			// Set position to Hamburg
 			$scope.longitude = 9.993682;
 			$scope.latitude = 53.551085;
-			// then assign map
+			// Assign map
 			$scope.map = map;
-			// and get markers
+			// Get markers
 			getMarkers();
-			// following should be replaced with UI information
+			// Following should be replaced with UI information
 			console.log("Error");
 		}
 
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(showPosition, errorHandler);
-			// function gets following parameters: getCurrentPosition(successHandler, errorHandler)
 		} else {
 			errorHandler(); // call the errorHandler too in case the browser doesn't support native GeoLocation
 		}
-
 	});
-
 });

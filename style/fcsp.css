@@ -1,5 +1,5 @@
 html, body {
-	font-family: 'lato';
+	font-family: "lato";
 	height: 100%
 }
 
@@ -38,7 +38,7 @@ md-toolbar {
   width:90%;
 }
 
-.btn_next {
+.btn_next{
 	background-color: #e20612;
 	color: white;
 	font-size: 20px;
@@ -51,6 +51,10 @@ md-toolbar {
 	border: solid;
 	outline: none;
 	width: 200px;
+}
+
+.btn_next:hover {
+	background-color: #e20612 !important;
 }
 
 .btn_back {
@@ -66,6 +70,10 @@ md-toolbar {
 	border: solid;
 	outline: none;
 	width: 200px;
+}
+
+.btn_back:hover {
+	background-color: #e624837 !important;
 }
 
 .logo_bigscreen {
@@ -227,41 +235,41 @@ md-toolbar {
     height: auto;
 }
  /* for SMALL and MEDUIM screens */
-.logo_2 {
-	padding-top: 2%;
-    padding-bottom: 2%;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    position: relative;
-    max-width: 30%;
-    height: auto;
-}
+/*.logo_2 {*/
+/*	padding-top: 2%;*/
+/*    padding-bottom: 2%;*/
+/*    margin-top: 1em;*/
+/*    margin-bottom: 0.5em;*/
+/*    position: relative;*/
+/*    max-width: 30%;*/
+/*    height: auto;*/
+/*}*/
 /* logo for presentation page SMALL screen */
-.logo_3 {
-	padding-top: 10%;
-    padding-bottom: 5%;
-    margin-top: 1em;
-    position: relative;
-    max-width: 40%; 
-    height: auto;
-}
+/*.logo_3 {*/
+/*	padding-top: 10%;*/
+/*    padding-bottom: 5%;*/
+/*    margin-top: 1em;*/
+/*    position: relative;*/
+/*    max-width: 40%; */
+/*    height: auto;*/
+/*}*/
 
-.logo_4 {
-	padding-top: 5%;
-    padding-bottom: 5%;
-    margin-top: 1em;
-    position: relative;
-    max-width: 100%; 
-    height: auto;
-}
+/*.logo_4 {*/
+/*	padding-top: 5%;*/
+/*    padding-bottom: 5%;*/
+/*    margin-top: 1em;*/
+/*    position: relative;*/
+/*    max-width: 100%; */
+/*    height: auto;*/
+/*}*/
 
 /* final drop on Thank you page SMALL */
-.logo_5 {
-	padding-top: 5%;
-    margin-top: 5em;
-    width: 8em; 
-    height: auto;
-}
+/*.logo_5 {*/
+/*	padding-top: 5%;*/
+/*    margin-top: 5em;*/
+/*    width: 8em; */
+/*    height: auto;*/
+/*}*/
 
 .googlemaps {
     padding-top: 5%;
@@ -318,7 +326,7 @@ md-toolbar {
 	width: 200px;
 }
 
-/* tick am ende SMALL screen */
+ tick am ende SMALL screen 
 .tick {
 	padding-top: 5%;
     padding-bottom: 2%;
@@ -341,25 +349,25 @@ md-card.new {
 	margin-top: 10%;
 }
 
-/*.icon-image {*/
-/*    position: relative;*/
-/*    max-width: 105%;*/
-/*    height: auto;*/
-/*}*/
+.icon-image {
+    position: relative;
+    max-width: 105%;
+    height: auto;
+}
 
-/*.icon-image2 {*/
-/*    position: relative;*/
-/*    margin:0.2em;*/
-/*    max-width: 50%;*/
-/*    height: auto;*/
-/*}*/
+.icon-image2 {
+    position: relative;
+    margin:0.2em;
+    max-width: 50%;
+    height: auto;
+}
 
-/*.icon-image3 {*/
-/*    position: relative;*/
-/*    margin:0.2em;*/
-/*    width: 30%;*/
-/*    height: auto;*/
-/*}*/
+.icon-image3 {
+    position: relative;
+    margin:0.2em;
+    width: 30%;
+    height: auto;
+}
 
 .selected-image {
   border: 3px solid rgb(63,170,210);
@@ -421,18 +429,18 @@ md-input-container.upgrade {
 .selectdemoSelectHeader md-content._md {
     max-height: 240px; }
     
-/*.why {*/
-/*	margin-top: 3em;*/
-/*    margin-bottom: 2em;*/
-/*}*/
+.why {
+	margin-top: 3em;
+    margin-bottom: 2em;
+}
 
-/*.why2 {*/
-/*	margin-top: 3em;*/
-/*}*/
+.why2 {
+	margin-top: 3em;
+}
 
-/*.why3 {*/
-/*	margin-top: 1.5em;*/
-/*}*/
+.why3 {
+	margin-top: 1.5em;
+}
 
 h3.update {
 	-webkit-margin-before: 0.5em;

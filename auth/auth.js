@@ -1,4 +1,4 @@
-app.controller("LoginCtrl", ["scope", "$state", "$mdDialog", "$rootScope", "AUTH_EVENTS", function($scope, $state, $mdDialog, $rootScope, AUTH_EVENTS) {
+app.controller("loginController", ["scope", "$state", "$mdDialog", "$rootScope", "AUTH_EVENTS", function($scope, $state, $mdDialog, $rootScope, AUTH_EVENTS) {
 	$scope.login = function() {
 		var email = $scope.email;
 		var password = $scope.password;

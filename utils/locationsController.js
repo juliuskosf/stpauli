@@ -287,38 +287,15 @@ app.controller("SummaryController", ["$scope", "$state", "locationService", "his
 
 		// Data for Post
 		var data = JSON.stringify({
-
 			ID: "1000",
-			// CAPS_NAME: locationService.getLocation().name.toUpperCase(),
-// 			NAME: locationService.getLocation().name.replace(/'/g, '´'),
-// 			STREET: locationService.getLocation().address.street,
-// //			AADDRESS: "",
-// 			POSTCODE: locationService.getLocation().address.postcode,
-// 			CITY: locationService.getLocation().address.city,
-// 			CATEGORYID: locationService.getLocation().categoryIndex,
-			// WATER: locationService.getLocation().decision.already,
-			// IMAGINE: locationService.getLocation().decision.imagine,
-			// USER: user,
-			NAME: "aBC1",
-			STREET: "ADJLKSA",
-			POSTCODE: 43124,
-			CITY: "HAMBURG",
-			CATEGORYID: 2,
-			USER: "123",
-			// LATITUDE: latitude.toString(),
-			// LONGITUDE: longitude.toString()
-			LATITUDE: "3434345",
-			LONGITUDE: "44565"
-// 			BOTTLE_TYPE: locationService.getLocation().bottleIndex,
-// 			GLAS_330: locationService.getLocation().GLAS_330,
-// 			PET_500: locationService.getLocation().PET_500,
-// 			GLAS_750: locationService.getLocation().GLAS_750,
-// 			PET_1000: locationService.getLocation().PET_1000,
-// 			TRIO_750: locationService.getLocation().TRIO_750,
-// 			PET_750: locationService.getLocation().PET_750,
-// 			WHY_NOT: locationService.getLocation().reasonNoIndex,
-// 			WHY_NOT_BEFORE: locationService.getLocation().reasonYesIndex
-// */
+			NAME: locationService.getLocation().name.replace(/'/g, "´"),
+			STREET: locationService.getLocation().address.street,
+			POSTCODE: locationService.getLocation().address.postcode,
+			CITY: locationService.getLocation().address.city,
+			CATEGORYID: locationService.getLocation().categoryIndex,
+			USER: user,
+			LATITUDE: latitude.toString(),
+			LONGITUDE: longitude.toString()
 		});
 
 		// POST
@@ -330,13 +307,11 @@ app.controller("SummaryController", ["$scope", "$state", "locationService", "his
 			cache: false,
 			contentType: "application/json;charset=unicode",
 			error: function(msg, textStatus) {
-				console.log(data);
 				console.log(msg);
 				// TODO: Error handling
 			},
 			success: function(data) {
-				console.log(data)
-					// TODO: Success handling
+				// TODO: Success handling
 			}
 		});
 		// jump to final state
