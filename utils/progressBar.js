@@ -11,8 +11,5 @@ app.config(function($mdThemingProvider) {
     self.determinateValue3 = 75;
     self.determinateValue4 = 100;
     
-
     self.showList = [ ];
-
- 
   }]);

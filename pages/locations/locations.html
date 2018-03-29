@@ -1,37 +1,18 @@
-<div layout="column" layout-align="center center">
-	<img class="vcalogo4 flex" src="sources/img/header/this_is_location.png"/>
-	
-	
-	<!--<md-card class="new">
-	<md-card-title>
-		<md-card-title-text>
-			<span class="md-headline textcenter">LOCATIONS</span>
-		</md-card-title-text>
-		<md-card-title-media>
-			<img ng-src="sources/img/Locations_yel.png" style="" class="md-media-sm card-media"/>
-		</md-card-title-media>
-	</md-card-title>
-	</md-card>
-</div> -->
-
-<div layout="column" layout-align="center center" ng-controller="TestCtrl">
-		<!-- <img class="vcalogo2"  hide-gt-sm flex src="sources/img/vcalogo_blue.png"/>
-		<img class="drop" hide show-gt-sm flex src="sources/img/vcalogo_blue.png"/> -->
-
-
-	<input type="text" id="Autocomplete" ng-model="autocomplete" 
-      class="style-4" ng-autocomplete options="options1" details="details1" initial-address="initialAddress" placeholder = "ENTER NAME OR ADDRESS"/>
-	<br>
-	
-	
-  <footer>
-        <div layout="column" layout-align="center center">
-            <md-button class='btn2' ng-click="save()">
-            	search
-            </md-button>
-            <md-button class='btn1' ng-click="goBack()">
-            	back
-            </md-button>
-        </div>
-   </footer>
+<div layout="column" layout-align="center center" ng-controller="autoCompleteController"> <!-- Controller liegt in autoComplete.js -->
+<!--locations-->
+	<img class="header flex" src="sources/img/header/header_locations.png"/>
+	<div layout="column" layout-align="center center">
+		<input type="text" id="Autocomplete" ng-model="autocomplete" 
+			class="inputAutoComplete" ng-autocomplete options="options1" details="details1" initial-address="initialAddress" placeholder = "Enter name or address"/>
+	</div>
+	<footer>
+		<div layout="column" layout-align="center center">
+			<md-button class='btn_next' ng-click="search()">
+				search
+			</md-button>
+			<md-button class='btn_back' ng-click="goBack()">
+				back
+			</md-button>
+		</div>
+	</footer>
 </div>

@@ -1,0 +1,34 @@
+<div layout="column" layout-fill ng-controller="manualAddressController"> <!-- Controller liegt in locationsController.js" -->
+manual address form
+	<img class="header flex" src="sources/img/header/header_locations.png"/>
+	<h3 class = "textcenter textGrayBlue">Address</h3>
+	<md-input-container>
+		<input type="text" placeholder="Name" ng-model="locationName" name="nameInput">
+	</md-input-container>
+	<form name="formName">
+		<div layout="row">
+			<md-input-container>
+				<input placeholder="Street" ng-model="streetModel" >
+			</md-input-container>
+		</div>
+		<div layout="row">
+			<md-input-container>
+				<input type="number" maxlength="5" minlength="4" placeholder="ZIP code" ng-model="postcodeModel" >
+			</md-input-container>
+			<md-input-container>
+				<input placeholder="City" ng-model="cityModel" >
+			</md-input-container>
+		</div>
+	</form>
+	<br>
+	<footer>
+		<div layout="column" layout-align="center center">
+			<md-button class="btn_next" ng-click="showConfirm($event)" ng-disabled="manualAddressForm.$invalid">
+				continue
+			</md-button>
+			<md-button class='btn_back' ng-click="goBack()">
+				back
+			</md-button>
+        </div>
+    </footer>
+</div>

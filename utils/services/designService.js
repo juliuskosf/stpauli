@@ -37,22 +37,16 @@ app.service('designService', function($state) {
 	};
 
 	ds.tiles = [{
-		src: "sources/img/categories_btn/Beer_btn.svg",
-		name: "bar"
-	}, {
-		src: "sources/img/categories_btn/Disco_btn.svg",
-		name: "club"
-	}, {
-		src: "sources/img/categories_btn/Cafe_btn.svg",
-		name: "café"
-	}, {
-		src: "sources/img/categories_btn/Restaurant_btn.svg",
-		name: "restaurant"
-	}, {
-		src: "sources/img/categories_btn/Shopping_btn.svg",
+		src: "sources/img/categories_btn/category_fanshop.svg",
 		name: "shop"
 	}, {
-		src: "sources/img/categories_btn/Question_btn.svg",
+		src: "sources/img/categories_btn/category_bar.svg",
+		name: "bar"
+	}, {
+		src: "sources/img/categories_btn/category_fanclub.svg",
+		name: "club"
+	}, {
+		src: "sources/img/categories_btn/category_questionmark.svg",
 		name: "other"
 	}];
 
