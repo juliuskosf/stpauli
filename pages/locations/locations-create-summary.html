@@ -1,34 +1,38 @@
-<h3 layout-align="center center" class=" textcenter textGrayBlue">Your summary:</h3>
-Locations create summary
-<!--For small screens-->
-<div ng-controller="SummaryController" hide-gt-sm layout="column" layout-align="center center" >
-	<h1 class= "textcenter">
-		<span class="md-headline"><b>{{location.name}} </b></span>
-	</h1>
-	<p class= "textcenter">
-		{{location.address.street}}<br>
-		<span ng-if="location.address.additionalAddress">{{location.address.additionalAddress}}<br></span>
-		{{location.address.postcode}} {{location.address.city}}
-	</p>
+<div layout="column" layout-align="center center"> 
+	<img class="header flex" src="sources/img/header/header_locations.png"/>
+	<h3 layout-align="center center" class=" textcenter textGrayBlue">Your summary:</h3>
+	<!--Locations create summary-->
+	<!--For small screens-->
+	<div ng-controller="SummaryController" hide-gt-sm layout="column" layout-align="center center" >
+		<h1 class= "textcenter">
+			<span class="md-headline"><b>{{location.name}} </b></span>
+		</h1>
+		<p class= "textcenter">
+			{{location.address.street}}<br>
+			<span ng-if="location.address.additionalAddress">{{location.address.additionalAddress}}<br></span>
+			{{location.address.postcode}} {{location.address.city}}
+		</p>
+	</div>
+	<!--For big screens-->
+	<div ng-controller="SummaryController" hide show-gt-sm layout="column" >
+		<h1 class="textcenter">
+			<span class="md-headline"><b>{{location.name}}</b></span>
+		</h1>
+		<p class= "textcenter">
+			{{location.address.street}}<br>
+			<span ng-if="location.address.additionalAddress">{{location.address.additionalAddress}}<br></span>
+			{{location.address.postcode}} {{location.address.city}}<br>
+		</p>
+	</div>
+	<br>
+	<footer>
+		<div ng-controller="SummaryController" layout="column" layout-align="center center">
+			<md-button ng-click="saveLocationInfo()" class="btn_next">
+				save
+			</md-button>
+			<md-button class='btn_back' ng-click="goBack()">	
+				back
+			</md-button>
+		</div>
+	</footer>
 </div>
-<!--For big screens-->
-<div ng-controller="SummaryController" hide show-gt-sm layout="column" >
-	<h1 class="textcenter">
-		<span class="md-headline"><b>{{location.name}}</b></span>
-	</h1>
-	<p class= "textcenter">
-		{{location.address.street}}<br>
-		<span ng-if="location.address.additionalAddress">{{location.address.additionalAddress}}<br></span>
-		{{location.address.postcode}} {{location.address.city}}<br>
-	</p>
-</div>
-<footer>
-	<div ng-controller="SummaryController" layout="column" layout-align="center center">
-		<md-button ng-click="saveLocationInfo()" class="btn_next">
-			save
-		</md-button>
-		<md-button class='btn_back' ng-click="goBack()">
-			back
-		</md-button>
-       </div>
-</footer>

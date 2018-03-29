@@ -2,7 +2,6 @@
 	<img class="header" hide-gt-sm flex src="sources/img/header/header_map.png"/>
 	<div layout="column" layout-align="center">
 		<div ng-controller="mapController">
-			<div layout="row">
 				<md-input-container>
 					<label>SELECT CATEGORIES</label>
 					<md-select ng-model="selectedVegetables"
@@ -23,9 +22,8 @@
 						</md-optgroup>
 					</md-select>
 				</md-input-container>
-			</div>
 			<style>
-				ng-map#custom1 {display:block; height:20em; padding-top: 3%;} /* SMALL SCREENS */
+				ng-map#custom1 {display:block; height:20em; padding-top: 3%; width: 100%;} /* SMALL SCREENS */
 			</style>
 			<style>
 				ng-map#custom2 {display:block; height:30em; padding-top: 3%;} /* BIG SCREENS - not in use*/
